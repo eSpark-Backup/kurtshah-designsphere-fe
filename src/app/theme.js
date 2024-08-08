@@ -45,6 +45,7 @@ const theme = createTheme({
                         borderRadius: '12px',
                         position: 'relative',
                         fontWeight: "600",
+                        width: "100%",
                         '&:hover': {
                             backgroundColor: '#001C63',
                             color: '#FFFFFF',
@@ -59,6 +60,7 @@ const theme = createTheme({
                         borderRadius: '12px',
                         position: 'relative',
                         fontWeight: "600",
+                        width: "100%",
                         '&:hover': {
                             backgroundColor: '#7A89BC',
                             color: '#FFFFFF',
@@ -75,6 +77,7 @@ const theme = createTheme({
                         position: 'relative',
                         fontWeight: "600",
                         border: "1px solid #8B8B8B24",
+                        width: "100%",
                         '&:hover': {
                             backgroundColor: 'transparent',
                             color: '#FFFFFF',
@@ -82,6 +85,81 @@ const theme = createTheme({
                     },
                 },
             ],
+        },
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+                    color: '#7A89BCB8',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                },
+            },
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                input: {
+                    "&::placeholder": {
+                        color: "#7A89BC",
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        opacity: 1,
+                        height: "200px",
+                    },
+
+                },
+
+                root: {
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    color: "#000",
+                    lineHeight: "160%",
+                    height: "44px",
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#8B8B8B24",
+                    },
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#8B8B8B24",
+                    },
+                },
+                notchedOutline: {
+                    borderColor: "#8B8B8B24",
+                    borderRadius: "16px",
+                },
+            },
+
+
+        },
+        MuiInputBase: {
+            styleOverrides: {
+                input: {
+                    "&::placeholder": {
+                        color: "#7A89BC",
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        opacity: 1,
+                        height: "200px",
+                    },
+
+                },
+
+                root: {
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    color: "#000",
+                    lineHeight: "160%",
+                    height: "44px",
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#8B8B8B24",
+                    },
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#8B8B8B24",
+                    },
+                },
+                notchedOutline: {
+                    borderColor: "#8B8B8B24",
+                    borderRadius: "16px",
+                },
+            },
         },
 
     },

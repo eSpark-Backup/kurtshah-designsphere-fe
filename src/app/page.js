@@ -1,7 +1,10 @@
 'use client'
 
+import { lock } from "@/assets/icons";
+import CustomInput from "@/components/common/CustomInput";
 import { useLoginMutation } from "@/services/auth";
 import { Button } from "@mui/material";
+import Image from "next/image";
 
 
 export default function Home() {
@@ -20,9 +23,18 @@ export default function Home() {
   return (
 
     <main>
-      <Button onClick={handleLogin} variant="tertiary">
+      <Button onClick={handleLogin} variant="primary">
         RTK Query Check
       </Button>
+      <CustomInput label={"Hello World"} placeholder={"Hello World"} type={"password"} startAdornment={
+        <Image
+          width={20}
+          height={20}
+          alt="End Icon"
+          src={lock}
+        />
+      }
+      />
     </main>
   );
 }
