@@ -41,12 +41,43 @@ const theme = createTheme({
                     props: { variant: 'primary' },
                     style: {
                         background: 'linear-gradient(180deg, #6191FF 0%, #5B6BFF 100%)',
-                        color: '#fff',
-                        borderRadius: '5px',
+                        color: '#FFFFFF',
+                        borderRadius: '12px',
                         position: 'relative',
+                        fontWeight: "600",
                         '&:hover': {
                             backgroundColor: '#001C63',
-                            color: '#fff',
+                            color: '#FFFFFF',
+                        },
+                    },
+                },
+                {
+                    props: { variant: 'secondary' },
+                    style: {
+                        background: '#7A89BC',
+                        color: '#FFFFFF',
+                        borderRadius: '12px',
+                        position: 'relative',
+                        fontWeight: "600",
+                        '&:hover': {
+                            backgroundColor: '#7A89BC',
+                            color: '#FFFFFF',
+                        },
+                    },
+                },
+
+                {
+                    props: { variant: 'tertiary' },
+                    style: {
+                        background: 'transparent',
+                        color: '#FFFFFF',
+                        borderRadius: '12px',
+                        position: 'relative',
+                        fontWeight: "600",
+                        border: "1px solid #8B8B8B24",
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                            color: '#FFFFFF',
                         },
                     },
                 },

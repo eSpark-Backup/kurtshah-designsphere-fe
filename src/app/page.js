@@ -20,7 +20,7 @@ export default function Home() {
   return (
 
     <main>
-      <Button onClick={handleLogin} variant="primary">
+      <Button onClick={handleLogin} variant="tertiary">
         RTK Query Check
       </Button>
     </main>
