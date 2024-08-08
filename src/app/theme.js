@@ -161,6 +161,35 @@ const theme = createTheme({
                 },
             },
         },
+        MuiTypography: {
+            styleOverrides: {
+                h1: {
+                    fontSize: "32px",
+                    fontWeight: "500",
+                    background: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                },
+                h2: {
+                    fontSize: "24px",
+                    fontWeight: "500",
+                    background: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                },
+                h3: {
+                    fontSize: "18px",
+                    fontWeight: "400",
+                    color: "#7A89BCB8",
+                },
+                h4: {
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    color: "#E4E4E4B8",
+                }
+            },
+        },
+
 
     },
 });
