@@ -3,9 +3,26 @@ import { lock, user } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const SignIn = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const HandleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+
+  const HandleSubmit = () => {
+    console.log(formData?.email)
+    console.log(formData?.password)
+  }
   return (
     <AuthContainer>
       <Box
@@ -42,7 +59,7 @@ const SignIn = () => {
             type={"email"}
             placeholder={"Username or email"}
             label={"Username or email"}
-            onChange={(e) => { console.log(e.target.value) }}
+            onChange={(e) => HandleChange(e)}
             startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
           />
           <CustomInput
@@ -50,7 +67,7 @@ const SignIn = () => {
             type={"password"}
             placeholder={"Password"}
             label={"Password"}
-            onChange={(e) => { console.log(e.target.value) }}
+            onChange={(e) => HandleChange(e)}
             startAdornment={<Image src={lock} width={24} height={24} alt='Lock Icon' />}
           />
         </Box>
@@ -62,10 +79,10 @@ const SignIn = () => {
             justifyContent: "flex-end"
           }}
         >
-          <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor:"pointer" }}>Forgot Password?</Typography>
+          <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
         </Box>
         <FormControlLabel control={<Checkbox />} label="Remember Me" sx={{ paddingLeft: "20px" }} />
-        <Button variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+        <Button variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }} onClick={HandleSubmit}>
           Log In
         </Button>
         <Typography
