@@ -1,25 +1,21 @@
-import { InputAdornment, InputLabel, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import { InputAdornment, InputLabel, TextField } from '@mui/material';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { closeEye, openEye } from '@/assets/icons';
 
-const CustomInput = ({ label, placeholder, type, sx, name, onChange = () => { }, startAdornment, variant }) => {
+const CustomInput = ({ label, type, sx, ...rest }) => {
     const [showPass, setShowPass] = useState(false);
+
     return (
         <>
             <InputLabel>{label}</InputLabel>
             <TextField
-                variant={"outlined"}
-                name={name}
-                type={type === "password" && showPass ? "text" : type === "password" && !showPass ? "password" : type}
-                id="filled-hidden-label-normal"
-                placeholder={placeholder}
-                sx={{ ...sx, width: "100%", }}
-                onChange={(e) => onChange(e)}
+                type={showPass ? "text" : type}
+                sx={{ ...sx, width: "100%" }}
                 InputProps={{
-                    startAdornment: startAdornment && (
+                    startAdornment: rest.startAdornment && (
                         <InputAdornment position="start" style={{ marginRight: '7px' }}>
-                            {startAdornment}
+                            {rest.startAdornment}
                         </InputAdornment>
                     ),
                     endAdornment: type === "password" && (
@@ -28,14 +24,15 @@ const CustomInput = ({ label, placeholder, type, sx, name, onChange = () => { },
                             onClick={() => setShowPass(!showPass)}
                             width={20}
                             height={20}
-                            alt="End Icon"
+                            alt="Toggle Password Visibility"
                             style={{ cursor: "pointer" }}
                         />
                     )
                 }}
+                {...rest}
             />
         </>
-    )
-}
+    );
+};
 
-export default CustomInput
+export default CustomInput;
