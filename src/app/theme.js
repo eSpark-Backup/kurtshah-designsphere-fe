@@ -18,9 +18,11 @@ const theme = createTheme({
     palette: {
         primary: {
             main: '#7A89BCB8',
+            dark: '#7A89BC',
+            '900': '#212A46',
         },
         secondary: {
-            main: '#dc004e',
+            main: '#6191FF',
         },
         tertiary: '#E4E4E4B8',
         error: {
@@ -198,9 +200,9 @@ const theme = createTheme({
                 }),
                 h4: ({ theme }) => ({
 
-                    fontSize: "12px",
+                    fontSize: "14px",
                     fontWeight: "600",
-                    color: theme.palette.tertiary,
+                    color: theme.palette.primary.dark,
 
                 })
             },

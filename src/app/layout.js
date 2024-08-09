@@ -13,7 +13,7 @@ export const metadata = {
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ with: "100%", minHeight: "100vh" }}>
+    <div style={{ width: "100%", minHeight: "100vh", overflowX: "hidden" }}>
       <Header />
       <div
         style={{
