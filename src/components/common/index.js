@@ -1,3 +1,4 @@
 import AuthContainer from "./auth_box";
+import CustomInput from "./CustomInput.jsx";
 
-export { AuthContainer };
+export { AuthContainer, CustomInput };
