@@ -36,10 +36,13 @@ const theme = createTheme({
             main: '#4caf50',
         },
         white: "#FFFFFF",
+        whiteE4: "#E4E4E4",
         buttonPrimary: 'linear-gradient(180deg, #6191FF 0%, #5B6BFF 100%)',
         buttonSecondary: '#7A89BC',
         borderPrimary: "#8B8B8B24",
-        headingColor: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)"
+        headingColor: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
+        textPrimaryGradient: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)"
+
     },
     components: {
         MuiButton: {
@@ -53,6 +56,7 @@ const theme = createTheme({
                         borderRadius: '12px',
                         position: 'relative',
                         fontWeight: "600",
+                        textTransform: "none",
                         width: "100%",
                         '&:hover': {
                             backgroundColor: theme.palette.buttonPrimary,
