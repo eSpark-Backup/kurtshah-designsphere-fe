@@ -51,31 +51,22 @@ const AuthContainer = ({ img, title, desc, children }) => {
         {img && <Image src={img} width={64} height={64} alt="auth" />}
         {title && (
           <Typography
+            variant="h1"
             sx={{
-              background:
-                "-webkit-linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
               marginTop: "10px",
-              "-webkit-background-clip": "text",
-              "-webkit-text-fill-color": "transparent",
-              textAlign: "center",
             }}
-            fontSize={32}
-            fontWeight={500}
           >
             {title}
           </Typography>
         )}
         {desc && (
           <Typography
+            variant="h3"
             sx={{
-              color: "#7A89BCB8",
-              textAlign: "center",
               marginTop: "20px",
               marginBottom: "10px",
               width: { xs: "100%", md: "60%" },
             }}
-            fontSize={18}
-            fontWeight={400}
           >
             {desc}
           </Typography>

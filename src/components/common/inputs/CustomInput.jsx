@@ -1,3 +1,5 @@
+"use client"
+
 import { InputAdornment, InputLabel, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import Image from 'next/image';
