@@ -2,7 +2,6 @@ import tableEye from "./icons/eye-table.svg";
 import tableDocument from "./icons/download-doucment-table.svg";
 import tableTrash from "./icons/trash-table.svg";
 import tableEdit from "./icons/edit-table.svg";
-import authImage from "./images/auth-image.png";
 import authImage from "./images/auth-image.svg";
 import authLogo from "./images/auth-logo.png";
 import logo from "./images/logo.png";
