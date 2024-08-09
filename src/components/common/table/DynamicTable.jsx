@@ -145,7 +145,7 @@ const DynamicTable = ({
 
                 {(data?.length === 0) && !isLoading &&
                     <Stack direction="row" justifyContent="center" alignItems="center">
-                        NO DATA FOUND
+                        No Data to display
                     </Stack>
                 }
 
