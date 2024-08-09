@@ -1,7 +1,7 @@
 import { InputAdornment, InputLabel, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { closeEye, openEye } from '@/assets/icons';
+import { closeEye, openEye } from '@/assets';
 
 const CustomInput = ({ label, type, sx, ...rest }) => {
     const [showPass, setShowPass] = useState(false);
