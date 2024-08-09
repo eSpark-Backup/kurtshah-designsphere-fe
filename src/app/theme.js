@@ -38,10 +38,13 @@ const theme = createTheme({
             main: '#4caf50',
         },
         white: "#FFFFFF",
+        whiteE4: "#E4E4E4",
         buttonPrimary: 'linear-gradient(180deg, #6191FF 0%, #5B6BFF 100%)',
         buttonSecondary: '#7A89BC',
         borderPrimary: "#8B8B8B24",
-        headingColor: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)"
+        headingColor: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
+        textPrimaryGradient: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)"
+
     },
     components: {
         MuiButton: {
@@ -55,6 +58,7 @@ const theme = createTheme({
                         borderRadius: '12px',
                         position: 'relative',
                         fontWeight: "600",
+                        textTransform: "none",
                         width: "100%",
                         '&:hover': {
                             backgroundColor: theme.palette.buttonPrimary,
@@ -98,6 +102,11 @@ const theme = createTheme({
                 },
             ],
         },
+        MuiTable: {
+            styleOverrides: {
+                root: {
+                    borderCollapse: "separate",
+                    borderSpacing: "0 15px",
         MuiInputLabel: {
             styleOverrides: {
                 root: ({ theme }) => ({
@@ -209,6 +218,74 @@ const theme = createTheme({
         },
 
 
+                }
+            }
+        },
+        MuiTableHead: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: "transparent",
+                    "& .MuiTableCell-root": {
+                        borderBottom: "none",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "18px",
+                        textTransform: "uppercase",
+                        color: "#FFFFFF",
+                        padding: "15px 25px",
+                    },
+                },
+            },
+        },
+        MuiTableBody: {
+            styleOverrides: {
+                root: {
+                    "& .MuiTableCell-root": {
+                        lineHeight: 1.57,
+                        fontSize: "14px",
+                        border: "none",
+                        background: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                        textFillColor: "transparent",
+                        padding: "26px 25px",
+                    },
+                    "& .MuiTableRow-root": {
+                        background: "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 15%, #38466B 100%)",
+
+                    },
+                    "& .MuiTableRow-root td:first-child": {
+                        borderTopLeftRadius: "20px",
+                        borderBottomLeftRadius: "20px",
+
+                    },
+                    "& .MuiTableRow-root td:last-child": {
+                        borderTopRightRadius: "20px",
+                        borderBottomRightRadius: "20px",
+
+                    }
+                },
+            },
+        },
+        MuiTablePagination: {
+            styleOverrides: {
+                root: {
+                    "& .MuiTablePagination-toolbar": {
+                        color: "#E4E4E4",
+                    },
+                    "& .MuiTablePagination-actions": {
+                        "& .MuiButtonBase-root": {
+                            color: "#E4E4E4",
+                        },
+                        "& .Mui-disabled": {
+                            color: "#E4E4E4",
+                            opacity: 0.5,
+                        },
+                    },
+                }
+            },
+        },
     },
 });
 
