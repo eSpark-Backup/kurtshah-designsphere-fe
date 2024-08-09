@@ -102,7 +102,7 @@ const theme = createTheme({
                     color: theme.palette.primary.main,
                     fontSize: '12px',
                     fontWeight: '600',
-                    textTransform:"uppercase"
+                    textTransform: "uppercase"
                 })
             },
         },
@@ -204,6 +204,14 @@ const theme = createTheme({
                     color: theme.palette.tertiary,
 
                 })
+            },
+        },
+        MuiFormControlLabel: {
+            styleOverrides: {
+                label: ({ theme }) => ({
+                    fontSize: "14px",
+                    color: theme.palette.white,
+                }),
             },
         },
 
