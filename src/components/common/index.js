@@ -1,1 +1,3 @@
-// common components here 
+import CustomInput from "./CustomInput.jsx"
+
+export { CustomInput };
