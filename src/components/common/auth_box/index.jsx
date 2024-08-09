@@ -16,7 +16,7 @@ const AuthContainer = ({ img, title, desc, children }) => {
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: { xs: "column", md: "row" },
-        width: { xs: "100%", sm: "50%", md: "80%", lg: "70%" },
+        width: { xs: "100%", sm: "70%", md: "80%", lg: "70%" },
       }}
     >
       <Box
@@ -26,7 +26,7 @@ const AuthContainer = ({ img, title, desc, children }) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-around",
-          padding: "40px 0",
+          padding: { md: "100px 0px", lg: "90px 0px", xl: "40px 0px" },
           borderRadius: { sm: "16px 16px 0 0", md: "16px 0 0 16px" },
           width: { xs: "100%", md: "45%" },
         }}
