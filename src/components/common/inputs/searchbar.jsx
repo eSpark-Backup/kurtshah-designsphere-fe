@@ -11,7 +11,17 @@ const Searchbar = () => {
       variant="outlined"
       type="text"
       placeholder="Search"
-      sx={{ width: "100%" }}
+      sx={{
+        width: "100%",
+        ".MuiInputBase-root": {
+          borderRadius: "16px",
+          border: "1px solid #8B8B8B24",
+          color: (theme) => theme.palette.primary.dark,
+          input: {
+            padding: "10px 14px !important",
+          },
+        },
+      }}
       InputProps={{
         endAdornment: (
           <Image

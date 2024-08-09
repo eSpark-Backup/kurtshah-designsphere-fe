@@ -80,6 +80,8 @@ const Header = () => {
                 <Typography
                   color={active === index ? "secondary" : "primary"}
                   variant="h4"
+                  fontSize={"14px"}
+                  fontWeight={600}
                 >
                   {navItem.name}
                 </Typography>
@@ -220,6 +222,8 @@ const Header = () => {
                     <Typography
                       color={active === index ? "secondary" : "primary"}
                       variant="h4"
+                      fontSize={"14px"}
+                      fontWeight={600}
                     >
                       {navItem.name}
                     </Typography>
