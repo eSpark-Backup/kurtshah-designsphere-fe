@@ -1,7 +1,5 @@
 'use client'
-
 import { useLoginMutation } from "@/services/auth";
-import { Button } from "@mui/material";
 
 
 export default function Home() {
@@ -20,9 +18,6 @@ export default function Home() {
   return (
 
     <main>
-      <Button onClick={handleLogin} variant="primary">
-        RTK Query Check
-      </Button>
     </main>
   );
 }
