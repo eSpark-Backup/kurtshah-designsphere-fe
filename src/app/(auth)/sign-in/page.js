@@ -30,13 +30,15 @@ const SignIn = () => {
         }}>
         <Typography variant='h1'
           sx={{
-            lineHeight: "40px"
+            lineHeight: "40px",
+            textAlign: "center"
           }}>
           Sign In to ARC ERP
         </Typography>
         <Typography variant='h3'
           sx={{
-            lineHeight: "29px"
+            lineHeight: "29px",
+            textAlign: "center"
           }}>
           Securing the places where people <br /> live and thrive.
         </Typography>
