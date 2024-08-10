@@ -3,26 +3,21 @@ import { lock, user } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
+import { Formik, Form } from 'formik'
+import { signinSchema } from '@/validation'
 
 const SignIn = () => {
-  const [formData, setFormData] = useState({
+  const initialValues = {
     email: "",
     password: ""
-  })
-
-  const HandleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value
-    }));
-  };
-
-  const HandleSubmit = () => {
-    console.log(formData?.email)
-    console.log(formData?.password)
   }
+
+  const handleSubmit = (values) => {
+    console.log(values?.email)
+    console.log(values?.password)
+  }
+
   return (
     <AuthContainer>
       <Box
@@ -32,7 +27,6 @@ const SignIn = () => {
           display: "flex",
           flexDirection: "column",
           rowGap: "25px"
-
         }}>
         <Typography variant='h1'
           sx={{
@@ -46,53 +40,74 @@ const SignIn = () => {
           }}>
           Securing the places where people <br /> live and thrive.
         </Typography>
-        <Box
-          sx={{
-            width: "95%",
-            margin: "auto auto",
-            display: "flex",
-            flexDirection: "column",
-            rowGap: "25px"
-          }}>
-          <CustomInput
-            name="email"
-            type={"email"}
-            placeholder={"Username or email"}
-            label={"Username or email"}
-            onChange={(e) => HandleChange(e)}
-            startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
-          />
-          <CustomInput
-            name="password"
-            type={"password"}
-            placeholder={"Password"}
-            label={"Password"}
-            onChange={(e) => HandleChange(e)}
-            startAdornment={<Image src={lock} width={24} height={24} alt='Lock Icon' />}
-          />
-        </Box>
-        <Box
-          sx={{
-            width: "95%",
-            margin: "auto auto",
-            display: "flex",
-            justifyContent: "flex-end"
-          }}
+        <Formik
+          initialValues={initialValues}
+          validationSchema={signinSchema}
+          onSubmit={handleSubmit}
         >
-          <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
-        </Box>
-        <FormControlLabel control={<Checkbox />} label="Remember Me" sx={{ paddingLeft: "20px" }} />
-        <Button variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }} onClick={HandleSubmit}>
-          Log In
-        </Button>
-        <Typography
-          sx={{
-            lineHeight: "29px",
-            color: "#FFFFFF",
-            fontSize: "14px"
-          }}>
-          Do not have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
-        </Typography>
+          {({ values, handleChange, handleBlur, errors, touched }) => (
+            <Form>
+              <Box
+                sx={{
+                  width: "95%",
+                  margin: "auto auto",
+                  display: "flex",
+                  flexDirection: "column",
+                  rowGap: "25px"
+                }}>
+                <CustomInput
+                  name="email"
+                  type="email"
+                  placeholder="Username or email"
+                  label="Username or email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  error={touched.email && Boolean(errors.email)}
+                  helperText={touched.email && errors.email}
+                  startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
+                />
+                <CustomInput
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  label="Password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                  error={touched.password && Boolean(errors.password)}
+                  helperText={touched.password && errors.password}
+                  startAdornment={<Image src={lock} width={24} height={24} alt='Lock Icon' />}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: "95%",
+                  margin: "auto auto",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginTop:"20px"
+                }}
+              >
+                <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
+              </Box>
+              <FormControlLabel control={<Checkbox name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom:"20px" }} />
+              <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection:"column", rowGap:"25px" }}>
+                <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+                  Log In
+                </Button>
+                <Typography
+                  sx={{
+                    lineHeight: "29px",
+                    color: "#FFFFFF",
+                    fontSize: "14px"
+                  }}>
+                  Do not have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                </Typography>
+              </Box>
+            </Form>
+          )}
+        </Formik>
       </Box>
     </AuthContainer>
   )
