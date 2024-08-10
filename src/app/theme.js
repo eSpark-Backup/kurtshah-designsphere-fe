@@ -102,6 +102,7 @@ const theme = createTheme({
                     color: theme.palette.primary.main,
                     fontSize: '12px',
                     fontWeight: '600',
+                    textTransform: "uppercase"
                 })
             },
         },
@@ -120,7 +121,7 @@ const theme = createTheme({
                 root: ({ theme }) => ({
                     fontSize: "14px",
                     fontWeight: 500,
-                    color: "#000",
+                    color: "#ffffff",
                     lineHeight: "160%",
                     height: "44px",
                     "&:hover .MuiOutlinedInput-notchedOutline": {
@@ -155,7 +156,7 @@ const theme = createTheme({
                 root: ({ theme }) => ({
                     fontSize: "14px",
                     fontWeight: 500,
-                    color: "#000",
+                    color: "#ffffff",
                     lineHeight: "160%",
                     height: "44px",
                     "&:hover .MuiOutlinedInput-notchedOutline": {
@@ -203,6 +204,14 @@ const theme = createTheme({
                     color: theme.palette.tertiary,
 
                 })
+            },
+        },
+        MuiFormControlLabel: {
+            styleOverrides: {
+                label: ({ theme }) => ({
+                    fontSize: "14px",
+                    color: theme.palette.white,
+                }),
             },
         },
 
