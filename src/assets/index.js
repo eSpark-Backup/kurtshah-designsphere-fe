@@ -5,5 +5,6 @@ import closeEye from "../assets/icons/eye-close.svg";
 import openEye from "../assets/icons/eyeOpen.svg";
 import lock from "../assets/icons/lock.svg";
 import user from "../assets/icons/user.svg";
+import checkVerified from "../assets/icons/check-verified.svg";
 
-export { authImage, authLogo, logo, closeEye, openEye, lock, user };
+export { authImage, authLogo, logo, closeEye, openEye, lock, user, checkVerified };
