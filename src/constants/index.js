@@ -135,3 +135,42 @@ export const projectTabs = [
     link: "/punch-door",
   },
 ];
+
+
+export const files = [
+  {
+    id: 1,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+  
+  {
+    id: 2,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+  
+  {
+    id: 3,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+  
+  {
+    id: 4,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+  
+  {
+    id: 5,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+  
+]

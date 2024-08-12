@@ -27,6 +27,7 @@ import share from "./icons/share.svg";
 import punch from "./icons/punch-door.svg";
 import trendingUp from "./icons/trending-up.svg";
 import trendingDown from "./icons/trending-down.svg";
+import filter from "./icons/filter.svg";
 
 export {
   authImage,
@@ -57,5 +58,6 @@ export {
   share,
   punch,
   trendingUp,
-  trendingDown
+  trendingDown,
+  filter
 };
