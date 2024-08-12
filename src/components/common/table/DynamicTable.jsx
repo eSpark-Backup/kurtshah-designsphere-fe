@@ -1,4 +1,8 @@
-import { tableDocument, tableEdit, tableEye, tableTrash } from "@/assets";
+"use client";
+
+import React, { useMemo, useState } from "react";
+import Image from "next/image";
+import { tableDocument, tableEdit, tableEye, tableTrash, tableSort } from "@/assets";
 import { getValue } from "@/utils/getValue";
 import {
   Stack,
@@ -12,9 +16,8 @@ import {
   Box,
   TablePagination,
   Chip,
+  TableSortLabel,
 } from "@mui/material";
-import Image from "next/image";
-import React from "react";
 
 const DynamicTable = ({
   handleView,
@@ -29,6 +32,26 @@ const DynamicTable = ({
   total,
   ...rest
 }) => {
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState("");
+
+  const handleRequestSort = (property) => {
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
+    setOrderBy(property);
+  };
+
+  const sortedData = useMemo(() => {
+    if (!orderBy) return data;
+    return [...data].sort((a, b) => {
+      const aValue = getValue(a, orderBy.split("."));
+      const bValue = getValue(b, orderBy.split("."));
+      if (aValue < bValue) return order === "asc" ? -1 : 1;
+      if (aValue > bValue) return order === "asc" ? 1 : -1;
+      return 0;
+    });
+  }, [data, order, orderBy]);
+
   const extendedColumns = columns?.map((column) => {
     return { ...column, key: column.key.split(".") };
   });
@@ -123,7 +146,30 @@ const DynamicTable = ({
                         : "center"
                     }
                   >
-                    <Stack direction="row">{column.name}</Stack>
+                    <Stack direction="row">
+                      <TableSortLabel
+                        active={orderBy === column.key.join(".")}
+                        direction={
+                          orderBy === column.key.join(".") ? order : "asc"
+                        }
+                        onClick={() => handleRequestSort(column.key.join("."))}
+                        IconComponent={() => (
+                          <Image src={tableSort} width={"20px"} alt="sort" />
+                        )}
+                        sx={{
+                          "&.Mui-active": {
+                            color: "white",
+                            fontWeight: "bold",
+                          },
+                          // on hover as well
+                          "&:hover": {
+                            color: "white",
+                          },
+                        }}
+                      >
+                        {column.name}
+                      </TableSortLabel>
+                    </Stack>
                   </Stack>
                 </TableCell>
               ))}
@@ -132,7 +178,7 @@ const DynamicTable = ({
 
           {!isLoading && (
             <TableBody>
-              {data?.map((item) => (
+              {sortedData?.map((item) => (
                 <TableRow key={item.id}>
                   {extendedColumns?.map((column) => (
                     <TableCell

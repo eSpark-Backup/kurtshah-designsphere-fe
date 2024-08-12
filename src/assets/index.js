@@ -20,6 +20,7 @@ import message from "./icons/message.svg";
 import close from "./icons/close.svg";
 import add from "./icons/add.svg";
 import backArrow from "./icons/back-arrow.svg";
+import tableSort from "./icons/sort-table.svg";
 
 export {
   authImage,
@@ -44,4 +45,5 @@ export {
   tableEdit,
   add,
   backArrow,
+  tableSort,
 };
