@@ -9,11 +9,11 @@ const CustomInput = ({ label, type, sx, ...rest }) => {
     const [showPass, setShowPass] = useState(false);
 
     return (
-        <Box sx={{ display: "flex", rowGap: "10px", flexDirection:"column" }}>
+        <Box sx={{ display: "flex", rowGap: "10px", flexDirection:"column", width:"100%" }}>
             <InputLabel>{label}</InputLabel>
             <TextField
                 type={showPass ? "text" : type}
-                sx={{ ...sx, width: "100%" }}
+                sx={{width: "100%",  ...sx }}
                 InputProps={{
                     startAdornment: rest.startAdornment && (
                         <InputAdornment position="start" style={{ marginRight: '7px' }}>

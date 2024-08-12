@@ -1,5 +1,5 @@
 "use client"
-import { lock, user } from '@/assets'
+import { lock, email } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import Image from 'next/image'
@@ -69,7 +69,7 @@ const SignIn = () => {
                   value={values.email}
                   error={touched.email && errors.email}
                   helperText={touched.email && errors.email}
-                  startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
+                  startAdornment={<Image src={email} width={24} height={24} alt='Email Icon' />}
                 />
                 <CustomInput
                   name="password"
