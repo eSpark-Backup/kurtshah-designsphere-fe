@@ -1,5 +1,5 @@
 import theme from '@/app/theme'
-import { Box, Button, Input, Modal, TextField, Typography } from '@mui/material'
+import { Box, Button, Modal, Typography } from '@mui/material'
 import React from 'react'
 
 const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter }) => {
@@ -97,7 +97,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
 
                             <Button sx={{
-                                width: "87px",
+                                width: "max-content",
                                 height: "40px",
                             }} variant="primary"
                                 onClick={onSubmit}
