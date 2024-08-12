@@ -230,7 +230,7 @@ const theme = createTheme({
                     width: '24px !important',
                     height: '24px !important',
                     position:"relative",
-                    marginRight:"80px"
+                    marginRight:"100px"
                 },
             },
         },

@@ -7,6 +7,8 @@ import Image from 'next/image'
 import React from 'react'
 import { Formik, Form } from 'formik'
 import { signupSchema } from '@/validation'
+import { LoadingButton } from '@mui/lab'
+import Link from 'next/link'
 
 const SignUp = () => {
 
@@ -120,16 +122,24 @@ const SignUp = () => {
               <FormControlLabel control={<Checkbox sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label="By creating an account, you agree to the Terms of Service.  We'll occasionally send you account-related emails." sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
 
               <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
-                <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px", }}>
+                <LoadingButton
+                  loading={false}
+                  loadingPosition="end"
+                  variant="primary"
+                  sx={{ width: "95%", margin: "auto auto", height: "48px" }}
+                  type='submit'
+                >
                   Sign Up
-                </Button>
+                </LoadingButton>
                 <Typography
                   sx={{
                     lineHeight: "29px",
                     color: "#FFFFFF",
                     fontSize: "14px"
                   }}>
-                  Already have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign In</span>
+                  Already have an account? <Link href={"/sign-in"} style={{ textDecoration: "none" }}>
+                    <span style={{ color: "#6191FF", cursor: "pointer" }}>Sign In</span>
+                  </Link>
                 </Typography>
               </Box>
             </Form>

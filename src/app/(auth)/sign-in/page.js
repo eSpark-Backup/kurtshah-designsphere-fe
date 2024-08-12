@@ -114,7 +114,9 @@ const SignIn = () => {
                     color: "#FFFFFF",
                     fontSize: "14px"
                   }}>
-                  Do not have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                  Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
+                    <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                  </Link>
                 </Typography>
               </Box>
             </Form>

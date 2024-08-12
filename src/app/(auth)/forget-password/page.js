@@ -85,10 +85,12 @@ const ForgetPassword = () => {
                       sx={{ width: "95%", margin: "auto auto", height: "48px" }}
                       type='submit'
                     >
-                      Save
+                      Send Email
                     </LoadingButton>
                     <Typography sx={{ lineHeight: "29px", color: "#FFFFFF", fontSize: "14px" }}>
-                      Do not have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                      Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
+                        <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                      </Link>
                     </Typography>
                   </Box>
                 </Form>
