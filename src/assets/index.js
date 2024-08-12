@@ -18,6 +18,8 @@ import notification from "./icons/notification.svg";
 import book from "./icons/book.svg";
 import message from "./icons/message.svg";
 import close from "./icons/close.svg";
+import add from "./icons/add.svg";
+import backArrow from "./icons/back-arrow.svg";
 
 export {
   authImage,
@@ -40,4 +42,6 @@ export {
   tableDocument,
   tableTrash,
   tableEdit,
+  add,
+  backArrow,
 };
