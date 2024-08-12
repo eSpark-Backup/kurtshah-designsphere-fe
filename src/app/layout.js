@@ -17,9 +17,7 @@ const Layout = ({ children }) => {
       <Header />
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          padding: "20px",
           minHeight: "calc(100vh - 80px)",
           background:
             "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",

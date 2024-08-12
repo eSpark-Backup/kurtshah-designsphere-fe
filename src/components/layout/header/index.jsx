@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Box, Stack, Typography } from "@mui/material";
 import { Searchbar } from "@/components/common";
 import { getAuthedRoute } from "@/utils";
@@ -10,11 +11,19 @@ import { navLinks } from "@/constants";
 import { avatar, book, close, logo, message, notification } from "@/assets";
 
 const Header = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const authedRoute = getAuthedRoute(pathname);
   const notifications = true;
-  const [active, setActive] = useState(0);
   const [openSidebar, setOpenSidebar] = useState(false);
+
+  const handleSwitchPage = (link) => {
+    router.push(link);
+    if (openSidebar) {
+      setOpenSidebar(false);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -43,7 +52,7 @@ const Header = () => {
           {navLinks.map((navItem, index) => {
             return (
               <Stack
-                onClick={() => setActive(index)}
+                onClick={() => handleSwitchPage(navItem.link)}
                 sx={{
                   cursor: "pointer",
                   position: "relative",
@@ -51,7 +60,7 @@ const Header = () => {
                   height: "53px",
                   "&:after": {
                     content: "''",
-                    display: active === index ? "block" : "none",
+                    display: pathname === navItem.link ? "block" : "none",
                     background: (theme) => theme.palette.secondary.main,
                     width: "100%",
                     height: "2px",
@@ -65,7 +74,7 @@ const Header = () => {
               >
                 <Image
                   style={
-                    active === index
+                    pathname === navItem.link
                       ? {
                           filter:
                             "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
@@ -78,7 +87,7 @@ const Header = () => {
                   alt="icon"
                 />
                 <Typography
-                  color={active === index ? "secondary" : "primary"}
+                  color={pathname === navItem.link ? "secondary" : "primary"}
                   variant="h4"
                   fontSize={"14px"}
                   fontWeight={600}
@@ -150,14 +159,14 @@ const Header = () => {
       {authedRoute && (
         <Box
           sx={{
-            position: "absolute",
+            position: "fixed",
             transition: "0.5s ease-in-out",
             top: 0,
             right: { xs: openSidebar ? "0px" : "-320px", md: "-320px" },
             width: "320px",
             height: "100vh",
             background: "#161d33e8",
-            zIndex: 2,
+            zIndex: 99999,
           }}
         >
           <Image
@@ -182,7 +191,7 @@ const Header = () => {
               {navLinks.map((navItem, index) => {
                 return (
                   <Stack
-                    onClick={() => setActive(index)}
+                    onClick={() => handleSwitchPage(navItem.link)}
                     sx={{
                       cursor: "pointer",
                       position: "relative",
@@ -191,7 +200,7 @@ const Header = () => {
                       marginLeft: "15px",
                       "&:after": {
                         content: "''",
-                        display: active === index ? "block" : "none",
+                        display: pathname === navItem.link ? "block" : "none",
                         background: (theme) => theme.palette.secondary.main,
                         width: "2px",
                         height: "53px",
@@ -207,7 +216,7 @@ const Header = () => {
                   >
                     <Image
                       style={
-                        active === index
+                        pathname === navItem.link
                           ? {
                               filter:
                                 "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
@@ -220,7 +229,9 @@ const Header = () => {
                       alt="icon"
                     />
                     <Typography
-                      color={active === index ? "secondary" : "primary"}
+                      color={
+                        pathname === navItem.link ? "secondary" : "primary"
+                      }
                       variant="h4"
                       fontSize={"14px"}
                       fontWeight={600}
