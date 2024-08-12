@@ -52,6 +52,7 @@ const theme = createTheme({
                         color: theme.palette.white,
                         borderRadius: '12px',
                         position: 'relative',
+                        textTransform: "none",
                         fontWeight: "600",
                         width: "100%",
                         '&:hover': {
@@ -212,6 +213,25 @@ const theme = createTheme({
                     fontSize: "14px",
                     color: theme.palette.white,
                 }),
+            },
+        },
+        MuiLoadingButton: {
+            styleOverrides: {
+                root: {
+                    '& .MuiCircularProgress-root': {
+                        color: '#fff',
+                    },
+                },
+            },
+        },
+        MuiCircularProgress: {
+            styleOverrides: {
+                root: {
+                    width: '24px !important',
+                    height: '24px !important',
+                    position:"relative",
+                    marginRight:"100px"
+                },
             },
         },
 
