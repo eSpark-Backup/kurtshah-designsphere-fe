@@ -4,3 +4,7 @@ export const signinSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Email is required'),
     password: Yup.string().required('Password is required').min(5, "Password must contain 5 characters")
 })
+
+export const forgetPasswordSchema = Yup.object({
+    email: Yup.string().email('Invalid email address').required('Email is required'),
+})
