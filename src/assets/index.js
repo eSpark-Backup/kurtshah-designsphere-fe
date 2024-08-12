@@ -21,6 +21,12 @@ import close from "./icons/close.svg";
 import add from "./icons/add.svg";
 import backArrow from "./icons/back-arrow.svg";
 import tableSort from "./icons/sort-table.svg";
+import plans from "./icons/plans.svg";
+import track from "./icons/track.svg";
+import share from "./icons/share.svg";
+import punch from "./icons/punch-door.svg";
+import trendingUp from "./icons/trending-up.svg";
+import trendingDown from "./icons/trending-down.svg";
 
 export {
   authImage,
@@ -46,4 +52,10 @@ export {
   add,
   backArrow,
   tableSort,
+  plans,
+  track,
+  share,
+  punch,
+  trendingUp,
+  trendingDown
 };

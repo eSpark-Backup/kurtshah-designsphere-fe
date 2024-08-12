@@ -1,4 +1,13 @@
-import { clipboardTick, candle, mirror, clipboardText } from "@/assets";
+import {
+  clipboardTick,
+  candle,
+  mirror,
+  clipboardText,
+  plans,
+  track,
+  share,
+  punch,
+} from "@/assets";
 
 export const navLinks = [
   {
@@ -86,5 +95,43 @@ export const projects = [
     buildingOwner: "John Smith Holdings",
     deliverableDate: "27 Jan 2024",
     projectOwner: "John Smith",
+  },
+];
+
+export const projectTabs = [
+  {
+    name: "View Plans",
+    count: "04",
+    icon: plans,
+    trending: "up",
+    link: "/plans",
+  },
+  {
+    name: "Track Changes",
+    count: "10",
+    icon: track,
+    trending: "down",
+    link: "/track",
+  },
+  {
+    name: "Share Files",
+    count: "08",
+    icon: share,
+    trending: "down",
+    link: "/share",
+  },
+  {
+    name: "Run Reports",
+    count: "04",
+    icon: clipboardTick,
+    trending: "up",
+    link: "/reports",
+  },
+  {
+    name: "Punch Door",
+    count: "30",
+    icon: punch,
+    trending: "up",
+    link: "/punch-door",
   },
 ];
