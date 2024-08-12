@@ -6,6 +6,8 @@ import Image from 'next/image'
 import React from 'react'
 import { Formik, Form } from 'formik'
 import { signinSchema } from '@/validation'
+import Link from 'next/link'
+import { LoadingButton } from '@mui/lab'
 
 const SignIn = () => {
   const initialValues = {
@@ -91,20 +93,30 @@ const SignIn = () => {
                   marginTop: "20px"
                 }}
               >
-                <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
+                <Link href={"/forget-password"} style={{ textDecoration: "none" }}>
+                  <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
+                </Link>
               </Box>
               <FormControlLabel control={<Checkbox name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
               <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
-                <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+                <LoadingButton
+                  loading={false}
+                  loadingPosition="end"
+                  variant="primary"
+                  sx={{ width: "95%", margin: "auto auto", height: "48px" }}
+                  type='submit'
+                >
                   Log In
-                </Button>
+                </LoadingButton>
                 <Typography
                   sx={{
                     lineHeight: "29px",
                     color: "#FFFFFF",
                     fontSize: "14px"
                   }}>
-                  Do not have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                  Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
+                    <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                  </Link>
                 </Typography>
               </Box>
             </Form>
