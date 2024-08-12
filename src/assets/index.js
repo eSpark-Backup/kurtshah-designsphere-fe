@@ -5,5 +5,7 @@ import closeEye from "../assets/icons/eye-close.svg";
 import openEye from "../assets/icons/eyeOpen.svg";
 import lock from "../assets/icons/lock.svg";
 import user from "../assets/icons/user.svg";
+import userTick from "../assets/icons/user-tick.svg";
+import email from "../assets/icons/email.svg";
 
-export { authImage, authLogo, logo, closeEye, openEye, lock, user };
+export { authImage, authLogo, logo, closeEye, openEye, lock, user, userTick, email };
