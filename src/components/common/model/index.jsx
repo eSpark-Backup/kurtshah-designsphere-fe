@@ -16,7 +16,8 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         minHeight: "268px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        outline: "none",
     };
 
 

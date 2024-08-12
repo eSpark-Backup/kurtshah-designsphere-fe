@@ -84,6 +84,22 @@ const ShareFile = () => {
     )
   }
 
+  const deleteFileModalUI = (
+    <Box>
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "14px",
+          fontWeight: 600,
+          lineHeight: "21px",
+          color: (theme) => theme.palette.white,
+        }}
+      >
+        Are you sure you want to delete this file?
+      </Typography>
+    </Box>
+  );
+
   return (
     <Box>
       <Stack
@@ -117,6 +133,7 @@ const ShareFile = () => {
       <DynamicModal
         open={deleteFileModal}
         handleClose={() => setDeleteFileModal(false)}
+        children={deleteFileModalUI}
         heading="Delete File"
         cancelButtonText="Cancel"
         submitButtonText="Delete"
