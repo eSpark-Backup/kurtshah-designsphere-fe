@@ -1,5 +1,6 @@
-import { checkVerified, lock } from '@/assets'
+import { checkVerified, lock, message } from '@/assets'
 import { AuthContainer } from '@/components/common'
+import { LoadingButton } from '@mui/lab'
 import { Box, Button, Typography } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -54,13 +55,19 @@ const VerifyEmail = () => {
                         marginTop: "25px"
                     }}>
                         <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
-                            <Image src={lock} width={24} height={24} style={{ marginRight: "10px" }} />
+                            <Image src={message} width={24} height={24} style={{ marginRight: "10px" }} />
                             Resend Email
                         </Button>
                         <Link href={"/email-verified"} style={{ width: "95%", margin: "auto auto" }}>
-                            <Button type="submit" variant='primary' sx={{ height: "48px" }}>
+                            <LoadingButton
+                                loading={false}
+                                loadingPosition="end"
+                                variant="primary"
+                                sx={{ height: "48px" }}
+                                type='submit'
+                            >
                                 Let’s Go
-                            </Button>
+                            </LoadingButton>
                         </Link>
                     </Box>
                 </Box>

@@ -35,7 +35,7 @@ const EmailVerified = () => {
                             lineHeight: "40px",
                             textAlign: "center",
                         }}>
-                        Email Verification <br /> Required
+                        Email Verified!
                     </Typography>
                     <Typography variant='h3'
                         sx={{
@@ -43,7 +43,7 @@ const EmailVerified = () => {
                             textAlign: "center",
                             width: { xs: "100%", sm: "75%", md: "60%", lg: "60%", xl: "45%" }
                         }}>
-                        A verification email was sent to yousha@esparkconsultants.com
+                        Your email yousha@esparkconsultants.com is successfully verified!
                     </Typography>
                     <Box sx={{
                         display: "flex",
