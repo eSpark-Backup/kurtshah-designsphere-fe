@@ -214,6 +214,25 @@ const theme = createTheme({
                 }),
             },
         },
+        MuiLoadingButton: {
+            styleOverrides: {
+                root: {
+                    '& .MuiCircularProgress-root': {
+                        color: '#fff',
+                    },
+                },
+            },
+        },
+        MuiCircularProgress: {
+            styleOverrides: {
+                root: {
+                    width: '24px !important',
+                    height: '24px !important',
+                    position:"relative",
+                    marginRight:"80px"
+                },
+            },
+        },
 
 
     },

@@ -2,6 +2,7 @@
 import { lock2, message } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { forgetPasswordSchema } from '@/validation'
+import { LoadingButton } from '@mui/lab'
 import { Box, Button, Typography } from '@mui/material'
 import { Form, Formik } from 'formik'
 import Image from 'next/image'
@@ -77,9 +78,15 @@ const ForgetPassword = () => {
                     />
                   </Box>
                   <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>
-                    <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
-                      Send Email
-                    </Button>
+                    <LoadingButton
+                      loading={false}
+                      loadingPosition="end"
+                      variant="primary"
+                      sx={{ width: "95%", margin: "auto auto", height: "48px" }}
+                      type='submit'
+                    >
+                      Save
+                    </LoadingButton>
                     <Typography sx={{ lineHeight: "29px", color: "#FFFFFF", fontSize: "14px" }}>
                       Do not have an account? <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
                     </Typography>

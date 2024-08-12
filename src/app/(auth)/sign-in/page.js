@@ -7,6 +7,7 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import { signinSchema } from '@/validation'
 import Link from 'next/link'
+import { LoadingButton } from '@mui/lab'
 
 const SignIn = () => {
   const initialValues = {
@@ -98,9 +99,15 @@ const SignIn = () => {
               </Box>
               <FormControlLabel control={<Checkbox name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
               <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
-                <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+                <LoadingButton
+                  loading={false}
+                  loadingPosition="end"
+                  variant="primary"
+                  sx={{ width: "95%", margin: "auto auto", height: "48px" }}
+                  type='submit'
+                >
                   Log In
-                </Button>
+                </LoadingButton>
                 <Typography
                   sx={{
                     lineHeight: "29px",
