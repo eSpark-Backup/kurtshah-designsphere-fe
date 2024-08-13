@@ -1,3 +1,4 @@
+"use client"
 import { AuthContainer, FileInput } from '@/components/common'
 import { LoadingButton } from '@mui/lab'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
