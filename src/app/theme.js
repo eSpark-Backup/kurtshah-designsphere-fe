@@ -212,6 +212,7 @@ const theme = createTheme({
                 label: ({ theme }) => ({
                     fontSize: "14px",
                     color: theme.palette.white,
+                    marginRight: "0px"
                 }),
             },
         },
