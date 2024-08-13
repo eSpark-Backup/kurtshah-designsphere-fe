@@ -27,6 +27,11 @@ import share from "./icons/share.svg";
 import punch from "./icons/punch-door.svg";
 import trendingUp from "./icons/trending-up.svg";
 import trendingDown from "./icons/trending-down.svg";
+import mail from "./icons/mail.svg";
+import document from "./icons/document-text.svg";
+import profileTick from "./icons/profile-tick.svg";
+import profile from "./icons/profile.svg";
+import arrowDown from "./icons/arrow-down.svg";
 
 export {
   authImage,
@@ -57,5 +62,10 @@ export {
   share,
   punch,
   trendingUp,
-  trendingDown
+  trendingDown,
+  mail,
+  document,
+  profileTick,
+  profile,
+  arrowDown,
 };
