@@ -18,6 +18,21 @@ import notification from "./icons/notification.svg";
 import book from "./icons/book.svg";
 import message from "./icons/message.svg";
 import close from "./icons/close.svg";
+import add from "./icons/add.svg";
+import backArrow from "./icons/back-arrow.svg";
+import tableSort from "./icons/sort-table.svg";
+import plans from "./icons/plans.svg";
+import track from "./icons/track.svg";
+import share from "./icons/share.svg";
+import punch from "./icons/punch-door.svg";
+import trendingUp from "./icons/trending-up.svg";
+import trendingDown from "./icons/trending-down.svg";
+import mail from "./icons/mail.svg";
+import document from "./icons/document-text.svg";
+import profileTick from "./icons/profile-tick.svg";
+import profile from "./icons/profile.svg";
+import arrowDown from "./icons/arrow-down.svg";
+import arrowDownInput from "./icons/arrow-down-input.svg";
 
 export {
   authImage,
@@ -40,4 +55,19 @@ export {
   tableDocument,
   tableTrash,
   tableEdit,
+  add,
+  backArrow,
+  tableSort,
+  plans,
+  track,
+  share,
+  punch,
+  trendingUp,
+  trendingDown,
+  mail,
+  document,
+  profileTick,
+  profile,
+  arrowDown,
+  arrowDownInput,
 };

@@ -1,0 +1,73 @@
+"use client";
+
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { Stack, Typography } from "@mui/material";
+import { backArrow } from "@/assets";
+
+const DirectoryController = ({ title, desc, links }) => {
+  const router = useRouter();
+  return (
+    <Stack
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="center"
+      gap={2}
+    >
+      {!desc && (
+        <Image onClick={() => router.back()} src={backArrow} alt="back" />
+      )}
+      <Stack direction="column" justifyContent="center" alignItems="flex-start">
+        <Typography
+          sx={{
+            background: (theme) => theme.palette.headingColor,
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+          fontSize="32px"
+          fontWeight={500}
+        >
+          {title}
+        </Typography>
+        {desc ? (
+          <Typography
+            sx={{
+              background: (theme) => theme.palette.headingColor,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            fontSize="14px"
+            fontWeight={600}
+          >
+            {desc}
+          </Typography>
+        ) : (
+          <Stack direction="row" justifyContent="center" alignItems="center">
+            {links.map((link, ind) => {
+              return (
+                <Typography
+                  key={link}
+                  sx={{
+                    background: (theme) => theme.palette.headingColor,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor:
+                      ind === links.length - 1 || ind === links.length - 2
+                        ? "transparent"
+                        : "#66718f",
+                    marginLeft: ind !== 0 ? "7px" : 0,
+                  }}
+                  fontSize="14px"
+                  fontWeight={600}
+                >
+                  {link}
+                </Typography>
+              );
+            })}
+          </Stack>
+        )}
+      </Stack>
+    </Stack>
+  );
+};
+
+export default DirectoryController;
