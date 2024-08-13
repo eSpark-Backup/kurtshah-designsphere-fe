@@ -73,6 +73,8 @@ const Projects = () => {
         total={projects.length}
         handlePageChange={handlePageChange}
         page={page}
+        ordering
+        pagination
       />
       <DynamicModal
         open={addProductModal}
