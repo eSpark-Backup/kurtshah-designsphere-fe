@@ -5,6 +5,7 @@ import DynamicTable from "./table/DynamicTable";
 import DynamicModal from "./model";
 import DirectoryController from "./directory-controller";
 import ProgressBar from "./progressbar-circular";
+import Dropdown from "./inputs/dropdown";
 
 export {
   AuthContainer,
@@ -14,4 +15,5 @@ export {
   DynamicModal,
   DirectoryController,
   ProgressBar,
+  Dropdown,
 };

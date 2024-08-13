@@ -5,6 +5,8 @@ import React from 'react'
 const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter }) => {
 
     const basicModelStructureStyle = {
+        maxHeight: "90vh",
+        overflowY: "auto",
         position: 'absolute',
         top: '50%',
         left: '50%',

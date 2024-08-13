@@ -2,7 +2,13 @@
 
 import React, { useMemo, useState } from "react";
 import Image from "next/image";
-import { tableDocument, tableEdit, tableEye, tableTrash, tableSort } from "@/assets";
+import {
+  tableDocument,
+  tableEdit,
+  tableEye,
+  tableTrash,
+  tableSort,
+} from "@/assets";
 import { getValue } from "@/utils/getValue";
 import {
   Stack,
@@ -30,6 +36,8 @@ const DynamicTable = ({
   page,
   handlePageChange,
   total,
+  ordering,
+  pagination,
   ...rest
 }) => {
   const [order, setOrder] = useState("asc");
@@ -147,31 +155,34 @@ const DynamicTable = ({
                     }
                   >
                     <Stack direction="row">
-                      {
-                         column.name &&
-                      <TableSortLabel
-                        active={orderBy === column.key.join(".")}
-                        direction={
-                          orderBy === column.key.join(".") ? order : "asc"
-                        }
-                        onClick={() => handleRequestSort(column.key.join("."))}
-                        IconComponent={() => (
-                          <Image src={tableSort} width={"20px"} alt="sort" />
-                        )}
-                        sx={{
-                          "&.Mui-active": {
-                            color: "white",
-                            fontWeight: "bold",
-                          },
-                          // on hover as well
-                          "&:hover": {
-                            color: "white",
-                          },
-                        }}
-                      >
-                        {column.name}
-                      </TableSortLabel>
-                      }
+                      {ordering && column.name !== "" ? (
+                        <TableSortLabel
+                          active={orderBy === column.key.join(".")}
+                          direction={
+                            orderBy === column.key.join(".") ? order : "asc"
+                          }
+                          onClick={() =>
+                            handleRequestSort(column.key.join("."))
+                          }
+                          IconComponent={() => (
+                            <Image src={tableSort} width={"20px"} alt="sort" />
+                          )}
+                          sx={{
+                            "&.Mui-active": {
+                              color: "white",
+                              fontWeight: "bold",
+                            },
+                            // on hover as well
+                            "&:hover": {
+                              color: "white",
+                            },
+                          }}
+                        >
+                          {column.name}
+                        </TableSortLabel>
+                      ) : (
+                        column.name
+                      )}
                     </Stack>
                   </Stack>
                 </TableCell>
@@ -204,7 +215,6 @@ const DynamicTable = ({
           )}
         </MUITable>
 
-        <br />
 
         {data?.length === 0 && !isLoading && (
           <Stack direction="row" justifyContent="center" alignItems="center">
@@ -220,7 +230,7 @@ const DynamicTable = ({
       </TableContainer>
       {/* } */}
 
-      {data?.length >= 1 && !isLoading ? (
+      {pagination && data?.length >= 1 && !isLoading ? (
         <Stack alignItems="end">
           <TablePagination
             component="div"

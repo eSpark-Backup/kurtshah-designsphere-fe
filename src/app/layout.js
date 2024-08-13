@@ -13,12 +13,12 @@ export const metadata = {
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", overflowX: "hidden" }}>
+    <div style={{ width: "100%", height: "100vh", overflowX: "hidden" }}>
       <Header />
       <div
         style={{
           padding: "20px",
-          minHeight: "calc(100vh - 80px)",
+          height: "calc(100vh - 80px)",
           background:
             "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
           overflowY: "auto",

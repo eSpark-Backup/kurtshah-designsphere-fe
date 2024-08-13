@@ -28,6 +28,12 @@ import punch from "./icons/punch-door.svg";
 import trendingUp from "./icons/trending-up.svg";
 import trendingDown from "./icons/trending-down.svg";
 import filter from "./icons/filter.svg";
+import mail from "./icons/mail.svg";
+import document from "./icons/document-text.svg";
+import profileTick from "./icons/profile-tick.svg";
+import profile from "./icons/profile.svg";
+import arrowDown from "./icons/arrow-down.svg";
+import arrowDownInput from "./icons/arrow-down-input.svg";
 
 export {
   authImage,
@@ -59,5 +65,11 @@ export {
   punch,
   trendingUp,
   trendingDown,
-  filter
+  filter,
+  mail,
+  document,
+  profileTick,
+  profile,
+  arrowDown,
+  arrowDownInput,
 };

@@ -12,7 +12,9 @@ import { avatar, book, close, logo, message, notification } from "@/assets";
 
 const Header = () => {
   const router = useRouter();
-  const pathname = usePathname();
+  const path = usePathname();
+  const pathWithoutSlash = path.split("/")[1]
+  const pathname = `/${pathWithoutSlash}`
   const authedRoute = getAuthedRoute(pathname);
   const notifications = true;
   const [openSidebar, setOpenSidebar] = useState(false);

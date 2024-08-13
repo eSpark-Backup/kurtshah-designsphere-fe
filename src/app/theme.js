@@ -278,6 +278,47 @@ const theme = createTheme({
         }),
       },
     },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.whiteE4,
+          background:
+            "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+          minWidth: "85px",
+          padding: "3px 10px",
+          marginLeft: "-5px",
+          fontSize: "12px",
+          fontWeight: 400,
+          "&.Mui-focused": {
+            color: theme.palette.whiteE4,
+            background:
+              "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+            minWidth: "85px",
+            padding: "3px 10px",
+            marginLeft: "-5px",
+            fontSize: "12px",
+            fontWeight: 400,
+          },
+        }),
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          color: "#E4E4E4",
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.whiteE4,
+        }),
+        label: {
+          fontSize: "12px",
+        },
+      },
+    },
   },
 });
 
