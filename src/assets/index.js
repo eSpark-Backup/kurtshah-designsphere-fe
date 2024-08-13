@@ -32,6 +32,7 @@ import document from "./icons/document-text.svg";
 import profileTick from "./icons/profile-tick.svg";
 import profile from "./icons/profile.svg";
 import arrowDown from "./icons/arrow-down.svg";
+import arrowDownInput from "./icons/arrow-down-input.svg";
 
 export {
   authImage,
@@ -68,4 +69,5 @@ export {
   profileTick,
   profile,
   arrowDown,
+  arrowDownInput,
 };

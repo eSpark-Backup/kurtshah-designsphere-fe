@@ -4,11 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Box, Button, Stack } from "@mui/material";
-import {
-  DirectoryController,
-  DynamicModal,
-  DynamicTable,
-} from "@/components/common";
+import { DirectoryController, DynamicTable } from "@/components/common";
+import AddProjectModal from "./addProjectModal";
 import { projects } from "@/constants";
 import { columns } from "@/columns/projects";
 import { add } from "@/assets";
@@ -16,6 +13,14 @@ import { add } from "@/assets";
 const Projects = () => {
   const router = useRouter();
   const [addProductModal, setAddProductModal] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    stage: "",
+    type: "",
+    needHelp: "",
+    contact: "",
+    comment: "",
+  });
   const [page, setPage] = useState(0);
 
   const handlePageChange = (page) => {
@@ -76,12 +81,11 @@ const Projects = () => {
         ordering
         pagination
       />
-      <DynamicModal
+      <AddProjectModal
+        form={form}
+        setForm={setForm}
         open={addProductModal}
         handleClose={() => setAddProductModal(false)}
-        heading="Create New Project"
-        cancelButtonText="Cancel"
-        submitButtonText="Create Stage"
         onConfirm={handleCreateStage}
         showfooter
       />
