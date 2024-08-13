@@ -69,7 +69,9 @@ const ShareFile = () => {
           gap: "20px",
         }}>
 
-          <Box>
+          <Box sx={{
+            cursor: "pointer",
+          }}>
             <Image src={filter} alt width={48} height={48}
             />
           </Box>
