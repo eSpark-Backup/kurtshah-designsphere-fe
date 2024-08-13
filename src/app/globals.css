@@ -4,7 +4,13 @@
   margin: 0;
 }
 
-/* .mui-1qw5pum-MuiTypography-root {
-  color: white;
-  font-size: 14px !important;
-} */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
