@@ -1,10 +1,11 @@
 "use client"
 import { AuthContainer, FileInput } from '@/components/common'
-import { LoadingButton } from '@mui/lab'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 
 const LetsStart = () => {
+    const [image, setImage] = useState(null);
+
     return (
         <AuthContainer>
             <Box
@@ -38,11 +39,9 @@ const LetsStart = () => {
                         rowGap: "20px"
                     }}
                 >
-                    <FileInput />
+                    <FileInput image={image} setImage={setImage} />
                     <FormControlLabel control={<Checkbox sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label="It is ok to contact me with newsletters, new product announcements, etc" sx={{ marginBottom: "20px" }} />
                     <Button
-                        loading={false}
-                        loadingPosition="end"
                         variant="primary"
                         sx={{ width: "95%", margin: "auto auto", height: "48px" }}
                         type='submit'

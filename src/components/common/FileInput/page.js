@@ -1,16 +1,26 @@
 import { gallery } from '@/assets'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 
-const FileInput = () => {
+const FileInput = ({ image, setImage }) => {
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        console.log(file)
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setImage(imageUrl);
+        }
+    };
+
     return (
         <Box>
             <input
-                accept="image/*" // Change this to accept different file types
+                accept="image/*"
                 style={{ display: 'none' }}
                 id="raised-button-file"
                 type="file"
+                onChange={handleFileChange}
             />
             <label htmlFor="raised-button-file">
                 <Box
@@ -29,21 +39,34 @@ const FileInput = () => {
 
                     }}
                 >
-                    <Image
-                        src={gallery}
-                        width={24}
-                        height={24}
-                        alt='Upload Icon'
-                    />
-                    <Typography
-                        sx={{
-                            fontSize: "14px",
-                            color: "white",
-                            fontWeight: "400"
-                        }}
-                    >
-                        Upload
-                    </Typography>
+                    {image ? (
+                        <img
+                            src={image}
+                            alt="Uploaded"
+                            style={{
+                                width: "70%",
+                                height: "70%",
+                            }}
+                        />
+                    ) : (
+                        <>
+                            <Image
+                                src={gallery}
+                                width={24}
+                                height={24}
+                                alt='Upload Icon'
+                            />
+                            <Typography
+                                sx={{
+                                    fontSize: "14px",
+                                    color: "white",
+                                    fontWeight: "400"
+                                }}
+                            >
+                                Upload
+                            </Typography>
+                        </>
+                    )}
                 </Box>
             </label>
         </Box>
