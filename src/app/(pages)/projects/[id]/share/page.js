@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { filter } from "@/assets";
 import Image from "next/image";
 import { columns } from "@/columns/files";
+import EditFileModal from "./EditFileModal";
 
 
 
@@ -15,6 +16,9 @@ const ShareFile = () => {
   const [deleteFileModal, setDeleteFileModal] = useState(false);
   const [editFileModal, setEditFileModal] = useState(false);
   const [page, setPage] = useState(0);
+  const [form, setForm] = useState({
+    description: "",
+  });
   const [directory, setDirectory] = useState({
     name: "",
     link: [],
@@ -33,7 +37,7 @@ const ShareFile = () => {
   };
 
   const handleEditFile = () => {
-    // EDIT OPERATINON ON CONFIRM 
+    console.log(form);
   };
 
   useEffect(() => {
@@ -143,12 +147,11 @@ const ShareFile = () => {
         showfooter
       />
 
-      <DynamicModal
+      <EditFileModal
+        form={form}
+        setForm={setForm}
         open={editFileModal}
         handleClose={() => setEditFileModal(false)}
-        heading="Edit File Description"
-        cancelButtonText="Cancel"
-        submitButtonText="Save"
         onConfirm={handleEditFile}
         showfooter
       />
