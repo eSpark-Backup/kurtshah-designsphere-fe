@@ -229,8 +229,15 @@ const theme = createTheme({
                 root: {
                     width: '24px !important',
                     height: '24px !important',
-                    position:"relative",
-                    marginRight:"100px"
+                    position: "relative",
+                    marginRight: "100px"
+                },
+            },
+        },
+        MuiList: {
+            styleOverrides: {
+                root: {
+                    maxHeight: "300px",
                 },
             },
         },

@@ -14,7 +14,3 @@ input[type=number] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
-
-.mui-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
-  max-height: 350px !important;
-}
