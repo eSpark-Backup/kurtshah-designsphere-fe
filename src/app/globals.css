@@ -14,3 +14,13 @@ input[type=number] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
+
+.file-input{
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+}
+
+.mui-1c7jtw7-MuiFormControlLabel-root{
+  margin-right: 0px !important;
+}
