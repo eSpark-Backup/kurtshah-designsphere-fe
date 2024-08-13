@@ -135,3 +135,123 @@ export const projectTabs = [
     link: "/punch-door",
   },
 ];
+
+export const collaborators = [
+  {
+    id: 1,
+    name: "John Smith",
+    role: "Hardware",
+    status: "Editor",
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    role: "Hardware",
+    status: "Editor",
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    role: "Hardware",
+    status: "Editor",
+  },
+  {
+    id: 4,
+    name: "John Smith",
+    role: "Hardware",
+    status: "Editor",
+  },
+  {
+    id: 5,
+    name: "John Smith",
+    role: "Hardware",
+    status: "Editor",
+  },
+];
+
+export const overview = [
+  {
+    id: 1,
+    title: "ABC Project",
+    role: "Create Project",
+    unit: "03",
+    detail: "NUMBER OF Openings",
+  },
+  {
+    id: 2,
+    title: "ABC Company",
+    role: "Architectural Firm",
+    unit: "03",
+    detail: "Bim Data - Revit?",
+  },
+  {
+    id: 3,
+    title: "ABC Project",
+    role: "Create Project",
+    unit: "03",
+    detail: "NUMBER OF Openings",
+  },
+  {
+    id: 4,
+    title: "ABC Company",
+    role: "Architectural Firm",
+    unit: "03",
+    detail: "Bim Data - Revit?",
+  },
+];
+
+export const activityFeed = [
+  {
+    id: 1,
+    name: "John Smith",
+    date: "27 Jan 2024",
+    text: "Uploaded Excel file [ABC Project - DOOR SCHEDULE (1).xlsx]."
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    date: "27 Jan 2024",
+    text: "Uploaded Excel file [ABC Project - DOOR SCHEDULE (1).xlsx]."
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    date: "27 Jan 2024",
+    text: "Uploaded Excel file [ABC Project - DOOR SCHEDULE (1).xlsx]."
+  },
+]
+
+export const notes = [
+  {
+    id: 1,
+    date: "APRIL 25 2024",
+    note: "John Smith",
+    assigned: "-",
+    createdBy: "John Smith",
+    createdAt: "6:40 PM"
+  },
+  {
+    id: 2,
+    date: "APRIL 25 2024",
+    note: "John Smith",
+    assigned: "-",
+    createdBy: "John Smith",
+    createdAt: "6:40 PM"
+  },
+  {
+    id: 3,
+    date: "APRIL 25 2024",
+    note: "John Smith",
+    assigned: "-",
+    createdBy: "John Smith",
+    createdAt: "6:40 PM"
+  },
+  {
+    id: 4,
+    date: "APRIL 24 2024",
+    note: "John Smith",
+    assigned: "-",
+    createdBy: "John Smith",
+    createdAt: "6:40 PM"
+  },
+]
