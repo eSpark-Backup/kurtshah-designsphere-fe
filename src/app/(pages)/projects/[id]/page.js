@@ -1,12 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import { DirectoryController, ProgressBar } from "@/components/common";
-import { projects, projectTabs } from "@/constants";
 import { usePathname, useRouter } from "next/navigation";
-import { trendingDown, trendingUp } from "@/assets";
-import Image from "next/image";
+import { Box, Grid, Stack } from "@mui/material";
+import { DirectoryController, ProgressBar } from "@/components/common";
+import TabBox from "./tab-box";
+import Overview from "./overview";
+import Feed from "./feed";
+import Collaborators from "./collaborators";
+import Notes from "./notes";
+import {
+  projects,
+  projectTabs,
+  collaborators,
+  overview,
+  activityFeed,
+  notes,
+} from "@/constants";
 
 const ProjectDetails = () => {
   const pathname = usePathname();
@@ -22,7 +32,7 @@ const ProjectDetails = () => {
   }, [pathname]);
 
   const handleViewSubPages = (link) => {
-    router.push(`${pathname}${link}`)
+    router.push(`${pathname}${link}`);
   };
 
   return (
@@ -58,67 +68,21 @@ const ProjectDetails = () => {
           );
         })}
       </Grid>
+      <Grid marginTop={2} container spacing={2}>
+        <Grid item xs={12} md={8}>
+          <Collaborators collaborators={collaborators} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Overview overview={overview} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <Feed feed={activityFeed} />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Notes notes={notes} />
+        </Grid>
+      </Grid>
     </Box>
-  );
-};
-
-const TabBox = ({ name, count, icon, trending }) => {
-  return (
-    <Stack
-      direction="row"
-      justifyContent="space-between"
-      alignItems="center"
-      gap={1}
-      sx={{
-        padding: "16px",
-        // width: "256px",
-        // height: "134px",
-        borderRadius: "16px",
-        border: "1px solid #FFFFFF1F",
-        boxShadow: "0px 14px 79.3px -12px #00000030",
-        background:
-          "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
-      }}
-    >
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        gap={1}
-      >
-        <Image width={40} height={40} src={icon} alt="icon" />
-        <Stack>
-          <Typography
-            sx={{
-              background: (theme) => theme.palette.headingColor,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-            fontSize="32px"
-            fontWeight={600}
-          >
-            {count}
-          </Typography>
-          <Typography
-            sx={{
-              background: (theme) => theme.palette.headingColor,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-            fontSize="12px"
-            fontWeight={600}
-          >
-            {name}
-          </Typography>
-        </Stack>
-      </Stack>
-      <Image
-        width={24}
-        height={24}
-        src={trending === "up" ? trendingUp : trendingDown}
-        alt={trending}
-      />
-    </Stack>
   );
 };
 
