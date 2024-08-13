@@ -46,7 +46,7 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, ...rest }) =>
                     marginTop: "5px",
                 }}
             >
-                {value.length} / {limit}
+                {value?.length} / {limit}
             </Typography>}
         </>
     );

@@ -150,8 +150,8 @@ const DynamicTable = ({
                       column.key[0] === "action"
                         ? "flex-end"
                         : column.left
-                        ? "flex-start"
-                        : "center"
+                          ? "flex-start"
+                          : "center"
                     }
                   >
                     <Stack direction="row">
@@ -200,8 +200,8 @@ const DynamicTable = ({
                         textAlign: column.left
                           ? "left"
                           : column.right
-                          ? "right"
-                          : "center",
+                            ? "right"
+                            : "center",
                         pl: "20px",
                       }}
                       key={column.key.join(".")}
@@ -237,7 +237,7 @@ const DynamicTable = ({
             count={total}
             page={page}
             onPageChange={
-              handlePageChange ? (_, page) => handlePageChange(page) : () => {}
+              handlePageChange ? (_, page) => handlePageChange(page) : () => { }
             }
             rowsPerPage={5}
             rowsPerPageOptions={[]}

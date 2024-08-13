@@ -46,7 +46,7 @@ const DirectoryController = ({ title, desc, links }) => {
             {links.map((link, ind) => {
               return (
                 <Typography
-                  key={link}
+                  key={ind}
                   sx={{
                     background: (theme) => theme.palette.headingColor,
                     WebkitBackgroundClip: "text",

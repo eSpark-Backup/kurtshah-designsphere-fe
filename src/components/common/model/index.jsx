@@ -11,14 +11,15 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: { xs: "90%", sm: 400 },
         background: "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
         boxShadow: 24,
         borderRadius: "10px",
         minHeight: "268px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        outline: "none",
     };
 
 
