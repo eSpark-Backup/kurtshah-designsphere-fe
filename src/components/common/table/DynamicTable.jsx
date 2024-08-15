@@ -147,7 +147,7 @@ const DynamicTable = ({
                     direction={"row"}
                     alignItems={"center"}
                     justifyContent={
-                      column.key[0] === "action"
+                      column.right
                         ? "flex-end"
                         : column.left
                           ? "flex-start"

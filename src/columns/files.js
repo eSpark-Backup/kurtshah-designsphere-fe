@@ -6,7 +6,7 @@ export const columns = () => {
         {
             name: "Actions",
             key: "action",
-            right: true,
+            // right: true,
         },
     ];
 };
