@@ -133,6 +133,7 @@ const ShareFile = () => {
         total={files.length}
         handlePageChange={handlePageChange}
         page={page}
+        pagination
       />
 
 

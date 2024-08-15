@@ -42,7 +42,7 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, ...rest }) =>
                 fontWeight={400}
                 sx={{
                     color: (theme) => theme.palette.whiteE4,
-                    float: "right",
+                    textAlign: "right",
                     marginTop: "5px",
                 }}
             >

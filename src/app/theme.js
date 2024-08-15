@@ -104,106 +104,6 @@ const theme = createTheme({
         root: {
           borderCollapse: "separate",
           borderSpacing: "0 15px",
-          MuiInputLabel: {
-            styleOverrides: {
-              root: ({ theme }) => ({
-                color: theme.palette.primary.main,
-                fontSize: "12px",
-                fontWeight: "600",
-                textTransform: "uppercase",
-              }),
-            },
-          },
-          MuiOutlinedInput: {
-            styleOverrides: {
-              input: ({ theme }) => ({
-                "&::placeholder": {
-                  color: theme.palette.buttonSecondary,
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  opacity: 1,
-                  height: "200px",
-                },
-              }),
-
-              root: ({ theme }) => ({
-                fontSize: "14px",
-                fontWeight: 500,
-                color: "#ffffff",
-                lineHeight: "160%",
-                height: "44px",
-                "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: theme.palette.borderPrimary,
-                },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: theme.palette.borderPrimary,
-                },
-              }),
-              notchedOutline: ({ theme }) => ({
-                borderColor: theme.palette.borderPrimary,
-                borderRadius: "16px",
-              }),
-            },
-          },
-          MuiInputBase: {
-            styleOverrides: {
-              input: ({ theme }) => ({
-                "&::placeholder": {
-                  color: theme.palette.buttonSecondary,
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  opacity: 1,
-                  height: "200px",
-                },
-              }),
-
-              root: ({ theme }) => ({
-                fontSize: "14px",
-                fontWeight: 500,
-                color: "#ffffff",
-                lineHeight: "160%",
-                height: "44px",
-                "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: theme.palette.borderPrimary,
-                },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: theme.palette.borderPrimary,
-                },
-              }),
-              notchedOutline: ({ theme }) => ({
-                borderColor: theme.palette.borderPrimary,
-                borderRadius: "16px",
-              }),
-            },
-          },
-          MuiTypography: {
-            styleOverrides: {
-              h1: ({ theme }) => ({
-                fontSize: "32px",
-                fontWeight: "500",
-                background: theme.palette.headingColor,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }),
-              h2: ({ theme }) => ({
-                fontSize: "24px",
-                fontWeight: "500",
-                background: theme.palette.headingColor,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }),
-              h3: ({ theme }) => ({
-                fontSize: "18px",
-                fontWeight: "400",
-                color: theme.palette.primary.main,
-              }),
-              h4: ({ theme }) => ({
-                fontSize: "14px",
-                fontWeight: "600",
-                color: theme.palette.primary.dark,
-              }),
-            },
-          },
         },
       },
     },
@@ -283,8 +183,8 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           color: theme.palette.whiteE4,
-          background:
-            "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+          // background:
+          //   "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
           minWidth: "85px",
           padding: "3px 10px",
           marginLeft: "-5px",
@@ -318,41 +218,133 @@ const theme = createTheme({
         label: {
           fontSize: "12px",
         },
-        MuiFormControlLabel: {
-          styleOverrides: {
-            label: ({ theme }) => ({
-              fontSize: "14px",
-              color: theme.palette.white,
-              marginRight: "0px",
-            }),
+      },
+    },
+    MuiCircularProgress: {
+      styleOverrides: {
+        root: {
+          width: "24px !important",
+          height: "24px !important",
+          position: "relative",
+          marginRight: "100px",
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          maxHeight: "300px",
+        },
+      },
+    },
+    MuiLoadingButton: {
+      styleOverrides: {
+        root: {
+          "& .MuiCircularProgress-root": {
+            color: "#fff",
           },
         },
-        MuiLoadingButton: {
-          styleOverrides: {
-            root: {
-              "& .MuiCircularProgress-root": {
-                color: "#fff",
-              },
-            },
+      },
+    },
+
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.primary.main,
+          fontSize: "12px",
+          fontWeight: "600",
+          textTransform: "uppercase",
+        }),
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          "&::placeholder": {
+            color: theme.palette.buttonSecondary,
+            fontWeight: "500",
+            fontSize: "14px",
+            opacity: 1,
+            height: "200px",
           },
-        },
-        MuiCircularProgress: {
-          styleOverrides: {
-            root: {
-              width: "24px !important",
-              height: "24px !important",
-              position: "relative",
-              marginRight: "100px",
-            },
+        }),
+
+        root: ({ theme }) => ({
+          fontSize: "14px",
+          fontWeight: 500,
+          color: "#ffffff",
+          lineHeight: "160%",
+          height: "44px",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.borderPrimary,
           },
-        },
-        MuiList: {
-          styleOverrides: {
-            root: {
-              maxHeight: "300px",
-            },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.borderPrimary,
           },
-        },
+        }),
+        notchedOutline: ({ theme }) => ({
+          borderColor: theme.palette.borderPrimary,
+          borderRadius: "16px",
+        }),
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          "&::placeholder": {
+            color: theme.palette.buttonSecondary,
+            fontWeight: "500",
+            fontSize: "14px",
+            opacity: 1,
+            height: "200px",
+          },
+        }),
+
+        root: ({ theme }) => ({
+          fontSize: "14px",
+          fontWeight: 500,
+          color: "#ffffff",
+          lineHeight: "160%",
+          height: "44px",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.borderPrimary,
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.borderPrimary,
+          },
+        }),
+        notchedOutline: ({ theme }) => ({
+          borderColor: theme.palette.borderPrimary,
+          borderRadius: "16px",
+        }),
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        h1: ({ theme }) => ({
+          fontSize: "32px",
+          fontWeight: "500",
+          background: theme.palette.headingColor,
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }),
+        h2: ({ theme }) => ({
+          fontSize: "24px",
+          fontWeight: "500",
+          background: theme.palette.headingColor,
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }),
+        h3: ({ theme }) => ({
+          fontSize: "18px",
+          fontWeight: "400",
+          color: theme.palette.primary.main,
+        }),
+        h4: ({ theme }) => ({
+          fontSize: "14px",
+          fontWeight: "600",
+          color: theme.palette.primary.dark,
+        }),
       },
     },
   },

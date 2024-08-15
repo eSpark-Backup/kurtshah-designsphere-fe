@@ -38,7 +38,7 @@ const EditFileModal = ({ form, setForm, open, handleClose, onConfirm }) => {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            value={form.name}
+                            value={form.description}
                             limit={100}
                             onChange={(e) => handleChange(e.target.value, "description")}
                             placeholder="Type here"
