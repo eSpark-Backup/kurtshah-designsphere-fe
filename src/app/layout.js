@@ -16,6 +16,7 @@ const Layout = ({ children }) => {
     <div style={{ width: "100%", height: "100vh", overflowX: "hidden" }}>
       <Header />
       <div
+        className="no-scrollbar"
         style={{
           padding: "20px",
           height: "calc(100vh - 80px)",

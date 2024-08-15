@@ -220,16 +220,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiCircularProgress: {
-      styleOverrides: {
-        root: {
-          width: "24px !important",
-          height: "24px !important",
-          position: "relative",
-          marginRight: "100px",
-        },
-      },
-    },
     MuiList: {
       styleOverrides: {
         root: {
@@ -242,6 +232,10 @@ const theme = createTheme({
         root: {
           "& .MuiCircularProgress-root": {
             color: "#fff",
+            width: "24px !important",
+          height: "24px !important",
+          position: "relative",
+          marginRight: "100px",
           },
         },
       },
