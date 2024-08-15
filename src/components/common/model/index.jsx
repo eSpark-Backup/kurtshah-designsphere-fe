@@ -20,6 +20,9 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         flexDirection: "column",
         justifyContent: "space-between",
         outline: "none",
+        "&::-webkit-scrollbar": {
+            display: "none",
+        }
     };
 
 
