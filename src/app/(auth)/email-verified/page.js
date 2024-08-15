@@ -3,9 +3,11 @@ import { checkVerified } from '@/assets'
 import { AuthContainer } from '@/components/common'
 import { Box, Button, Typography } from '@mui/material'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const EmailVerified = () => {
+    const router = useRouter();
     return (
         <Box
             sx={{
@@ -62,7 +64,7 @@ const EmailVerified = () => {
                             width: "100%",
                             marginTop: "45px"
                         }}>
-                            <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+                            <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }} onClick={() => router.push("/profile-details")}>
                                 Next
                             </Button>
                         </Box>

@@ -1,5 +1,5 @@
 "use client"
-import { lock2, message } from '@/assets'
+import { email, lock2, message } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { forgetPasswordSchema } from '@/validation'
 import { LoadingButton } from '@mui/lab'
@@ -84,7 +84,7 @@ const ForgetPassword = () => {
                         value={values.email}
                         error={touched.email && errors.email}
                         helperText={touched.email && errors.email}
-                        startAdornment={<Image src={message} width={24} height={24} alt='User Icon' />}
+                        startAdornment={<Image src={email} width={24} height={24} alt='User Icon' />}
                       />
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>

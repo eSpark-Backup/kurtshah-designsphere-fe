@@ -9,8 +9,10 @@ import { Formik, Form } from 'formik'
 import { signupSchema } from '@/validation'
 import { LoadingButton } from '@mui/lab'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const SignUp = () => {
+  const router = useRouter();
 
   const initialValues = {
     firstName: "",
@@ -21,6 +23,7 @@ const SignUp = () => {
 
   const handleSubmit = (values) => {
     console.log(values)
+    router.push("/verify-email")
   }
 
   return (
