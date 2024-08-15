@@ -13,5 +13,6 @@ import email from "../assets/icons/email.svg";
 import people from "../assets/icons/people.svg";
 import downArrow from "../assets/icons/arrow-down.svg";
 import card from "../assets/icons/card.svg";
+import gallery from "../assets/icons/gallery-add.svg";
 
-export { authImage, authLogo, logo, closeEye, openEye, lock, user, userTick, email, lock2, message, checkVerified, people, downArrow, card };
+export { authImage, authLogo, logo, closeEye, openEye, lock, user, userTick, email, lock2, message, checkVerified, people, downArrow, card, gallery };

@@ -8,6 +8,7 @@ import { LoadingButton } from '@mui/lab'
 import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import { Form, Formik } from 'formik'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 const ProfileDetails = () => {
@@ -18,10 +19,13 @@ const ProfileDetails = () => {
         country: ""
     }
 
+    const router = useRouter();
+
 
 
     const handleSubmit = (values) => {
         console.log(values)
+        router.push("/lets-start");
     }
     return (
         <AuthContainer>
