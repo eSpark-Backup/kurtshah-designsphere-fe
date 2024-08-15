@@ -443,6 +443,43 @@ export const reportTemplates = [
   },
 ];
 
+export const projectReports = [
+  {
+    id: 1,
+    name: "ABC ProjectABC-1 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-1",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 2,
+    name: "ABC ProjectABC-2 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-2",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 3,
+    name: "ABC ProjectABC-3 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-3",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 4,
+    name: "ABC ProjectABC-4 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-4",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 5,
+    name: "ABC ProjectABC-5 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-5",
+    date: "27 Jan 2024",
+  },
+];
+
 
 
 export const collaborators = [

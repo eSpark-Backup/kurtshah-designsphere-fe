@@ -6,11 +6,18 @@ import { DirectoryController, DynamicModal, DynamicTable, ProgressBar } from "@/
 import { usePathname } from "next/navigation";
 import { filter } from "@/assets";
 import Image from "next/image";
-import { projects, reportTemplates } from "@/constants";
-import { columns } from "@/columns/reports/templates";
+import { projectReports, projects, reportTemplates } from "@/constants";
+import { columns as templateColumns } from "@/columns/reports/templates";
+import { columns as projectReportColumns } from "@/columns/reports/projectsReports";
+import Tabs from "@/components/common/tabs/Tabs";
 
 const Reports = () => {
-  const [page, setPage] = useState(0);
+  const [templatePage, setTemplatePage] = useState(0);
+  const [projectPage, setProjectPage] = useState(0);
+  const [deleteTemplateModal, setDeleteTemplateModal] = useState(false);
+  const [deleteProjectReportModal, setDeleteProjectReportModal] = useState(false);
+
+  const [activeTab, setActiveTab] = useState(1);
   const [directory, setDirectory] = useState({
     name: "",
     link: [],
@@ -19,8 +26,43 @@ const Reports = () => {
   const pathname = usePathname();
 
   const handlePageChange = (page) => {
-    setPage(page);
+    if (activeTab === 1) {
+      setTemplatePage(page);
+    } else {
+      setProjectPage(page);
+    }
   };
+
+
+  const handleDeleteFile = () => {
+    if (activeTab === 1) {
+      // DELETE OPERATINON ON CONFIRM
+    } else {
+      // DELETE OPERATINON ON CONFIRM
+    }
+  };
+
+  const TabHandler = (tab) => {
+    setActiveTab(tab)
+  }
+
+
+  const deleteFileModalUI = (
+    <Box>
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "14px",
+          fontWeight: 600,
+          lineHeight: "21px",
+          color: (theme) => theme.palette.white,
+        }}
+      >
+        Are you sure you want to delete this file?
+      </Typography>
+    </Box>
+  );
+
 
 
   useEffect(() => {
@@ -38,6 +80,7 @@ const Reports = () => {
         justifyContent="space-between"
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={2}
+        marginBottom={4}
       >
 
         <Typography
@@ -73,6 +116,8 @@ const Reports = () => {
     )
   }
 
+  const isTemplate = activeTab === 1;
+
   return (
     <Box>
       <Stack
@@ -91,17 +136,31 @@ const Reports = () => {
 
       <Header />
 
+      <Tabs tabOneContent={"My report Templates"} tabTwoContent={"Project Reports"} TabHandler={TabHandler} activeTab={activeTab} />
+
 
       <DynamicTable
-        data={reportTemplates}
-        columns={columns()}
+        data={isTemplate ? reportTemplates : projectReports}
+        columns={isTemplate ? templateColumns() : projectReportColumns()}
         isLoading={false}
-        total={reportTemplates.length}
+        total={isTemplate ? reportTemplates.length : projectReports.length}
         handlePageChange={handlePageChange}
-        page={page}
+        page={isTemplate ? templatePage : projectPage}
+        handleDelete={() => isTemplate ? setDeleteTemplateModal(true) : setDeleteProjectReportModal(true)}
         pagination
-        
       />
+
+      <DynamicModal
+        open={isTemplate ? deleteTemplateModal : deleteProjectReportModal}
+        handleClose={() => isTemplate ? setDeleteTemplateModal(false) : setDeleteProjectReportModal(false)}
+        children={deleteFileModalUI}
+        heading="Delete File"
+        cancelButtonText="Cancel"
+        submitButtonText="Delete"
+        onConfirm={handleDeleteFile}
+        showfooter
+      />
+
     </Box>
   )
 };
