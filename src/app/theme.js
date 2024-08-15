@@ -110,6 +110,7 @@ const theme = createTheme({
                 color: theme.palette.primary.main,
                 fontSize: "12px",
                 fontWeight: "600",
+                textTransform: "uppercase",
               }),
             },
           },
@@ -128,7 +129,7 @@ const theme = createTheme({
               root: ({ theme }) => ({
                 fontSize: "14px",
                 fontWeight: 500,
-                color: "#000",
+                color: "#ffffff",
                 lineHeight: "160%",
                 height: "44px",
                 "&:hover .MuiOutlinedInput-notchedOutline": {
@@ -159,7 +160,7 @@ const theme = createTheme({
               root: ({ theme }) => ({
                 fontSize: "14px",
                 fontWeight: 500,
-                color: "#000",
+                color: "#ffffff",
                 lineHeight: "160%",
                 height: "44px",
                 "&:hover .MuiOutlinedInput-notchedOutline": {
@@ -316,6 +317,41 @@ const theme = createTheme({
         }),
         label: {
           fontSize: "12px",
+        },
+        MuiFormControlLabel: {
+          styleOverrides: {
+            label: ({ theme }) => ({
+              fontSize: "14px",
+              color: theme.palette.white,
+              marginRight: "0px",
+            }),
+          },
+        },
+        MuiLoadingButton: {
+          styleOverrides: {
+            root: {
+              "& .MuiCircularProgress-root": {
+                color: "#fff",
+              },
+            },
+          },
+        },
+        MuiCircularProgress: {
+          styleOverrides: {
+            root: {
+              width: "24px !important",
+              height: "24px !important",
+              position: "relative",
+              marginRight: "100px",
+            },
+          },
+        },
+        MuiList: {
+          styleOverrides: {
+            root: {
+              maxHeight: "300px",
+            },
+          },
         },
       },
     },

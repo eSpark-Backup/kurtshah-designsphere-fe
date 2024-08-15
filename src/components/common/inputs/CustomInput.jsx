@@ -1,6 +1,6 @@
 "use client"
 
-import { InputAdornment, InputLabel, TextField, Typography } from '@mui/material';
+import { Box, InputAdornment, InputLabel, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { closeEye, openEye } from '@/assets';
@@ -9,14 +9,14 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, ...rest }) =>
     const [showPass, setShowPass] = useState(false);
 
     return (
-        <>
+        <Box sx={{ display: "flex", rowGap: "10px", flexDirection:"column", width:"100%" }}>
             {label && <InputLabel>{label}</InputLabel>}
             <TextField
                 value={value}
                 inputProps={{ maxLength: limit }}
                 label={customLabel}
                 type={showPass ? "text" : type}
-                sx={{ ...sx, width: "100%" }}
+                sx={{width: "100%",  ...sx }}
                 InputProps={{
                     startAdornment: rest.startAdornment && (
                         <InputAdornment position="start" style={{ marginRight: '7px' }}>
@@ -48,7 +48,7 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, ...rest }) =>
             >
                 {value?.length} / {limit}
             </Typography>}
-        </>
+        </Box>
     );
 };
 
