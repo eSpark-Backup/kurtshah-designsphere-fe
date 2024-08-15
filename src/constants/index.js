@@ -613,3 +613,15 @@ export const trackChangesDropDownOptions2 = [
   { value: "ver2", label: "version 2" },
   { value: "ver3", label: "version 3" },
 ]
+
+
+export const TrackChangesTabs = [
+  {
+    // id: 1,
+    TabContent: "View Changes by openings"
+  },
+  {
+    // id: 2,
+    TabContent: "view changes by hardware"
+  },
+]

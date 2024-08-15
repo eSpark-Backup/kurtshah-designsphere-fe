@@ -13,6 +13,7 @@ import {
   projects,
   trackChangesDropDownOptions,
   trackChangesDropDownOptions2,
+  TrackChangesTabs,
 } from "@/constants";
 import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
@@ -21,7 +22,7 @@ import { useEffect, useState } from "react";
 
 const Track = () => {
   const pathname = usePathname();
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
   const [page, setPage] = useState(0);
 
   const TabHandler = (tab) => {
@@ -55,7 +56,7 @@ const Track = () => {
     const { projectName } = projects.find((item) => item.id == id);
     setDirectory({
       name: projectName,
-      link: ["Project", "/", projectName, "/", "Share Files"],
+      link: ["Project", "/", projectName, "/", "Reports"],
     });
   }, [pathname]);
 
@@ -154,8 +155,7 @@ const Track = () => {
         </Box>
       </Box>
       <Tabs
-        tabOneContent={"View Changes by openings"}
-        tabTwoContent={"View changes by hardware"}
+        tabs={TrackChangesTabs}
         TabHandler={TabHandler}
         activeTab={activeTab}
       />
