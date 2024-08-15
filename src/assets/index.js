@@ -42,6 +42,8 @@ import email from "../assets/icons/email.svg";
 import people from "../assets/icons/people.svg";
 import card from "../assets/icons/card.svg";
 import gallery from "../assets/icons/gallery-add.svg";
+import light from "../assets/icons/light.svg";
+import downArrow2 from "../assets/icons/down-arrow2.svg";
 
 export {
   authImage,
@@ -88,4 +90,6 @@ export {
   profile,
   arrowDown,
   arrowDownInput,
+  light,
+  downArrow2
 };

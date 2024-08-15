@@ -136,6 +136,7 @@ const theme = createTheme({
             backgroundClip: "text",
             textFillColor: "transparent",
             padding: "26px 25px",
+            textTransform: "uppercase",
           },
           "& .MuiTableRow-root": {
             background:
