@@ -30,76 +30,87 @@ const ForgetPassword = () => {
   )
 
   return (
-    <AuthContainer>
-      <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", rowGap: "25px" }}>
-        {isSubmitted ? (
-          <>
-            <TextComp>
-              <Typography variant='h1' sx={{ lineHeight: "40px", textAlign: "center", fontSize: "20px" }}>
-                Recovery Email Sent!
-              </Typography>
-              <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "60%", lg: "60%", xl: "45%" } }}>
-                Please check your email for next steps to reset your password.
-              </Typography>
-            </TextComp>
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>
-              <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
-                Contact Support
-              </Button>
-              <Link href={"/sign-in"} style={{ width: "95%", margin: "auto auto" }}>
-                <Button type="submit" variant='primary' sx={{ height: "48px" }}>
-                  Back to sign-in
+    <Box
+      sx={{
+        width: "100%",
+        minHeight: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+
+    >
+      <AuthContainer>
+        <Box sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", rowGap: "25px" }}>
+          {isSubmitted ? (
+            <>
+              <TextComp>
+                <Typography variant='h1' sx={{ lineHeight: "40px", textAlign: "center", fontSize: "20px" }}>
+                  Recovery Email Sent!
+                </Typography>
+                <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "60%", lg: "60%", xl: "45%" } }}>
+                  Please check your email for next steps to reset your password.
+                </Typography>
+              </TextComp>
+              <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>
+                <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+                  Contact Support
                 </Button>
-              </Link>
-            </Box>
-          </>
-        ) : (
-          <>
-            <TextComp>
-              <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "60%", lg: "60%", xl: "45%" } }}>
-                Please enter your email address. We will send you an email to reset your password.
-              </Typography>
-            </TextComp>
-            <Formik initialValues={initialValues} validationSchema={forgetPasswordSchema} onSubmit={handleSubmit}>
-              {({ values, handleChange, handleBlur, errors, touched }) => (
-                <Form>
-                  <Box sx={{ width: "95%", margin: "auto auto", display: "flex", flexDirection: "column", rowGap: "25px" }}>
-                    <CustomInput
-                      name="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      label="email"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.email}
-                      error={touched.email && errors.email}
-                      helperText={touched.email && errors.email}
-                      startAdornment={<Image src={message} width={24} height={24} alt='User Icon' />}
-                    />
-                  </Box>
-                  <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>
-                    <LoadingButton
-                      loading={false}
-                      loadingPosition="end"
-                      variant="primary"
-                      sx={{ width: "95%", margin: "auto auto", height: "48px" }}
-                      type='submit'
-                    >
-                      Send Email
-                    </LoadingButton>
-                    <Typography sx={{ lineHeight: "29px", color: "#FFFFFF", fontSize: "14px" }}>
-                      Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
-                        <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
-                      </Link>
-                    </Typography>
-                  </Box>
-                </Form>
-              )}
-            </Formik>
-          </>
-        )}
-      </Box>
-    </AuthContainer>
+                <Link href={"/sign-in"} style={{ width: "95%", margin: "auto auto" }}>
+                  <Button type="submit" variant='primary' sx={{ height: "48px" }}>
+                    Back to sign-in
+                  </Button>
+                </Link>
+              </Box>
+            </>
+          ) : (
+            <>
+              <TextComp>
+                <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "60%", lg: "60%", xl: "45%" } }}>
+                  Please enter your email address. We will send you an email to reset your password.
+                </Typography>
+              </TextComp>
+              <Formik initialValues={initialValues} validationSchema={forgetPasswordSchema} onSubmit={handleSubmit}>
+                {({ values, handleChange, handleBlur, errors, touched }) => (
+                  <Form>
+                    <Box sx={{ width: "95%", margin: "auto auto", display: "flex", flexDirection: "column", rowGap: "25px" }}>
+                      <CustomInput
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        label="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                        error={touched.email && errors.email}
+                        helperText={touched.email && errors.email}
+                        startAdornment={<Image src={message} width={24} height={24} alt='User Icon' />}
+                      />
+                    </Box>
+                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>
+                      <LoadingButton
+                        loading={false}
+                        loadingPosition="end"
+                        variant="primary"
+                        sx={{ width: "95%", margin: "auto auto", height: "48px" }}
+                        type='submit'
+                      >
+                        Send Email
+                      </LoadingButton>
+                      <Typography sx={{ lineHeight: "29px", color: "#FFFFFF", fontSize: "14px" }}>
+                        Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
+                          <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                        </Link>
+                      </Typography>
+                    </Box>
+                  </Form>
+                )}
+              </Formik>
+            </>
+          )}
+        </Box>
+      </AuthContainer>
+    </Box>
   )
 }
 
