@@ -34,6 +34,14 @@ import profileTick from "./icons/profile-tick.svg";
 import profile from "./icons/profile.svg";
 import arrowDown from "./icons/arrow-down.svg";
 import arrowDownInput from "./icons/arrow-down-input.svg";
+import user from "../assets/icons/user.svg";
+import checkVerified from "../assets/icons/check-verified.svg";
+import lock2 from "../assets/icons/lock2.svg";
+import userTick from "../assets/icons/user-tick.svg";
+import email from "../assets/icons/email.svg";
+import people from "../assets/icons/people.svg";
+import card from "../assets/icons/card.svg";
+import gallery from "../assets/icons/gallery-add.svg";
 
 export {
   authImage,
@@ -43,6 +51,14 @@ export {
   closeEye,
   openEye,
   lock,
+  user,
+  userTick,
+  email,
+  lock2,
+  checkVerified,
+  people,
+  card,
+  gallery,
   clipboardTick,
   candle,
   mirror,
