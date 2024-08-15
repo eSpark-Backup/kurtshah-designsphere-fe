@@ -601,3 +601,12 @@ export const notes = [
     createdAt: "6:40 PM",
   },
 ];
+
+export const ReportPageTabs = [
+  {
+    TabContent: "My report Templates"
+  },
+  {
+    TabContent: "Project Reports"
+  },
+]

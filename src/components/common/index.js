@@ -7,6 +7,7 @@ import DirectoryController from "./directory-controller";
 import ProgressBar from "./progressbar-circular";
 import Dropdown from "./inputs/dropdown";
 import FileInput from "./FileInput/page";
+import Tabs from "./tabs/Tabs.jsx";
 
 export {
   AuthContainer,
@@ -18,4 +19,5 @@ export {
   ProgressBar,
   Dropdown,
   FileInput,
+  Tabs
 };

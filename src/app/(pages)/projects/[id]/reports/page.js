@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { DirectoryController, DynamicModal, DynamicTable, ProgressBar } from "@/components/common";
+import { DirectoryController, DynamicModal, DynamicTable, ProgressBar, Tabs } from "@/components/common";
 import { usePathname } from "next/navigation";
 import { filter } from "@/assets";
 import Image from "next/image";
-import { projectReports, projects, reportTemplates } from "@/constants";
+import { projectReports, projects, ReportPageTabs, reportTemplates } from "@/constants";
 import { columns as templateColumns } from "@/columns/reports/templates";
 import { columns as projectReportColumns } from "@/columns/reports/projectsReports";
-import Tabs from "@/components/common/tabs/Tabs";
 
 const Reports = () => {
   const [templatePage, setTemplatePage] = useState(0);
@@ -17,7 +16,7 @@ const Reports = () => {
   const [deleteTemplateModal, setDeleteTemplateModal] = useState(false);
   const [deleteProjectReportModal, setDeleteProjectReportModal] = useState(false);
 
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
   const [directory, setDirectory] = useState({
     name: "",
     link: [],
@@ -116,7 +115,7 @@ const Reports = () => {
     )
   }
 
-  const isTemplate = activeTab === 1;
+  const isTemplate = activeTab === 0;
 
   return (
     <Box>
@@ -136,7 +135,11 @@ const Reports = () => {
 
       <Header />
 
-      <Tabs tabOneContent={"My report Templates"} tabTwoContent={"Project Reports"} TabHandler={TabHandler} activeTab={activeTab} />
+      <Tabs
+        tabs={ReportPageTabs}
+        TabHandler={TabHandler}
+        activeTab={activeTab}
+      />
 
 
       <DynamicTable
