@@ -647,3 +647,268 @@ export const ByHardwareTable1Content = [
     mfr: "LOC"
   },
 ]
+
+export const FieldsModalCheckboxes = [
+  {
+    name: "DoorNumber",
+    label: "Door Number"
+  },
+  {
+    name: "ActiveDegree",
+    label: "Active Degree",
+    bold: true
+  },
+  {
+    name: "ActiveLeafWidth",
+    label: "Active Leaf Width",
+    bold: true
+  },
+  {
+    name: "ActiveStopCondition",
+    label: "Active Stop Condition"
+  },
+  {
+    name: "Area",
+    label: "Area",
+    bold: true
+  },
+  {
+    name: "Building",
+    label: "Building",
+    bold: true
+  },
+  {
+    name: "DesignOption",
+    label: "Design Option"
+  },
+  {
+    name: "DoorBottomRail",
+    label: "Door Bottom Rail"
+  },
+  {
+    name: "DoorCare",
+    label: "Door Care"
+  },
+  {
+    name: "DoorEdge",
+    label: "Door Edge"
+  },
+  {
+    name: "DoorElevation",
+    label: "Door Elevation"
+  },
+  {
+    name: "DoorFace",
+    label: "Door Face"
+  },
+  {
+    name: "DoorGuage",
+    label: "Door Guage"
+  },
+  {
+    name: "DoorHingeStile",
+    label: "Door Hinge Stile"
+  },
+  {
+    name: "DoorLockStile",
+    label: "Door Lock Stile"
+  },
+  {
+    name: "DoorMaterial",
+    label: "Door Material"
+  },
+  {
+    name: "DoorMillRail",
+    label: "Door Mill Rail"
+  },
+  {
+    name: "DoorPanelType",
+    label: "Door Panel Type"
+  },
+  {
+    name: "DoorSeries",
+    label: "Door Series"
+  },
+  {
+    name: "DoorTopRail",
+    label: "Door Top Rail"
+  },
+  {
+    name: "DoorType",
+    label: "Door Type"
+  },
+  {
+    name: "DoorUndercut",
+    label: "Door Undercut"
+  },
+  {
+    name: "Facility",
+    label: "Facility"
+  },
+  {
+    name: "FrameAnchor",
+    label: "Frame Anchor"
+  },
+  {
+    name: "FrameConfiguration",
+    label: "Frame Configuration"
+  },
+  {
+    name: "FrameConstruction",
+    label: "Frame Construction"
+  },
+  {
+    name: "FrameDepth",
+    label: "Frame Depth"
+  },
+  {
+    name: "FrameElevation",
+    label: "Frame Elevation"
+  },
+  {
+    name: "FrameFace",
+    label: "Frame Face"
+  },
+  {
+    name: "FrameFace",
+    label: "Frame Face"
+  },
+  {
+    name: "FrameGauge",
+    label: "Frame Gauge"
+  },
+  {
+    name: "FrameMaterial",
+    label: "Frame Material"
+  },
+  {
+    name: "FrameHeadHeight",
+    label: "Frame Head Height"
+  },
+  {
+    name: "FrameSeries",
+    label: "Frame Series"
+  },
+  {
+    name: "FrameType",
+    label: "Frame Type"
+  },
+  {
+    name: "HardwareSetNumber",
+    label: "Hardware Set Number"
+  },
+  {
+    name: "HeadDetail",
+    label: "Head Detail"
+  },
+  {
+    name: "Height",
+    label: "Height"
+  },
+  {
+    name: "Hand",
+    label: "Hand"
+  },
+
+  {
+    name: "HingeJambDetail",
+    label: "Hinge Jamb Detail"
+  },
+  {
+    name: "InactiveDegree",
+    label: "Inactive Degree"
+  },
+  {
+    name: "InactiveLeafWidth",
+    label: "Inactive Leaf Width"
+  },
+
+  {
+    name: "InactiveStopCondition",
+    label: "Inactive Stop Condition"
+  },
+  {
+    name: "Information",
+    label: "Information"
+  },
+  {
+    name: "InsideRoomName",
+    label: "Inside Room Name"
+  },
+
+  {
+    name: "InsideRoomNumber",
+    label: "Inside Room Number"
+  },
+  {
+    name: "IsLeadLined",
+    label: "Is Lead Lined"
+  },
+  {
+    name: "IsTemperateRise",
+    label: "Is Temperate Rise"
+  },
+
+  {
+    name: "KeySetSymbol",
+    label: "Key Set Symbol"
+  },
+  {
+    name: "Level",
+    label: "Level"
+  },
+  {
+    name: "MarkNumber",
+    label: "Mark Number"
+  },
+
+  {
+    name: "Misc1",
+    label: "Misc1"
+  },
+  {
+    name: "Misc2",
+    label: "Misc2"
+  },
+  {
+    name: "Misc3",
+    label: "Misc3"
+  },
+
+  {
+    name: "Mode",
+    label: "Mode"
+  },
+  {
+    name: "OutsideRoomName",
+    label: "Outside Room Name"
+  },
+  {
+    name: "OutsideRoomNumber",
+    label: "Outside Room Number"
+  }
+]
+
+
+export const hardwareCheckboxes = [
+  {
+    name: "Status",
+    label: "Status"
+  },
+  {
+    name: "Comments",
+    label: "Comments"
+  },
+  {
+    name: "Mode",
+    label: "Mode"
+  },
+  {
+    name: "Electrified",
+    label: "Electrified"
+  },
+  {
+    name: "Remarks",
+    label: "Remarks"
+  },
+]

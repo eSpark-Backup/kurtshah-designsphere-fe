@@ -1,8 +1,10 @@
 import theme from '@/app/theme'
-import { Box, Button, Modal, Typography } from '@mui/material'
+import { close } from '@/assets';
+import { Box, Button, IconButton, Modal, Typography } from '@mui/material'
+import Image from 'next/image';
 import React from 'react'
 
-const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter }) => {
+const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields }) => {
 
     const basicModelStructureStyle = {
         maxHeight: "90vh",
@@ -11,7 +13,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: { xs: "90%", sm: 400 },
+        width: { xs: "90%", sm: fields ? "90%" : 400, md: fields ? "70%" : 400, lg: fields ? "55%" : 400, xl: fields ? "45%" : 400 },
         background: "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
         boxShadow: 24,
         borderRadius: "10px",
@@ -50,11 +52,11 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
                         <Typography
                             sx={{
-                                background: theme.palette.textPrimaryGradient,
+                                background: fields ? theme.palette.headingColor : theme.palette.textPrimaryGradient,
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 fontWeight: "bold",
-                                fontSize: "12px",
+                                fontSize: fields ? "20px" : "12px",
                                 fontWeight: 500,
                                 lineHeight: "21px",
 
@@ -63,6 +65,22 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                             {heading}
                         </Typography>
                     </Box>
+                    {fields && <IconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                            position: "absolute",
+                            right: 8,
+                            top: 8,
+                        }}
+                    >
+                        <Image
+                            src={close}
+                            width={24}
+                            height={24}
+                            alt='Close Icon'
+                        />
+                    </IconButton>}
 
 
                     {/* CHILDREN  */}

@@ -11,6 +11,8 @@ import {
 } from "@/components/common";
 import {
   ByOpeningsTableData,
+  FieldsModalCheckboxes,
+  hardwareCheckboxes,
   projects,
   trackChangesDropDownOptions,
   trackChangesDropDownOptions2,
@@ -20,11 +22,14 @@ import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import FieldsModal from "./FieldsModal";
 
 const Track = () => {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(0);
   const [page, setPage] = useState(0);
+  const [openingsModal, setOpeningsModal] = useState(false);
+  const [hardwareModal, setHardwareModal] = useState(false);
 
   const TabHandler = (tab) => {
     setActiveTab(tab);
@@ -60,6 +65,24 @@ const Track = () => {
       link: ["Project", "/", projectName, "/", "Reports"],
     });
   }, [pathname]);
+
+  const ModalHandler = () => {
+    if (activeTab === 0) {
+      setOpeningsModal(true)
+    }
+    else {
+      setHardwareModal(true)
+    }
+  }
+
+  const CloseModalHandler = () => {
+    if (openingsModal) {
+      setOpeningsModal(false)
+    }
+    else {
+      setHardwareModal(false)
+    }
+  }
 
   return (
     <Box
@@ -118,7 +141,9 @@ const Track = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                cursor: "pointer"
               }}
+              onClick={ModalHandler}
             >
               <Image src={light} width={18} height={18} alt="Icon" />
             </Box>
@@ -169,6 +194,12 @@ const Track = () => {
         page={page}
         pagination
       /> : <ByHardware />}
+
+      <FieldsModal
+        open={activeTab === 0 ? openingsModal : hardwareModal}
+        handleClose={CloseModalHandler}
+        checkboxes={activeTab === 0 ? FieldsModalCheckboxes : hardwareCheckboxes}
+      />
     </Box>
   );
 };
