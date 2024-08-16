@@ -1,5 +1,4 @@
-import { CustomInput, DynamicModal } from '@/components/common'
-import { FieldsModalCheckboxes } from '@/constants'
+import { DynamicModal } from '@/components/common'
 import { Box, Checkbox, FormControlLabel, Switch, Typography } from '@mui/material'
 import React from 'react'
 
@@ -17,7 +16,6 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                         flexDirection: "column",
                         height: "100%",
                         justifyContent: "center",
-                        // alignItems: "center"
                     }}
                 >
                     <Box
@@ -62,7 +60,6 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                         sx={{
                             display: "flex",
                             flexWrap: "wrap",
-                            // justifyContent: "space-between",
                             paddingLeft: { xs: "10px", sm: "20px" }
                         }}
                     >
@@ -91,7 +88,6 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                                 </Box>
                             )
                         })}
-                        {/* <FormControlLabel control={<Checkbox name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom: "20px" }} /> */}
 
                     </Box>
 

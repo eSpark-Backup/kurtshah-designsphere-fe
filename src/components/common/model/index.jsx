@@ -72,7 +72,6 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                             position: "absolute",
                             right: 8,
                             top: 8,
-                            color: "gray", // Customize the color here
                         }}
                     >
                         <Image
@@ -81,7 +80,6 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                             height={24}
                             alt='Close Icon'
                         />
-                        {/* <CloseIcon /> */}
                     </IconButton>}
 
 
