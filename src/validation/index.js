@@ -24,6 +24,6 @@ export const profileDetailsSchema = Yup.object({
 })
 
 export const createReportInitialSchema = Yup.object({
-    fontFaimly: Yup.string().required("Please select an option"),
+    fontFamily: Yup.string().required("Please select an option"),
     templateDescription: Yup.string().required('template design is required')
 })

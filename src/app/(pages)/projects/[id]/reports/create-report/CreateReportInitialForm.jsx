@@ -21,7 +21,7 @@ const CreateReportInitialForm = ({ handleForm }) => {
 
             <Formik
                 initialValues={{
-                    fontFaimly: "",
+                    fontFamily: "",
                     templateDescription: "",
                 }}
                 validationSchema={createReportInitialSchema}
@@ -40,12 +40,12 @@ const CreateReportInitialForm = ({ handleForm }) => {
                             }}>
                             <Dropdown
                                 label={"Font Family"}
-                                value={values.fontFaimly}
-                                onChange={(e) => setFieldValue("fontFaimly", e.target.value)}
+                                value={values.fontFamily}
+                                onChange={(e) => setFieldValue("fontFamily", e.target.value)}
                                 options={fontFamilyOptions}
-                                name="fontFaimly"
-                                error={touched.fontFaimly && errors.fontFaimly}
-                                helperText={touched.fontFaimly && errors.fontFaimly}
+                                name="fontFamily"
+                                error={touched.fontFamily && errors.fontFamily}
+                                helperText={touched.fontFamily && errors.fontFamily}
                                 sx={{
                                     background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
                                     borderRadius: '15px',
