@@ -109,7 +109,7 @@ const Header = () => {
           gap={2}
         >
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Searchbar />
+            <Searchbar placeholder="Search" />
           </Box>
           <Box
             sx={{

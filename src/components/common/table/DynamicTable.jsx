@@ -38,6 +38,7 @@ const DynamicTable = ({
   total,
   ordering,
   pagination,
+  paginationCenter,
   ...rest
 }) => {
   const [order, setOrder] = useState("asc");
@@ -137,7 +138,15 @@ const DynamicTable = ({
 
   return (
     <>
-      <TableContainer {...rest} className="table">
+      <TableContainer
+        sx={{
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }}
+        {...rest}
+        className="table"
+      >
         <MUITable>
           <TableHead>
             <TableRow sx={{ borderBottom: "2px solid red" }}>
@@ -231,7 +240,7 @@ const DynamicTable = ({
       {/* } */}
 
       {pagination && data?.length >= 1 && !isLoading ? (
-        <Stack alignItems="end">
+        <Stack alignItems={paginationCenter ? "center" : "end"}>
           <TablePagination
             component="div"
             count={total}

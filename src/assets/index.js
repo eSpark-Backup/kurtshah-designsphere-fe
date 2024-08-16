@@ -34,14 +34,27 @@ import profileTick from "./icons/profile-tick.svg";
 import profile from "./icons/profile.svg";
 import arrowDown from "./icons/arrow-down.svg";
 import arrowDownInput from "./icons/arrow-down-input.svg";
-import user from "../assets/icons/user.svg";
-import checkVerified from "../assets/icons/check-verified.svg";
-import lock2 from "../assets/icons/lock2.svg";
-import userTick from "../assets/icons/user-tick.svg";
-import email from "../assets/icons/email.svg";
-import people from "../assets/icons/people.svg";
-import card from "../assets/icons/card.svg";
-import gallery from "../assets/icons/gallery-add.svg";
+import user from "./icons/user.svg";
+import checkVerified from "./icons/check-verified.svg";
+import lock2 from "./icons/lock2.svg";
+import userTick from "./icons/user-tick.svg";
+import email from "./icons/email.svg";
+import people from "./icons/people.svg";
+import card from "./icons/card.svg";
+import gallery from "./icons/gallery-add.svg";
+import back from "./icons/back.svg";
+import grid from "./icons/grid.svg";
+import copy from "./icons/copy.svg";
+import reload from "./icons/reload.png";
+import verticleDots from "./icons/verticle-dots.svg";
+import expand from "./icons/expand.svg";
+import leftArrow from "./icons/arrow-left.svg";
+import rightArrow from "./icons/arrow-right.svg";
+import maximize from "./icons/maximize.svg";
+import square3 from "./icons/3square.svg";
+import zoomIn from "./icons/zoom-in.svg";
+import zoomOut from "./icons/zoom-out.svg";
+import map from "./images/map.png";
 
 export {
   authImage,
@@ -87,5 +100,17 @@ export {
   profileTick,
   profile,
   arrowDown,
-  arrowDownInput,
+  back,
+  grid,
+  copy,
+  reload,
+  verticleDots,
+  expand,
+  leftArrow,
+  rightArrow,
+  maximize,
+  square3,
+  zoomIn,
+  zoomOut,
+  map,
 };

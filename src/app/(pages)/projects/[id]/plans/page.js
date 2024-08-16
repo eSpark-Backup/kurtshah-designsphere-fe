@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import {
   DirectoryController,
@@ -15,6 +15,7 @@ import { columns } from "@/columns/plans";
 import { filter } from "@/assets";
 
 const Plans = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const [deleteFileModal, setDeleteFileModal] = useState(false);
   const [page, setPage] = useState(0);
@@ -25,6 +26,11 @@ const Plans = () => {
 
   const handlePageChange = (page) => {
     setPage(page);
+  };
+
+  const handleView = (item) => {
+    const projectId = pathname.split("/")[2];
+    router.push(`/projects/${projectId}/plans/${item.id}`);
   };
 
   const handleDeleteFile = () => {
@@ -137,6 +143,7 @@ const Plans = () => {
         data={plansData}
         columns={columns()}
         isLoading={false}
+        handleView={handleView}
         handleDelete={() => setDeleteFileModal(true)}
         total={plansData.length}
         handlePageChange={handlePageChange}
