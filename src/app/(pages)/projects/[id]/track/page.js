@@ -2,6 +2,7 @@
 import { filter, light } from "@/assets";
 import { columns } from "@/columns/ByOpenings";
 import {
+  ByHardware,
   DirectoryController,
   Dropdown,
   DynamicTable,
@@ -159,7 +160,7 @@ const Track = () => {
         TabHandler={TabHandler}
         activeTab={activeTab}
       />
-      <DynamicTable
+      {activeTab === 0 ? <DynamicTable
         data={ByOpeningsTableData}
         columns={columns()}
         isLoading={false}
@@ -167,7 +168,7 @@ const Track = () => {
         handlePageChange={handlePageChange}
         page={page}
         pagination
-      />
+      /> : <ByHardware />}
     </Box>
   );
 };
