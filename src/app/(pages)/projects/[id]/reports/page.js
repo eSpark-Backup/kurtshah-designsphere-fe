@@ -3,12 +3,15 @@
 import { useEffect, useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { DirectoryController, DynamicModal, DynamicTable, ProgressBar, Tabs } from "@/components/common";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { filter } from "@/assets";
 import Image from "next/image";
 import { projectReports, projects, ReportPageTabs, reportTemplates } from "@/constants";
 import { columns as templateColumns } from "@/columns/reports/templates";
 import { columns as projectReportColumns } from "@/columns/reports/projectsReports";
+
+
+
 
 const Reports = () => {
   const [templatePage, setTemplatePage] = useState(0);
@@ -23,6 +26,8 @@ const Reports = () => {
   });
 
   const pathname = usePathname();
+  const projectId = pathname.split("/")[2];
+  const router = useRouter();
 
   const handlePageChange = (page) => {
     if (activeTab === 1) {
@@ -105,7 +110,9 @@ const Reports = () => {
             />
           </Box>
 
-          <Button sx={{
+          <Button
+          onClick={() => router.push(`/projects/${projectId}/reports/create-report`)}
+          sx={{
             height: "44px",
             width: "147px",
           }} variant="primary">Create Reports</Button>

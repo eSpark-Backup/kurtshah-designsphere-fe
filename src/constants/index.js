@@ -610,3 +610,20 @@ export const ReportPageTabs = [
     TabContent: "Project Reports"
   },
 ]
+
+
+export const fontFamilyOptions = [
+  { value: "", label: "Font Family" },
+  { value: "Arial", label: "Arial" },
+  { value: "Times New Roman", label: "Times New Roman" },
+  { value: "Courier New", label: "Courier New" },
+  { value: "Georgia", label: "Georgia" },
+  { value: "Palatino Linotype", label: "Palatino Linotype" },
+  { value: "Comic Sans MS", label: "Comic Sans MS" },
+  { value: "Lucida Sans Unicode", label: "Lucida Sans Unicode" },
+  { value: "Tahoma", label: "Tahoma" },
+  { value: "Trebuchet MS", label: "Trebuchet MS" },
+  { value: "Verdana", label: "Verdana" },
+  { value: "Courier New", label: "Courier New" },
+  { value: "Lucida Console", label: "Lucida Console" },
+];
