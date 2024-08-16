@@ -26,8 +26,8 @@ const AuthContainer = ({ img, title, desc, children }) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-around",
-          padding: { md: "100px 0px", lg: "90px 0px", xl: "40px 0px" },
-          borderRadius: { sm: "16px 16px 0 0", md: "16px 0 0 16px" },
+          padding: { md: "160px 0px", lg: "140px 0px", xl: "120px 0px" },
+          borderRadius: { xs: "9px 9px 0 0", sm: "16px 16px 0 0", md: "16px 0 0 16px" },
           width: { xs: "100%", md: "45%" },
         }}
       >

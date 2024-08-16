@@ -1,0 +1,124 @@
+import theme from '@/app/theme'
+import { Box, Button, Modal, Typography } from '@mui/material'
+import React from 'react'
+
+const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter }) => {
+
+    const basicModelStructureStyle = {
+        maxHeight: "90vh",
+        overflowY: "auto",
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: { xs: "90%", sm: 400 },
+        background: "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+        boxShadow: 24,
+        borderRadius: "10px",
+        minHeight: "268px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        outline: "none",
+        "&::-webkit-scrollbar": {
+            display: "none",
+        }
+    };
+
+
+
+    const onSubmit = () => {
+        onConfirm()
+    }
+
+
+    return (
+        <>
+            <Modal
+                open={open}
+                onClose={handleClose}
+
+            >
+                <Box sx={basicModelStructureStyle}>
+                    {/* HEADER  */}
+                    <Box sx={{
+                        textAlign: 'center',
+                        borderBottom: "1px solid",
+                        borderColor: theme.palette.whiteE4,
+                        padding: "15px 0px",
+                    }}>
+
+                        <Typography
+                            sx={{
+                                background: theme.palette.textPrimaryGradient,
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                fontWeight: "bold",
+                                fontSize: "12px",
+                                fontWeight: 500,
+                                lineHeight: "21px",
+
+                            }}
+                        >
+                            {heading}
+                        </Typography>
+                    </Box>
+
+
+                    {/* CHILDREN  */}
+                    {children}
+
+
+
+                    {/* FOOTER  */}
+                    {showfooter &&
+                        <Box sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            borderTop: "1px solid",
+                            borderColor: theme.palette.whiteE4,
+                            padding: "10px 20px",
+                        }}>
+
+                            <Typography
+                                sx={{
+                                    background: theme.palette.whiteE4,
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                    fontWeight: "bold",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "21px",
+                                    cursor: "pointer"
+
+                                }}
+                                onClick={handleClose}
+                            >
+                                {cancelButtonText}
+                            </Typography>
+
+
+
+
+
+                            <Button sx={{
+                                width: "max-content",
+                                height: "40px",
+                            }} variant="primary"
+                                onClick={onSubmit}
+                            >
+                                {submitButtonText}
+                            </Button>
+
+
+
+                        </Box>
+                    }
+                </Box>
+            </Modal>
+        </>
+    )
+}
+
+export default DynamicModal

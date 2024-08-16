@@ -1,11 +1,11 @@
-import { downArrow } from '@/assets';
+import { arrowDownInput } from '@/assets';
 import { Box, FormControl, FormHelperText, InputAdornment, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
 
 const CustomDropdownIcon = () => (
-    <Image src={downArrow} width={24} height={24} alt="Dropdown Icon" style={{ marginRight: "10px", cursor: "pointer" }} />
+    <Image src={arrowDownInput} width={24} height={24} alt="Dropdown Icon" style={{ marginRight: "10px", cursor: "pointer" }} />
 );
 
 const Dropdown = ({ label, value, onChange, options, startAdornment, error, helperText, ...props }) => {
