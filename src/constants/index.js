@@ -627,3 +627,89 @@ export const fontFamilyOptions = [
   { value: "Courier New", label: "Courier New" },
   { value: "Lucida Console", label: "Lucida Console" },
 ];
+
+export const fontSizeOptions = [
+  { value: "", label: "Font Size" },
+  ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
+    value: i.toString(),
+    label: i.toString(),
+  })),
+];
+
+export const specificOpeningsOptions = [
+  { value: "", label: "Specific Opennings" },
+  ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
+    value: i.toString(),
+    label: i.toString(),
+  })),
+];
+
+export const specificProductsOptions = [
+  { value: "", label: "Specific Products" },
+  ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
+    value: i.toString(),
+    label: i.toString(),
+  })),
+];
+
+
+export const documentTypeOptions = [
+  { value: "specsHardwareSets", label: "Specifications and Hardware Sets (Word, PDF)" },
+  { value: "californiaDsaSpec", label: "California DSA Specification (Word, PDF)" },
+  { value: "canadianHardwareSchedule", label: "Canadian Hardware Schedule (Word, PDF)" },
+  { value: "catalogCuts", label: "Catalog Cuts (PDF)" },
+  { value: "doorByDoorSchedule", label: "Door by Door Schedule (Word)" },
+  { value: "doorHardwareInstallEstimate", label: "Door Hardware Installation Estimate (Excel)" },
+  { value: "doorScheduleExcel", label: "Door Schedule (Excel)" },
+  { value: "doorScheduleWordPdf", label: "Door Schedule (Word, PDF)" },
+  { value: "doorHardwareSetIndex", label: "Door/Hardware Set Index (Word, PDF)" },
+  { value: "doorHardwareSetIndexRevRecap", label: "Door/Hardware Set Index Revision Recap (Word, PDF)" },
+  { value: "electronicDataSummary", label: "Electronic Data Summary (Excel)" },
+  { value: "hardwareScheduleWithPricingExcel", label: "Hardware Schedule with Pricing (Excel)" },
+  { value: "hardwareScheduleWithPricingWordPdf", label: "Hardware Schedule with Pricing (Word, PDF)" },
+  { value: "hardwareSetsRevRecap", label: "Hardware Sets Revision Recap (Word, PDF)" },
+  { value: "horizontalSchedule", label: "Horizontal Schedule (Excel)" },
+  { value: "installationSession", label: "Installation Session (Word)" },
+  { value: "notes", label: "Notes (Excel)" },
+  { value: "preConstructionQuantity", label: "Pre-construction Quantity (Excel)" },
+  { value: "pricingRecapByProduct", label: "Pricing Recap by Product (Excel)" },
+  { value: "productSummary", label: "Product Summary (Word)" },
+  { value: "promasterExportDoorHardwareList", label: "Promaster Export - Door Hardware List (Excel)" },
+  { value: "promasterExportDoorList", label: "Promaster Export - Door List (Excel)" },
+  { value: "promasterExportQuoteProductsList", label: "Promaster Export - Quote Products List (Excel)" },
+  { value: "punchList", label: "Punch List (Word)" },
+  { value: "quantitySummary", label: "Quantity Summary (Excel)" },
+  { value: "siteSurvey", label: "Site Survey (Word)" }
+];
+
+
+export const reportHardwareSets = [
+  { name: 'showQuantity', label: 'Show Quantity' },
+  { name: 'hardwareLabel', label: 'HardwareSet Number Label' },
+  { name: 'showUoM', label: 'show UoM' },
+  { name: 'showDescription', label: 'Show Description' },
+  { name: 'showCatalogNumber', label: 'Show Catalog Number' },
+  { name: 'userDescription', label: 'User Description' },
+  { name: 'showCoordinateId', label: 'Show CoordinateId' },
+  { name: 'ShowFinish', label: 'Show Finish' },
+  { name: 'showManufacturer', label: 'Show Manufacturer' },
+  { name: 'comments', label: 'Comments' },
+  { name: 'includeCutSheetLink', label: 'Include Cut Sheet Link' },
+  { name: 'includeOperation', label: 'Include Operation' },
+  { name: 'endSchedule', label: 'End of Schedule' },
+  { name: 'remarks', label: 'Remarks' },
+  { name: 'userCatalogNumber', label: 'User Catalog Number' },
+  { name: 'includeManufacturers', label: 'Include Table of Manufacturers' },
+]
+
+export const reportHeaderFooterSets = [
+  { name: 'pageHeader', label: 'Page header' },
+  { name: 'pageFooter', label: 'Page footer' },
+  { name: 'tableHeader', label: 'Table header' },
+]
+
+export const reportSpecificationsSets = [
+  { name: 'pageHeader', label: 'Page header' },
+  { name: 'pageFooter', label: 'Page footer' },
+  { name: 'tableHeader', label: 'Table header' },
+]
