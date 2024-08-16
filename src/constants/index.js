@@ -625,3 +625,25 @@ export const TrackChangesTabs = [
     TabContent: "view changes by hardware"
   },
 ]
+
+
+export const ByHardwareTable1Content = [
+  {
+    status: "Modified",
+    quantity: "1",
+    uom: "EA",
+    description: "-",
+    catalog: "-",
+    finish: "630",
+    mfr: "LOC"
+  },
+  {
+    status: "Modified",
+    quantity: "1",
+    uom: "EA",
+    description: "-",
+    catalog: "-",
+    finish: "630",
+    mfr: "LOC"
+  },
+]
