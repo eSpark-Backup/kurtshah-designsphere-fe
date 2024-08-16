@@ -106,7 +106,7 @@ const CreateReport = () => {
 
 
                 {
-                    formProceeds === 2 ?
+                    formProceeds === 1 ?
                         <>
                             <Header />
                             <CreateReportInitialForm handleForm={handleInitialSubmit} />
