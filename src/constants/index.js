@@ -523,3 +523,105 @@ export const notes = [
     createdAt: "6:40 PM",
   },
 ];
+
+
+export const ByOpeningsTableData = [
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+]
+
+
+export const trackChangesDropDownOptions = [
+  { value: "", label: "Earliest Version" },
+  { value: "ver1", label: "version 1" },
+  { value: "ver2", label: "version 2" },
+  { value: "ver3", label: "version 3" },
+]
+export const trackChangesDropDownOptions2 = [
+  { value: "", label: "Latest Version" },
+  { value: "ver1", label: "version 1" },
+  { value: "ver2", label: "version 2" },
+  { value: "ver3", label: "version 3" },
+]
+
+
+export const TrackChangesTabs = [
+  {
+    // id: 1,
+    TabContent: "View Changes by openings"
+  },
+  {
+    // id: 2,
+    TabContent: "view changes by hardware"
+  },
+]
