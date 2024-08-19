@@ -1150,3 +1150,31 @@ export const canvasNav = (handleExpandCanvas) => [
     onClick: null,
   },
 ];
+
+export const collaboratorsData = [
+  {
+    id: 1,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 4,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 5,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+]
