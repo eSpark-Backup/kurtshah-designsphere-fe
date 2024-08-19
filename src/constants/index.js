@@ -7,6 +7,17 @@ import {
   track,
   share,
   punch,
+  back,
+  grid,
+  copy,
+  reload,
+  verticleDots,
+  expand,
+  maximize,
+  square3,
+  zoomIn,
+  zoomOut,
+  add,
 } from "@/assets";
 
 export const jobFunctionOptions = [
@@ -404,6 +415,44 @@ export const files = [
     date: "27 Jan 2024",
   },
 ];
+
+export const plansData = [
+  {
+    id: 1,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 2,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 3,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 4,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 5,
+    name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA",
+    date: "27 Jan 2024",
+  },
+];
+
 export const collaborators = [
   {
     id: 1,
@@ -912,3 +961,192 @@ export const hardwareCheckboxes = [
     label: "Remarks"
   },
 ]
+export const planDetails = [
+  {
+    id: 1,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 2,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 3,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 4,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 5,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 6,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 7,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 8,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 9,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 10,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+];
+
+export const plansDetailsTableTabs = ["Openings", "Hardware Set", "Notes", "Products"];
+
+export const tableNav = (handleExpandTable, searchValue, handleSearch) => [
+  {
+    icon: back,
+    onClick: null,
+  },
+  {
+    icon: grid,
+    onClick: null,
+  },
+  {
+    icon: copy,
+    onClick: null,
+  },
+  {
+    input: true,
+    value: searchValue,
+    handleSearch,
+  },
+  {
+    icon: reload,
+    onClick: null,
+  },
+  {
+    icon: verticleDots,
+    onClick: null,
+  },
+  {
+    icon: expand,
+    onClick: handleExpandTable,
+  },
+];
+
+export const canvasNav = (handleExpandCanvas) => [
+  {
+    icon: maximize,
+    onClick: handleExpandCanvas,
+  },
+  {
+    icon: square3,
+    onClick: null,
+  },
+  {
+    icon: zoomIn,
+    onClick: null,
+  },
+  {
+    icon: zoomOut,
+    onClick: null,
+  },
+  {
+    icon: add,
+    onClick: null,
+  },
+];
