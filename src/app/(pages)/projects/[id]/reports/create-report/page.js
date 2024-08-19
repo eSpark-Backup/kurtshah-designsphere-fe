@@ -2,7 +2,7 @@
 
 import { DirectoryController, ProgressBar } from "@/components/common";
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { filter } from "@/assets";
 import Image from "next/image";
@@ -19,6 +19,9 @@ const CreateReport = () => {
     });
 
     const pathname = usePathname();
+    const router = useRouter();
+
+    const ProductId = pathname.split("/")[2];
 
 
 
@@ -29,12 +32,13 @@ const CreateReport = () => {
 
     const handleFinalSubmit = (values) => {
         console.log(values)
+        router.push(`/projects/${ProductId}/reports/view-report`)
     }
 
 
     useEffect(() => {
-        const id = pathname.split("/")[2];
-        const { projectName } = projects.find((item) => item.id == id);
+        
+        const { projectName } = projects.find((item) => item.id == ProductId);
         setDirectory({ name: projectName, link: ["Project", "/", projectName, , "/", "Reports"] });
     }, [pathname]);
 
