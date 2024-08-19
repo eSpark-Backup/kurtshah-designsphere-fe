@@ -44,6 +44,10 @@ import card from "../assets/icons/card.svg";
 import gallery from "../assets/icons/gallery-add.svg";
 import accordianArrow from "../assets/icons/accordianArrow.svg";
 import checkSetting from "../assets/icons/check-setting.svg";
+import pencil from "../assets/icons/pencil.svg";
+import demoReport from "../assets/images/demo-report.svg";
+import zoomIn from "../assets/icons/zoom-in.svg";
+import zoomOut from "../assets/icons/zoom-out.svg";
 
 export {
   authImage,
@@ -91,5 +95,9 @@ export {
   arrowDown,
   arrowDownInput,
   accordianArrow,
-  checkSetting
+  checkSetting,
+  pencil,
+  demoReport,
+  zoomIn, 
+  zoomOut
 };
