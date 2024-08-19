@@ -15,7 +15,6 @@ const Support = () => {
         description: "",
         image: null
     }
-    const [image, setImage] = useState(null)
     const HandleSubmit = (values) => {
         console.log(values)
     }
@@ -136,7 +135,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        customLabel="Please provide a brief description of your Overtur  problem *"
+                                        customLabel="Screenshot upload - this greatly helps us in troubleshooting"
                                         variant="outlined"
                                         multiline
                                         rows={3}

@@ -24,11 +24,11 @@ input[type=number] {
   scrollbar-width: none;
 }
 
-textarea {
+/* textarea {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
 textarea::-webkit-scrollbar {
   display: none;
-}
+} */

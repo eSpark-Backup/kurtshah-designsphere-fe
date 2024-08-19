@@ -307,6 +307,15 @@ const theme = createTheme({
             borderColor: theme.palette.borderPrimary,
           },
         }),
+        root: {
+          '& textarea': {
+            scrollbarWidth: 'none',
+            '-ms-overflow-style': 'none',
+          },
+          '& textarea::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
         notchedOutline: ({ theme }) => ({
           borderColor: theme.palette.borderPrimary,
           borderRadius: "16px",
