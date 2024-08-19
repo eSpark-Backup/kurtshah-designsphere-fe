@@ -34,6 +34,8 @@ import profileTick from "./icons/profile-tick.svg";
 import profile from "./icons/profile.svg";
 import arrowDown from "./icons/arrow-down.svg";
 import arrowDownInput from "./icons/arrow-down-input.svg";
+import light from "../assets/icons/light.svg";
+import downArrow2 from "../assets/icons/down-arrow2.svg";
 import user from "./icons/user.svg";
 import checkVerified from "./icons/check-verified.svg";
 import lock2 from "./icons/lock2.svg";
@@ -100,6 +102,9 @@ export {
   profileTick,
   profile,
   arrowDown,
+  arrowDownInput,
+  light,
+  downArrow2,
   back,
   grid,
   copy,
