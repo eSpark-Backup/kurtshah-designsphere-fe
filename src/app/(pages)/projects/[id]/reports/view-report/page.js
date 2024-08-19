@@ -18,6 +18,22 @@ const ViewReport = () => {
     const pathname = usePathname();
     const onlessThanSm = useMediaQuery(theme.breakpoints.down("sm"));
 
+    const IconButton = ({ icon }) => {
+        return (
+            <Button
+                sx={{
+                    borderRadius: "10px !important",
+                    minWidth: "32px",
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                }}
+                variant="primary"
+            >
+                <Image src={icon} alt />
+            </Button>
+        )
+    }
 
     useEffect(() => {
         const ProductId = pathname.split("/")[2];
@@ -133,8 +149,10 @@ const ViewReport = () => {
                         justifyContent: 'flex-end',
                         gap: '10px',
                     }}>
-                        <Image src={zoomIn} alt width={32} height={32} />
-                        <Image src={zoomOut} alt width={32} height={32} />
+
+                        <IconButton icon={zoomIn} />
+                        <IconButton icon={zoomOut} />
+
                     </Box>
                     <Box sx={{
                         display: 'flex',
