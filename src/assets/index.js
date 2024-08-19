@@ -42,6 +42,8 @@ import email from "../assets/icons/email.svg";
 import people from "../assets/icons/people.svg";
 import card from "../assets/icons/card.svg";
 import gallery from "../assets/icons/gallery-add.svg";
+import accordianArrow from "../assets/icons/accordianArrow.svg";
+import checkSetting from "../assets/icons/check-setting.svg";
 
 export {
   authImage,
@@ -88,4 +90,6 @@ export {
   profile,
   arrowDown,
   arrowDownInput,
+  accordianArrow,
+  checkSetting
 };

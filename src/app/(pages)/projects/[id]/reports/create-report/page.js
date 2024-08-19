@@ -8,10 +8,11 @@ import { filter } from "@/assets";
 import Image from "next/image";
 import CreateReportInitialForm from "./CreateReportInitialForm";
 import { projects } from "@/constants";
+import CreateReportFinalForm from "./CreateReportFinalForm";
 
 
 const CreateReport = () => {
-
+    const [formProceeds, setFormProceeds] = useState(1);
     const [directory, setDirectory] = useState({
         name: "",
         link: [],
@@ -22,6 +23,11 @@ const CreateReport = () => {
 
 
     const handleInitialSubmit = (values) => {
+        console.log(values)
+        setFormProceeds(2);
+    }
+
+    const handleFinalSubmit = (values) => {
         console.log(values)
     }
 
@@ -97,8 +103,18 @@ const CreateReport = () => {
             </Stack>
 
             <Box>
-                <Header />
-                <CreateReportInitialForm handleForm={handleInitialSubmit} />
+
+
+                {
+                    formProceeds === 1 ?
+                        <>
+                            <Header />
+                            <CreateReportInitialForm handleForm={handleInitialSubmit} />
+                        </>
+
+                        : <CreateReportFinalForm handleForm={handleFinalSubmit} setFormProceeds={setFormProceeds} />
+                }
+
             </Box>
         </Box>
 
