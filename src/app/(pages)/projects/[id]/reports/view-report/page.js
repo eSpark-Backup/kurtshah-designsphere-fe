@@ -8,8 +8,10 @@ import { Box, Button, Stack, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import EditReportModal from "./EditReportModal";
 
 const ViewReport = () => {
+    const [editReportModal, setEditReportModal] = useState(false);
     const [directory, setDirectory] = useState({
         name: "",
         link: [],
@@ -17,6 +19,19 @@ const ViewReport = () => {
 
     const pathname = usePathname();
     const onlessThanSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+
+    const handleEditReportFile = () => {
+        setEditReportModal(false);
+    }
+
+    useEffect(() => {
+        const ProductId = pathname.split("/")[2];
+        const { projectName } = projects.find((item) => item.id == ProductId);
+        setDirectory({ name: projectName, link: ["Project", "/", projectName] });
+    }, [pathname]);
+
+
 
     const IconButton = ({ icon }) => {
         return (
@@ -34,12 +49,6 @@ const ViewReport = () => {
             </Button>
         )
     }
-
-    useEffect(() => {
-        const ProductId = pathname.split("/")[2];
-        const { projectName } = projects.find((item) => item.id == ProductId);
-        setDirectory({ name: projectName, link: ["Project", "/", projectName] });
-    }, [pathname]);
 
 
     const Header = () => {
@@ -70,9 +79,14 @@ const ViewReport = () => {
                     gap: "20px",
                 }}>
 
-                    <Box sx={{
+                    <Box 
+                    sx={{
                         cursor: "pointer",
-                    }}>
+                        
+                    }}
+                    onClick={() => setEditReportModal(true)}
+                    
+                    >
                         <Image src={pencil} alt width={42} height={42}
                         />
                     </Box>
@@ -163,6 +177,14 @@ const ViewReport = () => {
                     </Box>
                 </Box>
             </Box>
+
+
+            <EditReportModal
+                open={editReportModal}
+                handleClose={() => setEditReportModal(false)}
+                onConfirm={handleEditReportFile}
+                showfooter
+            />
         </Box>
     )
 }

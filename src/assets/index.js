@@ -48,6 +48,8 @@ import pencil from "../assets/icons/pencil.svg";
 import demoReport from "../assets/images/demo-report.svg";
 import zoomIn from "../assets/icons/zoom-in.svg";
 import zoomOut from "../assets/icons/zoom-out.svg";
+import forwards from "../assets/icons/forwards.svg";
+import backwards from "../assets/icons/backwards.svg";
 
 export {
   authImage,
@@ -99,5 +101,7 @@ export {
   pencil,
   demoReport,
   zoomIn, 
-  zoomOut
+  zoomOut,
+  forwards,
+  backwards
 };

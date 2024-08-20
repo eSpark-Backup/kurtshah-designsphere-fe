@@ -2,7 +2,7 @@ import theme from '@/app/theme'
 import { Box, Button, Modal, Typography } from '@mui/material'
 import React from 'react'
 
-const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter }) => {
+const DynamicModal = ({ open, handleClose, heading, children, customHeader, cancelButtonText, submitButtonText, onConfirm, showfooter }) => {
 
     const basicModelStructureStyle = {
         maxHeight: "90vh",
@@ -40,29 +40,34 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
             >
                 <Box sx={basicModelStructureStyle}>
-                    {/* HEADER  */}
-                    <Box sx={{
-                        textAlign: 'center',
-                        borderBottom: "1px solid",
-                        borderColor: theme.palette.whiteE4,
-                        padding: "15px 0px",
-                    }}>
 
-                        <Typography
-                            sx={{
-                                background: theme.palette.textPrimaryGradient,
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                fontWeight: "bold",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                                lineHeight: "21px",
+                    {
+                        !customHeader ?
+                            <Box sx={{
+                                textAlign: 'center',
+                                borderBottom: "1px solid",
+                                borderColor: theme.palette.whiteE4,
+                                padding: "15px 0px",
+                            }}>
+                                <Typography
+                                    sx={{
+                                        background: theme.palette.textPrimaryGradient,
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        fontWeight: "bold",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                        lineHeight: "21px",
 
-                            }}
-                        >
-                            {heading}
-                        </Typography>
-                    </Box>
+                                    }}
+                                >
+                                    {heading}
+                                </Typography>
+                            </Box>
+                            : 
+                            customHeader
+                    }
+
 
 
                     {/* CHILDREN  */}
