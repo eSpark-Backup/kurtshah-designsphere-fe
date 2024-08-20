@@ -50,6 +50,12 @@ import zoomIn from "../assets/icons/zoom-in.svg";
 import zoomOut from "../assets/icons/zoom-out.svg";
 import forwards from "../assets/icons/forwards.svg";
 import backwards from "../assets/icons/backwards.svg";
+import downArrow from "../assets/icons/down-arrow.svg";
+import underline from "../assets/icons/underline.svg";
+import strike from "../assets/icons/strike.svg";
+import italic from "../assets/icons/italic.svg";
+import bold from "../assets/icons/bold.svg";
+import captalism from "../assets/icons/captalism.svg";
 
 export {
   authImage,
@@ -103,5 +109,11 @@ export {
   zoomIn, 
   zoomOut,
   forwards,
-  backwards
+  backwards,
+  downArrow,
+  underline,
+  strike,
+  italic,
+  bold,
+  captalism,
 };

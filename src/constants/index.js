@@ -713,3 +713,32 @@ export const reportSpecificationsSets = [
   { name: 'pageFooter', label: 'Page footer' },
   { name: 'tableHeader', label: 'Table header' },
 ]
+
+
+export const fontFamiliesRichEditor = [
+  {
+      value: 'Arial',
+      label: 'Arial',
+  },
+  {
+
+      value: 'Courier New',
+      label: 'Courier New',
+  },
+  {
+
+      value: 'Georgia',
+      label: 'Georgia',
+
+  },
+  {
+
+      value: 'Times New Roman',
+      label: 'Times New Roman',
+  },
+  {
+
+      value: 'Verdana',
+      label: 'Verdana',
+  }
+];
