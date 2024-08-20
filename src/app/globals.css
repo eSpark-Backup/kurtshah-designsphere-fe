@@ -23,3 +23,13 @@ input[type=number] {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.profile-box {
+  height: 100px;
+}
+
+@media screen and (max-width:599px) {
+  .profile-box {
+    height: auto;
+  }
+}

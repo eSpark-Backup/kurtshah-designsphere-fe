@@ -60,6 +60,7 @@ import map from "./images/map.png";
 import upload from "./icons/upload.svg";
 import messageAdd from "./icons/message-add.svg";
 import edit from "./icons/edit.svg";
+import location from "./icons/location.svg";
 
 export {
   authImage,
@@ -124,4 +125,5 @@ export {
   upload,
   messageAdd,
   edit,
+  location
 };

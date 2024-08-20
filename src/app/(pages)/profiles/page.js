@@ -35,10 +35,6 @@ const Profile = () => {
         <Grid sx={{ minHeight: "100%" }} item xs={12} md={9}>
           <Box
             sx={{
-              padding: "20px",
-              border: "1px solid #E4E4E4",
-              boxShadow: "0px 0px 10px 0px #00000040",
-              borderRadius: "10px",
               height: "100%",
             }}
           >

@@ -29,3 +29,13 @@ export const supportScehma = Yup.object({
     question: Yup.string().required("Question name is required"),
     description: Yup.string().required("Description name is required")
 })
+
+
+export const profileGeneralSchema = Yup.object({
+    fName: Yup.string().required("First name is required"),
+    lName: Yup.string().required("Last name is required"),
+    email: Yup.string().email("Invalid email address").required("Email is required"),
+    phone: Yup.number().required("Phone number is required"),
+    country: Yup.string().required("Please select an option"),
+    postal: Yup.string().required("Postal code is required")
+})
