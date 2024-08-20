@@ -58,6 +58,8 @@ import zoomIn from "./icons/zoom-in.svg";
 import zoomOut from "./icons/zoom-out.svg";
 import map from "./images/map.png";
 import upload from "./icons/upload.svg";
+import messageAdd from "./icons/message-add.svg";
+import edit from "./icons/edit.svg";
 
 export {
   authImage,
@@ -119,5 +121,7 @@ export {
   zoomIn,
   zoomOut,
   map,
-  upload
+  upload,
+  messageAdd,
+  edit,
 };

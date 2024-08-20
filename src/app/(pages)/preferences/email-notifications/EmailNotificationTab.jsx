@@ -1,0 +1,56 @@
+"use client";
+
+import { useState } from "react";
+import { Box, Stack } from "@mui/material";
+import { DynamicTable, Searchbar } from "@/components/common";
+import { columns } from "@/columns/emailNotification";
+import EmailNotificationModal from "./emailNotificationModal";
+
+const EmailNotificationTab = () => {
+  const emailNotificationData = [
+    {
+      id: 1,
+      eDesc:
+        "Collaborator removed - This email is sent when a you are removed from a project",
+      email: "",
+      scheduleNotification: "Immediate",
+    },
+  ];
+  const [openModal, setOpenModal] = useState(false);
+  const [form, setForm] = useState({
+    deliveryFrequency: "",
+  });
+  const handleSuccess = () => {
+    //success logic
+    console.log(form, "<=form");
+  };
+  return (
+    <>
+      <Stack
+        mb={2}
+        direction="row"
+        alignItems="center"
+        justifyContent="flex-end"
+      >
+        <Box sx={{ width: { xs: "100%", md: "239px" } }}>
+          <Searchbar placeholder="Search" />
+        </Box>
+      </Stack>
+      <DynamicTable
+        data={emailNotificationData}
+        columns={columns(() => setOpenModal(true))}
+        isLoading={false}
+        total={0}
+      />
+      <EmailNotificationModal
+        form={form}
+        setForm={setForm}
+        open={openModal}
+        handleClose={() => setOpenModal(false)}
+        onConfirm={handleSuccess}
+      />
+    </>
+  );
+};
+
+export default EmailNotificationTab;
