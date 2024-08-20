@@ -340,6 +340,11 @@ const theme = createTheme({
           fontWeight: "600",
           color: theme.palette.primary.dark,
         }),
+        h5: ({ theme }) => ({
+          fontSize: "12px",
+          fontWeight: "600",
+          color: theme.palette.tertiary,
+        }),
       },
     },
   },

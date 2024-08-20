@@ -10,6 +10,7 @@ import FileInput from "./FileInput/page";
 import Tabs from "./tabs/Tabs.jsx";
 import ByHardware from "./by-hardware/page";
 import PageTitle from "./page-title/page";
+import SidebarTab from "./side-tabs";
 
 export {
   AuthContainer,
@@ -23,5 +24,6 @@ export {
   FileInput,
   Tabs,
   ByHardware,
-  PageTitle
+  PageTitle,
+  SidebarTab,
 };
