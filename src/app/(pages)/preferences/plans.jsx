@@ -14,7 +14,7 @@ const Plans = () => {
         sx={{ mt: 2 }}
         control={
           <Checkbox
-            sx={{ color: "#E4E4E4" }}
+            sx={{ color: (theme) => theme.palette.whiteE4 }}
           />
         }
         label="Do not show the selected project's plan by default"
