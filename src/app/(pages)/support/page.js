@@ -3,10 +3,9 @@ import { upload } from "@/assets";
 import { CustomInput } from "@/components/common";
 import { supportScehma } from "@/validation";
 import { LoadingButton } from "@mui/lab";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Form, Formik } from "formik";
 import Image from "next/image";
-import { useState } from "react";
 
 const Support = () => {
     const initialState = {
