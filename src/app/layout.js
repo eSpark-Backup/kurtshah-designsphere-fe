@@ -38,7 +38,9 @@ export default function RootLayout({ children }) {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <StoreProvider>
-              <Layout children={children} />
+              <Layout> 
+                {children} 
+              </Layout>
             </StoreProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>

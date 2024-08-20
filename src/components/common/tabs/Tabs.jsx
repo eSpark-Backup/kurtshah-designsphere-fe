@@ -8,6 +8,7 @@ const Tabs = ({ tabs, activeTab, TabHandler }) => {
         <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, rowGap: "10px" }}>
             {tabs?.map((item, index) => (
                 <Box
+                    key={index}
                     onClick={() => TabHandler(index)}
                     sx={{
                         height: "28px",

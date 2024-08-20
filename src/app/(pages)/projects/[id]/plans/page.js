@@ -107,7 +107,7 @@ const Plans = () => {
     );
   };
 
-  const deleteFileModalUI = (
+  const deleteFileModalUI = 
     <Box>
       <Typography
         sx={{
@@ -121,7 +121,7 @@ const Plans = () => {
         Are you sure you want to delete this file?
       </Typography>
     </Box>
-  );
+  
 
   return (
     <Box>
@@ -153,13 +153,14 @@ const Plans = () => {
       <DynamicModal
         open={deleteFileModal}
         handleClose={() => setDeleteFileModal(false)}
-        children={deleteFileModalUI}
         heading="Delete File"
         cancelButtonText="Cancel"
         submitButtonText="Delete"
         onConfirm={handleDeleteFile}
         showfooter
-      />
+      >
+      {deleteFileModalUI}
+      </DynamicModal>
     </Box>
   );
 };
