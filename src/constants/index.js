@@ -1150,3 +1150,13 @@ export const canvasNav = (handleExpandCanvas) => [
     onClick: null,
   },
 ];
+
+
+export const legalPageContent = [
+  {
+    heading: "Terms Of Use",
+
+  }, {
+    heading: "Privacy Policy"
+  }
+]
