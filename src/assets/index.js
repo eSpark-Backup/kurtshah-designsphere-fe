@@ -57,6 +57,7 @@ import square3 from "./icons/3square.svg";
 import zoomIn from "./icons/zoom-in.svg";
 import zoomOut from "./icons/zoom-out.svg";
 import map from "./images/map.png";
+import upload from "./icons/upload.svg";
 import messageAdd from "./icons/message-add.svg";
 
 export {
@@ -119,5 +120,6 @@ export {
   zoomIn,
   zoomOut,
   map,
+  upload,
   messageAdd,
 };

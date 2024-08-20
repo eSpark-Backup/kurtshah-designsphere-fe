@@ -234,9 +234,9 @@ const theme = createTheme({
           "& .MuiCircularProgress-root": {
             color: "#fff",
             width: "24px !important",
-          height: "24px !important",
-          position: "relative",
-          marginRight: "100px",
+            height: "24px !important",
+            position: "relative",
+            marginRight: "100px",
           },
         },
       },
@@ -249,32 +249,28 @@ const theme = createTheme({
           fontSize: "12px",
           fontWeight: "600",
           textTransform: "uppercase",
+          "&.Mui-disabled": {
+            color: theme.palette.primary.main,
+          },
         }),
       },
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        input: ({ theme }) => ({
-          "&::placeholder": {
-            color: theme.palette.buttonSecondary,
-            fontWeight: "500",
-            fontSize: "14px",
-            opacity: 1,
-            height: "200px",
-          },
-        }),
-
         root: ({ theme }) => ({
           fontSize: "14px",
           fontWeight: 500,
           color: "#ffffff",
           lineHeight: "160%",
-          height: "44px",
+          height: "auto",
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.borderPrimary,
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.borderPrimary,
+          },
+          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.borderPrimary, // Keeps the border color consistent when disabled
           },
         }),
         notchedOutline: ({ theme }) => ({
@@ -283,6 +279,9 @@ const theme = createTheme({
         }),
       },
     },
+
+
+
     MuiInputBase: {
       styleOverrides: {
         input: ({ theme }) => ({
@@ -308,6 +307,15 @@ const theme = createTheme({
             borderColor: theme.palette.borderPrimary,
           },
         }),
+        root: {
+          '& textarea': {
+            scrollbarWidth: 'none',
+            '-ms-overflow-style': 'none',
+          },
+          '& textarea::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
         notchedOutline: ({ theme }) => ({
           borderColor: theme.palette.borderPrimary,
           borderRadius: "16px",

@@ -1151,6 +1151,16 @@ export const canvasNav = (handleExpandCanvas) => [
   },
 ];
 
+
+export const legalPageContent = [
+  {
+    heading: "Terms Of Use",
+
+  }, {
+    heading: "Privacy Policy"
+  }
+]
+
 export const collaboratorsData = [
   {
     id: 1,
