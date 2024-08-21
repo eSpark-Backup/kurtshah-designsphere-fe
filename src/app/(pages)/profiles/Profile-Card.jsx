@@ -1,9 +1,10 @@
 import { location } from '@/assets'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 
 const ProfileCard = () => {
+    const isLessthanSm = useMediaQuery('(max-width:599px)');
     return (
         <Box
             sx={{
@@ -16,9 +17,9 @@ const ProfileCard = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 flexDirection: { xs: "column", sm: "row" },
-                rowGap: "20px"
+                rowGap: "20px",
+                height: isLessthanSm ? "auto" : "100px"
             }}
-            className="profile-box"
         >
             <Box
                 sx={{

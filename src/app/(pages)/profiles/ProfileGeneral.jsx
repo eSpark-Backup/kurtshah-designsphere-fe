@@ -159,7 +159,7 @@ const ProfileGeneral = () => {
                                     />
                                     <Dropdown
                                         options={COUNTRIES_OPTIONS}
-                                        name="jobFunction"
+                                        name="country"
                                         sx={{
                                             position: "absolute",
                                             top: -54,
