@@ -12,9 +12,9 @@ const ProfileCompany = () => {
     jobFunction: ""
   }
 
-  const HandleSubmit = (values) => {
-    console.log(values)
-  }
+  // const HandleSubmit = (values) => {
+  //   console.log(values)
+  // }
 
   return (
     <>
