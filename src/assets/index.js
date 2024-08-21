@@ -74,6 +74,14 @@ import map from "./images/map.png";
 import upload from "./icons/upload.svg";
 import messageAdd from "./icons/message-add.svg";
 import edit from "./icons/edit.svg";
+import forwards from "../assets/icons/forwards.svg";
+import backwards from "../assets/icons/backwards.svg";
+import downArrow from "../assets/icons/down-arrow.svg";
+import underline from "../assets/icons/underline.svg";
+import strike from "../assets/icons/strike.svg";
+import italic from "../assets/icons/italic.svg";
+import bold from "../assets/icons/bold.svg";
+import captalism from "../assets/icons/captalism.svg";
 
 export {
   authImage,
@@ -144,4 +152,12 @@ export {
   upload,
   messageAdd,
   edit,
+  forwards,
+  backwards,
+  downArrow,
+  underline,
+  strike,
+  italic,
+  bold,
+  captalism,
 };

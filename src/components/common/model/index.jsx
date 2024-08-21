@@ -4,7 +4,7 @@ import { Box, Button, IconButton, Modal, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react'
 
-const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields }) => {
+const DynamicModal = ({ open, handleClose, heading, children, customHeader, cancelButtonText, submitButtonText, onConfirm, showfooter, fields }) => {
 
     const basicModelStructureStyle = {
         maxHeight: "90vh",
@@ -42,13 +42,6 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
             >
                 <Box sx={basicModelStructureStyle}>
-                    {/* HEADER  */}
-                    <Box sx={{
-                        textAlign: 'center',
-                        borderBottom: "1px solid",
-                        borderColor: theme.palette.whiteE4,
-                        padding: "15px 0px",
-                    }}>
 
                         <Typography
                             sx={{
@@ -81,6 +74,33 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                             alt='Close Icon'
                         />
                     </IconButton>}
+                    {
+                        !customHeader ?
+                            <Box sx={{
+                                textAlign: 'center',
+                                borderBottom: "1px solid",
+                                borderColor: theme.palette.whiteE4,
+                                padding: "15px 0px",
+                            }}>
+                                <Typography
+                                    sx={{
+                                        background: theme.palette.textPrimaryGradient,
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        fontWeight: "bold",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                        lineHeight: "21px",
+
+                                    }}
+                                >
+                                    {heading}
+                                </Typography>
+                            </Box>
+                            : 
+                            customHeader
+                    }
+
 
 
                     {/* CHILDREN  */}
