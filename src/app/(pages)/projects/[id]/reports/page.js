@@ -111,11 +111,11 @@ const Reports = () => {
           </Box>
 
           <Button
-          onClick={() => router.push(`/projects/${projectId}/reports/create-report`)}
-          sx={{
-            height: "44px",
-            width: "147px",
-          }} variant="primary">Create Reports</Button>
+            onClick={() => router.push(`/projects/${projectId}/reports/create-report`)}
+            sx={{
+              height: "44px",
+              width: "147px",
+            }} variant="primary">Create Reports</Button>
         </Box>
 
       </Stack>
@@ -163,13 +163,15 @@ const Reports = () => {
       <DynamicModal
         open={isTemplate ? deleteTemplateModal : deleteProjectReportModal}
         handleClose={() => isTemplate ? setDeleteTemplateModal(false) : setDeleteProjectReportModal(false)}
-        children={deleteFileModalUI}
+
         heading="Delete File"
         cancelButtonText="Cancel"
         submitButtonText="Delete"
         onConfirm={handleDeleteFile}
         showfooter
-      />
+      >
+        {deleteFileModalUI}
+      </DynamicModal>
 
     </Box>
   )
