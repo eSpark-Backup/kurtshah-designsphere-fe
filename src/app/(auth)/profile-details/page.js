@@ -128,6 +128,7 @@ const ProfileDetails = () => {
                                                 error={touched.postalCode && errors.postalCode}
                                                 helperText={touched.postalCode && errors.postalCode}
                                                 startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
+                                                hideArrows={true}
                                             />
                                         </Box>
                                     </Box>

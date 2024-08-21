@@ -81,7 +81,7 @@ const PunchDoor = () => {
     )
   }
 
-  const deletePunchModalUI = (
+  const deletePunchModalUI = 
     <Box>
       <Typography
         sx={{
@@ -95,7 +95,7 @@ const PunchDoor = () => {
         Are you sure you want to delete this Punch File?
       </Typography>
     </Box>
-  );
+  
 
   return (
     <Box>
@@ -130,13 +130,14 @@ const PunchDoor = () => {
       <DynamicModal
         open={deletePunchModal}
         handleClose={() => setDeletePunchModal(false)}
-        children={deletePunchModalUI}
         heading="Delete File"
         cancelButtonText="Cancel"
         submitButtonText="Delete"
         onConfirm={handleDeletePunch}
         showfooter
-      />
+      >
+        {deletePunchModalUI}
+      </DynamicModal>
 
     </Box>
   );

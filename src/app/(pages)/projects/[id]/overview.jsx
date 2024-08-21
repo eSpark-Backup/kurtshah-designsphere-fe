@@ -36,7 +36,7 @@ const Overview = ({ overview }) => {
       >
         {overview.map((item) => {
           return (
-            <Grid container spacing={2} marginTop={3}>
+            <Grid key={item.id} container spacing={2} marginTop={3}>
               <Grid
                 sx={{ display: "flex", alignItems: "center", gap: 1 }}
                 item

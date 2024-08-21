@@ -34,8 +34,12 @@ import profileTick from "./icons/profile-tick.svg";
 import profile from "./icons/profile.svg";
 import arrowDown from "./icons/arrow-down.svg";
 import arrowDownInput from "./icons/arrow-down-input.svg";
-import light from "../assets/icons/light.svg";
-import downArrow2 from "../assets/icons/down-arrow2.svg";
+import accordianArrow from "./icons/accordianArrow.svg";
+import checkSetting from "../assets/icons/check-setting.svg";
+import pencil from "./icons/pencil.svg";
+import demoReport from "./images/demo-report.svg";
+import light from "./icons/light.svg";
+import downArrow2 from "./icons/down-arrow2.svg";
 import user from "./icons/user.svg";
 import checkVerified from "./icons/check-verified.svg";
 import lock2 from "./icons/lock2.svg";
@@ -61,6 +65,14 @@ import upload from "./icons/upload.svg";
 import messageAdd from "./icons/message-add.svg";
 import edit from "./icons/edit.svg";
 import location from "./icons/location.svg";
+import forwards from "./icons/forwards.svg";
+import backwards from "./icons/backwards.svg";
+import downArrow from "./icons/down-arrow.svg";
+import underline from "./icons/underline.svg";
+import strike from "./icons/strike.svg";
+import italic from "./icons/italic.svg";
+import bold from "./icons/bold.svg";
+import captalism from "./icons/captalism.svg";
 
 export {
   authImage,
@@ -107,6 +119,12 @@ export {
   profile,
   arrowDown,
   arrowDownInput,
+  accordianArrow,
+  checkSetting,
+  pencil,
+  demoReport,
+  zoomIn, 
+  zoomOut,
   light,
   downArrow2,
   back,
@@ -119,11 +137,17 @@ export {
   rightArrow,
   maximize,
   square3,
-  zoomIn,
-  zoomOut,
   map,
   upload,
   messageAdd,
   edit,
-  location
+  location,
+  forwards,
+  backwards,
+  downArrow,
+  underline,
+  strike,
+  italic,
+  bold,
+  captalism,
 };
