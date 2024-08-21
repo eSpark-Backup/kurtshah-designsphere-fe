@@ -30,6 +30,7 @@ const Dropdown = ({
   startAdornment,
   error,
   helperText,
+  customIcon,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
@@ -56,11 +57,11 @@ const Dropdown = ({
           startAdornment={
             startAdornment && <InputAdornment>{startAdornment}</InputAdornment>
           }
-          IconComponent={CustomDropdownIcon}
+          IconComponent={!customIcon ? CustomDropdownIcon : customIcon}
           {...props}
         >
           {options?.map((option, index) => (
-            <MenuItem sx={{ display: index === 0 ? "none" : "block"}} key={index} value={option.value}>
+            <MenuItem sx={{ display: index === 0 ? "none" : "block" }} key={index} value={option.value}>
               {option.label}
             </MenuItem>
           ))}
