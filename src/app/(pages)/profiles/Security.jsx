@@ -37,7 +37,7 @@ const Security = () => {
         }}
       >
         This will permanently delete your account. You have 24 hours to undo this action.
-        <br/>
+        <br />
         Are you sure?
       </Typography>
     </Box>
@@ -158,13 +158,14 @@ const Security = () => {
       <DynamicModal
         open={deleteAccountModal}
         handleClose={() => setDeleteAccountModal(false)}
-        children={deleteAccountModalUI}
         heading="Delete File"
         cancelButtonText="Cancel"
         submitButtonText="Delete"
         onConfirm={handleDeleteAccount}
         showfooter
-      />
+      >
+        {deleteAccountModalUI}
+      </DynamicModal>
     </Box>
   );
 };
