@@ -8,6 +8,9 @@ import ProgressBar from "./progressbar-circular";
 import Dropdown from "./inputs/dropdown";
 import FileInput from "./FileInput/page";
 import Tabs from "./tabs/Tabs.jsx";
+import ByHardware from "./by-hardware/page";
+import PageTitle from "./page-title/page";
+import SidebarTab from "./side-tabs";
 
 export {
   AuthContainer,
@@ -19,5 +22,8 @@ export {
   ProgressBar,
   Dropdown,
   FileInput,
-  Tabs
+  Tabs,
+  ByHardware,
+  PageTitle,
+  SidebarTab,
 };

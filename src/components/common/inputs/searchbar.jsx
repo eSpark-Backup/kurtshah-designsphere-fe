@@ -5,12 +5,12 @@ import Image from "next/image";
 import { TextField } from "@mui/material";
 import { search } from "@/assets";
 
-const Searchbar = () => {
+const Searchbar = ({ placeholder, value, handleSearch }) => {
   return (
     <TextField
       variant="outlined"
       type="text"
-      placeholder="Search"
+      placeholder={placeholder}
       sx={{
         width: "100%",
         ".MuiInputBase-root": {

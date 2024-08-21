@@ -1,4 +1,4 @@
-import { arrowDownInput } from "@/assets";
+import { arrowDownInput, downArrow2 } from "@/assets";
 import {
   Box,
   FormControl,
@@ -11,11 +11,11 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 
-const CustomDropdownIcon = () => (
+const CustomDropdownIcon = ({ simple }) => (
   <Image
-    src={arrowDownInput}
-    width={24}
-    height={24}
+    src={simple ? downArrow2 : arrowDownInput}
+    width={simple ? 12 : 24}
+    height={simple ? 6 : 24}
     alt="Dropdown Icon"
     style={{ marginRight: "10px", cursor: "pointer" }}
   />
@@ -30,6 +30,7 @@ const Dropdown = ({
   startAdornment,
   error,
   helperText,
+  simple,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
@@ -56,11 +57,11 @@ const Dropdown = ({
           startAdornment={
             startAdornment && <InputAdornment>{startAdornment}</InputAdornment>
           }
-          IconComponent={CustomDropdownIcon}
+          IconComponent={(props) => <CustomDropdownIcon simple={simple} {...props} />}
           {...props}
         >
           {options?.map((option, index) => (
-            <MenuItem sx={{ display: index === 0 ? "none" : "block"}} key={index} value={option.value}>
+            <MenuItem sx={{ display: index === 0 ? "none" : "block" }} key={index} value={option.value}>
               {option.label}
             </MenuItem>
           ))}

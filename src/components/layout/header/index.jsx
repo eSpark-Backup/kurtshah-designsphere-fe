@@ -54,6 +54,7 @@ const Header = () => {
           {navLinks.map((navItem, index) => {
             return (
               <Stack
+                key={index}
                 onClick={() => handleSwitchPage(navItem.link)}
                 sx={{
                   cursor: "pointer",
@@ -78,9 +79,9 @@ const Header = () => {
                   style={
                     pathname === navItem.link
                       ? {
-                          filter:
-                            "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
-                        }
+                        filter:
+                          "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
+                      }
                       : {}
                   }
                   src={navItem.icon}
@@ -109,7 +110,7 @@ const Header = () => {
           gap={2}
         >
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Searchbar />
+            <Searchbar placeholder="Search" />
           </Box>
           <Box
             sx={{
@@ -193,6 +194,7 @@ const Header = () => {
               {navLinks.map((navItem, index) => {
                 return (
                   <Stack
+                    key={index}
                     onClick={() => handleSwitchPage(navItem.link)}
                     sx={{
                       cursor: "pointer",
@@ -220,9 +222,9 @@ const Header = () => {
                       style={
                         pathname === navItem.link
                           ? {
-                              filter:
-                                "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
-                            }
+                            filter:
+                              "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
+                          }
                           : {}
                       }
                       src={navItem.icon}

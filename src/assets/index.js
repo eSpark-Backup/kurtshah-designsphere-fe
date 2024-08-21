@@ -48,6 +48,32 @@ import pencil from "../assets/icons/pencil.svg";
 import demoReport from "../assets/images/demo-report.svg";
 import zoomIn from "../assets/icons/zoom-in.svg";
 import zoomOut from "../assets/icons/zoom-out.svg";
+import light from "../assets/icons/light.svg";
+import downArrow2 from "../assets/icons/down-arrow2.svg";
+import user from "./icons/user.svg";
+import checkVerified from "./icons/check-verified.svg";
+import lock2 from "./icons/lock2.svg";
+import userTick from "./icons/user-tick.svg";
+import email from "./icons/email.svg";
+import people from "./icons/people.svg";
+import card from "./icons/card.svg";
+import gallery from "./icons/gallery-add.svg";
+import back from "./icons/back.svg";
+import grid from "./icons/grid.svg";
+import copy from "./icons/copy.svg";
+import reload from "./icons/reload.png";
+import verticleDots from "./icons/verticle-dots.svg";
+import expand from "./icons/expand.svg";
+import leftArrow from "./icons/arrow-left.svg";
+import rightArrow from "./icons/arrow-right.svg";
+import maximize from "./icons/maximize.svg";
+import square3 from "./icons/3square.svg";
+import zoomIn from "./icons/zoom-in.svg";
+import zoomOut from "./icons/zoom-out.svg";
+import map from "./images/map.png";
+import upload from "./icons/upload.svg";
+import messageAdd from "./icons/message-add.svg";
+import edit from "./icons/edit.svg";
 
 export {
   authImage,
@@ -99,5 +125,23 @@ export {
   pencil,
   demoReport,
   zoomIn, 
-  zoomOut
+  zoomOut,
+  light,
+  downArrow2,
+  back,
+  grid,
+  copy,
+  reload,
+  verticleDots,
+  expand,
+  leftArrow,
+  rightArrow,
+  maximize,
+  square3,
+  zoomIn,
+  zoomOut,
+  map,
+  upload,
+  messageAdd,
+  edit,
 };

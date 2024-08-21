@@ -7,6 +7,17 @@ import {
   track,
   share,
   punch,
+  back,
+  grid,
+  copy,
+  reload,
+  verticleDots,
+  expand,
+  maximize,
+  square3,
+  zoomIn,
+  zoomOut,
+  add,
 } from "@/assets";
 
 export const jobFunctionOptions = [
@@ -409,6 +420,43 @@ export const files = [
 export const reportTemplates = [
   {
     id: 1,
+    name: "ABC ProjectABC-1 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-1",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 2,
+    name: "ABC ProjectABC-2 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-2",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 3,
+    name: "ABC ProjectABC-3 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-3",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 4,
+    name: "ABC ProjectABC-4 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-4",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 5,
+    name: "ABC ProjectABC-5 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-5",
+    date: "27 Jan 2024",
+  },
+];
+
+export const plansData = [
+  {
+    id: 1,
     name: "ABC ProjectABC Project - DOOR SCHEDULE (1).xlsx",
     description: "kdhasbgdhhdjawjddsiYDGA",
     date: "27 Jan 2024",
@@ -608,6 +656,81 @@ export const ReportPageTabs = [
   },
   {
     TabContent: "Project Reports"
+  }
+]
+
+export const ByOpeningsTableData = [
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
+  },
+  {
+    status: "Modified",
+    door: "01",
+    activeDeg: "Undefined",
+    activeLeafWidth: "wall Undefined",
+    area: "Undefined",
+    building: "Undefined",
+    doorType: "Undefined",
+    frame: "Undefined",
+    file: "Undefined",
+    wall: "Undefined"
   },
 ]
 
@@ -712,4 +835,542 @@ export const reportSpecificationsSets = [
   { name: 'pageHeader', label: 'Page header' },
   { name: 'pageFooter', label: 'Page footer' },
   { name: 'tableHeader', label: 'Table header' },
+]
+export const trackChangesDropDownOptions = [
+  { value: "", label: "Earliest Version" },
+  { value: "ver1", label: "version 1" },
+  { value: "ver2", label: "version 2" },
+  { value: "ver3", label: "version 3" },
+]
+export const trackChangesDropDownOptions2 = [
+  { value: "", label: "Latest Version" },
+  { value: "ver1", label: "version 1" },
+  { value: "ver2", label: "version 2" },
+  { value: "ver3", label: "version 3" },
+]
+
+
+export const TrackChangesTabs = [
+  {
+    // id: 1,
+    TabContent: "View Changes by openings"
+  },
+  {
+    // id: 2,
+    TabContent: "view changes by hardware"
+  },
+]
+
+
+export const ByHardwareTable1Content = [
+  {
+    status: "Modified",
+    quantity: "1",
+    uom: "EA",
+    description: "-",
+    catalog: "-",
+    finish: "630",
+    mfr: "LOC"
+  },
+  {
+    status: "Modified",
+    quantity: "1",
+    uom: "EA",
+    description: "-",
+    catalog: "-",
+    finish: "630",
+    mfr: "LOC"
+  },
+]
+
+export const FieldsModalCheckboxes = [
+  {
+    name: "DoorNumber",
+    label: "Door Number"
+  },
+  {
+    name: "ActiveDegree",
+    label: "Active Degree",
+    bold: true
+  },
+  {
+    name: "ActiveLeafWidth",
+    label: "Active Leaf Width",
+    bold: true
+  },
+  {
+    name: "ActiveStopCondition",
+    label: "Active Stop Condition"
+  },
+  {
+    name: "Area",
+    label: "Area",
+    bold: true
+  },
+  {
+    name: "Building",
+    label: "Building",
+    bold: true
+  },
+  {
+    name: "DesignOption",
+    label: "Design Option"
+  },
+  {
+    name: "DoorBottomRail",
+    label: "Door Bottom Rail"
+  },
+  {
+    name: "DoorCare",
+    label: "Door Care"
+  },
+  {
+    name: "DoorEdge",
+    label: "Door Edge"
+  },
+  {
+    name: "DoorElevation",
+    label: "Door Elevation"
+  },
+  {
+    name: "DoorFace",
+    label: "Door Face"
+  },
+  {
+    name: "DoorGuage",
+    label: "Door Guage"
+  },
+  {
+    name: "DoorHingeStile",
+    label: "Door Hinge Stile"
+  },
+  {
+    name: "DoorLockStile",
+    label: "Door Lock Stile"
+  },
+  {
+    name: "DoorMaterial",
+    label: "Door Material"
+  },
+  {
+    name: "DoorMillRail",
+    label: "Door Mill Rail"
+  },
+  {
+    name: "DoorPanelType",
+    label: "Door Panel Type"
+  },
+  {
+    name: "DoorSeries",
+    label: "Door Series"
+  },
+  {
+    name: "DoorTopRail",
+    label: "Door Top Rail"
+  },
+  {
+    name: "DoorType",
+    label: "Door Type"
+  },
+  {
+    name: "DoorUndercut",
+    label: "Door Undercut"
+  },
+  {
+    name: "Facility",
+    label: "Facility"
+  },
+  {
+    name: "FrameAnchor",
+    label: "Frame Anchor"
+  },
+  {
+    name: "FrameConfiguration",
+    label: "Frame Configuration"
+  },
+  {
+    name: "FrameConstruction",
+    label: "Frame Construction"
+  },
+  {
+    name: "FrameDepth",
+    label: "Frame Depth"
+  },
+  {
+    name: "FrameElevation",
+    label: "Frame Elevation"
+  },
+  {
+    name: "FrameFace",
+    label: "Frame Face"
+  },
+  {
+    name: "FrameFace",
+    label: "Frame Face"
+  },
+  {
+    name: "FrameGauge",
+    label: "Frame Gauge"
+  },
+  {
+    name: "FrameMaterial",
+    label: "Frame Material"
+  },
+  {
+    name: "FrameHeadHeight",
+    label: "Frame Head Height"
+  },
+  {
+    name: "FrameSeries",
+    label: "Frame Series"
+  },
+  {
+    name: "FrameType",
+    label: "Frame Type"
+  },
+  {
+    name: "HardwareSetNumber",
+    label: "Hardware Set Number"
+  },
+  {
+    name: "HeadDetail",
+    label: "Head Detail"
+  },
+  {
+    name: "Height",
+    label: "Height"
+  },
+  {
+    name: "Hand",
+    label: "Hand"
+  },
+
+  {
+    name: "HingeJambDetail",
+    label: "Hinge Jamb Detail"
+  },
+  {
+    name: "InactiveDegree",
+    label: "Inactive Degree"
+  },
+  {
+    name: "InactiveLeafWidth",
+    label: "Inactive Leaf Width"
+  },
+
+  {
+    name: "InactiveStopCondition",
+    label: "Inactive Stop Condition"
+  },
+  {
+    name: "Information",
+    label: "Information"
+  },
+  {
+    name: "InsideRoomName",
+    label: "Inside Room Name"
+  },
+
+  {
+    name: "InsideRoomNumber",
+    label: "Inside Room Number"
+  },
+  {
+    name: "IsLeadLined",
+    label: "Is Lead Lined"
+  },
+  {
+    name: "IsTemperateRise",
+    label: "Is Temperate Rise"
+  },
+
+  {
+    name: "KeySetSymbol",
+    label: "Key Set Symbol"
+  },
+  {
+    name: "Level",
+    label: "Level"
+  },
+  {
+    name: "MarkNumber",
+    label: "Mark Number"
+  },
+
+  {
+    name: "Misc1",
+    label: "Misc1"
+  },
+  {
+    name: "Misc2",
+    label: "Misc2"
+  },
+  {
+    name: "Misc3",
+    label: "Misc3"
+  },
+
+  {
+    name: "Mode",
+    label: "Mode"
+  },
+  {
+    name: "OutsideRoomName",
+    label: "Outside Room Name"
+  },
+  {
+    name: "OutsideRoomNumber",
+    label: "Outside Room Number"
+  }
+]
+
+
+export const hardwareCheckboxes = [
+  {
+    name: "Status",
+    label: "Status"
+  },
+  {
+    name: "Comments",
+    label: "Comments"
+  },
+  {
+    name: "Mode",
+    label: "Mode"
+  },
+  {
+    name: "Electrified",
+    label: "Electrified"
+  },
+  {
+    name: "Remarks",
+    label: "Remarks"
+  },
+]
+export const planDetails = [
+  {
+    id: 1,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 2,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 3,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 4,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 5,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 6,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 7,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 8,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 9,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+  {
+    id: 10,
+    door: "DOOR",
+    hwSet: "HW SET",
+    rating: "RATING",
+    wallRating: "WALL RATING",
+    insideRoom: "INSIDE ROOM",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+    wallRating: "WALL RATING",
+  },
+];
+
+export const plansDetailsTableTabs = ["Openings", "Hardware Set", "Notes", "Products"];
+
+export const tableNav = (handleExpandTable, searchValue, handleSearch) => [
+  {
+    icon: back,
+    onClick: null,
+  },
+  {
+    icon: grid,
+    onClick: null,
+  },
+  {
+    icon: copy,
+    onClick: null,
+  },
+  {
+    input: true,
+    value: searchValue,
+    handleSearch,
+  },
+  {
+    icon: reload,
+    onClick: null,
+  },
+  {
+    icon: verticleDots,
+    onClick: null,
+  },
+  {
+    icon: expand,
+    onClick: handleExpandTable,
+  },
+];
+
+export const canvasNav = (handleExpandCanvas) => [
+  {
+    icon: maximize,
+    onClick: handleExpandCanvas,
+  },
+  {
+    icon: square3,
+    onClick: null,
+  },
+  {
+    icon: zoomIn,
+    onClick: null,
+  },
+  {
+    icon: zoomOut,
+    onClick: null,
+  },
+  {
+    icon: add,
+    onClick: null,
+  },
+];
+
+
+export const legalPageContent = [
+  {
+    heading: "Terms Of Use",
+
+  }, {
+    heading: "Privacy Policy"
+  }
+]
+
+export const collaboratorsData = [
+  {
+    id: 1,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 4,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 5,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
 ]

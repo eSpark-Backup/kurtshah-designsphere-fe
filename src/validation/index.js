@@ -86,3 +86,9 @@ export const createReportFinalSchema = Yup.object({
     documentType: Yup.string()
       .required('Document type is required.')
   });
+
+export const supportScehma = Yup.object({
+    project: Yup.string().required("Project name is required"),
+    question: Yup.string().required("Question name is required"),
+    description: Yup.string().required("Description name is required")
+})
