@@ -27,8 +27,6 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         }
     };
 
-
-
     const onSubmit = () => {
         onConfirm()
     }
@@ -42,99 +40,93 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
             >
                 <Box sx={basicModelStructureStyle}>
-                    {/* HEADER  */}
+
+                    <Typography
+                        sx={{
+                            background: fields ? theme.palette.headingColor : theme.palette.textPrimaryGradient,
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            fontWeight: "bold",
+                            fontSize: fields ? "20px" : "12px",
+                            fontWeight: 500,
+                            lineHeight: "21px",
+
+                        }}
+                    >
+                        {heading}
+                    </Typography>
+                </Box>
+                
+                {fields && <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: "absolute",
+                        right: 8,
+                        top: 8,
+                    }}
+                >
+                    <Image
+                        src={close}
+                        width={24}
+                        height={24}
+                        alt='Close Icon'
+                    />
+                </IconButton>}
+
+
+
+                {/* CHILDREN  */}
+                {children}
+
+
+
+                {/* FOOTER  */}
+                {showfooter &&
                     <Box sx={{
-                        textAlign: 'center',
-                        borderBottom: "1px solid",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        borderTop: "1px solid",
                         borderColor: theme.palette.whiteE4,
-                        padding: "15px 0px",
+                        padding: "10px 20px",
                     }}>
 
                         <Typography
                             sx={{
-                                background: fields ? theme.palette.headingColor : theme.palette.textPrimaryGradient,
+                                background: theme.palette.whiteE4,
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                                 fontWeight: "bold",
-                                fontSize: fields ? "20px" : "12px",
+                                fontSize: "14px",
                                 fontWeight: 500,
                                 lineHeight: "21px",
+                                cursor: "pointer"
 
                             }}
+                            onClick={handleClose}
                         >
-                            {heading}
+                            {cancelButtonText}
                         </Typography>
+
+
+
+
+
+                        <Button sx={{
+                            width: "max-content",
+                            height: "40px",
+                        }} variant="primary"
+                            onClick={onSubmit}
+                        >
+                            {submitButtonText}
+                        </Button>
+
+
+
                     </Box>
-                    {fields && <IconButton
-                        aria-label="close"
-                        onClick={handleClose}
-                        sx={{
-                            position: "absolute",
-                            right: 8,
-                            top: 8,
-                        }}
-                    >
-                        <Image
-                            src={close}
-                            width={24}
-                            height={24}
-                            alt='Close Icon'
-                        />
-                    </IconButton>}
-
-
-                    {/* CHILDREN  */}
-                    {children}
-
-
-
-                    {/* FOOTER  */}
-                    {showfooter &&
-                        <Box sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            borderTop: "1px solid",
-                            borderColor: theme.palette.whiteE4,
-                            padding: "10px 20px",
-                        }}>
-
-                            <Typography
-                                sx={{
-                                    background: theme.palette.whiteE4,
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-                                    fontWeight: "bold",
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    lineHeight: "21px",
-                                    cursor: "pointer"
-
-                                }}
-                                onClick={handleClose}
-                            >
-                                {cancelButtonText}
-                            </Typography>
-
-
-
-
-
-                            <Button sx={{
-                                width: "max-content",
-                                height: "40px",
-                            }} variant="primary"
-                                onClick={onSubmit}
-                            >
-                                {submitButtonText}
-                            </Button>
-
-
-
-                        </Box>
-                    }
-                </Box>
-            </Modal>
+                }
+        </Modal >
         </>
     )
 }

@@ -416,6 +416,44 @@ export const files = [
   },
 ];
 
+
+export const reportTemplates = [
+  {
+    id: 1,
+    name: "ABC ProjectABC-1 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-1",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 2,
+    name: "ABC ProjectABC-2 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-2",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 3,
+    name: "ABC ProjectABC-3 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-3",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 4,
+    name: "ABC ProjectABC-4 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-4",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 5,
+    name: "ABC ProjectABC-5 Templates - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-5",
+    date: "27 Jan 2024",
+  },
+];
+
 export const plansData = [
   {
     id: 1,
@@ -452,6 +490,45 @@ export const plansData = [
     date: "27 Jan 2024",
   },
 ];
+
+export const projectReports = [
+  {
+    id: 1,
+    name: "ABC ProjectABC-1 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-1",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 2,
+    name: "ABC ProjectABC-2 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-2",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 3,
+    name: "ABC ProjectABC-3 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-3",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 4,
+    name: "ABC ProjectABC-4 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-4",
+    date: "27 Jan 2024",
+  },
+
+  {
+    id: 5,
+    name: "ABC ProjectABC-5 Project - DOOR SCHEDULE (1).xlsx",
+    description: "kdhasbgdhhdjawjddsiYDGA-5",
+    date: "27 Jan 2024",
+  },
+];
+
+
 
 export const collaborators = [
   {
@@ -573,6 +650,14 @@ export const notes = [
   },
 ];
 
+export const ReportPageTabs = [
+  {
+    TabContent: "My report Templates"
+  },
+  {
+    TabContent: "Project Reports"
+  }
+]
 
 export const ByOpeningsTableData = [
   {
@@ -650,6 +735,107 @@ export const ByOpeningsTableData = [
 ]
 
 
+export const fontFamilyOptions = [
+  { value: "", label: "Font Family" },
+  { value: "Arial", label: "Arial" },
+  { value: "Times New Roman", label: "Times New Roman" },
+  { value: "Courier New", label: "Courier New" },
+  { value: "Georgia", label: "Georgia" },
+  { value: "Palatino Linotype", label: "Palatino Linotype" },
+  { value: "Comic Sans MS", label: "Comic Sans MS" },
+  { value: "Lucida Sans Unicode", label: "Lucida Sans Unicode" },
+  { value: "Tahoma", label: "Tahoma" },
+  { value: "Trebuchet MS", label: "Trebuchet MS" },
+  { value: "Verdana", label: "Verdana" },
+  { value: "Courier New", label: "Courier New" },
+  { value: "Lucida Console", label: "Lucida Console" },
+];
+
+export const fontSizeOptions = [
+  { value: "", label: "Font Size" },
+  ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
+    value: i.toString(),
+    label: i.toString(),
+  })),
+];
+
+export const specificOpeningsOptions = [
+  { value: "", label: "Specific Opennings" },
+  ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
+    value: i.toString(),
+    label: i.toString(),
+  })),
+];
+
+export const specificProductsOptions = [
+  { value: "", label: "Specific Products" },
+  ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
+    value: i.toString(),
+    label: i.toString(),
+  })),
+];
+
+
+export const documentTypeOptions = [
+  { value: "specsHardwareSets", label: "Specifications and Hardware Sets (Word, PDF)" },
+  { value: "californiaDsaSpec", label: "California DSA Specification (Word, PDF)" },
+  { value: "canadianHardwareSchedule", label: "Canadian Hardware Schedule (Word, PDF)" },
+  { value: "catalogCuts", label: "Catalog Cuts (PDF)" },
+  { value: "doorByDoorSchedule", label: "Door by Door Schedule (Word)" },
+  { value: "doorHardwareInstallEstimate", label: "Door Hardware Installation Estimate (Excel)" },
+  { value: "doorScheduleExcel", label: "Door Schedule (Excel)" },
+  { value: "doorScheduleWordPdf", label: "Door Schedule (Word, PDF)" },
+  { value: "doorHardwareSetIndex", label: "Door/Hardware Set Index (Word, PDF)" },
+  { value: "doorHardwareSetIndexRevRecap", label: "Door/Hardware Set Index Revision Recap (Word, PDF)" },
+  { value: "electronicDataSummary", label: "Electronic Data Summary (Excel)" },
+  { value: "hardwareScheduleWithPricingExcel", label: "Hardware Schedule with Pricing (Excel)" },
+  { value: "hardwareScheduleWithPricingWordPdf", label: "Hardware Schedule with Pricing (Word, PDF)" },
+  { value: "hardwareSetsRevRecap", label: "Hardware Sets Revision Recap (Word, PDF)" },
+  { value: "horizontalSchedule", label: "Horizontal Schedule (Excel)" },
+  { value: "installationSession", label: "Installation Session (Word)" },
+  { value: "notes", label: "Notes (Excel)" },
+  { value: "preConstructionQuantity", label: "Pre-construction Quantity (Excel)" },
+  { value: "pricingRecapByProduct", label: "Pricing Recap by Product (Excel)" },
+  { value: "productSummary", label: "Product Summary (Word)" },
+  { value: "promasterExportDoorHardwareList", label: "Promaster Export - Door Hardware List (Excel)" },
+  { value: "promasterExportDoorList", label: "Promaster Export - Door List (Excel)" },
+  { value: "promasterExportQuoteProductsList", label: "Promaster Export - Quote Products List (Excel)" },
+  { value: "punchList", label: "Punch List (Word)" },
+  { value: "quantitySummary", label: "Quantity Summary (Excel)" },
+  { value: "siteSurvey", label: "Site Survey (Word)" }
+];
+
+
+export const reportHardwareSets = [
+  { name: 'showQuantity', label: 'Show Quantity' },
+  { name: 'hardwareLabel', label: 'HardwareSet Number Label' },
+  { name: 'showUoM', label: 'show UoM' },
+  { name: 'showDescription', label: 'Show Description' },
+  { name: 'showCatalogNumber', label: 'Show Catalog Number' },
+  { name: 'userDescription', label: 'User Description' },
+  { name: 'showCoordinateId', label: 'Show CoordinateId' },
+  { name: 'ShowFinish', label: 'Show Finish' },
+  { name: 'showManufacturer', label: 'Show Manufacturer' },
+  { name: 'comments', label: 'Comments' },
+  { name: 'includeCutSheetLink', label: 'Include Cut Sheet Link' },
+  { name: 'includeOperation', label: 'Include Operation' },
+  { name: 'endSchedule', label: 'End of Schedule' },
+  { name: 'remarks', label: 'Remarks' },
+  { name: 'userCatalogNumber', label: 'User Catalog Number' },
+  { name: 'includeManufacturers', label: 'Include Table of Manufacturers' },
+]
+
+export const reportHeaderFooterSets = [
+  { name: 'pageHeader', label: 'Page header' },
+  { name: 'pageFooter', label: 'Page footer' },
+  { name: 'tableHeader', label: 'Table header' },
+]
+
+export const reportSpecificationsSets = [
+  { name: 'pageHeader', label: 'Page header' },
+  { name: 'pageFooter', label: 'Page footer' },
+  { name: 'tableHeader', label: 'Table header' },
+]
 export const trackChangesDropDownOptions = [
   { value: "", label: "Earliest Version" },
   { value: "ver1", label: "version 1" },
@@ -1188,3 +1374,32 @@ export const collaboratorsData = [
     email: "Johnsmith@gmail.com"
   },
 ]
+
+
+export const fontFamiliesRichEditor = [
+  {
+      value: 'Arial',
+      label: 'Arial',
+  },
+  {
+
+      value: 'Courier New',
+      label: 'Courier New',
+  },
+  {
+
+      value: 'Georgia',
+      label: 'Georgia',
+
+  },
+  {
+
+      value: 'Times New Roman',
+      label: 'Times New Roman',
+  },
+  {
+
+      value: 'Verdana',
+      label: 'Verdana',
+  }
+];

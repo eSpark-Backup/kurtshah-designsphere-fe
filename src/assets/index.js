@@ -34,6 +34,20 @@ import profileTick from "./icons/profile-tick.svg";
 import profile from "./icons/profile.svg";
 import arrowDown from "./icons/arrow-down.svg";
 import arrowDownInput from "./icons/arrow-down-input.svg";
+import user from "../assets/icons/user.svg";
+import checkVerified from "../assets/icons/check-verified.svg";
+import lock2 from "../assets/icons/lock2.svg";
+import userTick from "../assets/icons/user-tick.svg";
+import email from "../assets/icons/email.svg";
+import people from "../assets/icons/people.svg";
+import card from "../assets/icons/card.svg";
+import gallery from "../assets/icons/gallery-add.svg";
+import accordianArrow from "../assets/icons/accordianArrow.svg";
+import checkSetting from "../assets/icons/check-setting.svg";
+import pencil from "../assets/icons/pencil.svg";
+import demoReport from "../assets/images/demo-report.svg";
+import zoomIn from "../assets/icons/zoom-in.svg";
+import zoomOut from "../assets/icons/zoom-out.svg";
 import light from "../assets/icons/light.svg";
 import downArrow2 from "../assets/icons/down-arrow2.svg";
 import user from "./icons/user.svg";
@@ -60,6 +74,14 @@ import map from "./images/map.png";
 import upload from "./icons/upload.svg";
 import messageAdd from "./icons/message-add.svg";
 import edit from "./icons/edit.svg";
+import forwards from "../assets/icons/forwards.svg";
+import backwards from "../assets/icons/backwards.svg";
+import downArrow from "../assets/icons/down-arrow.svg";
+import underline from "../assets/icons/underline.svg";
+import strike from "../assets/icons/strike.svg";
+import italic from "../assets/icons/italic.svg";
+import bold from "../assets/icons/bold.svg";
+import captalism from "../assets/icons/captalism.svg";
 
 export {
   authImage,
@@ -106,6 +128,12 @@ export {
   profile,
   arrowDown,
   arrowDownInput,
+  accordianArrow,
+  checkSetting,
+  pencil,
+  demoReport,
+  zoomIn, 
+  zoomOut,
   light,
   downArrow2,
   back,
@@ -124,4 +152,12 @@ export {
   upload,
   messageAdd,
   edit,
+  forwards,
+  backwards,
+  downArrow,
+  underline,
+  strike,
+  italic,
+  bold,
+  captalism,
 };
