@@ -27,6 +27,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
         },
         "& input": {
             color: "black !important",
+            padding: "10px 14px",
         },
     };
 
@@ -60,16 +61,6 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
         return null;
     }
 
-
-    const CustomDropdownIcon = () => (
-        <Image
-            src={downArrow}
-            width={24}
-            height={24}
-            alt="Dropdown Icon"
-            style={{ marginRight: "10px", cursor: "pointer" }}
-        />
-    );
 
     const GradientTypography = ({ type, icon, onClick }) => (
         <Box sx={{
@@ -129,7 +120,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
                     options={fontFamiliesRichEditor}
                     onChange={(event) => handleFontFamilyChange(event, editor, setFontFamily)}
                     value={fontFamily}
-                    customIcon={CustomDropdownIcon}
+                    simple={true}
                     sx={{
                         width: "130px",
                         fontSize: "14px",
