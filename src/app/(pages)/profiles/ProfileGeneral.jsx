@@ -193,6 +193,7 @@ const ProfileGeneral = () => {
                                         value={values.postal}
                                         error={touched.postal && errors.postal}
                                         helperText={touched.postal && errors.postal}
+                                        hideArrows={true}
                                     />
 
                                 </Box>

@@ -37,7 +37,7 @@ export const profileGeneralSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Email is required"),
     phone: Yup.number().required("Phone number is required"),
     country: Yup.string().required("Please select an option"),
-    postal: Yup.string().required("Postal code is required")
+    postal: Yup.number().required("Postal code is required"),
 })
 
 export const profileCompanySchema = Yup.object({
