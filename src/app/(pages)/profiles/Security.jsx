@@ -3,9 +3,11 @@
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material';
 import ProfileCard from './Profile-Card';
 import { useState } from 'react';
+import { DynamicModal } from '@/components/common';
 
 const Security = () => {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
+  const [deleteAccountModal, setDeleteAccountModal] = useState(false);
 
   const handleSubmitTerms = () => {
     console.log("Terms and conditions submitted");
@@ -14,9 +16,32 @@ const Security = () => {
   const handleReset = () => {
     console.log("Reset password")
   }
-  const handleDelete = () => {
-    console.log("Delete account")
+
+
+
+  const handleDeleteAccount = () => {
+    console.log("Delete account confirmed")
   }
+
+  const deleteAccountModalUI = (
+    <Box sx={{
+      padding: "30px 40px",
+    }}>
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "14px",
+          fontWeight: 600,
+          lineHeight: "21px",
+          color: (theme) => theme.palette.white,
+        }}
+      >
+        This will permanently delete your account. You have 24 hours to undo this action.
+        <br/>
+        Are you sure?
+      </Typography>
+    </Box>
+  );
 
 
   const GeneralBox = ({ title, description, buttonText, buttonColor, onClick }) => (
@@ -82,7 +107,7 @@ const Security = () => {
         description="If you want to delete your account, click on the delete button."
         buttonText="Delete"
         buttonColor="#D0375B"
-        onClick={handleDelete}
+        onClick={() => setDeleteAccountModal(true)}
       />
 
       <Box
@@ -128,6 +153,18 @@ const Security = () => {
           </Button>
         </Box>
       </Box>
+
+
+      <DynamicModal
+        open={deleteAccountModal}
+        handleClose={() => setDeleteAccountModal(false)}
+        children={deleteAccountModalUI}
+        heading="Delete File"
+        cancelButtonText="Cancel"
+        submitButtonText="Delete"
+        onConfirm={handleDeleteAccount}
+        showfooter
+      />
     </Box>
   );
 };
