@@ -92,3 +92,18 @@ export const supportScehma = Yup.object({
     question: Yup.string().required("Question name is required"),
     description: Yup.string().required("Description name is required")
 })
+
+
+export const profileGeneralSchema = Yup.object({
+    fName: Yup.string().required("First name is required"),
+    lName: Yup.string().required("Last name is required"),
+    email: Yup.string().email("Invalid email address").required("Email is required"),
+    phone: Yup.number().required("Phone number is required"),
+    country: Yup.string().required("Please select an option"),
+    postal: Yup.number().required("Postal code is required"),
+})
+
+export const profileCompanySchema = Yup.object({
+    companyName: Yup.string().required("Company name is required"),
+    jobFunction: Yup.string().required("Please select an option").oneOf(["Design Team", "Distributor", "General Contractor", "Hardware Consultant", "Integrator", "Locksmith", "Owner", "PACS"], "Invalid Choice"),
+})
