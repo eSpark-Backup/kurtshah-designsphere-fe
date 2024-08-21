@@ -3,7 +3,7 @@ import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 
-const ProfileCard = () => {
+const ProfileCard = ({ readOnly }) => {
     const isLessthanSm = useMediaQuery('(max-width:599px)');
     return (
         <Box
@@ -85,9 +85,12 @@ const ProfileCard = () => {
 
             </Box>
 
-            <Box sx={{ width: { xs: "100%", sm: "80px" }, height: "40px" }}>
-                <Button type='submit' variant='primary'>Save</Button>
-            </Box>
+            {
+                !readOnly &&
+                <Box sx={{ width: { xs: "100%", sm: "80px" }, height: "40px" }}>
+                    <Button type='submit' variant='primary'>Save</Button>
+                </Box>
+            }
         </Box>
     )
 }

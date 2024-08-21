@@ -67,7 +67,7 @@ const Security = () => {
 
   return (
     <Box>
-      <ProfileCard />
+      <ProfileCard readOnly={true} />
 
       <GeneralBox
         title="Security & Privacy"
