@@ -39,8 +39,3 @@ export const profileGeneralSchema = Yup.object({
     country: Yup.string().required("Please select an option"),
     postal: Yup.string().required("Postal code is required")
 })
-
-export const profileCompanySchema = Yup.object({
-    companyName: Yup.string().required("Company name is required"),
-    jobFunction: Yup.string().required("Please select an option").oneOf(["Design Team", "Distributor", "General Contractor", "Hardware Consultant", "Integrator", "Locksmith", "Owner", "PACS"], "Invalid Choice"),
-})
