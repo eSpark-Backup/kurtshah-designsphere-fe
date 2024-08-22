@@ -62,6 +62,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="First Name *"
                                         variant="outlined"
@@ -84,6 +85,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="Last Name *"
                                         variant="outlined"
@@ -106,6 +108,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="Email *"
                                         variant="outlined"
@@ -128,6 +131,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="Phone Number *"
                                         variant="outlined"
@@ -182,6 +186,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="Postal Code *"
                                         variant="outlined"

@@ -18,3 +18,8 @@ input[type=number] {
   scrollbar-width: none;
 }
 
+.mui-9mc7sf-MuiInputAdornment-root.MuiInputAdornment-positionStart.mui-9mc7sf-MuiInputAdornment-root:not(
+    .MuiInputAdornment-hiddenLabel
+  ) {
+  margin-top: 0 !important;
+}

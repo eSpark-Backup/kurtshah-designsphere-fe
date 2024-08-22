@@ -70,6 +70,7 @@ const SignIn = () => {
                     rowGap: "25px"
                   }}>
                   <CustomInput
+                    variant="filled"
                     name="email"
                     type="email"
                     placeholder="Username or email"
@@ -82,6 +83,7 @@ const SignIn = () => {
                     startAdornment={<Image src={email} width={24} height={24} alt='Email Icon' />}
                   />
                   <CustomInput
+                    variant="filled"
                     name="password"
                     type="password"
                     placeholder="Password"

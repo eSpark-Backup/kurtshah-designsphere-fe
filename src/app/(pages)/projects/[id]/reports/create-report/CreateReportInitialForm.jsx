@@ -48,10 +48,14 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 helperText={touched.fontFamily && errors.fontFamily}
                                 sx={{
                                     background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
-                                    borderRadius: '15px',
+                                    borderRadius: '16px',
+                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline":{
+                                        borderRadius: '16px',
+                                    }
                                 }}
                             />
                             <CustomInput
+                                variant="filled"
                                 name="templateDescription"
                                 type="text"
                                 label="Template Desicription"
@@ -61,10 +65,6 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 value={values.templateDescription}
                                 error={touched.templateDescription && errors.templateDescription}
                                 helperText={touched.templateDescription && errors.templateDescription}
-                                sx={{
-                                    background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
-                                    borderRadius: '15px',
-                                }}
                             />
 
                             <Box sx={{ marginTop: "20px" }}>

@@ -33,7 +33,10 @@ const EmailNotificationTab = () => {
         justifyContent="flex-end"
       >
         <Box sx={{ width: { xs: "100%", md: "239px" } }}>
-          <Searchbar placeholder="Search" />
+          <Searchbar
+            bgColor="linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)"
+            placeholder="Search"
+          />
         </Box>
       </Stack>
       <DynamicTable

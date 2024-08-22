@@ -28,13 +28,13 @@ const CardBox = ({ title, data }) => {
           <Typography sx={{ width: "300px", mb: 2 }} variant="h5">
             NAME
           </Typography>
-          {data.length > 0 ? <CustomInput placeholder="Enter" /> : <></>}
+          {data.length > 0 ? <CustomInput sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }} variant="outlined" placeholder="Enter" /> : <></>}
         </Box>
         <Box sx={{ width: { xs: "100%", md: "300px" } }}>
           <Typography sx={{ width: "300px", mb: 2 }} variant="h5">
             EMAIL
           </Typography>
-          {data.length > 0 ? <CustomInput placeholder="Enter" /> : <></>}
+          {data.length > 0 ? <CustomInput sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }} variant="outlined" placeholder="Enter" /> : <></>}
         </Box>
       </Stack>
       <Box

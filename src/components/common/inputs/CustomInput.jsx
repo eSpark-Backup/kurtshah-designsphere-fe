@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, InputAdornment, InputLabel, TextField, Typography } from '@mui/material';
+import { Box, InputAdornment, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { closeEye, openEye } from '@/assets';
@@ -10,7 +10,18 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, hideArrows, .
 
     return (
         <Box sx={{ display: "flex", rowGap: "10px", flexDirection: "column", width: "100%" }}>
-            {label && <InputLabel>{label}</InputLabel>}
+            {label && (
+              <Typography
+                color="primary"
+                sx={{
+                  fontSize: "12px",
+                  fontWeight: "600",
+                  textTransform: "uppercase",
+                }}
+              >
+              {label}
+              </Typography>
+             )}
             <TextField
                 value={value}
                 inputProps={{ maxLength: limit }}
