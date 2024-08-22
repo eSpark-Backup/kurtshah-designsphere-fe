@@ -6,6 +6,7 @@ import { SidebarTab } from "@/components/common";
 import Collaborators from "./collaborators";
 import Email from "./email";
 import Plans from "./plans";
+import Card from "@/components/common/Card";
 
 const Preferences = () => {
   const [active, setActive] = useState(0);
@@ -33,17 +34,15 @@ const Preferences = () => {
           />
         </Grid>
         <Grid sx={{ minHeight: "100%" }} item xs={12} md={9}>
-          <Box
+          <Card
+            variant={"outline"}
             sx={{
               padding: "20px",
-              border: "1px solid #E4E4E4",
-              boxShadow: "0px 0px 10px 0px #00000040",
-              borderRadius: "10px",
               height: "100%",
             }}
           >
             {tabsComponent(preferencesTabs)}
-          </Box>
+          </Card>
         </Grid>
       </Grid>
     </>

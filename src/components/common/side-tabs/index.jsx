@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
+import Card from "../Card";
 
 const SidebarTab = ({ title, active, setActive, tabsArr }) => {
   return (
-    <Box
+    <Card
+      variant={"outline"}
       sx={{
-        border: "1px solid #E4E4E4",
         background: "linear-gradient(180deg, #1B253E 0%, #303E61 100%)",
-        boxShadow: "0px 0px 10px 0px #00000040",
         borderRadius: "10px",
         height: "100%",
         padding: "10px",
@@ -50,7 +50,7 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
           </Box>
         );
       })}
-    </Box>
+    </Card>
   );
 };
 

@@ -2,15 +2,14 @@ import Image from "next/image";
 import { Typography, Box, Stack } from "@mui/material";
 import { CustomInput } from "@/components/common";
 import { messageAdd } from "@/assets";
+import Card from "@/components/common/Card";
 
 const CardBox = ({ title, data }) => {
   return (
-    <Box
+    <Card
+      variant={"outline"}
       sx={{
         padding: "20px",
-        border: "1px solid #E4E4E4",
-        boxShadow: "0px 0px 10px 0px #00000040",
-        borderRadius: "10px",
         height: { xs: "auto", md: data.length > 0 ? "396px" : "290px" },
         mt: 3,
       }}
@@ -88,7 +87,7 @@ const CardBox = ({ title, data }) => {
           </Typography>
         )}
       </Box>
-    </Box>
+    </Card>
   );
 };
 

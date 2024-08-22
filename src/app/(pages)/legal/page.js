@@ -1,5 +1,6 @@
 "use client"
 import { Dropdown } from "@/components/common";
+import Card from "@/components/common/Card";
 import { COUNTRIES_OPTIONS, legalPageContent } from "@/constants";
 import { Box, Typography } from "@mui/material";
 import react, { useState } from "react";
@@ -63,7 +64,7 @@ const Legal = () => {
           }}
         >
           {legalPageContent.map((item, index) => (
-            <Box
+            <Card
               key={index}
               sx={{
                 width: { xs: "100%", sm: "45%", lg: "40%", xl: "30%" },
@@ -107,7 +108,7 @@ const Legal = () => {
 
               </Box>
 
-            </Box>
+            </Card>
           ))}
         </Box>
       </Box>
