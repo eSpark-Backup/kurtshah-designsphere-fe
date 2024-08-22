@@ -7,6 +7,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Typography,
 } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -43,7 +44,18 @@ const Dropdown = ({
         rowGap: "10px",
       }}
     >
-      {label && <InputLabel>{label}</InputLabel>}
+      {label && (
+        <Typography
+          color="primary"
+          sx={{
+            fontSize: "12px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+          }}
+        >
+          {label}
+        </Typography>
+      )}
       <FormControl sx={{ width: "100%", margin: "auto auto" }}>
         {customLabel && <InputLabel>{customLabel}</InputLabel>}
         <Select

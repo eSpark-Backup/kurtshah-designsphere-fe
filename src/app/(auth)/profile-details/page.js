@@ -1,7 +1,6 @@
 "use client"
 import { card, people, user, userTick } from '@/assets'
-import { AuthContainer, CustomInput } from '@/components/common'
-import Dropdown from '@/components/common/dropdown/Dropdown'
+import { AuthContainer, CustomInput, Dropdown } from '@/components/common'
 import { COUNTRIES_OPTIONS, jobFunctionOptions } from '@/constants'
 import { profileDetailsSchema } from '@/validation'
 import { LoadingButton } from '@mui/lab'
@@ -69,6 +68,7 @@ const ProfileDetails = () => {
                                         rowGap: "25px"
                                     }}>
                                     <CustomInput
+                                        variant="filled"
                                         name="companyName"
                                         type="text"
                                         label="company name"
@@ -88,6 +88,12 @@ const ProfileDetails = () => {
                                         name="jobFunction"
                                         error={touched.jobFunction && errors.jobFunction}
                                         helperText={touched.jobFunction && errors.jobFunction}
+                                        sx={{
+                                            borderRadius: '16px',
+                                            ".mui-12kxld3-MuiOutlinedInput-notchedOutline":{
+                                                borderRadius: '16px',
+                                            }
+                                        }}
                                     />
                                     <Box
                                         sx={{
@@ -110,6 +116,12 @@ const ProfileDetails = () => {
                                                 name="country"
                                                 error={touched.country && errors.country}
                                                 helperText={touched.country && errors.country}
+                                                sx={{
+                                                    borderRadius: '16px',
+                                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline":{
+                                                        borderRadius: '16px',
+                                                    }
+                                                }}
                                             />
 
                                         </Box>
@@ -119,6 +131,7 @@ const ProfileDetails = () => {
                                             }}
                                         >
                                             <CustomInput
+                                                variant="filled"
                                                 name="postalCode"
                                                 type="number"
                                                 label="postal code"

@@ -83,6 +83,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="ARC Project *"
                                         variant="outlined"
@@ -99,6 +100,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
                                         placeholder="Type here"
                                         customLabel="My question is related to *"
                                         variant="outlined"
@@ -115,6 +117,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ borderRadius: "5px", border: "1px solid #E4E4E4" }}
                                         placeholder="Type here"
                                         customLabel="Please provide a brief description of your Overtur  problem *"
                                         variant="outlined"
@@ -134,18 +137,20 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ borderRadius: "5px", border: "1px solid #E4E4E4" }}
                                         customLabel="Screenshot upload - this greatly helps us in troubleshooting"
                                         variant="outlined"
                                         multiline
-                                        rows={3}
+                                        rows={4}
                                         disabled={true}
                                     />
                                     <Box
                                         sx={{
                                             width: "100%",
-                                            height: "100%",
+                                            height: "75%",
                                             position: "absolute",
-                                            top: 0,
+                                            top: "50%",
+                                            transform: "translateY(-50%)",
                                             display: "flex",
                                             justifyContent: "center",
                                             alignItems: "center"

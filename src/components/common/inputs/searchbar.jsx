@@ -5,7 +5,7 @@ import Image from "next/image";
 import { TextField } from "@mui/material";
 import { search } from "@/assets";
 
-const Searchbar = ({ placeholder, value, handleSearch }) => {
+const Searchbar = ({ placeholder, bgColor, value, handleSearch }) => {
   return (
     <TextField
       variant="outlined"
@@ -13,14 +13,16 @@ const Searchbar = ({ placeholder, value, handleSearch }) => {
       placeholder={placeholder}
       sx={{
         width: "100%",
-        ".MuiInputBase-root": {
-          borderRadius: "16px",
-          border: "1px solid #8B8B8B24",
-          color: (theme) => theme.palette.primary.dark,
-          input: {
-            padding: "10px 14px !important",
+        background: bgColor || "transparent",
+        borderRadius: "16px !important",
+        ".mui-12kxld3-MuiOutlinedInput-notchedOutline":
+          {
+            borderRadius: "16px !important",
+            color: (theme) => theme.palette.primary.dark,
+            input: {
+              padding: "10px 14px !important",
+            },
           },
-        },
       }}
       InputProps={{
         endAdornment: (

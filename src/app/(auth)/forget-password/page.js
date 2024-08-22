@@ -76,6 +76,7 @@ const ForgetPassword = () => {
                   <Form>
                     <Box sx={{ width: "95%", margin: "auto auto", display: "flex", flexDirection: "column", rowGap: "25px" }}>
                       <CustomInput
+                        variant="filled"
                         name="email"
                         type="email"
                         placeholder="Enter your email"

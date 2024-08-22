@@ -11,7 +11,10 @@ import { createReportFinalSchema } from '@/validation';
 
 const gradientSelecterStyle = {
     background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
-    borderRadius: '15px',
+    borderRadius: '16px',
+    ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
+        borderRadius: '16px',
+    }
 };
 
 const CustomCheckbox = ({ value, label, onChange }) => (

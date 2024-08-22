@@ -80,6 +80,7 @@ const SignUp = () => {
 
                   }}>
                     <CustomInput
+                      variant="filled"
                       name="firstName"
                       type="text"
                       placeholder="First Name"
@@ -92,6 +93,7 @@ const SignUp = () => {
                       startAdornment={<Image src={userTick} width={24} height={24} alt='User Tick Icon' />}
                     />
                     <CustomInput
+                      variant="filled"
                       name="lastName"
                       type="text"
                       placeholder="Last Name"
@@ -107,6 +109,7 @@ const SignUp = () => {
 
 
                   <CustomInput
+                    variant="filled"
                     name="email"
                     type="email"
                     placeholder="Username or email"
@@ -119,6 +122,7 @@ const SignUp = () => {
                     startAdornment={<Image src={email} width={24} height={24} alt='Email Icon' />}
                   />
                   <CustomInput
+                    variant="filled"
                     name="password"
                     type="password"
                     placeholder="Password"
