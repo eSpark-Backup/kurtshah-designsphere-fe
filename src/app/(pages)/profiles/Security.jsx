@@ -4,6 +4,7 @@ import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/materi
 import ProfileCard from './Profile-Card';
 import { useState } from 'react';
 import { DynamicModal } from '@/components/common';
+import Card from '@/components/common/Card';
 
 const Security = () => {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
@@ -45,12 +46,10 @@ const Security = () => {
 
 
   const GeneralBox = ({ title, description, buttonText, buttonColor, onClick }) => (
-    <Box
+    <Card
+      variant={"outline"}
       sx={{
-        border: (theme) => `1px solid ${theme.palette.whiteE4}`,
         marginTop: "30px",
-        boxShadow: "0px 0px 10px 0px #00000040",
-        borderRadius: "10px",
         padding: "30px",
       }}
     >
@@ -87,7 +86,7 @@ const Security = () => {
           {buttonText}
         </Button>
       </Box>
-    </Box>
+    </Card>
   );
 
   return (
@@ -110,12 +109,10 @@ const Security = () => {
         onClick={() => setDeleteAccountModal(true)}
       />
 
-      <Box
+      <Card
+        variant={"outline"}
         sx={{
-          border: (theme) => `1px solid ${theme.palette.whiteE4}`,
           marginTop: "30px",
-          boxShadow: "0px 0px 10px 0px #00000040",
-          borderRadius: "10px",
           padding: "30px",
         }}
       >
@@ -152,7 +149,7 @@ const Security = () => {
             Save
           </Button>
         </Box>
-      </Box>
+      </Card>
 
 
       <DynamicModal

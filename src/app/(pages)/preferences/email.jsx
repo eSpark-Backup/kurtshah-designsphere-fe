@@ -15,7 +15,7 @@ const Email = () => {
       </Typography>
       <Button
         onClick={() => router.push("/preferences/email-notifications")}
-        sx={{ mt: 2, width: "163px", height: "40px" }}
+        sx={{ mt: 2, width: "180px", height: "40px" }}
         variant="primary"
       >
         Email Notifications
