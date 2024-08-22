@@ -16,7 +16,7 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
         textAlign="center"
         fontSize={20}
         fontWeight={700}
-        sx={{ color: "#E4E4E4", margin: "60px 0" }}
+        sx={{ color: (theme) => theme.palette.whiteE4, margin: "60px 0" }}
       >
         {title}
       </Typography>
@@ -43,7 +43,7 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
               textAlign="center"
               fontSize={16}
               fontWeight={500}
-              sx={{ color: "#E4E4E4" }}
+              sx={{ color: (theme) => theme.palette.whiteE4 }}
             >
               {tab.title}
             </Typography>

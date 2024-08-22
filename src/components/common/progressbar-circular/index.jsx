@@ -53,13 +53,8 @@ const ProgressBar = ({ title, desc, perc }) => {
     </Box>
       <Stack direction="column" justifyContent="center" alignItems="flex-start">
         <Typography
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-          fontSize="20px"
-          fontWeight={500}
+          variant="h2"
+          sx={{ fontSize: "20px !important" }}
         >
           {title}
         </Typography>

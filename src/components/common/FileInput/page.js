@@ -57,10 +57,10 @@ const FileInput = ({ image, setImage }) => {
                                 alt='Upload Icon'
                             />
                             <Typography
+                                variant="h4"
                                 sx={{
-                                    fontSize: "14px",
-                                    color: "white",
-                                    fontWeight: "400"
+                                    color: (theme) => theme.palette.white,
+                                    fontWeight: "400 !important"
                                 }}
                             >
                                 Upload

@@ -15,7 +15,7 @@ const CardBox = ({ title, data }) => {
         mt: 3,
       }}
     >
-      <Typography fontSize={20} fontWeight={700} color="#FFF">
+      <Typography fontSize={20} fontWeight={700} sx={{ color: (theme) => theme.palette.white }}>
         {title}
       </Typography>
       <Stack
@@ -82,7 +82,7 @@ const CardBox = ({ title, data }) => {
             textAlign="center"
             fontSize={16}
             fontWeight={500}
-            color="#FFF"
+            sx={{ color: (theme) => theme.palette.white, }}
           >
             No Data to display
           </Typography>

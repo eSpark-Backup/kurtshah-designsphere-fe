@@ -54,10 +54,9 @@ const Reports = () => {
   const deleteFileModalUI = (
     <Box>
       <Typography
+        variant="h4"
         sx={{
           textAlign: "center",
-          fontSize: "14px",
-          fontWeight: 600,
           lineHeight: "21px",
           color: (theme) => theme.palette.white,
         }}
@@ -87,15 +86,7 @@ const Reports = () => {
         marginBottom={4}
       >
 
-        <Typography
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            fontWeight: 500,
-            fontSize: "24px"
-          }}
-        >Reports</Typography>
+        <Typography variant="h2">Reports</Typography>
 
         <Box sx={{
           display: "flex",

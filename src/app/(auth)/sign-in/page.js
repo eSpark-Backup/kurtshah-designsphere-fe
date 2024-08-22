@@ -1,4 +1,5 @@
 "use client"
+import theme from '@/app/theme'
 import { lock, email } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
@@ -103,7 +104,7 @@ const SignIn = () => {
                   }}
                 >
                   <Link href={"/forget-password"} style={{ textDecoration: "none" }}>
-                    <Typography sx={{ color: "#6191FF", fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
+                    <Typography sx={{ color: (theme) => theme.palette.secondary, fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
                   </Link>
                 </Box>
                 <FormControlLabel control={<Checkbox name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
@@ -120,11 +121,11 @@ const SignIn = () => {
                   <Typography
                     sx={{
                       lineHeight: "29px",
-                      color: "#FFFFFF",
+                      color: (theme) => theme.palette.white,
                       fontSize: "14px"
                     }}>
                     Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
-                      <span style={{ color: "#6191FF", cursor: "pointer " }}>Sign Up</span>
+                      <span style={{ color: theme.palette.secondary.main, cursor: "pointer " }}>Sign Up</span>
                     </Link>
                   </Typography>
                 </Box>

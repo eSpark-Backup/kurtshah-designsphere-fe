@@ -48,15 +48,7 @@ const PunchDoor = () => {
         gap={2}
       >
 
-        <Typography
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            fontWeight: 500,
-            fontSize: "24px"
-          }}
-        >Punch List</Typography>
+        <Typography variant="h2">Punch List</Typography>
 
         <Box sx={{
           display: "flex",
@@ -84,10 +76,9 @@ const PunchDoor = () => {
   const deletePunchModalUI = 
     <Box>
       <Typography
+        variant="h4"
         sx={{
           textAlign: "center",
-          fontSize: "14px",
-          fontWeight: 600,
           lineHeight: "21px",
           color: (theme) => theme.palette.white,
         }}
