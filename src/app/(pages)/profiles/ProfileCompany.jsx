@@ -57,7 +57,7 @@ const ProfileCompany = () => {
                     InputLabelProps={{
                       shrink: true,
                     }}
-                    sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
+                    sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                     placeholder="Type here"
                     customLabel="Company Name *"
                     variant="outlined"

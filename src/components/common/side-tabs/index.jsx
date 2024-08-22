@@ -34,7 +34,7 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
                 ind === active
                   ? "linear-gradient(90deg, #6191FF 0%, #5B6BFF 100%)"
                   : "#2F3D60",
-              boxshadow: "0px 0px 5px 0px #00000040",
+              boxshadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
             }}
             key={tab}
             onClick={() => setActive(ind)}
