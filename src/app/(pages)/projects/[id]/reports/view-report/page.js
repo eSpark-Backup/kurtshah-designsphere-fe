@@ -62,15 +62,7 @@ const ViewReport = () => {
                 marginBottom={4}
             >
 
-                <Typography
-                    sx={{
-                        background: (theme) => theme.palette.headingColor,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        fontWeight: 500,
-                        fontSize: "24px"
-                    }}
-                >Report  Preview
+                <Typography variant="h2">Report  Preview
                 </Typography>
 
                 <Box sx={{

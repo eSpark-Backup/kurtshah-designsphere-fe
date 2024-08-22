@@ -59,7 +59,7 @@ const ProfileCard = ({ readOnly }) => {
                         sx={{
                             fontSize: "20px",
                             fontWeight: "700",
-                            color: "#FFFFFF"
+                            color: (theme) => theme.palette.white,
                         }}
                     >
                         AREEBA SHAKEEL
@@ -75,7 +75,7 @@ const ProfileCard = ({ readOnly }) => {
                             sx={{
                                 fontSize: "16px",
                                 fontWeight: "500",
-                                color: "#FFFFFF"
+                                color: (theme) => theme.palette.white,
                             }}
                         >
                             Germany

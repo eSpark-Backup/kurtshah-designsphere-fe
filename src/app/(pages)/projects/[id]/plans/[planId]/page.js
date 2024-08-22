@@ -141,7 +141,7 @@ const PlansDetails = () => {
                     }}
                     key={tab}
                   >
-                    <Typography fontSize={12} fontWeight={600} color="#fff">
+                    <Typography variant="h5" color="#fff">
                       {tab}
                     </Typography>
                   </Box>
@@ -252,9 +252,8 @@ const PlansDetails = () => {
             </Stack>
           </Stack>
           <Typography
-            fontSize={16}
-            fontWeight={600}
-            sx={{ color: (theme) => theme.palette.tertiary, mt: 1 }}
+            variant="h5"
+            sx={{ fontSize: "16px !important", mt: 1 }}
           >
             Aprial 25 2024
           </Typography>

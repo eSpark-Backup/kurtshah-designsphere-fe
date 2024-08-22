@@ -11,15 +11,7 @@ const Notes = ({ notes }) => {
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={1}
       >
-        <Typography
-          fontSize={24}
-          fontWeight={500}
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
+        <Typography variant="h2" >
           Notes
         </Typography>
         <Stack

@@ -107,9 +107,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
                             <Typography
                                 sx={{
-                                    background: theme.palette.whiteE4,
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
+                                    color: theme.palette.whiteE4,
                                     fontWeight: "bold",
                                     fontSize: "14px",
                                     fontWeight: 500,

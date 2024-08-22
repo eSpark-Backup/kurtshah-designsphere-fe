@@ -16,14 +16,8 @@ const Overview = ({ overview }) => {
       }}
     >
       <Typography
-        fontSize={24}
-        fontWeight={500}
+        variant="h2"
         textAlign="left"
-        sx={{
-          background: (theme) => theme.palette.headingColor,
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
       >
         Overview
       </Typography>
@@ -45,8 +39,7 @@ const Overview = ({ overview }) => {
                 <Image src={document} width={24} height={24} alt="document" />
                 <Box>
                   <Typography
-                    fontSize={14}
-                    fontWeight={600}
+                    variant="h4"
                     sx={{
                       background: (theme) => theme.palette.headingColor,
                       WebkitBackgroundClip: "text",
@@ -56,8 +49,7 @@ const Overview = ({ overview }) => {
                     {item.title}
                   </Typography>
                   <Typography
-                    fontSize={12}
-                    fontWeight={600}
+                    variant="h5"
                     sx={{
                       color: (theme) => theme.palette.whiteE4,
                     }}
@@ -74,8 +66,7 @@ const Overview = ({ overview }) => {
                 <Image src={document} width={24} height={24} alt="document" />
                 <Box>
                   <Typography
-                    fontSize={14}
-                    fontWeight={600}
+                    variant="h4"
                     sx={{
                       background: (theme) => theme.palette.headingColor,
                       WebkitBackgroundClip: "text",
@@ -85,8 +76,7 @@ const Overview = ({ overview }) => {
                     {item.unit}
                   </Typography>
                   <Typography
-                    fontSize={12}
-                    fontWeight={600}
+                    variant="h5"
                     sx={{
                       color: (theme) => theme.palette.whiteE4,
                     }}
@@ -101,10 +91,8 @@ const Overview = ({ overview }) => {
       </Box>
       <Typography
         sx={{ marginTop: "30px" }}
-        fontSize={14}
-        fontWeight={600}
+        variant="h4"
         textAlign="center"
-        color="primary.dark"
       >
         View All
       </Typography>

@@ -1,5 +1,5 @@
 import { arrowDownInput } from '@/assets';
-import { Box, FormControl, FormHelperText, InputAdornment, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+import { Box, FormControl, FormHelperText, InputAdornment, InputLabel, MenuItem, Select } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 

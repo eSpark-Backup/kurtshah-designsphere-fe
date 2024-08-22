@@ -32,7 +32,7 @@ const Legal = () => {
           <Typography
             variant="h4"
             sx={{
-              color: "#E4E4E4"
+              color: (theme) => theme.palette.whiteE4,
             }}
           >
             You need to choose a country first
@@ -79,7 +79,7 @@ const Legal = () => {
               <Typography
                 sx={{
                   fontSize: "16px",
-                  color: "#E4E4E4",
+                  color: (theme) => theme.palette.whiteE4,
                   fontWeight: "500",
                   paddingLeft: "20px"
                 }}>
@@ -98,7 +98,7 @@ const Legal = () => {
                 <Typography
                   sx={{
                     fontSize: "16px",
-                    color: "#E4E4E4",
+                    color: (theme) => theme.palette.whiteE4,
                     fontWeight: "500",
                     paddingLeft: "20px"
                   }}>

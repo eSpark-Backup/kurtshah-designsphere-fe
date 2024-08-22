@@ -57,15 +57,7 @@ const ShareFile = () => {
         gap={2}
       >
 
-        <Typography
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            fontWeight: 500,
-            fontSize: "24px"
-          }}
-        >Files</Typography>
+        <Typography variant="h2">Files</Typography>
 
         <Box sx={{
           display: "flex",
@@ -93,10 +85,9 @@ const ShareFile = () => {
   const deleteFileModalUI =
     <Box>
       <Typography
+        variant="h4"
         sx={{
           textAlign: "center",
-          fontSize: "14px",
-          fontWeight: 600,
           lineHeight: "21px",
           color: (theme) => theme.palette.white,
         }}

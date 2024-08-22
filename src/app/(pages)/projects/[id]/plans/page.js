@@ -55,15 +55,7 @@ const Plans = () => {
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={2}
       >
-        <Typography
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            fontWeight: 500,
-            fontSize: "24px",
-          }}
-        >
+        <Typography variant="h2">
           Upload Schedule
         </Typography>
 
@@ -110,10 +102,9 @@ const Plans = () => {
   const deleteFileModalUI = 
     <Box>
       <Typography
+        variant="h4"
         sx={{
           textAlign: "center",
-          fontSize: "14px",
-          fontWeight: 600,
           lineHeight: "21px",
           color: (theme) => theme.palette.white,
         }}

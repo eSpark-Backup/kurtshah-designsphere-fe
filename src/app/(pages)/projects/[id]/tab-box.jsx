@@ -27,12 +27,7 @@ const TabBox = ({ name, count, icon, trending }) => {
         <Image width={40} height={40} src={icon} alt="icon" />
         <Stack>
           <Typography
-            sx={{
-              background: (theme) => theme.palette.headingColor,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-            fontSize="32px"
+            variant="h1"
             fontWeight={600}
           >
             {count}
@@ -43,8 +38,7 @@ const TabBox = ({ name, count, icon, trending }) => {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            fontSize="12px"
-            fontWeight={600}
+            variant="h5"
           >
             {name}
           </Typography>

@@ -24,7 +24,6 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
       submitButtonText="Create Stage"
       onConfirm={onConfirm}
       showfooter
-
     >
       <Box
         sx={{
@@ -77,12 +76,10 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
         </Box>
         <Box sx={{ width: "100%" }}>
           <Typography
-            fontSize={12}
-            fontWeight={400}
+            variant="h2"
             sx={{
-              background: (theme) => theme.palette.headingColor,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              fontSize: "12px !important",
+              fontWeight: "400 !important",
             }}
           >
             Do you want help?
@@ -91,7 +88,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  sx={{ color: "#E4E4E4" }}
+                  sx={{ color: (theme) => theme.palette.whiteE4 }}
                   checked={form.needHelp === "Yes"}
                   onChange={() => handleChange("Yes", "needHelp")}
                 />
@@ -101,6 +98,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  sx={{ color: (theme) => theme.palette.whiteE4 }}
                   checked={form.needHelp === "No"}
                   onChange={() => handleChange("No", "needHelp")}
                 />
@@ -110,6 +108,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             <FormControlLabel
               control={
                 <Checkbox
+                  sx={{ color: (theme) => theme.palette.whiteE4 }}
                   checked={form.needHelp === "Not Sure"}
                   onChange={() => handleChange("Not Sure", "needHelp")}
                 />

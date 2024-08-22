@@ -53,15 +53,7 @@ const CreateReport = () => {
                 marginBottom={4}
             >
 
-                <Typography
-                    sx={{
-                        background: (theme) => theme.palette.headingColor,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        fontWeight: 500,
-                        fontSize: "24px"
-                    }}
-                >Create Reports
+                <Typography variant="h2">Create Reports
                 </Typography>
 
                 <Box sx={{

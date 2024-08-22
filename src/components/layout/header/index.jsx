@@ -78,8 +78,6 @@ const Header = ({
                 <Typography
                   color={pathname === navItem.link ? "secondary" : "primary"}
                   variant="h4"
-                  fontSize={"14px"}
-                  fontWeight={600}
                 >
                   {navItem.name}
                 </Typography>

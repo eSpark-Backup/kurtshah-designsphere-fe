@@ -11,14 +11,14 @@ const PageTitle = ({ content }) => {
                 alignItems: "center",
                 background: "#1D2641",
                 fontSize: "20px",
-                color: "#FFFFFF",
+                color: (theme) => theme.palette.white,
                 fontWeight: "500"
             }}
         >
             <Typography
                 sx={{
                     fontSize: "20px",
-                    color: "#FFFFFF",
+                    color: (theme) => theme.palette.white,
                     fontWeight: "500"
                 }}>
                 {content}

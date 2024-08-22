@@ -39,12 +39,9 @@ const SectionAccordion = ({ title, children }) => (
             }
         >
             <Typography
+                variant="h2"
                 sx={{
-                    background: (theme) => theme.palette.headingColor,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    fontSize: "20px",
-                    fontWeight: 500
+                    fontSize: "20px !important",
                 }}
             >
                 {title}
@@ -113,10 +110,8 @@ const CreateReportFinalForm = ({ handleForm, setFormProceeds }) => {
                             margin: "auto auto",
                         }}>
                             <SectionAccordion title="Font Styles">
-                                <Typography sx={{
+                                <Typography variant="h5" sx={{
                                     color: (theme) => theme.palette.whiteE4,
-                                    fontSize: "12px",
-                                    fontWeight: 600,
                                     marginBottom: "40px"
                                 }}>
                                     These selections will apply to all applicable fields.

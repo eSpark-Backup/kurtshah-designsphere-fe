@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { search } from "@/assets";
 
-const Feed = ({feed}) => {
+const Feed = ({ feed }) => {
   return (
     <>
       <Stack
@@ -11,17 +11,7 @@ const Feed = ({feed}) => {
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={1}
       >
-        <Typography
-          fontSize={24}
-          fontWeight={500}
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Activity Feed
-        </Typography>
+        <Typography variant="h2">Activity Feed</Typography>
         <Stack
           direction="row"
           alignItems="center"
@@ -61,12 +51,9 @@ const Feed = ({feed}) => {
                 gap={1}
               >
                 <Typography
-                  fontSize={14}
-                  fontWeight={500}
+                  variant="h2"
                   sx={{
-                    background: (theme) => theme.palette.headingColor,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
+                    fontSize: "14px !important",
                   }}
                 >
                   {feed.name}
