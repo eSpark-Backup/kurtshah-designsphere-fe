@@ -8,8 +8,7 @@ const AuthContainer = ({ img, title, desc, children }) => {
     <Box
       sx={{
         margin: "30px 0",
-        background:
-          "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
+        background: (theme)=> theme.palette.gradientPrimary,
         border: "1px solid #FFFFFF1F",
         borderRadius: "16px",
         display: "flex",

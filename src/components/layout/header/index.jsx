@@ -22,8 +22,8 @@ const Header = ({
         alignItems: "center",
         justifyContent: "space-between",
         padding: "0 0 0 24px",
-        borderBottom: "1px solid #FFFFFF14",
-        boxShadow: "0px 4px 16.9px 0px #00000040 inset",
+        borderBottom: (theme) => `1px solid ${theme.palette.grey}`,
+        boxShadow: (theme) => `0px 4px 16.9px 0pxs ${theme.palette.shadowSecondary} inset`,
         position: "sticky",
         top: 0,
       }}

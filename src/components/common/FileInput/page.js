@@ -35,7 +35,7 @@ const FileInput = ({ image, setImage }) => {
                         flexDirection: "column",
                         rowGap: "4px",
                         cursor: "pointer",
-                        background: "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)"
+                        background: (theme)=> theme.palette.gradientPrimary,
 
                     }}
                 >

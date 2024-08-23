@@ -28,13 +28,13 @@ const CardBox = ({ title, data }) => {
           <Typography sx={{ width: "300px", mb: 2 }} variant="h5">
             NAME
           </Typography>
-          {data.length > 0 ? <CustomInput sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }} variant="outlined" placeholder="Enter" /> : <></>}
+          {data.length > 0 ? <CustomInput sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }} variant="outlined" placeholder="Enter" /> : <></>}
         </Box>
         <Box sx={{ width: { xs: "100%", md: "300px" } }}>
           <Typography sx={{ width: "300px", mb: 2 }} variant="h5">
             EMAIL
           </Typography>
-          {data.length > 0 ? <CustomInput sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }} variant="outlined" placeholder="Enter" /> : <></>}
+          {data.length > 0 ? <CustomInput sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }} variant="outlined" placeholder="Enter" /> : <></>}
         </Box>
       </Stack>
       <Box
@@ -55,10 +55,9 @@ const CardBox = ({ title, data }) => {
                 sx={{
                   minWidth: "500px",
                   mt: 2,
-                  background:
-                    "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
+                  background: (theme) => theme.palette.gradientPrimary,
                   border: "1px solid #FFFFFF1F",
-                  boxShadow: "0px 14px 79.3px -12px #00000030",
+                  boxShadow: (theme) => `0px 14px 79.3px -12px ${theme.palette.shadowPrimary}`,
                   borderRadius: "16px",
                   padding: "16px 50px",
                   display: "flex",

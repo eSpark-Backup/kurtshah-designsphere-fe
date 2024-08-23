@@ -71,7 +71,7 @@ const Legal = () => {
                 height: "285px",
                 background: "linear-gradient(180deg, #323F63 0%, #6680C9 100%)",
                 borderRadius: "20px",
-                border: "1px solid #E4E4E4",
+                border: (theme) => theme.palette.borderPrimary,
                 paddingTop: "30px",
                 display: "flex",
                 justifyContent: "space-between",

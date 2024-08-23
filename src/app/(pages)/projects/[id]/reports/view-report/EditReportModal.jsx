@@ -138,7 +138,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
 
                 <Box
                     sx={{
-                        border: theme => `1px solid ${theme.palette.whiteE4}`,
+                        border: theme => theme.palette.borderPrimary,
                         padding: "0px 10px",
                         margin: "0px 5px",
                         width: "78px",

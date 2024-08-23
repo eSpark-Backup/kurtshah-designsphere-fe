@@ -47,9 +47,9 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 error={touched.fontFamily && errors.fontFamily}
                                 helperText={touched.fontFamily && errors.fontFamily}
                                 sx={{
-                                    background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
+                                    background: (theme) => theme.palette.gradientPrimary,
                                     borderRadius: '16px',
-                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline":{
+                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
                                         borderRadius: '16px',
                                     }
                                 }}
@@ -65,6 +65,10 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 value={values.templateDescription}
                                 error={touched.templateDescription && errors.templateDescription}
                                 helperText={touched.templateDescription && errors.templateDescription}
+                                sx={{
+                                    background: (theme) => theme.palette.gradientPrimary,
+                                    borderRadius: '15px',
+                                }}
                             />
 
                             <Box sx={{ marginTop: "20px" }}>

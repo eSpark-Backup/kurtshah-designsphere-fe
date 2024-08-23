@@ -73,7 +73,7 @@ const Security = () => {
         <Button
           onClick={onClick}
           sx={{
-            border: (theme) => `1px solid ${theme.palette.whiteE4}`,
+            border: (theme) => theme.palette.borderPrimary,
             width: "150px",
             borderRadius: "10px",
             backgroundColor: buttonColor,
@@ -136,7 +136,7 @@ const Security = () => {
           <Button
             onClick={handleSubmitTerms}
             sx={{
-              border: (theme) => `1px solid ${theme.palette.whiteE4}`,
+              border: (theme) => theme.palette.borderPrimary,
               width: "150px",
               borderRadius: "10px",
               backgroundColor: '#808080',

@@ -31,9 +31,9 @@ const Support = () => {
                 sx={{
                     minHeight: "500px",
                     width: { xs: "100%", sm: "80%", md: "65%", lg: "50%" },
-                    boxShadow: "0px 0px 4px 0px #00000040",
+                    boxShadow: (theme) => `0px 0px 4px 0px ${theme.palette.shadowSecondary}`,
                     borderRadius: "10px",
-                    border: "1px solid #E4E4E4",
+                    border: (theme) => theme.palette.borderPrimary,
                 }}
             >
                 <Box
@@ -68,8 +68,8 @@ const Support = () => {
                                 sx={{
                                     width: "100%",
                                     minHeight: "380px",
-                                    borderTop: "1px solid #E4E4E4",
-                                    borderBottom: "1px solid #E4E4E4",
+                                    borderTop: (theme) => theme.palette.borderPrimary,
+                                    borderBottom: (theme) => theme.palette.borderPrimary,
                                     padding: { xs: "20px 10px", sm: "25px 15px", md: "30px 25px" },
                                     display: "flex",
                                     flexDirection: { xs: "column", sm: "row" },
@@ -83,7 +83,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="ARC Project *"
                                         variant="outlined"
@@ -100,7 +100,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ input: { borderRadius: "5px", border: "1px solid #E4E4E4" } }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="My question is related to *"
                                         variant="outlined"
@@ -117,7 +117,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ borderRadius: "5px", border: "1px solid #E4E4E4" }}
+                                        sx={{ borderRadius: "5px", border: (theme) => theme.palette.borderPrimary }}
                                         placeholder="Type here"
                                         customLabel="Please provide a brief description of your Overtur  problem *"
                                         variant="outlined"
@@ -137,7 +137,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ borderRadius: "5px", border: "1px solid #E4E4E4" }}
+                                        sx={{ borderRadius: "5px", border: (theme) => theme.palette.borderPrimary }}
                                         customLabel="Screenshot upload - this greatly helps us in troubleshooting"
                                         variant="outlined"
                                         multiline

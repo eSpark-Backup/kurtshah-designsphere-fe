@@ -35,8 +35,8 @@ const ProfileCard = ({ readOnly }) => {
                         height: "80px",
                         borderRadius: "50%",
                         background: "#FAFAFA",
-                        border: "1px solid #E4E4E4",
-                        boxShadow: "0px 0px 5px 0px #00000040",
+                        border: (theme) => theme.palette.borderPrimary,
+                        boxShadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center"
