@@ -1,5 +1,5 @@
 "use client"
-import { checkVerified, lock, message } from '@/assets'
+import { checkVerified, email, lock, message } from '@/assets'
 import { AuthContainer } from '@/components/common'
 import { LoadingButton } from '@mui/lab'
 import { Box, Button, Typography } from '@mui/material'
@@ -53,10 +53,9 @@ const VerifyEmail = () => {
                             sx={{
                                 lineHeight: "29px",
                                 textAlign: "center",
-                                width: { xs: "100%", sm: "75%", md: "70%", lg: "60%", xl: "45%" },
                                 fontSize: { xs: "15px", sm: "18px" }
                             }}>
-                            A verification email was sent to yousha@esparkconsultants.com
+                            A verification email was sent to <br /> yousha@esparkconsultants.com
                         </Typography>
                         <Box sx={{
                             display: "flex",
@@ -66,7 +65,7 @@ const VerifyEmail = () => {
                             marginTop: "25px"
                         }}>
                             <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
-                                <Image src={message} width={24} height={24} style={{ marginRight: "10px" }} />
+                                <Image src={email} width={24} height={24} style={{ marginRight: "10px" }} />
                                 Resend Email
                             </Button>
                             <Link href={"/email-verified"} style={{ width: "95%", margin: "auto auto" }}>
