@@ -1,5 +1,5 @@
 "use client"
-import { card, people, user, userTick } from '@/assets'
+import { card, people, user, user2, userTick } from '@/assets'
 import { AuthContainer, CustomInput, Dropdown } from '@/components/common'
 import { COUNTRIES_OPTIONS, jobFunctionOptions } from '@/constants'
 import { profileDetailsSchema } from '@/validation'
@@ -140,7 +140,7 @@ const ProfileDetails = () => {
                                                 value={values.postalCode}
                                                 error={touched.postalCode && errors.postalCode}
                                                 helperText={touched.postalCode && errors.postalCode}
-                                                startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
+                                                startAdornment={<Image src={user2} width={24} height={24} alt='User Icon' />}
                                                 hideArrows={true}
                                             />
                                         </Box>

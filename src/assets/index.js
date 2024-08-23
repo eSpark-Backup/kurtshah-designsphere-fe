@@ -75,6 +75,7 @@ import bold from "./icons/bold.svg";
 import captalism from "./icons/captalism.svg";
 import hamburger from "./icons/hamburger.png";
 import checking from "./images/Auth-Image2.png"
+import user2 from "./icons/user2.svg"
 
 export {
   authImage,
@@ -153,5 +154,6 @@ export {
   bold,
   captalism,
   hamburger,
-  checking
+  checking,
+  user2
 };
