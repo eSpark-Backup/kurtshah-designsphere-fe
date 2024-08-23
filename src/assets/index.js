@@ -73,6 +73,7 @@ import strike from "./icons/strike.svg";
 import italic from "./icons/italic.svg";
 import bold from "./icons/bold.svg";
 import captalism from "./icons/captalism.svg";
+import hamburger from "./icons/hamburger.png";
 
 export {
   authImage,
@@ -150,4 +151,5 @@ export {
   italic,
   bold,
   captalism,
+  hamburger
 };

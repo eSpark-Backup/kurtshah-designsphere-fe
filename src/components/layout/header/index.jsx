@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Box, Stack, Typography } from "@mui/material";
 import { Searchbar } from "@/components/common";
 import { navLinks } from "@/constants";
-import { avatar, book, logo, message, notification } from "@/assets";
+import { avatar, book, hamburger, logo, message, notification } from "@/assets";
 
 const Header = ({
   authedRoute,
@@ -123,25 +123,35 @@ const Header = ({
             />
           </Box>
           <Image width={24} height={24} src={book} alt="book" />
-          <Image width={24} height={24} src={message} alt="message" />
+          <Image width={24} height={24} src={message} alt="message" onClick={() => router.push("/support")} style={{ cursor: "pointer" }} />
           <Box
             sx={{
-              minWidth: "80px",
+              minWidth: { xs: "40px", sm: "80px" },
               height: "80px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              background: (theme) => theme.palette.primary["900"],
+              // Using code here because the theme doesn't apply correctly when conditions are used.
+              background: { xs: "none", sm: "#212A46" },
             }}
           >
             <Image
               style={{ cursor: "pointer" }}
-              onClick={() => setOpenSidebar(true)}
+              onClick={() => router.push("/profiles")}
               width={40}
               height={40}
               src={avatar}
               alt="avatar"
             />
+          </Box>
+          <Box
+            onClick={() => setOpenSidebar(true)}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              paddingRight: "10px"
+            }}
+          >
+            <Image width={24} height={24} src={hamburger} alt="menu" />
           </Box>
         </Stack>
       )}
