@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
+import Card from "../Card";
 
 const SidebarTab = ({ title, active, setActive, tabsArr }) => {
   return (
-    <Box
+    <Card
+      variant={"outline"}
       sx={{
-        border: "1px solid #E4E4E4",
         background: "linear-gradient(180deg, #1B253E 0%, #303E61 100%)",
-        boxShadow: "0px 0px 10px 0px #00000040",
         borderRadius: "10px",
         height: "100%",
         padding: "10px",
@@ -16,7 +16,7 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
         textAlign="center"
         fontSize={20}
         fontWeight={700}
-        sx={{ color: "#E4E4E4", margin: "60px 0" }}
+        sx={{ color: (theme) => theme.palette.whiteE4, margin: "60px 0" }}
       >
         {title}
       </Typography>
@@ -34,7 +34,7 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
                 ind === active
                   ? "linear-gradient(90deg, #6191FF 0%, #5B6BFF 100%)"
                   : "#2F3D60",
-              boxshadow: "0px 0px 5px 0px #00000040",
+              boxshadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
             }}
             key={tab}
             onClick={() => setActive(ind)}
@@ -43,14 +43,14 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
               textAlign="center"
               fontSize={16}
               fontWeight={500}
-              sx={{ color: "#E4E4E4" }}
+              sx={{ color: (theme) => theme.palette.whiteE4 }}
             >
               {tab.title}
             </Typography>
           </Box>
         );
       })}
-    </Box>
+    </Card>
   );
 };
 

@@ -1,5 +1,6 @@
 "use client"
 import { Dropdown } from "@/components/common";
+import Card from "@/components/common/Card";
 import { COUNTRIES_OPTIONS, legalPageContent } from "@/constants";
 import { Box, Typography } from "@mui/material";
 import react, { useState } from "react";
@@ -32,7 +33,7 @@ const Legal = () => {
           <Typography
             variant="h4"
             sx={{
-              color: "#E4E4E4"
+              color: (theme) => theme.palette.whiteE4,
             }}
           >
             You need to choose a country first
@@ -63,14 +64,14 @@ const Legal = () => {
           }}
         >
           {legalPageContent.map((item, index) => (
-            <Box
+            <Card
               key={index}
               sx={{
                 width: { xs: "100%", sm: "45%", lg: "40%", xl: "30%" },
                 height: "285px",
                 background: "linear-gradient(180deg, #323F63 0%, #6680C9 100%)",
                 borderRadius: "20px",
-                border: "1px solid #E4E4E4",
+                border: (theme) => theme.palette.borderPrimary,
                 paddingTop: "30px",
                 display: "flex",
                 justifyContent: "space-between",
@@ -79,7 +80,7 @@ const Legal = () => {
               <Typography
                 sx={{
                   fontSize: "16px",
-                  color: "#E4E4E4",
+                  color: (theme) => theme.palette.whiteE4,
                   fontWeight: "500",
                   paddingLeft: "20px"
                 }}>
@@ -98,7 +99,7 @@ const Legal = () => {
                 <Typography
                   sx={{
                     fontSize: "16px",
-                    color: "#E4E4E4",
+                    color: (theme) => theme.palette.whiteE4,
                     fontWeight: "500",
                     paddingLeft: "20px"
                   }}>
@@ -107,7 +108,7 @@ const Legal = () => {
 
               </Box>
 
-            </Box>
+            </Card>
           ))}
         </Box>
       </Box>

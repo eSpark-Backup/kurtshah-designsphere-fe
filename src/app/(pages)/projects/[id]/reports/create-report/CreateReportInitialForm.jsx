@@ -47,11 +47,15 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 error={touched.fontFamily && errors.fontFamily}
                                 helperText={touched.fontFamily && errors.fontFamily}
                                 sx={{
-                                    background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
-                                    borderRadius: '15px',
+                                    background: (theme) => theme.palette.gradientPrimary,
+                                    borderRadius: '16px',
+                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
+                                        borderRadius: '16px',
+                                    }
                                 }}
                             />
                             <CustomInput
+                                variant="filled"
                                 name="templateDescription"
                                 type="text"
                                 label="Template Desicription"
@@ -62,7 +66,7 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 error={touched.templateDescription && errors.templateDescription}
                                 helperText={touched.templateDescription && errors.templateDescription}
                                 sx={{
-                                    background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
+                                    background: (theme) => theme.palette.gradientPrimary,
                                     borderRadius: '15px',
                                 }}
                             />

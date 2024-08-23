@@ -1,29 +1,20 @@
 import Image from "next/image";
 import { Box, Typography, Grid } from "@mui/material";
 import { document } from "@/assets";
+import Card from "@/components/common/Card";
 
 const Overview = ({ overview }) => {
   return (
-    <Box
+    <Card
+      variant={"gradient"}
       sx={{
         height: "calc(100% - 16px)",
         padding: "16px 24px",
-        borderRadius: "16px",
-        background:
-          "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
-        border: "1px solid #FFFFFF1F",
-        boxShadow: "0px 14px 79.3px -12px #00000030",
       }}
     >
       <Typography
-        fontSize={24}
-        fontWeight={500}
+        variant="h2"
         textAlign="left"
-        sx={{
-          background: (theme) => theme.palette.headingColor,
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
       >
         Overview
       </Typography>
@@ -45,8 +36,7 @@ const Overview = ({ overview }) => {
                 <Image src={document} width={24} height={24} alt="document" />
                 <Box>
                   <Typography
-                    fontSize={14}
-                    fontWeight={600}
+                    variant="h4"
                     sx={{
                       background: (theme) => theme.palette.headingColor,
                       WebkitBackgroundClip: "text",
@@ -56,8 +46,7 @@ const Overview = ({ overview }) => {
                     {item.title}
                   </Typography>
                   <Typography
-                    fontSize={12}
-                    fontWeight={600}
+                    variant="h5"
                     sx={{
                       color: (theme) => theme.palette.whiteE4,
                     }}
@@ -74,8 +63,7 @@ const Overview = ({ overview }) => {
                 <Image src={document} width={24} height={24} alt="document" />
                 <Box>
                   <Typography
-                    fontSize={14}
-                    fontWeight={600}
+                    variant="h4"
                     sx={{
                       background: (theme) => theme.palette.headingColor,
                       WebkitBackgroundClip: "text",
@@ -85,8 +73,7 @@ const Overview = ({ overview }) => {
                     {item.unit}
                   </Typography>
                   <Typography
-                    fontSize={12}
-                    fontWeight={600}
+                    variant="h5"
                     sx={{
                       color: (theme) => theme.palette.whiteE4,
                     }}
@@ -101,14 +88,12 @@ const Overview = ({ overview }) => {
       </Box>
       <Typography
         sx={{ marginTop: "30px" }}
-        fontSize={14}
-        fontWeight={600}
+        variant="h4"
         textAlign="center"
-        color="primary.dark"
       >
         View All
       </Typography>
-    </Box>
+    </Card>
   );
 };
 

@@ -13,17 +13,7 @@ const Collaborators = ({ collaborators }) => {
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={1}
       >
-        <Typography
-          fontSize={24}
-          fontWeight={500}
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Collaborators
-        </Typography>
+        <Typography variant="h2">Collaborators</Typography>
         <Stack
           direction="row"
           alignItems="center"

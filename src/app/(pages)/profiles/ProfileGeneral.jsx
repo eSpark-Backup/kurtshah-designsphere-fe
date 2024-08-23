@@ -3,11 +3,12 @@ import { location } from '@/assets'
 import { CustomInput, Dropdown } from '@/components/common'
 import { COUNTRIES_OPTIONS, jobFunctionOptions } from '@/constants'
 import { profileGeneralSchema } from '@/validation'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack } from '@mui/material'
 import { Form, Formik } from 'formik'
 import Image from 'next/image'
 import React from 'react'
 import ProfileCard from './Profile-Card'
+import Card from '@/components/common/Card'
 
 const ProfileGeneral = () => {
     const initialValues = {
@@ -32,12 +33,10 @@ const ProfileGeneral = () => {
                 {({ values, handleChange, handleBlur, errors, touched, setFieldValue }) => (
                     <Form>
                         <ProfileCard />
-                        <Box
+                        <Card
+                            variant={"outline"}
                             sx={{
                                 marginTop: "30px",
-                                border: "1px solid #E4E4E4",
-                                boxShadow: "0px 0px 10px 0px #00000040",
-                                borderRadius: "10px",
                                 display: "flex",
                                 justifyContent: "center",
                                 alignItems: "center",
@@ -63,6 +62,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="First Name *"
                                         variant="outlined"
@@ -85,6 +85,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="Last Name *"
                                         variant="outlined"
@@ -107,6 +108,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="Email *"
                                         variant="outlined"
@@ -129,6 +131,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="Phone Number *"
                                         variant="outlined"
@@ -183,6 +186,7 @@ const ProfileGeneral = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
+                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="Postal Code *"
                                         variant="outlined"
@@ -199,7 +203,7 @@ const ProfileGeneral = () => {
                                 </Box>
                             </Box>
 
-                        </Box>
+                        </Card>
                     </Form>
                 )}
             </Formik>

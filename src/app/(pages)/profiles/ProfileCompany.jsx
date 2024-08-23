@@ -5,6 +5,7 @@ import { Box } from '@mui/material'
 import { CustomInput, Dropdown } from '@/components/common'
 import { jobFunctionOptions } from '@/constants'
 import { profileCompanySchema } from '@/validation'
+import Card from '@/components/common/Card'
 
 const ProfileCompany = () => {
   const initialValues = {
@@ -26,12 +27,10 @@ const ProfileCompany = () => {
         {({ values, handleChange, touched, errors, handleBlur, setFieldValue }) => (
           <Form>
             <ProfileCard />
-            <Box
+            <Card
+              variant={"outline"}
               sx={{
                 marginTop: "30px",
-                border: "1px solid #E4E4E4",
-                boxShadow: "0px 0px 10px 0px #00000040",
-                borderRadius: "10px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -58,6 +57,7 @@ const ProfileCompany = () => {
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                     placeholder="Type here"
                     customLabel="Company Name *"
                     variant="outlined"
@@ -104,7 +104,7 @@ const ProfileCompany = () => {
                 </Box>
               </Box>
 
-            </Box>
+            </Card>
           </Form>
         )}
       </Formik>

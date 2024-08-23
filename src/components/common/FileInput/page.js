@@ -35,7 +35,7 @@ const FileInput = ({ image, setImage }) => {
                         flexDirection: "column",
                         rowGap: "4px",
                         cursor: "pointer",
-                        background: "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)"
+                        background: (theme)=> theme.palette.gradientPrimary,
 
                     }}
                 >
@@ -57,10 +57,10 @@ const FileInput = ({ image, setImage }) => {
                                 alt='Upload Icon'
                             />
                             <Typography
+                                variant="h4"
                                 sx={{
-                                    fontSize: "14px",
-                                    color: "white",
-                                    fontWeight: "400"
+                                    color: (theme) => theme.palette.white,
+                                    fontWeight: "400 !important"
                                 }}
                             >
                                 Upload

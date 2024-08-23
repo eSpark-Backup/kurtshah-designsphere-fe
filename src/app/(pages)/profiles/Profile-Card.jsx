@@ -1,4 +1,5 @@
 import { location } from '@/assets'
+import Card from '@/components/common/Card'
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
@@ -6,12 +7,10 @@ import React from 'react'
 const ProfileCard = ({ readOnly }) => {
     const isLessthanSm = useMediaQuery('(max-width:599px)');
     return (
-        <Box
+        <Card
+            variant={"outline"}
             sx={{
                 width: "100%",
-                border: "1px solid #E4E4E4",
-                boxShadow: "0px 0px 10px 0px #00000040",
-                borderRadius: "10px",
                 padding: "55px 30px",
                 display: "flex",
                 justifyContent: "space-between",
@@ -36,8 +35,8 @@ const ProfileCard = ({ readOnly }) => {
                         height: "80px",
                         borderRadius: "50%",
                         background: "#FAFAFA",
-                        border: "1px solid #E4E4E4",
-                        boxShadow: "0px 0px 5px 0px #00000040",
+                        border: (theme) => theme.palette.borderPrimary,
+                        boxShadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center"
@@ -59,7 +58,7 @@ const ProfileCard = ({ readOnly }) => {
                         sx={{
                             fontSize: "20px",
                             fontWeight: "700",
-                            color: "#FFFFFF"
+                            color: (theme) => theme.palette.white,
                         }}
                     >
                         AREEBA SHAKEEL
@@ -75,7 +74,7 @@ const ProfileCard = ({ readOnly }) => {
                             sx={{
                                 fontSize: "16px",
                                 fontWeight: "500",
-                                color: "#FFFFFF"
+                                color: (theme) => theme.palette.white,
                             }}
                         >
                             Germany
@@ -91,7 +90,7 @@ const ProfileCard = ({ readOnly }) => {
                     <Button type='submit' variant='primary'>Save</Button>
                 </Box>
             }
-        </Box>
+        </Card>
     )
 }
 

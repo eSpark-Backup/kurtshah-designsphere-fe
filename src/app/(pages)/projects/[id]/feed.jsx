@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { search } from "@/assets";
+import Card from "@/components/common/Card";
 
-const Feed = ({feed}) => {
+const Feed = ({ feed }) => {
   return (
     <>
       <Stack
@@ -11,17 +12,7 @@ const Feed = ({feed}) => {
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={1}
       >
-        <Typography
-          fontSize={24}
-          fontWeight={500}
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Activity Feed
-        </Typography>
+        <Typography variant="h2">Activity Feed</Typography>
         <Stack
           direction="row"
           alignItems="center"
@@ -42,15 +33,11 @@ const Feed = ({feed}) => {
       <Box sx={{ height: "calc(100% - 36px)", overflowY: "auto" }}>
         {feed.map((feed, ind) => {
           return (
-            <Box
+            <Card
+              variant={"gradient"}
               sx={{
                 mt: 2,
                 padding: "23px 13px",
-                borderRadius: "16px",
-                background:
-                  "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
-                border: "1px solid #FFFFFF1F",
-                boxShadow: "0px 14px 79.3px -12px #00000030",
               }}
               key={feed.id * ind}
             >
@@ -61,12 +48,9 @@ const Feed = ({feed}) => {
                 gap={1}
               >
                 <Typography
-                  fontSize={14}
-                  fontWeight={500}
+                  variant="h2"
                   sx={{
-                    background: (theme) => theme.palette.headingColor,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
+                    fontSize: "14px !important",
                   }}
                 >
                   {feed.name}
@@ -81,7 +65,7 @@ const Feed = ({feed}) => {
               >
                 {feed.text}
               </Typography>
-            </Box>
+            </Card>
           );
         })}
       </Box>

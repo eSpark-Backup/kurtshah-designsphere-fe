@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Box, Grid } from "@mui/material";
 import { SidebarTab } from "@/components/common";
 import EmailNotificationTab from "./EmailNotificationTab";
+import Card from "@/components/common/Card";
 
 const EmailNotification = () => {
   const [active, setActive] = useState(0);
@@ -33,17 +34,15 @@ const EmailNotification = () => {
           />
         </Grid>
         <Grid item xs={12} sm={9}>
-          <Box
+          <Card
+            variant={"outline"}
             sx={{
               padding: "20px",
-              border: "1px solid #E4E4E4",
-              boxShadow: "0px 0px 10px 0px #00000040",
-              borderRadius: "10px",
               height: "100%",
             }}
           >
             {tabsComponent(emailNotificationTabs)}
-          </Box>
+          </Card>
         </Grid>
       </Grid>
     </>

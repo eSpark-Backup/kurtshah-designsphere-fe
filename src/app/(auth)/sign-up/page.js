@@ -1,5 +1,6 @@
 "use client"
 
+import theme from '@/app/theme'
 import { lock, email, user, userTick } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
@@ -79,6 +80,7 @@ const SignUp = () => {
 
                   }}>
                     <CustomInput
+                      variant="filled"
                       name="firstName"
                       type="text"
                       placeholder="First Name"
@@ -91,6 +93,7 @@ const SignUp = () => {
                       startAdornment={<Image src={userTick} width={24} height={24} alt='User Tick Icon' />}
                     />
                     <CustomInput
+                      variant="filled"
                       name="lastName"
                       type="text"
                       placeholder="Last Name"
@@ -106,6 +109,7 @@ const SignUp = () => {
 
 
                   <CustomInput
+                    variant="filled"
                     name="email"
                     type="email"
                     placeholder="Username or email"
@@ -118,6 +122,7 @@ const SignUp = () => {
                     startAdornment={<Image src={email} width={24} height={24} alt='Email Icon' />}
                   />
                   <CustomInput
+                    variant="filled"
                     name="password"
                     type="password"
                     placeholder="Password"
@@ -146,11 +151,11 @@ const SignUp = () => {
                   <Typography
                     sx={{
                       lineHeight: "29px",
-                      color: "#FFFFFF",
+                      color: (theme) => theme.palette.white,
                       fontSize: "14px"
                     }}>
                     Already have an account? <Link href={"/sign-in"} style={{ textDecoration: "none" }}>
-                      <span style={{ color: "#6191FF", cursor: "pointer" }}>Sign In</span>
+                      <span style={{ color: theme.palette.secondary.main, cursor: "pointer" }}>Sign In</span>
                     </Link>
                   </Typography>
                 </Box>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button, Chip, Stack, Typography, Box } from "@mui/material";
 import { add, arrowDown, document, profile, profileTick } from "@/assets";
+import Card from "@/components/common/Card";
 
 const Notes = ({ notes }) => {
   return (
@@ -11,15 +12,7 @@ const Notes = ({ notes }) => {
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={1}
       >
-        <Typography
-          fontSize={24}
-          fontWeight={500}
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
+        <Typography variant="h2" >
           Notes
         </Typography>
         <Stack
@@ -66,27 +59,23 @@ const Notes = ({ notes }) => {
                   {note.date}
                 </Typography>
               )}
-              <Box
+              <Card
                 key={note.id + ind}
+                variant={"gradient"}
                 sx={{
-                  minWidth: "550px",
-                  mt: "12px",
-                  padding: "24px 24px",
-                  borderRadius: "16px",
-                  background:
-                    "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
-                  border: "1px solid #FFFFFF1F",
-                  boxShadow: "0px 14px 79.3px -12px #00000030",
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  minWidth: "550px",
+                  mt: "12px",
+                  padding: "24px 24px",
                 }}
               >
                 <IconCol note={note.note} />
                 <IconCol assigned={note.assigned} />
                 <IconCol createdBy={note.createdBy} />
                 <Chip label={note.createdAt} />
-              </Box>
+              </Card>
             </>
           );
         })}

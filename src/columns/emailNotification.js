@@ -43,9 +43,8 @@ export const columns = (handleOpenModal) => {
               height={24}
             />
             <Typography
+              variant="h5"
               sx={{
-                fontSize: "12px",
-                fontWeight: 600,
                 textTransform: "initial",
                 lineHeight: 2.1,
               }}

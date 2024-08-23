@@ -18,15 +18,7 @@ const DirectoryController = ({ title, desc, links }) => {
         <Image onClick={() => router.back()} src={backArrow} alt="back" />
       )}
       <Stack direction="column" justifyContent="center" alignItems="flex-start">
-        <Typography
-          sx={{
-            background: (theme) => theme.palette.headingColor,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-          fontSize="32px"
-          fontWeight={500}
-        >
+        <Typography variant="h1">
           {title}
         </Typography>
         {desc ? (
@@ -36,8 +28,7 @@ const DirectoryController = ({ title, desc, links }) => {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            fontSize="14px"
-            fontWeight={600}
+            variant="h4"
           >
             {desc}
           </Typography>

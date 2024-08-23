@@ -62,15 +62,7 @@ const ViewReport = () => {
                 marginBottom={4}
             >
 
-                <Typography
-                    sx={{
-                        background: (theme) => theme.palette.headingColor,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        fontWeight: 500,
-                        fontSize: "24px"
-                    }}
-                >Report  Preview
+                <Typography variant="h2">Report  Preview
                 </Typography>
 
                 <Box sx={{
@@ -132,7 +124,7 @@ const ViewReport = () => {
                     border: '1px solid #36405D',
                     borderRadius: '16px',
                     padding: '20px',
-                    background: 'linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)',
+                    background: (theme)=> theme.palette.gradientPrimary,
                     display: { xs: 'none', md: 'flex' },
                     flexDirection: 'column',
                     alignItems: 'center',

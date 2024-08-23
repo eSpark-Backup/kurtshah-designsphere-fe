@@ -26,7 +26,7 @@ const Tabs = ({ tabs, activeTab, TabHandler }) => {
                     }}
 
                 >
-                    <Typography sx={{ fontSize: "12px", color: "white" }}>{item?.TabContent}</Typography>
+                    <Typography sx={{ fontSize: "12px", color: (theme) => theme.palette.white }}>{item?.TabContent}</Typography>
                 </Box>
             ))}
         </Box>
