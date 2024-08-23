@@ -1,6 +1,6 @@
 "use client"
 import theme from '@/app/theme'
-import { lock, email } from '@/assets'
+import { lock, email, user } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import Image from 'next/image'
@@ -13,7 +13,8 @@ import { LoadingButton } from '@mui/lab'
 const SignIn = () => {
   const initialValues = {
     email: "",
-    password: ""
+    password: "",
+    rememberMe: false
   }
 
   const handleSubmit = (values) => {
@@ -80,7 +81,7 @@ const SignIn = () => {
                     value={values.email}
                     error={touched.email && errors.email}
                     helperText={touched.email && errors.email}
-                    startAdornment={<Image src={email} width={24} height={24} alt='Email Icon' />}
+                    startAdornment={<Image src={user} width={24} height={24} alt='Email Icon' />}
                   />
                   <CustomInput
                     variant="filled"
@@ -106,10 +107,22 @@ const SignIn = () => {
                   }}
                 >
                   <Link href={"/forget-password"} style={{ textDecoration: "none" }}>
-                    <Typography sx={{ color: (theme) => theme.palette.secondary, fontSize: "14px", cursor: "pointer" }}>Forgot Password?</Typography>
+                    <Typography sx={{ color: (theme) => theme.palette.secondary.main, fontSize: "14px", cursor: "pointer", fontWeight: "600" }}>Forgot Password?</Typography>
                   </Link>
                 </Box>
-                <FormControlLabel control={<Checkbox name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
+                {/* <FormControlLabel control={<Checkbox onChange={handleChange} name="rememberMe" />} label="Remember Me" sx={{ paddingLeft: "20px", marginBottom: "20px" }} /> */}
+                <Box>
+                  <FormControlLabel control={<Checkbox onChange={handleChange} sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="rememberMe" />} label={
+                    <>
+                      Remember Me
+                    </>
+                  } sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
+                  {touched.rememberMe && errors.rememberMe && (
+                    <Typography sx={{ color: 'error.main', fontSize: '12px', paddingLeft: '50px', position: "relative", bottom: "20px" }}>
+                      {errors.rememberMe}
+                    </Typography>
+                  )}
+                </Box>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
                   <LoadingButton
                     loading={false}

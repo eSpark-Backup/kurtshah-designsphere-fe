@@ -19,7 +19,8 @@ const SignUp = () => {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    recievedEmail: false
   }
 
   const handleSubmit = (values) => {
@@ -37,7 +38,7 @@ const SignUp = () => {
         alignItems: "center",
       }}
     >
-      <AuthContainer>
+      <AuthContainer register={true}>
         <Box
           sx={{
             width: "100%",
@@ -133,10 +134,22 @@ const SignUp = () => {
                     error={touched.password && errors.password}
                     helperText={touched.password && errors.password}
                     startAdornment={<Image src={lock} width={24} height={24} alt='Lock Icon' />}
+                    userHelpingText={"Minimum length is 8 characters."}
                   />
                 </Box>
 
-                <FormControlLabel control={<Checkbox sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label="By creating an account, you agree to the Terms of Service.  We'll occasionally send you account-related emails." sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
+                <Box>
+                  <FormControlLabel control={<Checkbox onChange={handleChange} sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label={
+                    <>
+                      By creating an account, you agree to the <span style={{ textDecoration: "underline" }}>Terms of Service</span>.  We'll occasionally send you account-related emails.
+                    </>
+                  } sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
+                  {touched.recievedEmail && errors.recievedEmail && (
+                    <Typography sx={{ color: 'error.main', fontSize: '12px', paddingLeft: '50px', position: "relative", bottom: "20px" }}>
+                      {errors.recievedEmail}
+                    </Typography>
+                  )}
+                </Box>
 
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
                   <LoadingButton

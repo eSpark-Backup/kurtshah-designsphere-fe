@@ -87,21 +87,29 @@ const theme = createTheme({
         {
           props: { variant: "tertiary" },
           style: ({ theme }) => ({
-            background: "transparent",
-            color: theme.palette.white,
+            background: theme.palette.headingColor,
+            color: "transparent", // Text color should be transparent
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text", // For Safari support
+            WebkitTextFillColor: "transparent", // For Safari support
             borderRadius: "12px",
             position: "relative",
-            fontWeight: "600",
+            fontWeight: "400",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderColor: theme.palette.borderPrimary,
+            borderColor: "#8B8B8B24",
             width: "100%",
+            fontsize: "14px",
             "&:hover": {
-              backgroundColor: "transparent",
-              color: theme.palette.white,
+              background: theme.palette.headingColor,
+              color: "transparent", // Ensure it remains consistent
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             },
           }),
-        },
+        }
+
       ],
     },
     MuiTable: {
@@ -222,7 +230,7 @@ const theme = createTheme({
           color: theme.palette.whiteE4,
         }),
         label: {
-          fontSize: "12px",
+          fontSize: "14px",
         },
       },
     },
@@ -296,7 +304,7 @@ const theme = createTheme({
           fontWeight: 500,
           color: "#ffffff",
           lineHeight: "160%",
-          height: "auto",
+          height: "44px",
           borderRadius: "16px",
           background:
             "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",

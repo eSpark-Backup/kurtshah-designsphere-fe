@@ -1,8 +1,9 @@
 import * as Yup from 'yup'
 
 export const signinSchema = Yup.object({
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    password: Yup.string().required('Password is required').min(5, "Password must contain 5 characters")
+  email: Yup.string().email('Invalid email address').required('Email is required'),
+  password: Yup.string().required('Password is required').min(5, "Password must contain 5 characters"),
+  rememberMe: Yup.boolean().oneOf([true], 'You must agree to remember me')
 })
 
 export const forgetPasswordSchema = Yup.object({
@@ -10,10 +11,11 @@ export const forgetPasswordSchema = Yup.object({
 })
 
 export const signupSchema = Yup.object({
-    firstName: Yup.string().required('First Name is required'),
-    lastName: Yup.string().required('Last Name is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    password: Yup.string().required('Password is required').min(5, "Password must contain 5 characters")
+  firstName: Yup.string().required('First Name is required'),
+  lastName: Yup.string().required('Last Name is required'),
+  email: Yup.string().email('Invalid email address').required('Email is required'),
+  password: Yup.string().required('Password is required').min(5, "Password must contain 5 characters"),
+  recievedEmail: Yup.boolean().oneOf([true], 'You must agree to the terms of service')
 })
 
 export const profileDetailsSchema = Yup.object({
