@@ -41,7 +41,7 @@ const theme = createTheme({
     grey: "#FFFFFF1F",
     buttonPrimary: "linear-gradient(180deg, #6191FF 0%, #5B6BFF 100%)",
     buttonSecondary: "#7A89BC",
-    borderPrimary: "#8B8B8B24",
+    borderColorPrimary: "#8B8B8B24",
     headingColor: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
     textPrimaryGradient: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
     gradientPrimary: "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
@@ -94,7 +94,7 @@ const theme = createTheme({
             fontWeight: "600",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderColor: theme.palette.borderPrimary,
+            borderColor: theme.palette.borderColorPrimary,
             width: "100%",
             "&:hover": {
               backgroundColor: "transparent",
@@ -267,13 +267,13 @@ const theme = createTheme({
           height: "auto",
           borderRadius: "5px",
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.borderPrimary,
+            borderColor: theme.palette.borderColorPrimary,
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.borderPrimary,
+            borderColor: theme.palette.borderColorPrimary,
           },
           "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.borderPrimary, // Keeps the border color consistent when disabled
+            borderColor: theme.palette.borderColorPrimary, // Keeps the border color consistent when disabled
           },
           "& textarea": {
             scrollbarWidth: "none",
@@ -284,7 +284,7 @@ const theme = createTheme({
           },
         }),
         notchedOutline: ({ theme }) => ({
-          borderColor: theme.palette.borderPrimary,
+          borderColor: theme.palette.borderColorPrimary,
           borderRadius: "5px",
         }),
       },
@@ -311,17 +311,17 @@ const theme = createTheme({
             padding: "16.5px 14px",
           },
           "&:hover .MuiFilledInput-notchedOutline": {
-            borderColor: theme.palette.borderPrimary,
+            borderColor: theme.palette.borderColorPrimary,
           },
           "&.Mui-focused .MuiFilledInput-notchedOutline": {
-            borderColor: theme.palette.borderPrimary,
+            borderColor: theme.palette.borderColorPrimary,
           },
           "&.Mui-disabled .MuiFilledInput-notchedOutline": {
-            borderColor: theme.palette.borderPrimary, // Keeps the border color consistent when disabled
+            borderColor: theme.palette.borderColorPrimary, // Keeps the border color consistent when disabled
           },
         }),
         notchedFilled: ({ theme }) => ({
-          borderColor: theme.palette.borderPrimary,
+          borderColor: theme.palette.borderColorPrimary,
           borderRadius: "16px",
         }),
       },
