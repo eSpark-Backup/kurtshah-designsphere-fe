@@ -15,7 +15,7 @@ const EmailVerified = () => {
                 minHeight: "100%",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
+                alignItems: "center"
             }}
         >
             <AuthContainer>
@@ -25,7 +25,9 @@ const EmailVerified = () => {
                         height: "100%",
                         display: "flex",
                         flexDirection: "column",
-                        rowGap: "25px"
+                        rowGap: "25px",
+                        justifyContent: "center",
+                        alignItems: "center"
                     }}>
                     <Box
                         sx={{
@@ -53,7 +55,7 @@ const EmailVerified = () => {
                             sx={{
                                 lineHeight: "29px",
                                 textAlign: "center",
-                                width: { xs: "100%", sm: "75%", md: "60%", lg: "60%", xl: "45%" }
+                                width: { xs: "100%", sm: "75%", md: "60%", lg: "75%", xl: "85%" }
                             }}>
                             Your email yousha@esparkconsultants.com is successfully verified!
                         </Typography>
@@ -62,7 +64,7 @@ const EmailVerified = () => {
                             flexDirection: "column",
                             rowGap: "20px",
                             width: "100%",
-                            marginTop: "45px"
+                            marginTop: "65px"
                         }}>
                             <Button type="submit" variant='primary' sx={{ width: "95%", margin: "auto auto", height: "48px" }} onClick={() => router.push("/profile-details")}>
                                 Next
