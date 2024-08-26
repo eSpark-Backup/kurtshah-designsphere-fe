@@ -112,6 +112,13 @@ const theme = createTheme({
 
       ],
     },
+    MuiInputAdornment : {
+      styleOverrides : {
+        root: {
+          marginTop: "0px !important",
+        },
+      },
+    },
     MuiTable: {
       styleOverrides: {
         root: {
@@ -290,6 +297,15 @@ const theme = createTheme({
           "& textarea::-webkit-scrollbar": {
             display: "none",
           },
+          input: {
+            '&:-webkit-autofill': {
+              borderRadius: '0px !important',
+              padding: "16.5px 14px",
+              backgroundColor: 'transparent !important',
+              WebkitTextFillColor: '#fff !important',
+              transition: 'background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important',
+            },
+          },
         }),
         notchedOutline: ({ theme }) => ({
           borderColor: theme.palette.borderColorPrimary,
@@ -317,6 +333,13 @@ const theme = createTheme({
           },
           input: {
             padding: "16.5px 14px",
+            '&:-webkit-autofill': {
+              borderRadius: '0px !important',
+              padding: "16.5px 14px",
+              backgroundColor: 'transparent !important',
+              WebkitTextFillColor: '#fff !important',
+              transition: 'background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important',
+            },
           },
           "&:hover .MuiFilledInput-notchedOutline": {
             borderColor: theme.palette.borderColorPrimary,
