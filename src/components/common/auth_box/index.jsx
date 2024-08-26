@@ -1,77 +1,92 @@
 import React from "react";
 import Image from "next/image";
-import { Box, Typography } from "@mui/material";
-import { authImage, authLogo } from "@/assets";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+import { authImageFull } from "@/assets";
 
-const AuthContainer = ({ img, title, desc, children }) => {
+const AuthContainer = ({ img, title, desc, register, children }) => {
+  const isLessthanXs = useMediaQuery("(max-width:600px)");
+  const isLessthanSm = useMediaQuery("(max-width:900px)");
   return (
     <Box
       sx={{
-        margin: "30px 0",
-        background: (theme)=> theme.palette.gradientPrimary,
-        border: "1px solid #FFFFFF1F",
-        borderRadius: "16px",
         display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexDirection: { xs: "column", md: "row" },
-        width: { xs: "100%", sm: "70%", md: "80%", lg: "70%" },
+        flexDirection: "column",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center"
       }}
     >
       <Box
         sx={{
-          background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+          margin: "30px 0",
+          background: (theme) => theme.palette.gradientPrimary,
+          border: "1px solid #FFFFFF1F",
+          borderRadius: "16px",
           display: "flex",
-          flexDirection: "column",
+          justifyContent: "space-between",
           alignItems: "center",
-          justifyContent: "space-around",
-          padding: { md: "160px 0px", lg: "140px 0px", xl: "120px 0px" },
-          borderRadius: { xs: "9px 9px 0 0", sm: "16px 16px 0 0", md: "16px 0 0 16px" },
-          width: { xs: "100%", md: "45%" },
+          flexDirection: { xs: "column", md: "row" },
+          height: { xs: "auto", md: "626px" },
+          maxHeight: { xs: "auto", md: "626px" },
+          width: { xs: "320px", sm: "432px", md: "904px"},
+          flex: 1,
         }}
       >
-        <Image src={authLogo} width={138} height={100} alt="auth-logo" />
         <Image
-          style={{ width: "100%", height: "auto" }}
-          src={authImage}
-          alt="auth-logo"
+          style={{ borderRadius: isLessthanSm ? "16px 16px 0 0" : "16px 0 0 16px" }}
+          width={isLessthanXs ? 320 : 432}
+          height={isLessthanXs ? 463 : 626}
+          src={authImageFull}
+          alt="auth-image"
         />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: { xs: "40px 10px", md: "0px 10px" },
+            width: "100%",
+            height: { xs: "auto", md: "566px" },
+            overflowY: "auto",
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
+          {img && <Image src={img} width={64} height={64} alt="auth" />}
+          {title && (
+            <Typography
+              variant="h1"
+              sx={{
+                marginTop: "10px",
+              }}
+            >
+              {title}
+            </Typography>
+          )}
+          {desc && (
+            <Typography
+              variant="h3"
+              sx={{
+                marginTop: "20px",
+                marginBottom: "10px",
+                width: { xs: "100%", md: "60%" },
+              }}
+            >
+              {desc}
+            </Typography>
+          )}
+          {children}
+        </Box>
       </Box>
-      <Box
+      <Typography variant="h1"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "40px 10px",
-          width: { xs: "100%", md: "55%" },
-        }}
-      >
-        {img && <Image src={img} width={64} height={64} alt="auth" />}
-        {title && (
-          <Typography
-            variant="h1"
-            sx={{
-              marginTop: "10px",
-            }}
-          >
-            {title}
-          </Typography>
-        )}
-        {desc && (
-          <Typography
-            variant="h3"
-            sx={{
-              marginTop: "20px",
-              marginBottom: "10px",
-              width: { xs: "100%", md: "60%" },
-            }}
-          >
-            {desc}
-          </Typography>
-        )}
-        {children}
-      </Box>
+          fontSize: "14px",
+          textAlign: "center"
+        }}>
+        © 2024 Schlage Lock Company LLC, all rights reserved
+      </Typography>
     </Box>
   );
 };

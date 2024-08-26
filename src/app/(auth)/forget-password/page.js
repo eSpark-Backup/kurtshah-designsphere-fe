@@ -46,11 +46,11 @@ const ForgetPassword = () => {
           {isSubmitted ? (
             <>
               <TextComp>
-                <Typography variant='h1' sx={{ lineHeight: "40px", textAlign: "center", fontSize: "20px" }}>
+                <Typography variant='h1' sx={{ lineHeight: "40px", textAlign: "center", fontSize: "20px", fontWeight: "600" }}>
                   Recovery Email Sent!
                 </Typography>
-                <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "60%", lg: "60%", xl: "45%" } }}>
-                  Please check your email for next steps to reset your password.
+                <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center" }}>
+                  Please check your email for next <br /> steps to reset your password.
                 </Typography>
               </TextComp>
               <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px", marginTop: "25px" }}>
@@ -67,7 +67,7 @@ const ForgetPassword = () => {
           ) : (
             <>
               <TextComp>
-                <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "60%", lg: "60%", xl: "45%" } }}>
+                <Typography variant='h3' sx={{ lineHeight: "29px", textAlign: "center", width: { xs: "90%", sm: "75%", md: "70%", xl: "70%" } }}>
                   Please enter your email address. We will send you an email to reset your password.
                 </Typography>
               </TextComp>

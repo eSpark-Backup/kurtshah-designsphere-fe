@@ -18,8 +18,13 @@ input[type=number] {
   scrollbar-width: none;
 }
 
-.mui-9mc7sf-MuiInputAdornment-root.MuiInputAdornment-positionStart.mui-9mc7sf-MuiInputAdornment-root:not(
-    .MuiInputAdornment-hiddenLabel
-  ) {
+.mui-9mc7sf-MuiInputAdornment-root.MuiInputAdornment-positionStart.mui-9mc7sf-MuiInputAdornment-root:not(.MuiInputAdornment-hiddenLabel) {
   margin-top: 0 !important;
+}
+
+.mui-1kh5b0i-MuiInputBase-input-MuiFilledInput-input:-webkit-autofill{
+  border-radius: 0px !important;
+  background-color: transparent !important;
+  color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
 }

@@ -3,6 +3,7 @@ import tableDocument from "./icons/download-doucment-table.svg";
 import tableTrash from "./icons/trash-table.svg";
 import tableEdit from "./icons/edit-table.svg";
 import authImage from "./images/auth-image.svg";
+import authImageFull from "./images/auth-image-full.svg";
 import authLogo from "./images/auth-logo.png";
 import logo from "./images/logo.png";
 import avatar from "./images/avatar.png";
@@ -74,9 +75,12 @@ import italic from "./icons/italic.svg";
 import bold from "./icons/bold.svg";
 import captalism from "./icons/captalism.svg";
 import hamburger from "./icons/hamburger.png";
+import checking from "./images/Auth-Image2.png"
+import user2 from "./icons/user2.svg"
 
 export {
   authImage,
+  authImageFull,
   authLogo,
   logo,
   avatar,
@@ -151,5 +155,7 @@ export {
   italic,
   bold,
   captalism,
-  hamburger
+  hamburger,
+  checking,
+  user2
 };

@@ -1,5 +1,5 @@
 "use client"
-import { card, people, user, userTick } from '@/assets'
+import { card, people, user, user2, userTick } from '@/assets'
 import { AuthContainer, CustomInput, Dropdown } from '@/components/common'
 import { COUNTRIES_OPTIONS, jobFunctionOptions } from '@/constants'
 import { profileDetailsSchema } from '@/validation'
@@ -15,7 +15,8 @@ const ProfileDetails = () => {
         companyName: "",
         postalCode: "",
         jobFunction: "",
-        country: ""
+        country: "",
+        agree: false
     }
 
     const router = useRouter();
@@ -90,7 +91,7 @@ const ProfileDetails = () => {
                                         helperText={touched.jobFunction && errors.jobFunction}
                                         sx={{
                                             borderRadius: '16px',
-                                            ".mui-12kxld3-MuiOutlinedInput-notchedOutline":{
+                                            ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
                                                 borderRadius: '16px',
                                             }
                                         }}
@@ -118,7 +119,7 @@ const ProfileDetails = () => {
                                                 helperText={touched.country && errors.country}
                                                 sx={{
                                                     borderRadius: '16px',
-                                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline":{
+                                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
                                                         borderRadius: '16px',
                                                     }
                                                 }}
@@ -140,12 +141,17 @@ const ProfileDetails = () => {
                                                 value={values.postalCode}
                                                 error={touched.postalCode && errors.postalCode}
                                                 helperText={touched.postalCode && errors.postalCode}
-                                                startAdornment={<Image src={user} width={24} height={24} alt='User Icon' />}
+                                                startAdornment={<Image src={user2} width={24} height={24} alt='User Icon' />}
                                                 hideArrows={true}
                                             />
                                         </Box>
                                     </Box>
-                                    <FormControlLabel control={<Checkbox sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label="I agree to Allegion's Privacy Policy and Terms of Use. I understand and agree that by submitting my information my personal data may be transferred into the United States or other locations outside my country of residence." sx={{ marginBottom: "20px" }} />
+                                    <FormControlLabel control={<Checkbox onChange={handleChange} sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label="I agree to Allegion's Privacy Policy and Terms of Use. I understand and agree that by submitting my information my personal data may be transferred into the United States or other locations outside my country of residence." sx={{ marginBottom: "20px" }} />
+                                    {touched.agree && errors.agree && (
+                                        <Typography sx={{ color: 'error.main', fontSize: '12px', paddingLeft: '35px', position: "relative", bottom: "40px" }}>
+                                            {errors.agree}
+                                        </Typography>
+                                    )}
                                 </Box>
 
                                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
