@@ -35,6 +35,14 @@ const Dropdown = ({
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
+  const [open, setOpen] = useState(false);
+  const handleIconClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Box
       sx={{
@@ -59,17 +67,23 @@ const Dropdown = ({
       <FormControl sx={{ width: "100%", margin: "auto auto" }}>
         {customLabel && <InputLabel>{customLabel}</InputLabel>}
         <Select
+          open={open}
+          onClose={handleClose}
+          onOpen={() => setOpen(true)}
           label={customLabel}
           error={error}
           value={value === "" ? selectedValue : value}
-          onChange={onChange}
+          onChange={(event) => {
+            onChange(event);
+            setSelectedValue(event.target.value);
+            handleClose();
+          }}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
           sx={{ width: "100%" }}
           startAdornment={
             startAdornment && <InputAdornment>{startAdornment}</InputAdornment>
           }
-          IconComponent={(props) => <CustomDropdownIcon simple={simple} {...props} />}
           {...props}
         >
           {options?.map((option, index) => (
@@ -78,6 +92,19 @@ const Dropdown = ({
             </MenuItem>
           ))}
         </Select>
+        <Box
+          onClick={handleIconClick}
+          sx={{
+            width: "24px",
+            height: "24px",
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            right: "8px",
+          }}
+        >
+          <CustomDropdownIcon simple={simple} {...props} />
+        </Box>
 
         {helperText && (
           <FormHelperText

@@ -22,15 +22,9 @@ input[type=number] {
   margin-top: 0 !important;
 }
 
-
-.auth-logo {
-  position: relative;
-  bottom: 10px;
-}
-
-@media screen and (min-width:900px) {
-  .auth-logo {
-    position: relative;
-    bottom: 60px;
-  }
+.mui-1kh5b0i-MuiInputBase-input-MuiFilledInput-input:-webkit-autofill{
+  border-radius: 0px !important;
+  background-color: transparent !important;
+  color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
 }
