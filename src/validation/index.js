@@ -22,7 +22,8 @@ export const profileDetailsSchema = Yup.object({
     companyName: Yup.string().required('Company name is required'),
     postalCode: Yup.number().required("Postal code is required"),
     jobFunction: Yup.string().required("Please select an option").oneOf(["Design Team", "Distributor", "General Contractor", "Hardware Consultant", "Integrator", "Locksmith", "Owner", "PACS"], "Invalid Choice"),
-    country: Yup.string().required("Please select an option")
+    country: Yup.string().required("Please select an option"),
+    agree: Yup.boolean().oneOf([true], 'You must agree here')
 })
 
 export const createReportInitialSchema = Yup.object({
