@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { Box, Typography } from "@mui/material";
-import { authImage, authLogo, checking } from "@/assets";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+import { authImageFull } from "@/assets";
 
 const AuthContainer = ({ img, title, desc, register, children }) => {
+  const isLessthanXs = useMediaQuery("(max-width:600px)");
+  const isLessthanSm = useMediaQuery("(max-width:900px)");
   return (
     <Box
       sx={{
@@ -24,29 +26,18 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
           justifyContent: "space-between",
           alignItems: "center",
           flexDirection: { xs: "column", md: "row" },
-          width: { xs: "100%", sm: "70%", md: "80%", lg: "70%" },
-          flex: 1
+          height: { xs: "auto", md: "626px" },
+          width: { xs: "320px", sm: "432px", md: "904px"},
+          flex: 1,
         }}
       >
-        <Box
-          sx={{
-            background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: { xs: "25px 0px", md: register ? "220px 0px" : "160px 0px", lg: register ? "180px 0px" : "140px 0px", xl: register ? "165px 0px" : "120px 0px" },
-            borderRadius: { xs: "9px 9px 0 0", sm: "16px 16px 0 0", md: "16px 0 0 16px" },
-            width: { xs: "100%", md: "45%" },
-          }}
-        >
-          <Image src={authLogo} width={138} height={100} alt="auth-logo" className="auth-logo" />
-          <Image
-            style={{ width: "100%", height: "auto" }}
-            src={checking}
-            alt="auth-logo"
-          />
-        </Box>
+        <Image
+          style={{ borderRadius: isLessthanSm ? "16px 16px 0 0" : "16px 0 0 16px" }}
+          width={isLessthanXs ? 320 : 432}
+          height={isLessthanXs ? 463 : 626}
+          src={authImageFull}
+          alt="auth-image"
+        />
         <Box
           sx={{
             display: "flex",
@@ -54,7 +45,7 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
             alignItems: "center",
             justifyContent: "center",
             padding: "40px 10px",
-            width: { xs: "100%", md: "55%" },
+            width: "100%",
           }}
         >
           {img && <Image src={img} width={64} height={64} alt="auth" />}
