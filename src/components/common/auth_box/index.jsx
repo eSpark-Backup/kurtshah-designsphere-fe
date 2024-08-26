@@ -45,8 +45,13 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            padding: "40px 10px",
+            padding: { xs: "40px 10px", md: "0px 10px" },
             width: "100%",
+            height: { xs: "auto", md: "566px" },
+            overflowY: "auto",
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
           }}
         >
           {img && <Image src={img} width={64} height={64} alt="auth" />}
