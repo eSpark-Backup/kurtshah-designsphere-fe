@@ -27,6 +27,7 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
           alignItems: "center",
           flexDirection: { xs: "column", md: "row" },
           height: { xs: "auto", md: "626px" },
+          maxHeight: { xs: "auto", md: "626px" },
           width: { xs: "320px", sm: "432px", md: "904px"},
           flex: 1,
         }}
