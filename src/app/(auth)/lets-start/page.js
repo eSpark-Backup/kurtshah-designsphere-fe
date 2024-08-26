@@ -20,7 +20,7 @@ const LetsStart = () => {
                 <Box
                     sx={{
                         width: "100%",
-                        height: "100%",
+                        // height: "100%",
                         display: "flex",
                         flexDirection: "column",
                         rowGap: "25px"
@@ -58,7 +58,7 @@ const LetsStart = () => {
                             paddingLeft: { sm: "10px", md: "10px", lg: "16px" }
                         }}
                     >
-                        <FormControlLabel control={<Checkbox sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label="It is ok to contact me with newsletters, new product announcements, etc" sx={{ marginBottom: "20px" }} />
+                        <FormControlLabel control={<Checkbox sx={{ alignSelf: "flex-start", padding: "0px 5px" }} name="recievedEmail" />} label="It is ok to contact me with newsletters, new product announcements, etc" sx={{ marginBottom: "0px" }} />
                     </Box>
                     <Button
                         variant="primary"
