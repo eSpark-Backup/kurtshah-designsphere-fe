@@ -40,7 +40,7 @@ const CreateReport = () => {
         
         const { projectName } = projects.find((item) => item.id == ProductId);
         setDirectory({ name: projectName, link: ["Project", "/", projectName, , "/", "Reports"] });
-    }, [pathname]);
+    }, [ProductId]);
 
     const Header = () => {
         return (
