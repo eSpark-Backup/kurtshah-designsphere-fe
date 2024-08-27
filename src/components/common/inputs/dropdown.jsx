@@ -36,6 +36,7 @@ const Dropdown = ({
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
   const [open, setOpen] = useState(false);
+
   const handleIconClick = () => {
     setOpen(true);
   };
@@ -43,6 +44,7 @@ const Dropdown = ({
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <Box
       sx={{
@@ -82,7 +84,9 @@ const Dropdown = ({
           inputProps={{ "aria-label": "Without label" }}
           sx={{ width: "100%" }}
           startAdornment={
-            startAdornment && <InputAdornment>{startAdornment}</InputAdornment>
+            startAdornment && (
+              <InputAdornment position="start">{startAdornment}</InputAdornment>
+            )
           }
           {...props}
         >
