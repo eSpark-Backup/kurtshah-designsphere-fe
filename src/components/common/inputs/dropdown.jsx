@@ -82,7 +82,7 @@ const Dropdown = ({
           inputProps={{ "aria-label": "Without label" }}
           sx={{ width: "100%" }}
           startAdornment={
-            startAdornment && <InputAdornment>{startAdornment}</InputAdornment>
+            startAdornmeInputAdornmentnt && <InputAdornment>{startAdornment}</InputAdornment>
           }
           {...props}
         >
@@ -98,8 +98,7 @@ const Dropdown = ({
             width: "24px",
             height: "24px",
             position: "absolute",
-            top: "50%",
-            transform: "translateY(-50%)",
+            top: "17px",
             right: "8px",
           }}
         >
