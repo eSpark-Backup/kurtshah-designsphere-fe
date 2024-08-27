@@ -141,7 +141,7 @@ const SignUp = () => {
                 <Box>
                   <FormControlLabel control={<Checkbox onChange={handleChange} sx={{ alignSelf: "flex-start", padding: "0px 10px" }} name="recievedEmail" />} label={
                     <>
-                      By creating an account, you agree to the <span style={{ textDecoration: "underline" }}>Terms of Service</span>.  We'll occasionally send you account-related emails.
+                      By creating an account, you agree to the<span style={{ textDecoration: "underline" }}> Terms of Service</span>.  We&apos;ll occasionally send you account-related emails.
                     </>
                   } sx={{ paddingLeft: "20px", marginBottom: "20px" }} />
                   {touched.recievedEmail && errors.recievedEmail && (
