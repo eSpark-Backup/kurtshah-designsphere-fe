@@ -40,9 +40,11 @@ const FileInput = ({ image, setImage }) => {
                     }}
                 >
                     {image ? (
-                        <img
+                        <Image
                             src={image}
                             alt="Uploaded"
+                            width={23}
+                            height={23}
                             style={{
                                 width: "70%",
                                 height: "70%",

@@ -73,7 +73,7 @@ const Plans = () => {
               cursor: "pointer",
             }}
           >
-            <Image src={filter} alt width={48} height={48} />
+            <Image src={filter} alt="filter-icon" width={48} height={48} />
           </Box>
           <Button
             sx={{

@@ -78,7 +78,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
             <Image
                 onClick={onClick}
                 src={icon}
-                alt
+                alt="icon"
                 width={15} height={15} />
 
         </Box>
@@ -107,8 +107,8 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
 
 
             <Box>
-                <Image src={backwards} alt width={28} height={28} />
-                <Image src={forwards} alt width={28} height={28} />
+                <Image src={backwards} alt="back" width={28} height={28} />
+                <Image src={forwards} alt="forward" width={28} height={28} />
             </Box>
         </Box>
 

@@ -59,7 +59,7 @@ const PunchDoor = () => {
           <Box sx={{
             cursor: "pointer",
           }}>
-            <Image src={filter} alt width={48} height={48}
+            <Image src={filter} alt="filter-icon" width={48} height={48}
             />
           </Box>
 
@@ -73,7 +73,7 @@ const PunchDoor = () => {
     )
   }
 
-  const deletePunchModalUI = 
+  const deletePunchModalUI =
     <Box>
       <Typography
         variant="h4"
@@ -86,7 +86,7 @@ const PunchDoor = () => {
         Are you sure you want to delete this Punch File?
       </Typography>
     </Box>
-  
+
 
   return (
     <Box>

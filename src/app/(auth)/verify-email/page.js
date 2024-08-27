@@ -68,7 +68,7 @@ const VerifyEmail = () => {
                             marginTop: "25px",
                         }}>
                             <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
-                                <Image src={email} width={24} height={24} style={{ marginRight: "10px" }} />
+                                <Image src={email} width={24} height={24} style={{ marginRight: "10px" }} alt='Email Icon' />
                                 Resend Email
                             </Button>
                             <Link href={"/email-verified"} style={{ width: "95%", margin: "auto auto" }}>

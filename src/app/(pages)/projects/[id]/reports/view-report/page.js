@@ -45,7 +45,7 @@ const ViewReport = () => {
                 }}
                 variant="primary"
             >
-                <Image src={icon} alt />
+                <Image src={icon} alt="icon" />
             </Button>
         )
     }
@@ -79,7 +79,7 @@ const ViewReport = () => {
                     onClick={() => setEditReportModal(true)}
                     
                     >
-                        <Image src={pencil} alt width={42} height={42}
+                        <Image src={pencil} alt="pen" width={42} height={42}
                         />
                     </Box>
 
@@ -142,7 +142,7 @@ const ViewReport = () => {
                     </Typography>
 
 
-                    <Image src={demoReport} alt width={166} height={215} />
+                    <Image src={demoReport} alt="demo" width={166} height={215} />
 
                 </Box>
 
@@ -165,7 +165,7 @@ const ViewReport = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
-                        <Image src={demoReport} alt width={onlessThanSm ? 200 : 490} height={onlessThanSm ? 400 : 600} />
+                        <Image src={demoReport} alt="demo" width={onlessThanSm ? 200 : 490} height={onlessThanSm ? 400 : 600} />
                     </Box>
                 </Box>
             </Box>
