@@ -25,7 +25,8 @@ const Overview = ({ overview }) => {
           overflowY: "auto",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between"
+          justifyContent: "flex-start",
+          gap: "40px",
         }}
       >
         {overview.map((item) => {

@@ -157,7 +157,9 @@ const theme = createTheme({
             textFillColor: "transparent",
             padding: "26px 25px",
             textTransform: "capitalize",
-            fontWeight: 500
+            fontWeight: 500,
+            borderTop: "1px solid #FFFFFF1F",
+            borderBottom: "1px solid #FFFFFF1F",
           },
           "& .MuiTableRow-root": {
             background:
@@ -166,10 +168,12 @@ const theme = createTheme({
           "& .MuiTableRow-root td:first-child": {
             borderTopLeftRadius: "20px",
             borderBottomLeftRadius: "20px",
+            borderLeft: "1px solid #FFFFFF1F",
           },
           "& .MuiTableRow-root td:last-child": {
             borderTopRightRadius: "20px",
             borderBottomRightRadius: "20px",
+            borderRight: "1px solid #FFFFFF1F",
           },
         },
       },
