@@ -91,7 +91,7 @@ const Header = ({
           direction="row"
           alignItems="center"
           justifyContent="center"
-          gap={2}
+          gap={{ xs: 2, sm: 3, md: 3, lg: 5 }}
         >
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Searchbar placeholder="Search" />

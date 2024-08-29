@@ -137,7 +137,7 @@ const theme = createTheme({
             fontWeight: 600,
             lineHeight: "18px",
             textTransform: "uppercase",
-            color: "#FFFFFF",
+            color: "#E4E4E4",
             padding: "15px 25px",
           },
         },
@@ -156,7 +156,8 @@ const theme = createTheme({
             backgroundClip: "text",
             textFillColor: "transparent",
             padding: "26px 25px",
-            textTransform: "uppercase",
+            textTransform: "capitalize",
+            fontWeight: 500
           },
           "& .MuiTableRow-root": {
             background:
@@ -173,6 +174,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiTableSortLabel: {
+      styleOverrides: {
+        root: {
+          gap: "10px"
+        }
+      }
+    },
     MuiTablePagination: {
       styleOverrides: {
         root: {
@@ -188,6 +196,7 @@ const theme = createTheme({
               opacity: 0.5,
             },
           },
+          wordSpacing: "10px"
         },
       },
     },
@@ -197,6 +206,10 @@ const theme = createTheme({
           background: theme.palette.headingColor,
           backgroundColor: "transparent !important",
           WebkitTextFillColor: "#2D3A5C",
+          height: "26px",
+          fontSize: "12px",
+          color: "#2D3A5C",
+          fontWeight:500
         }),
       },
     },

@@ -23,6 +23,9 @@ const Overview = ({ overview }) => {
           width: "100%",
           height: "calc(100% - 82px)",
           overflowY: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between"
         }}
       >
         {overview.map((item) => {
