@@ -15,7 +15,7 @@ const Searchbar = ({ placeholder, bgColor, value, handleSearch }) => {
         width: "100%",
         background: bgColor || "transparent",
         borderRadius: "16px !important",
-        ".mui-12kxld3-MuiOutlinedInput-notchedOutline":
+        ".MuiOutlinedInput-notchedOutline":
           {
             borderRadius: "16px !important",
             color: (theme) => theme.palette.primary.dark,
