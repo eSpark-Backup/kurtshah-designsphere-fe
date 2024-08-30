@@ -12,8 +12,9 @@ const TabBox = ({ name, count, icon, trending }) => {
         justifyContent: "space-between",
         alignItems: "center",
         gap: 1,
-        padding: "16px",
+        padding: "16px 35px",
         borderRadius: "16px",
+        height: "135px"
       }}
     >
       <Stack

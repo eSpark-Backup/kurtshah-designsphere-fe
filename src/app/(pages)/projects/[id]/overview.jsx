@@ -23,6 +23,10 @@ const Overview = ({ overview }) => {
           width: "100%",
           height: "calc(100% - 82px)",
           overflowY: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          gap: "40px",
         }}
       >
         {overview.map((item) => {

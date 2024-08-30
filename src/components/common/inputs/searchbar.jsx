@@ -14,10 +14,10 @@ const Searchbar = ({ placeholder, bgColor, value, handleSearch }) => {
       sx={{
         width: "100%",
         background: bgColor || "transparent",
-        borderRadius: "16px !important",
-        ".MuiOutlinedInput-notchedOutline":
+        borderRadius: "16px",
+        ".mui-12kxld3-MuiOutlinedInput-notchedOutline":
           {
-            borderRadius: "16px !important",
+            borderRadius: "16px",
             color: (theme) => theme.palette.primary.dark,
             input: {
               padding: "10px 14px !important",

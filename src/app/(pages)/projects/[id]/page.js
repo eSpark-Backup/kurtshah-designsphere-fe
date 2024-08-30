@@ -41,6 +41,7 @@ const ProjectDetails = () => {
         direction={{ xs: "column", sm: "row" }}
         justifyContent="space-between"
         alignItems={{ xs: "flex-start", sm: "center" }}
+        marginTop={1}
         gap={2}
       >
         <DirectoryController title={directory.name} links={directory.link} />

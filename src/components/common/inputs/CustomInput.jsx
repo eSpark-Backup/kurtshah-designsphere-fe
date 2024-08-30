@@ -12,7 +12,7 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, hideArrows, u
     const inputType = type === "password" ? (showPass ? "text" : "password") : type;
 
     return (
-        <Box sx={{ display: "flex", rowGap: "10px", flexDirection: "column", width: "100%" }}>
+        <Box sx={{ display: "flex", rowGap: "2px", flexDirection: "column", width: "100%" }}>
             {label && (
                 <Typography
                     color="primary"

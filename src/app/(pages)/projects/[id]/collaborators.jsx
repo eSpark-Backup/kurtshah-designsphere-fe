@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { DynamicTable } from "@/components/common";
 import { columns } from "@/columns/collaborators";
 import { add } from "@/assets";
 
 const Collaborators = ({ collaborators }) => {
   return (
-    <>
+    <Box sx={{ ".MuiTableCell-root": { padding: "20px 25px !important" } }}>
       <Stack
         direction={{ xs: "column", sm: "row" }}
         justifyContent="space-between"
@@ -41,7 +41,7 @@ const Collaborators = ({ collaborators }) => {
         columns={columns()}
         isLoading={false}
       />
-    </>
+    </Box>
   );
 };
 export default Collaborators;
