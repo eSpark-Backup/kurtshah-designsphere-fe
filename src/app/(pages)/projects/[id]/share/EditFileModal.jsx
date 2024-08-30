@@ -13,9 +13,9 @@ const EditFileModal = ({ form, setForm, open, handleClose, onConfirm }) => {
         <DynamicModal
             open={open}
             handleClose={handleClose}
-            heading="Create New Project"
+            heading="Edit File Description"
             cancelButtonText="Cancel"
-            submitButtonText="Create Stage"
+            submitButtonText="Save"
             onConfirm={onConfirm}
             showfooter
         >
@@ -42,6 +42,10 @@ const EditFileModal = ({ form, setForm, open, handleClose, onConfirm }) => {
                         placeholder="Type here"
                         customLabel="Description *"
                         variant="outlined"
+                        sx={{
+                            border: "1px solid #E4E4E4",
+                            borderRadius: "5px"
+                        }}
                     />
                 </Box>
             </Box>

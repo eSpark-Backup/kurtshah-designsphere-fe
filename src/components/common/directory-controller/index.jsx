@@ -17,7 +17,7 @@ const DirectoryController = ({ title, desc, links }) => {
       {!desc && (
         <Image onClick={() => router.back()} src={backArrow} alt="back" />
       )}
-      <Stack direction="column" justifyContent="center" alignItems="flex-start">
+      <Stack direction="column" justifyContent="center" alignItems="flex-start" gap={0.9}>
         <Typography variant="h1">
           {title}
         </Typography>
@@ -27,6 +27,7 @@ const DirectoryController = ({ title, desc, links }) => {
               background: (theme) => theme.palette.headingColor,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
+              fontWeight:"500"
             }}
             variant="h4"
           >

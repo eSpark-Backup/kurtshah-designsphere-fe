@@ -28,7 +28,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
       <Box
         sx={{
           padding: "30px 0px",
-          width: "300px",
+          width: "90%",
           margin: "auto auto",
           display: "flex",
           flexDirection: "column",
@@ -50,7 +50,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             variant="outlined"
           />
         </Box>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", marginTop:"10px" }}>
           <Dropdown
             value={form.stage}
             onChange={(e) => handleChange(e.target.value, "stage")}
@@ -62,7 +62,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             ]}
           />
         </Box>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", margin:"20px 0px" }}>
           <Dropdown
             value={form.type}
             onChange={(e) => handleChange(e.target.value, "type")}

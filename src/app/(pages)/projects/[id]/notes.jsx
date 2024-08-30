@@ -42,7 +42,7 @@ const Notes = ({ notes }) => {
           </Button>
         </Stack>
       </Stack>
-      <Box sx={{ overflow: "auto", height: "calc(100% - 36px)" }}>
+      <Box sx={{ overflow: "auto", height: "calc(100% - 36px)" }} className="no-scrollbar">
         {notes.map((note, ind) => {
           const showDate = ind === 0 || note.date !== notes[ind - 1].date;
           return (

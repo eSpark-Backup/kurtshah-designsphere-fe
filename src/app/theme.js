@@ -137,7 +137,7 @@ const theme = createTheme({
             fontWeight: 600,
             lineHeight: "18px",
             textTransform: "uppercase",
-            color: "#FFFFFF",
+            color: "#E4E4E4",
             padding: "15px 25px",
           },
         },
@@ -156,7 +156,10 @@ const theme = createTheme({
             backgroundClip: "text",
             textFillColor: "transparent",
             padding: "26px 25px",
-            textTransform: "uppercase",
+            textTransform: "capitalize",
+            fontWeight: 500,
+            borderTop: "1px solid #FFFFFF1F",
+            borderBottom: "1px solid #FFFFFF1F",
           },
           "& .MuiTableRow-root": {
             background:
@@ -165,13 +168,22 @@ const theme = createTheme({
           "& .MuiTableRow-root td:first-child": {
             borderTopLeftRadius: "20px",
             borderBottomLeftRadius: "20px",
+            borderLeft: "1px solid #FFFFFF1F",
           },
           "& .MuiTableRow-root td:last-child": {
             borderTopRightRadius: "20px",
             borderBottomRightRadius: "20px",
+            borderRight: "1px solid #FFFFFF1F",
           },
         },
       },
+    },
+    MuiTableSortLabel: {
+      styleOverrides: {
+        root: {
+          gap: "10px"
+        }
+      }
     },
     MuiTablePagination: {
       styleOverrides: {
@@ -188,6 +200,7 @@ const theme = createTheme({
               opacity: 0.5,
             },
           },
+          wordSpacing: "10px"
         },
       },
     },
@@ -197,6 +210,10 @@ const theme = createTheme({
           background: theme.palette.headingColor,
           backgroundColor: "transparent !important",
           WebkitTextFillColor: "#2D3A5C",
+          height: "26px",
+          fontSize: "12px",
+          color: "#2D3A5C",
+          fontWeight:500
         }),
       },
     },

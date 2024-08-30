@@ -61,7 +61,7 @@ const Feed = ({ feed }) => {
                 mt={2}
                 fontSize={16}
                 fontWeight={400}
-                sx={{ color: (theme) => theme.palette.whiteE4 }}
+                sx={{ color: (theme) => theme.palette.whiteE4, width: { xs: "100%", md: "80%"} }}
               >
                 {feed.text}
               </Typography>
