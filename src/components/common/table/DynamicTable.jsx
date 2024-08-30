@@ -206,7 +206,7 @@ const DynamicTable = ({
                   {extendedColumns?.map((column) => (
                     <TableCell
                       sx={{
-                        minWidth: column.key[0] === "action" ? "max-content" : "250px",
+                        minWidth: (column.key[0] === "action" || column.key[0] === "function") ? "max-content" : "200px",
                         textAlign: column.left
                           ? "left"
                           : column.right
