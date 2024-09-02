@@ -140,6 +140,7 @@ const Plans = () => {
         total={plansData.length}
         handlePageChange={handlePageChange}
         page={page}
+        pagination
       />
 
       <DynamicModal

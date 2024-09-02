@@ -72,9 +72,9 @@ const PlansDetails = () => {
           container
           item
           xs={12}
-          md={expandTab ? 12 : 4}
+          lg={expandTab ? 12 : 4}
         >
-          <Grid item xs={12} md={expandTab ? 4 : 12}>
+          <Grid item xs={12} lg={expandTab ? 4 : 12}>
             <Stack
               direction="row"
               justifyContent={{ xs: "space-between", sm: "center" }}
@@ -100,6 +100,7 @@ const PlansDetails = () => {
                         width: "32px",
                         height: "32px",
                         order: { xs: 1, sm: 0 },
+                        background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
                       }}
                       variant="primary"
                     >
@@ -167,7 +168,7 @@ const PlansDetails = () => {
           sx={{ display: expandTab ? "none" : "block" }}
           item
           xs={12}
-          md={expandCanvas ? 12 : 8}
+          lg={expandCanvas ? 12 : 8}
         >
           <Stack
             direction={{ xs: "column", sm: "row" }}
@@ -188,6 +189,9 @@ const PlansDetails = () => {
                   minWidth: "40px",
                   width: "40px",
                   height: "40px",
+                  border: "1px solid #E4E4E4EE",
+                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+
                 }}
                 variant="primary"
               >
@@ -199,6 +203,8 @@ const PlansDetails = () => {
                   minWidth: "max-content",
                   width: "max-content",
                   height: "40px",
+                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+
                 }}
                 variant="primary"
               >
@@ -210,6 +216,9 @@ const PlansDetails = () => {
                   minWidth: "40px",
                   width: "40px",
                   height: "40px",
+                  border: "1px solid #E4E4E4EE",
+                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+
                 }}
                 variant="primary"
               >
@@ -221,6 +230,8 @@ const PlansDetails = () => {
                   minWidth: "max-content",
                   width: "max-content",
                   height: "40px",
+                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+
                 }}
                 variant="primary"
               >
@@ -239,7 +250,7 @@ const PlansDetails = () => {
                     key={index + 1}
                     onClick={item.onClick}
                     sx={{
-                      borderRadius: "10px !important",
+                      borderRadius: "50% !important",
                       minWidth: "32px",
                       width: "32px",
                       height: "32px",
