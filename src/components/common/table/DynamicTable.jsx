@@ -139,13 +139,8 @@ const DynamicTable = ({
   return (
     <>
       <TableContainer
-        sx={{
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
         {...rest}
-        className="table"
+        className="table custom-scroll"
       >
         <MUITable>
           <TableHead>

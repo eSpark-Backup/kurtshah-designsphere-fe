@@ -49,7 +49,7 @@ const DirectoryController = ({ title, desc, links }) => {
                     marginLeft: ind !== 0 ? "7px" : 0,
                   }}
                   fontSize="14px"
-                  fontWeight={600}
+                  fontWeight={ind === links.length - 1 || ind === links.length - 2 ?500:600}
                 >
                   {link}
                 </Typography>
