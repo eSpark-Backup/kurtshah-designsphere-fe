@@ -81,6 +81,7 @@ const Dropdown = ({
             handleClose();
           }}
           displayEmpty
+          IconComponent={() => null}
           inputProps={{ "aria-label": "Without label" }}
           sx={{ width: "100%" }}
           startAdornment={

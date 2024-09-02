@@ -24,7 +24,8 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         outline: "none",
         "&::-webkit-scrollbar": {
             display: "none",
-        }
+        },
+        paddingBottom: fields ? "20px" : "0px"
     };
 
 
@@ -41,7 +42,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
             >
                 <Box sx={basicModelStructureStyle}>
-                    
+
                     {/* { HEADER  } */}
                     {
                         !customHeader ?
@@ -55,7 +56,8 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
                                     <Typography
                                         sx={{
-                                            background: fields ? theme.palette.headingColor : theme.palette.textPrimaryGradient,
+                                            background: fields ? "linear-gradient(180deg, #93A3D9 0%, #6372A2 100%)"
+                                            : theme.palette.textPrimaryGradient,
                                             WebkitBackgroundClip: "text",
                                             WebkitTextFillColor: "transparent",
                                             fontWeight: "bold",

@@ -13,7 +13,7 @@ const ByHardware = () => {
       };
     return (
         <>
-            <PageTitle content={"Hardware Set # OSETA"} />
+            <PageTitle content={"Hardware Set # OSETA"} first />
             <DynamicTable
                 data={ByHardwareTable1Content}
                 columns={columns()}
