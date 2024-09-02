@@ -112,8 +112,8 @@ const theme = createTheme({
 
       ],
     },
-    MuiInputAdornment : {
-      styleOverrides : {
+    MuiInputAdornment: {
+      styleOverrides: {
         root: {
           marginTop: "0px !important",
         },
@@ -213,7 +213,7 @@ const theme = createTheme({
           height: "26px",
           fontSize: "12px",
           color: "#2D3A5C",
-          fontWeight:500
+          fontWeight: 500
         }),
       },
     },
@@ -407,12 +407,56 @@ const theme = createTheme({
         }),
       },
     },
-    MuiAccordion:{
+    MuiAccordion: {
       styleOverrides: {
         root: {
           background: "transparent",
           boxShadow: "none",
           border: "none",
+        },
+      },
+    },
+    MuiSwitch: {
+      styleOverrides: {
+        root: {
+          width: 50,
+          height: 26,
+          padding: 0,
+          display: 'flex',
+        },
+        switchBase: {
+          padding: 2,
+          '&.Mui-checked': {
+            transform: 'translateX(22px)',
+            color: '#fff',
+            '& + .MuiSwitch-track': {
+              opacity: 1,
+              backgroundColor: '#888888',
+            },
+          },
+        },
+        thumb: {
+          width: 22,
+          height: 22,
+          boxShadow: 'none',
+          backgroundColor: '#D9D9D9',
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            width: '12px',
+            height: '2px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            background: "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+            borderRadius: '1px',
+          },
+        },
+        track: {
+          borderRadius: 13,
+          opacity: 1,
+          backgroundColor: '#888888',
+          boxSizing: 'border-box',
         },
       },
     },

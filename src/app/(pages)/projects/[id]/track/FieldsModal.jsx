@@ -25,9 +25,10 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                         borderRadius: "10px",
                         display: "flex",
                         flexDirection: "column",
-                        padding: "0px 10px",
+                        padding: "0px 20px",
                         justifyContent: "center",
-                        margin: "20px auto"
+                        margin: "20px auto",
+                        rowGap:"10px"
 
                     }}
                 >
@@ -38,7 +39,7 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                             alignItems: "center"
                         }}
                     >
-                        <Typography variant='h3' sx={{ fontSize: "16px" }}>Only show changes for selected fields</Typography>
+                        <Typography variant='h3' sx={{ fontSize: "16px", fontWeight:"500", }}>Only show changes for selected fields</Typography>
                         <Switch />
 
                     </Box>
@@ -49,7 +50,7 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                             alignItems: "center"
                         }}
                     >
-                        <Typography variant='h3' sx={{ fontSize: "16px" }}>Check all bold fields</Typography>
+                        <Typography variant='h3' sx={{ fontSize: "16px", fontWeight:"500", }}>Check all bold fields</Typography>
                         <Switch />
 
                     </Box>
@@ -66,7 +67,7 @@ const FieldsModal = ({ open, handleClose, checkboxes }) => {
                         return (
                             <Box
                                 key={index}
-                                sx={{ width: { xs: "50%", sm: "30%" } }}>
+                                sx={{ width: { xs: "50%", sm: "30%" }, height:"35px", }}>
                                 <FormControlLabel
 
                                     control={<Checkbox name={item?.name} />}

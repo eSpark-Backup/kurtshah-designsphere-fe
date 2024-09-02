@@ -1121,6 +1121,82 @@ export const FieldsModalCheckboxes = [
   {
     name: "OutsideRoomNumber",
     label: "Outside Room Number"
+  },
+  {
+    name: "Phase",
+    label: "Phase"
+  },
+  {
+    name: "Quantity",
+    label: "Quantity"
+  },
+  {
+    name: "Roting",
+    label: "Roting"
+  },
+  {
+    name: "Remarks",
+    label: "Remarks"
+  },
+  {
+    name: "RevisionTag",
+    label: "Revision Tag"
+  },
+  {
+    name: "RoomUsage",
+    label: "Room Usage"
+  },
+  {
+    name: "Scratch",
+    label: "Scratch"
+  },
+  {
+    name: "SillDetail",
+    label: "Sill Detail"
+  },
+  {
+    name: "SpaceType",
+    label: "Space Type"
+  },
+  {
+    name: "StcRating",
+    label: "Stc Rating"
+  },
+  {
+    name: "StormLabel",
+    label: "Storm Label"
+  },
+  {
+    name: "StrikeJambDetail",
+    label: "Strike Jamb Detail"
+  },
+  {
+    name: "SwingType",
+    label: "Swing Type"
+  },
+  {
+    name: "Thickness",
+    label: "Thickness"
+  },
+  {
+    name: "TransomBarFaceDimension",
+    label: "Transom Bar Face Dimension"
+  },
+  {
+    name: "TransomHeight",
+    label: "Transom Height"
+  },
+  {
+    name: "Transom",
+    label: "Transom"
+  },
+  {
+    name: "WallRating",
+    label: "Wall Rating"
+  },
+  {
+    name: "Width",
+    label: "Width"
   }
 ]
 
@@ -1378,28 +1454,28 @@ export const collaboratorsData = [
 
 export const fontFamiliesRichEditor = [
   {
-      value: 'Arial',
-      label: 'Arial',
+    value: 'Arial',
+    label: 'Arial',
   },
   {
 
-      value: 'Courier New',
-      label: 'Courier New',
+    value: 'Courier New',
+    label: 'Courier New',
   },
   {
 
-      value: 'Georgia',
-      label: 'Georgia',
+    value: 'Georgia',
+    label: 'Georgia',
 
   },
   {
 
-      value: 'Times New Roman',
-      label: 'Times New Roman',
+    value: 'Times New Roman',
+    label: 'Times New Roman',
   },
   {
 
-      value: 'Verdana',
-      label: 'Verdana',
+    value: 'Verdana',
+    label: 'Verdana',
   }
 ];

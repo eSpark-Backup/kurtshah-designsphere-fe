@@ -1,5 +1,5 @@
 "use client";
-import { filter, light } from "@/assets";
+import { copy, filter, light } from "@/assets";
 import { columns } from "@/columns/ByOpenings";
 import {
   ByHardware,
@@ -112,6 +112,7 @@ const Track = () => {
           justifyContent: "space-between",
           flexDirection: { xs: "column", md: "row" },
           rowGap: "10px",
+          marginTop: "13px"
         }}
       >
         <Typography variant="h2">Track Changes</Typography>
@@ -127,10 +128,26 @@ const Track = () => {
           <Box
             sx={{
               display: "flex",
-              columnGap: "4px",
+              columnGap: "15px",
             }}
           >
             <Image src={filter} width={32} height={32} alt="Filter" />
+            <Box
+              sx={{
+                width: "32px !important",
+                height: "32px",
+                borderRadius: "10px",
+                background:
+                  "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                border: "none",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer"
+              }}
+            >
+              <Image src={copy} width={18} height={18} alt="Icon" />
+            </Box>
             <Box
               sx={{
                 width: "32px !important",
@@ -181,20 +198,22 @@ const Track = () => {
           </Box>
         </Box>
       </Box>
-      <Tabs
-        tabs={TrackChangesTabs}
-        TabHandler={TabHandler}
-        activeTab={activeTab}
-      />
-      {activeTab === 0 ? <DynamicTable
-        data={ByOpeningsTableData}
-        columns={columns()}
-        isLoading={false}
-        total={ByOpeningsTableData.length}
-        handlePageChange={handlePageChange}
-        page={page}
-        pagination
-      /> : <ByHardware />}
+      <Box>
+        <Tabs
+          tabs={TrackChangesTabs}
+          TabHandler={TabHandler}
+          activeTab={activeTab}
+        />
+        {activeTab === 0 ? <DynamicTable
+          data={ByOpeningsTableData}
+          columns={columns()}
+          isLoading={false}
+          total={ByOpeningsTableData.length}
+          handlePageChange={handlePageChange}
+          page={page}
+          pagination
+        /> : <ByHardware />}
+      </Box>
 
       <FieldsModal
         open={activeTab === 0 ? openingsModal : hardwareModal}
