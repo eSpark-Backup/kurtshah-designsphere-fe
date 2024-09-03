@@ -6,12 +6,11 @@ import { DynamicTable, Searchbar } from "@/components/common";
 import { columns } from "@/columns/emailNotification";
 import EmailNotificationModal from "./emailNotificationModal";
 
-const EmailNotificationTab = () => {
+const EmailNotificationTab = ({ description }) => {
   const emailNotificationData = [
     {
       id: 1,
-      eDesc:
-        "Collaborator removed - This email is sent when a you are removed from a project",
+      eDesc: description,
       email: "",
       scheduleNotification: "Immediate",
     },

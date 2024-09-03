@@ -36,7 +36,6 @@ const EmailNotificationModal = ({
         <FormControl>
           <Typography
             fontSize={14}
-            fontWeight={600}
             mb={1}
             sx={{ color: (theme) => theme.palette.whiteE4 }}
           >
@@ -54,17 +53,23 @@ const EmailNotificationModal = ({
             <FormControlLabel
               value="immediate"
               control={<Radio />}
-              label="Immediate"
+              label={
+                <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "14px", fontWeight: "600" }}>Immediate</Typography>
+              }
             />
             <FormControlLabel
               value="daily"
               control={<Radio />}
-              label="Once a day"
+              label={
+                <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "14px", fontWeight: "600" }}>Once a day</Typography>
+              }
             />
             <FormControlLabel
               value="weekly"
               control={<Radio />}
-              label="Once a week"
+              label={
+                <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "14px", fontWeight: "600" }}>Once a week</Typography>
+              }
             />
           </RadioGroup>
         </FormControl>
