@@ -736,7 +736,7 @@ export const ByOpeningsTableData = [
 
 
 export const fontFamilyOptions = [
-  { value: "", label: "Font Family" },
+  { value: "", label: "Select" },
   { value: "Arial", label: "Arial" },
   { value: "Times New Roman", label: "Times New Roman" },
   { value: "Courier New", label: "Courier New" },
@@ -760,7 +760,7 @@ export const fontSizeOptions = [
 ];
 
 export const specificOpeningsOptions = [
-  { value: "", label: "Specific Opennings" },
+  { value: "", label: "Specific Openings" },
   ...Array.from({ length: 100 }, (_, i) => i + 1).map((i) => ({
     value: i.toString(),
     label: i.toString(),
@@ -777,6 +777,7 @@ export const specificProductsOptions = [
 
 
 export const documentTypeOptions = [
+  { value: "", label: "Select" },
   { value: "specsHardwareSets", label: "Specifications and Hardware Sets (Word, PDF)" },
   { value: "californiaDsaSpec", label: "California DSA Specification (Word, PDF)" },
   { value: "canadianHardwareSchedule", label: "Canadian Hardware Schedule (Word, PDF)" },
@@ -832,9 +833,9 @@ export const reportHeaderFooterSets = [
 ]
 
 export const reportSpecificationsSets = [
-  { name: 'pageHeader', label: 'Page header' },
-  { name: 'pageFooter', label: 'Page footer' },
-  { name: 'tableHeader', label: 'Table header' },
+  { name: 'projectId', label: 'Include Project ID#, Allegion ID# & Version Number' },
+  { name: 'excludeZero', label: 'Exclude Leading Zeros in Opngs and HWSets' },
+  { name: 'projectName', label: 'Project Name' },
 ]
 export const trackChangesDropDownOptions = [
   { value: "", label: "Earliest Version" },

@@ -10,7 +10,7 @@ import { LoadingButton } from '@mui/lab';
 import { createReportFinalSchema } from '@/validation';
 
 const gradientSelecterStyle = {
-    background: (theme)=> theme.palette.gradientPrimary,
+    background: (theme) => theme.palette.gradientPrimary,
     borderRadius: '16px',
     ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
         borderRadius: '16px',
@@ -124,6 +124,7 @@ const CreateReportFinalForm = ({ handleForm, setFormProceeds }) => {
                                     display: "flex",
                                     flexDirection: "column",
                                     gap: "20px",
+                                    marginTop: "60px"
                                 }}>
                                     <Dropdown
                                         label="Choose a font family"
@@ -218,7 +219,7 @@ const CreateReportFinalForm = ({ handleForm, setFormProceeds }) => {
                             </SectionAccordion>
 
                             <SectionAccordion title="Output File Type">
-                                <Box>
+                                <Box sx={{ marginTop: "30px" }}>
                                     <Dropdown
                                         label="Select the type of document that can be downloaded when generating the report."
                                         value={values.documentType}
@@ -232,12 +233,12 @@ const CreateReportFinalForm = ({ handleForm, setFormProceeds }) => {
                                 </Box>
                             </SectionAccordion>
 
-                            <Box sx={{ marginTop: "20px" }}>
+                            <Box sx={{ marginTop: "20px", width: "97%", margin:"auto auto" }}>
                                 <LoadingButton
                                     loading={false}
                                     loadingPosition="end"
                                     variant="primary"
-                                    sx={{ width: "100%", margin: "auto auto", height: "48px" }}
+                                    sx={{ width: "100%", height: "48px" }}
                                     type='submit'
                                 >
                                     View Report

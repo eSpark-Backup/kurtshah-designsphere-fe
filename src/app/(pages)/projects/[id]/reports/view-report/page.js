@@ -62,7 +62,7 @@ const ViewReport = () => {
                 marginBottom={4}
             >
 
-                <Typography variant="h2">Report  Preview
+                <Typography variant="h2">Report Preview
                 </Typography>
 
                 <Box sx={{
@@ -71,13 +71,13 @@ const ViewReport = () => {
                     gap: "20px",
                 }}>
 
-                    <Box 
-                    sx={{
-                        cursor: "pointer",
-                        
-                    }}
-                    onClick={() => setEditReportModal(true)}
-                    
+                    <Box
+                        sx={{
+                            cursor: "pointer",
+
+                        }}
+                        onClick={() => setEditReportModal(true)}
+
                     >
                         <Image src={pencil} alt="pen" width={42} height={42}
                         />
@@ -118,15 +118,17 @@ const ViewReport = () => {
 
             <Box sx={{
                 display: "flex",
+                flexDirection: { xs: "column", md: "row" }
             }}>
                 <Box sx={{
-                    width: '256px',
+                    width: { xs: "100%", md: '256px' },
                     height: '65vh',
                     border: '1px solid #36405D',
                     borderRadius: '16px',
                     padding: '20px',
-                    background: (theme)=> theme.palette.gradientPrimary,
-                    display: { xs: 'none', md: 'flex' },
+                    background: (theme) => theme.palette.gradientPrimary,
+                    // display: { xs: 'none', md: 'flex' },
+                    display: "flex",
                     flexDirection: 'column',
                     alignItems: 'center',
                 }}>
@@ -138,6 +140,8 @@ const ViewReport = () => {
                             WebkitTextFillColor: "transparent",
                             textAlign: "center",
                             height: "97px",
+                            fontSize: "20px",
+                            fontWeight: "500"
                         }}>
                         Page
                     </Typography>
@@ -155,6 +159,7 @@ const ViewReport = () => {
                         display: 'flex',
                         justifyContent: 'flex-end',
                         gap: '10px',
+                        marginTop: { xs: "40px", md: "0px" }
                     }}>
 
                         <IconButton icon={zoomIn} />

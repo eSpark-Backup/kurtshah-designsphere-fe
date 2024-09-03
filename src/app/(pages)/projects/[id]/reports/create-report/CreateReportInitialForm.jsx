@@ -39,7 +39,7 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 rowGap: "25px"
                             }}>
                             <Dropdown
-                                label={"Font Family"}
+                                label={"Choose  a font family "}
                                 value={values.fontFamily}
                                 onChange={(e) => setFieldValue("fontFamily", e.target.value)}
                                 options={fontFamilyOptions}
@@ -58,17 +58,17 @@ const CreateReportInitialForm = ({ handleForm }) => {
                                 variant="filled"
                                 name="templateDescription"
                                 type="text"
-                                label="Template Desicription"
+                                label="template Description"
                                 placeholder="Write here..."
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.templateDescription}
                                 error={touched.templateDescription && errors.templateDescription}
                                 helperText={touched.templateDescription && errors.templateDescription}
-                                sx={{
-                                    background: (theme) => theme.palette.gradientPrimary,
-                                    borderRadius: '15px',
-                                }}
+                                // sx={{
+                                //     background: (theme) => theme.palette.gradientPrimary,
+                                //     borderRadius: '15px',
+                                // }}
                             />
 
                             <Box sx={{ marginTop: "20px" }}>
