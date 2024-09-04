@@ -12,7 +12,7 @@ import { createReportFinalSchema } from '@/validation';
 const gradientSelecterStyle = {
     background: (theme) => theme.palette.gradientPrimary,
     borderRadius: '16px',
-    ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
+    ".MuiOutlinedInput-notchedOutline": {
         borderRadius: '16px',
     }
 };
