@@ -77,11 +77,11 @@ const Security = () => {
             width: "150px",
             borderRadius: "10px",
             backgroundColor: buttonColor,
+            color: "#FFF",
             '&:hover': {
               backgroundColor: buttonColor,
             },
           }}
-          variant="contained"
         >
           {buttonText}
         </Button>
@@ -139,12 +139,12 @@ const Security = () => {
               border: (theme) => theme.palette.borderPrimary,
               width: "150px",
               borderRadius: "10px",
+              color: "#FFF",
               backgroundColor: '#808080',
               '&:hover': {
                 backgroundColor: '#808080',
               },
             }}
-            variant="contained"
           >
             Save
           </Button>
