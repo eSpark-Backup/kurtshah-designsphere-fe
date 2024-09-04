@@ -2,7 +2,7 @@ import { backwards, bold, captalism, downArrow, forwards, italic, strike, underl
 import { CustomInput, Dropdown, DynamicModal } from '@/components/common'
 import { fontFamiliesRichEditor } from '@/constants'
 import { capitalizeText, handleFontFamilyChange, handleFontSizeChange, handleSpaceAfterChange, handleSpaceBeforeChange } from '@/utils/RichTextEditor'
-import { Box, Typography } from '@mui/material'
+import { Box, Checkbox, Typography } from '@mui/material'
 import FontFamily from '@tiptap/extension-font-family'
 import Strike from '@tiptap/extension-strike'
 import TextStyle from '@tiptap/extension-text-style'
@@ -101,6 +101,8 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
                     background: (theme) => theme.palette.headingColor,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
+                    fontWeight: "500",
+                    fontSize: "20px"
                 }}>
                 Style Editor
             </Typography>
@@ -161,11 +163,12 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
                     />
                 </Box>
 
-                <Box sx={{ display: "flex", gap: "10px" }}>
+                <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
                     <GradientTypography onClick={() => editor.chain().focus().toggleBold().run()} type="bold" icon={bold} />
                     <GradientTypography onClick={() => editor.chain().focus().toggleItalic().run()} type="italic" icon={italic} />
                     <GradientTypography onClick={() => editor.chain().focus().toggleUnderline().run()} type="underline" icon={underline} />
                     <GradientTypography onClick={() => editor.chain().focus().toggleStrike().run()} type="strike" icon={strike} />
+                    <Checkbox />
                 </Box>
             </Box>
 
@@ -207,6 +210,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
             cancelButtonText="Cancel"
             submitButtonText="Save"
             onConfirm={onConfirm}
+            editModal
             showfooter
         >
             {ToolbarUI}

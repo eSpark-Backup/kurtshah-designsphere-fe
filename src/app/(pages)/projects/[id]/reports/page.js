@@ -106,7 +106,7 @@ const Reports = () => {
             sx={{
               height: "44px",
               width: "147px",
-            }} variant="primary">Create Reports</Button>
+            }} variant="primary">Create Project</Button>
         </Box>
 
       </Stack>
