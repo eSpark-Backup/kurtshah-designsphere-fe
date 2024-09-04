@@ -17,7 +17,7 @@ const Legal = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          rowGap: { xs: "40px", md: "80px" }
+          rowGap: "40px"
         }}
       >
         <Box
@@ -34,6 +34,7 @@ const Legal = () => {
             variant="h4"
             sx={{
               color: (theme) => theme.palette.whiteE4,
+              fontWeight: "500 !important",
             }}
           >
             You need to choose a country first
@@ -98,12 +99,12 @@ const Legal = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: "16px",
+                    fontSize: "14px",
                     color: (theme) => theme.palette.whiteE4,
                     fontWeight: "500",
                     paddingLeft: "20px"
                   }}>
-                  View
+                  VIEW
                 </Typography>
 
               </Box>

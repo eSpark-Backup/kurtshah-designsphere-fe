@@ -1,8 +1,11 @@
+"use client"
+
 import Image from "next/image";
 import { Box, Stack, Typography } from "@mui/material";
 import { Searchbar } from "@/components/common";
 import { navLinks } from "@/constants";
 import { avatar, book, hamburger, logo, message, notification } from "@/assets";
+import { useRouter } from "next/navigation";
 
 const Header = ({
   authedRoute,
@@ -10,6 +13,7 @@ const Header = ({
   pathname,
   setOpenSidebar,
 }) => {
+  const router = useRouter();
   const notifications = true;
 
   return (
