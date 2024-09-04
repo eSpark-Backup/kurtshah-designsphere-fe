@@ -83,7 +83,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
+                                        sx={{ fieldset: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="ARC Project *"
                                         variant="outlined"
@@ -100,7 +100,7 @@ const Support = () => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
+                                        sx={{ fieldset: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
                                         placeholder="Type here"
                                         customLabel="My question is related to *"
                                         variant="outlined"
@@ -112,12 +112,27 @@ const Support = () => {
                                         helperText={touched.question && errors.question}
                                     />
                                 </Box>
-                                <Box sx={{ width: "100%" }}>
+                                <Box
+                                    sx={{
+                                        width: "100%",
+                                        position: "relative",
+                                        "& .MuiTypography-root" : {
+                                            position: "absolute",
+                                            bottom: "10px",
+                                            right: "15px",
+                                            color: "#888888",
+                                        }
+                                    }}>
                                     <CustomInput
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        sx={{ borderRadius: "5px", border: (theme) => theme.palette.borderPrimary }}
+                                        sx={{
+                                            fieldset : {
+                                                borderRadius: "5px",
+                                                border: (theme) => theme.palette.borderPrimary
+                                            },
+                                        }}
                                         placeholder="Type here"
                                         customLabel="Please provide a brief description of your Overtur  problem *"
                                         variant="outlined"
