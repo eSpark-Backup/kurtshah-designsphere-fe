@@ -148,27 +148,13 @@ const ProfileGeneral = () => {
                                 <Box
                                     sx={{
                                         width: { xs: "100%", sm: "47%" },
-                                        position: "relative"
                                     }}
                                 >
-                                    <CustomInput
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        customLabel="Country *"
-                                        variant="outlined"
-                                        name="country"
-                                        disabled={true}
-                                    />
                                     <Dropdown
                                         options={COUNTRIES_OPTIONS}
                                         name="country"
-                                        sx={{
-                                            position: "absolute",
-                                            top: -54,
-                                            left: "-1px",
-                                            width: "100%",
-                                        }}
+                                        customLabel="Country *"
+                                        shrink={true}
                                         onChange={(e) => setFieldValue("country", e.target.value)}
                                         onBlur={handleBlur}
                                         value={values.country}
@@ -191,7 +177,7 @@ const ProfileGeneral = () => {
                                         customLabel="Postal Code *"
                                         variant="outlined"
                                         name="postal"
-                                        type={"number"}
+                                        type={"text"}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.postal}

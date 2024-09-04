@@ -74,7 +74,8 @@ const Security = () => {
           onClick={onClick}
           sx={{
             border: (theme) => theme.palette.borderPrimary,
-            width: "150px",
+            minWidth: "150px",
+            height: "40px",
             borderRadius: "10px",
             backgroundColor: buttonColor,
             color: "#FFF",
@@ -94,7 +95,7 @@ const Security = () => {
       <ProfileCard readOnly={true} />
 
       <GeneralBox
-        title="Security & Privacy"
+        title="Reset Your Password:"
         description="If you want to reset your password, click on the reset button, we will send you an email."
         buttonText="Reset"
         buttonColor="#808080"
@@ -116,7 +117,7 @@ const Security = () => {
           padding: "30px",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "20px", alignItems: "center" }}>
+        <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "20px", alignItems: "flex-start" }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "16px", fontWeight: 500 }}>
               Terms
@@ -136,8 +137,10 @@ const Security = () => {
           <Button
             onClick={handleSubmitTerms}
             sx={{
+              marginTop: "12px",
               border: (theme) => theme.palette.borderPrimary,
-              width: "150px",
+              minWidth: "150px",
+              height: "40px",
               borderRadius: "10px",
               color: "#FFF",
               backgroundColor: '#808080',
