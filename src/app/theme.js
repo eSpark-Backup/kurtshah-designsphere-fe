@@ -323,6 +323,11 @@ const theme = createTheme({
               transition: 'background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important',
             },
           },
+          fieldset : {
+            legend : {
+              width: "0px",
+            },
+          },
         }),
         notchedOutline: ({ theme }) => ({
           borderColor: theme.palette.borderColorPrimary,
