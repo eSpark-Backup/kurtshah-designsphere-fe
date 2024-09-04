@@ -4,7 +4,7 @@ import { Box, Button, IconButton, Modal, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react'
 
-const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader }) => {
+const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader, editModal }) => {
 
     const basicModelStructureStyle = {
         maxHeight: "90vh",
@@ -57,7 +57,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                                     <Typography
                                         sx={{
                                             background: fields ? "linear-gradient(180deg, #93A3D9 0%, #6372A2 100%)"
-                                            : theme.palette.textPrimaryGradient,
+                                                : theme.palette.textPrimaryGradient,
                                             WebkitBackgroundClip: "text",
                                             WebkitTextFillColor: "transparent",
                                             fontWeight: "bold",
@@ -127,8 +127,9 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
 
 
                             <Button sx={{
-                                width: "max-content",
+                                width: editModal ? "150px" : "max-content",
                                 height: "40px",
+                                border: editModal ? "1px solid #E4E4E4" : "none"
                             }} variant="primary"
                                 onClick={onSubmit}
                             >
