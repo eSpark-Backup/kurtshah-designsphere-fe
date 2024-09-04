@@ -460,6 +460,16 @@ const theme = createTheme({
         },
       },
     },
+    MuiRadio: {
+      styleOverrides: {
+        root: {
+          color: '#ffffff',
+          '&.Mui-checked': {
+            color: '#ffffff',
+          },
+        },
+      },
+    },
   },
 });
 

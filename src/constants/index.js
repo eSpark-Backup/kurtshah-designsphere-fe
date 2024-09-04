@@ -1431,6 +1431,16 @@ export const collaboratorsData = [
     email: "Johnsmith@gmail.com"
   },
   {
+    id: 1,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
+    id: 1,
+    name: "John Smith",
+    email: "Johnsmith@gmail.com"
+  },
+  {
     id: 2,
     name: "John Smith",
     email: "Johnsmith@gmail.com"

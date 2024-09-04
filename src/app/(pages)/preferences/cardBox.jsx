@@ -10,7 +10,7 @@ const CardBox = ({ title, data }) => {
       variant={"outline"}
       sx={{
         padding: "20px",
-        height: { xs: "auto", md: data.length > 0 ? "396px" : "290px" },
+        height: { xs: "auto", md: data.length > 0 ? "596px" : "290px" },
         mt: 3,
       }}
     >
@@ -48,7 +48,7 @@ const CardBox = ({ title, data }) => {
         }}
       >
         {data.length > 0 ? (
-          data.map((item) => {
+          data.map((item, index) => {
             return (
               <Box
                 key={item.id}
@@ -65,10 +65,10 @@ const CardBox = ({ title, data }) => {
                   alignItems: "center",
                 }}
               >
-                <Typography sx={{ fontSize: "16px !important" }} variant="h2">
+                <Typography sx={{ fontSize: "14px !important" }} variant="h2">
                   {item.name}
                 </Typography>
-                <Typography sx={{ fontSize: "16px !important" }} variant="h2">
+                <Typography sx={{ fontSize: "14px !important" }} variant="h2">
                   {item.email}
                 </Typography>
                 <Image src={messageAdd} width={24} height={24} alt="add" />

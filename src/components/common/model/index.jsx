@@ -51,7 +51,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                                     textAlign: 'center',
                                     borderBottom: "1px solid",
                                     borderColor: theme.palette.whiteE4,
-                                    padding: "15px 0px",
+                                    padding: "20px 0px",
                                 }}>
 
                                     <Typography

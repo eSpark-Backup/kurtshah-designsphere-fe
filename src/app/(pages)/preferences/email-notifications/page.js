@@ -9,11 +9,11 @@ import Card from "@/components/common/Card";
 const EmailNotification = () => {
   const [active, setActive] = useState(0);
   const emailNotificationTabs = [
-    { title: "Collaborators", component: <EmailNotificationTab /> },
-    { title: "Projects", component: <EmailNotificationTab /> },
-    { title: "Files", component: <EmailNotificationTab /> },
-    { title: "Revit", component: <EmailNotificationTab /> },
-    { title: "Notes", component: <EmailNotificationTab /> },
+    { title: "Collaborators", component: <EmailNotificationTab description={"Collaborator removed - This email is sent when a you are removed from a project"} /> },
+    { title: "Projects", component: <EmailNotificationTab description={"This email is sent when a new project is created in ARC."} /> },
+    { title: "Files", component: <EmailNotificationTab description={"This email is sent when a file is uploaded to the external project folder."} /> },
+    { title: "Revit", component: <EmailNotificationTab description={"This email is sent when Revit hardware sets are available."} /> },
+    { title: "Notes", component: <EmailNotificationTab description={"Note was assigned to user - this email is sent when a note is assigned to a user and prompts that the note sender is awaiting a response."} /> },
   ];
   const tabsComponent = (emailNotificationTabs) => {
     return emailNotificationTabs[active].component;
@@ -38,7 +38,7 @@ const EmailNotification = () => {
             variant={"outline"}
             sx={{
               padding: "20px",
-              height: "100%",
+              height: "fit-content",
             }}
           >
             {tabsComponent(emailNotificationTabs)}

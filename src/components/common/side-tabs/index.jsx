@@ -9,7 +9,9 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
         background: "linear-gradient(180deg, #1B253E 0%, #303E61 100%)",
         borderRadius: "10px",
         height: "100%",
-        padding: "10px",
+        padding: "10px 10px 0px 10px",
+        paddingBottom: { xs: "20px", md: "20px" },
+        minHeight: { xs: "400px", sm: "auto" }
       }}
     >
       <Typography
