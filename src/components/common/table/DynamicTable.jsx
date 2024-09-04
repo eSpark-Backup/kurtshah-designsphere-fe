@@ -23,6 +23,8 @@ import {
   TablePagination,
   Chip,
   TableSortLabel,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 
 const DynamicTable = ({
@@ -39,6 +41,7 @@ const DynamicTable = ({
   ordering,
   pagination,
   paginationCenter,
+  checkbox,
   ...rest
 }) => {
   const [order, setOrder] = useState("asc");
@@ -184,6 +187,18 @@ const DynamicTable = ({
                         >
                           {column.name}
                         </TableSortLabel>
+                      ) : checkbox && column.name === "EMAIL" ? (
+                        <FormControlLabel
+                          control={<Checkbox />}
+                          sx={{
+                            ".MuiTypography-root" : {
+                              color: (theme) => theme.palette.whiteE4,
+                              fontSize: "12px",
+                              fontWeight: 600,
+                            }
+                          }}
+                          label={column.name}
+                        />
                       ) : (
                         column.name
                       )}

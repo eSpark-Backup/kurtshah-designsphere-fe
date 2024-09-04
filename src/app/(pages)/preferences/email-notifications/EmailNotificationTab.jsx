@@ -43,6 +43,7 @@ const EmailNotificationTab = ({ description }) => {
         columns={columns(() => setOpenModal(true))}
         isLoading={false}
         total={0}
+        checkbox
       />
       <EmailNotificationModal
         form={form}
