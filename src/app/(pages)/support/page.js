@@ -118,7 +118,7 @@ const Support = () => {
                                         position: "relative",
                                         "& .MuiTypography-root" : {
                                             position: "absolute",
-                                            bottom: "10px",
+                                            top: "70px",
                                             right: "15px",
                                             color: "#888888",
                                         }
