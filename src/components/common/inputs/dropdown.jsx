@@ -32,6 +32,7 @@ const Dropdown = ({
   error,
   helperText,
   simple,
+  shrink,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
@@ -67,7 +68,7 @@ const Dropdown = ({
         </Typography>
       )}
       <FormControl sx={{ width: "100%", margin: "auto auto" }}>
-        {customLabel && <InputLabel>{customLabel}</InputLabel>}
+        {customLabel && <InputLabel shrink={shrink}>{customLabel}</InputLabel>}
         <Select
           open={open}
           onClose={handleClose}

@@ -1,7 +1,7 @@
 import { Form, Formik } from 'formik'
 import React from 'react'
 import ProfileCard from './Profile-Card'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import { CustomInput, Dropdown } from '@/components/common'
 import { jobFunctionOptions } from '@/constants'
 import { profileCompanySchema } from '@/validation'
@@ -34,82 +34,68 @@ const ProfileCompany = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: "60px 0px",
+                padding: "60px 50px",
                 columnGap: "30px"
               }}
             >
-              <Box
-                sx={{
-                  width: "95%",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "space-between",
-                  rowGap: "60px",
-                  flexDirection: { xs: "column", sm: "row" }
-                }}
-              >
-                <Box
-                  sx={{
-                    width: { xs: "100%", sm: "43%" }
-                  }}
-                >
-                  <CustomInput
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    sx={{ input: { borderRadius: "5px", border: (theme) => theme.palette.borderPrimary } }}
-                    placeholder="Type here"
-                    customLabel="Company Name *"
-                    variant="outlined"
-                    name="companyName"
-                    type={"text"}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.companyName}
-                    error={touched.companyName && errors.companyName}
-                    helperText={touched.companyName && errors.companyName}
-                  />
-
-                </Box>
-                <Box
-                  sx={{
-                    width: { xs: "100%", sm: "43%" },
-                    position: "relative"
-                  }}
-                >
-                  <CustomInput
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    customLabel="Job Function *"
-                    variant="outlined"
-                    disabled={true}
-                  />
-                  <Dropdown
-                    options={jobFunctionOptions}
-                    name="jobFunction"
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <Box
                     sx={{
-                      position: "absolute",
-                      top: -54,
-                      left: "-1px",
-                      width: "100%",
+                      width: { xs: "100%", md: "300px" },
                     }}
-                    onChange={(e) => setFieldValue("jobFunction", e.target.value)}
-                    onBlur={handleBlur}
-                    value={values.jobFunction}
-                    error={touched.jobFunction && errors.jobFunction}
-                    helperText={touched.jobFunction && errors.jobFunction}
-                  />
-
-                </Box>
-              </Box>
-
+                  >
+                    <CustomInput
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      sx={{
+                        input: {
+                          borderRadius: "5px",
+                          border: (theme) => theme.palette.borderPrimary,
+                        },
+                      }}
+                      placeholder="Type here"
+                      customLabel="Company Name *"
+                      variant="outlined"
+                      name="companyName"
+                      type={"text"}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.companyName}
+                      error={touched.companyName && errors.companyName}
+                      helperText={touched.companyName && errors.companyName}
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Box
+                    sx={{
+                      width: { xs: "100%", md: "300px" },
+                    }}
+                  >
+                    <Dropdown
+                      shrink={true}
+                      customLabel="Job Function *"
+                      options={jobFunctionOptions}
+                      name="jobFunction"
+                      onChange={(e) =>
+                        setFieldValue("jobFunction", e.target.value)
+                      }
+                      onBlur={handleBlur}
+                      value={values.jobFunction}
+                      error={touched.jobFunction && errors.jobFunction}
+                      helperText={touched.jobFunction && errors.jobFunction}
+                    />
+                  </Box>
+                </Grid>
+              </Grid>
             </Card>
           </Form>
         )}
       </Formik>
     </>
-  )
-}
+  );
+};
 
-export default ProfileCompany
+export default ProfileCompany;
