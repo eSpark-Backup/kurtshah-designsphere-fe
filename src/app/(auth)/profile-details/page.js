@@ -91,7 +91,7 @@ const ProfileDetails = () => {
                                         helperText={touched.jobFunction && errors.jobFunction}
                                         sx={{
                                             borderRadius: '16px',
-                                            ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
+                                            ".MuiOutlinedInput-notchedOutline": {
                                                 borderRadius: '16px',
                                             }
                                         }}
@@ -119,7 +119,7 @@ const ProfileDetails = () => {
                                                 helperText={touched.country && errors.country}
                                                 sx={{
                                                     borderRadius: '16px',
-                                                    ".mui-12kxld3-MuiOutlinedInput-notchedOutline": {
+                                                    ".MuiOutlinedInput-notchedOutline": {
                                                         borderRadius: '16px',
                                                     }
                                                 }}
@@ -132,6 +132,15 @@ const ProfileDetails = () => {
                                             }}
                                         >
                                             <CustomInput
+                                                sx={{
+                                                    '& input[type=number]': {
+                                                      MozAppearance: 'textfield',
+                                                    },
+                                                    '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
+                                                      WebkitAppearance: 'none',
+                                                      margin: 0,
+                                                    },
+                                                }}
                                                 variant="filled"
                                                 name="postalCode"
                                                 type="number"

@@ -48,13 +48,22 @@ const SignIn = () => {
             }}>
             Sign In to ARC ERP
           </Typography>
-          <Typography variant='h3'
+          <Box
             sx={{
-              lineHeight: "29px",
-              textAlign: "center"
-            }}>
-            Securing the places where people <br /> live and thrive.
-          </Typography>
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant='h3'
+              sx={{
+                lineHeight: "29px",
+                textAlign: "center",
+                width: { xs: "100%", md: "70%" },
+              }}>
+              Securing the places where people live and thrive.
+            </Typography>
+          </Box>
           <Formik
             initialValues={initialValues}
             validationSchema={signinSchema}
