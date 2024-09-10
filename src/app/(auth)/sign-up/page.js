@@ -113,8 +113,8 @@ const SignUp = () => {
                     variant="filled"
                     name="email"
                     type="email"
-                    placeholder="Username or email"
-                    label="Username or email"
+                    placeholder="Enter your email"
+                    label="email"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}

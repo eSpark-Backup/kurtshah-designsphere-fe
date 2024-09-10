@@ -119,6 +119,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
         <Box sx={{ minHeight: "150px", padding: "10px 20px" }}>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Dropdown
+                    modal
                     options={fontFamiliesRichEditor}
                     onChange={(event) => handleFontFamilyChange(event, editor, setFontFamily)}
                     value={fontFamily}
@@ -132,7 +133,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
                         "& fieldset": { border: "none" },
                         "& .MuiSelect-select": {
                             padding: "10px",
-                            paddingRight: "0px !important",
+                            paddingRight: "25px !important",
                             textAlign: "center",
                         },
                     }}

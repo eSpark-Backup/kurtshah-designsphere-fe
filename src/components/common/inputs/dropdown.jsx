@@ -33,6 +33,7 @@ const Dropdown = ({
   helperText,
   simple,
   shrink,
+  modal,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
@@ -104,8 +105,9 @@ const Dropdown = ({
             width: "24px",
             height: "24px",
             position: "absolute",
-            top: "17px",
-            right: "8px",
+            top: modal ? "50%" : "17px",
+            right: modal ? "0px" : "8px",
+            transform: modal ? "translateY(-50%)" : "none",
           }}
         >
           <CustomDropdownIcon simple={simple} {...props} />
