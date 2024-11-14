@@ -1,7 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import Card from "../Card";
+import Image from "next/image";
+import { backIcon } from "@/assets";
+import { useState } from "react";
+import LogoutModal from "./logoutModal";
 
-const SidebarTab = ({ title, active, setActive, tabsArr }) => {
+const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
+  const router = useRouter();
+  const [openLogoutModal, setOpenLogoutModal] = useState(false);
   return (
     <Card
       variant={"outline"}
@@ -11,47 +18,97 @@ const SidebarTab = ({ title, active, setActive, tabsArr }) => {
         height: "100%",
         padding: "10px 10px 0px 10px",
         paddingBottom: { xs: "20px", md: "20px" },
-        minHeight: { xs: "400px", sm: "auto" }
+        minHeight: { xs: "400px", sm: "auto" },
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
-      <Typography
-        textAlign="center"
-        fontSize={20}
-        fontWeight={700}
-        sx={{ color: (theme) => theme.palette.whiteE4, margin: "60px 0" }}
-      >
-        {title}
-      </Typography>
-      {tabsArr.map((tab, ind) => {
-        return (
-          <Box
-            sx={{
-              marginTop: ind !== 0 ? "20px" : 0,
-              width: "100%",
-              height: "50px",
-              padding: "13px",
-              borderRadius: "10px",
-              cursor: "pointer",
-              background:
-                ind === active
-                  ? "linear-gradient(90deg, #6191FF 0%, #5B6BFF 100%)"
-                  : "#2F3D60",
-              boxshadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
-            }}
-            key={tab}
-            onClick={() => setActive(ind)}
+      {back && (
+        <Stack
+          onClick={() => router.back()}
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="center"
+          gap="2px"
+          sx={{ cursor: "pointer" }}
+        >
+          <Image width={10} height={10} src={backIcon} alt="back" />
+          <Typography
+            fontSize={16}
+            fontWeight={500}
+            sx={{ color: (theme) => theme.palette.whiteE4 }}
           >
-            <Typography
-              textAlign="center"
-              fontSize={16}
-              fontWeight={500}
-              sx={{ color: (theme) => theme.palette.whiteE4 }}
-            >
-              {tab.title}
-            </Typography>
-          </Box>
-        );
-      })}
+            {"Back"}
+          </Typography>
+        </Stack>
+      )}
+      <Box sx={{ width: "100%" }}>
+        <Typography
+          textAlign="center"
+          fontSize={20}
+          fontWeight={700}
+          sx={{ color: (theme) => theme.palette.whiteE4, margin: "60px 0" }}
+        >
+          {title}
+        </Typography>
+        <Box sx={{ width: "100%" }}>
+          {tabsArr.map((tab, ind) => {
+            return (
+              <Box
+                sx={{
+                  marginTop: ind !== 0 ? "20px" : 0,
+                  width: "100%",
+                  height: "50px",
+                  padding: "13px",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                  background:
+                    ind === active
+                      ? "linear-gradient(90deg, #6191FF 0%, #5B6BFF 100%)"
+                      : "#2F3D60",
+                  boxshadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
+                }}
+                key={tab}
+                onClick={() => setActive(ind)}
+              >
+                <Typography
+                  textAlign="center"
+                  fontSize={16}
+                  fontWeight={500}
+                  sx={{ color: (theme) => theme.palette.whiteE4 }}
+                >
+                  {tab.title}
+                </Typography>
+              </Box>
+            );
+          })}
+        </Box>
+      </Box>
+      {title === "PROFILE" && (
+        <Button
+          onClick={() => setOpenLogoutModal(true)}
+          sx={{
+            border: (theme) => theme.palette.borderPrimary,
+            minWidth: "150px",
+            height: "40px",
+            borderRadius: "10px",
+            backgroundColor: "#808080",
+            color: "#FFF",
+            "&:hover": {
+              backgroundColor: "#808080",
+            },
+          }}
+        >
+          Logout
+        </Button>
+      )}
+      <LogoutModal
+        open={openLogoutModal}
+        handleClose={() => setOpenLogoutModal(false)}
+        onConfirm={() => console.log("logout")}
+      />
     </Card>
   );
 };
