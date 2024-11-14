@@ -5,7 +5,7 @@ import tableEdit from "./icons/edit-table.svg";
 import authImage from "./images/auth-image.svg";
 import authImageFull from "./images/auth-image-full.svg";
 import authLogo from "./images/auth-logo.png";
-import logo from "./images/logo.png";
+import logo from "./images/logo.svg";
 import avatar from "./images/avatar.png";
 import closeEye from "./icons/eye-close.svg";
 import openEye from "./icons/eyeOpen.svg";
@@ -77,6 +77,29 @@ import captalism from "./icons/captalism.svg";
 import hamburger from "./icons/hamburger.png";
 import checking from "./images/Auth-Image2.png"
 import user2 from "./icons/user2.svg"
+import backIcon from "./icons/back-icon.svg";
+import theme1 from "./themes/theme-1.svg";
+import theme2 from "./themes/theme-2.svg";
+import theme3 from "./themes/theme-3.svg";
+import theme4 from "./themes/theme-4.svg";
+import theme5 from "./themes/theme-5.svg";
+import theme6 from "./themes/theme-6.svg";
+import theme7 from "./themes/theme-7.svg";
+import theme8 from "./themes/theme-8.svg";
+import theme9 from "./themes/theme-9.svg";
+import theme10 from "./themes/theme-10.svg";
+import theme11 from "./themes/theme-11.svg";
+import theme12 from "./themes/theme-12.svg";
+import theme13 from "./themes/theme-13.svg";
+import theme14 from "./themes/theme-14.svg";
+import theme15 from "./themes/theme-15.svg";
+import theme16 from "./themes/theme-16.svg";
+import theme17 from "./themes/theme-17.svg";
+import theme18 from "./themes/theme-18.svg";
+import theme19 from "./themes/theme-19.svg";
+import theme20 from "./themes/theme-20.svg";
+import theme21 from "./themes/theme-21.svg";
+import theme22 from "./themes/theme-22.svg";
 
 export {
   authImage,
@@ -157,5 +180,28 @@ export {
   captalism,
   hamburger,
   checking,
-  user2
+  user2,
+  backIcon,
+  theme1,
+  theme2,
+  theme3,
+  theme4,
+  theme5,
+  theme6,
+  theme7,
+  theme8,
+  theme9,
+  theme10,
+  theme11,
+  theme12,
+  theme13,
+  theme14,
+  theme15,
+  theme16,
+  theme17,
+  theme18,
+  theme19,
+  theme20,
+  theme21,
+  theme22,
 };

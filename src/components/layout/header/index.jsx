@@ -32,7 +32,7 @@ const Header = ({
         top: 0,
       }}
     >
-      <Image src={logo} width={66} height={48} alt="logo" />
+      <Image src={logo} width={92} height={59} alt="logo" />
       {authedRoute && (
         <Stack
           sx={{ display: { xs: "none", md: "flex" } }}
