@@ -33,6 +33,11 @@ const Plans = () => {
     router.push(`/projects/${projectId}/plans/${item.id}`);
   };
 
+  const handleCreateWithoutPlan = () => {
+    const projectId = pathname.split("/")[2];
+    router.push(`/projects/${projectId}/plans/withoutplan`);
+  }
+
   const handleDeleteFile = () => {
     // DELETE OPERATINON ON CONFIRM
   };
@@ -76,6 +81,7 @@ const Plans = () => {
             <Image src={filter} alt="filter-icon" width={48} height={48} />
           </Box>
           <Button
+            onClick={handleCreateWithoutPlan}
             sx={{
               height: "44px",
               width: { xs: "calc(100% - 68px)", sm: "200px" },

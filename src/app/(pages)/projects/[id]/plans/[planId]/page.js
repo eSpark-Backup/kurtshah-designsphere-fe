@@ -12,15 +12,17 @@ import {
 } from "@/components/common";
 import {
   planDetails,
+  noPlanData,
   projects,
   plansDetailsTableTabs,
   tableNav,
   canvasNav,
 } from "@/constants";
-import { columns } from "@/columns/planDetails";
+import { columns, nameoPlancolumns } from "@/columns/planDetails";
 import { rightArrow, leftArrow, map } from "@/assets";
 
 const PlansDetails = () => {
+  const [planId, setPlanId] = useState(null);
   const pathname = usePathname();
   const [searchValue, setSearchValue] = useState(0);
   const [expandTab, setExpandTab] = useState(false);
@@ -37,9 +39,11 @@ const PlansDetails = () => {
   };
 
   useEffect(() => {
-    const id = pathname.split("/")[2];
+    const pathArr = pathname.split("/");
+    const id = pathArr[2];
     const { projectName } = projects.find((item) => item.id == id);
     setDirectory({ name: projectName, link: ["Project", "/", projectName] });
+    setPlanId(pathArr[pathArr.length - 1]);
   }, [pathname]);
 
   const handleExpandTable = () => setExpandTab(!expandTab);
@@ -152,16 +156,16 @@ const PlansDetails = () => {
             </Stack>
           </Grid>
           <Grid item xs={12}>
-            <DynamicTable
-              data={planDetails}
-              columns={columns()}
-              isLoading={false}
-              total={planDetails.length}
-              handlePageChange={handlePageChange}
-              page={page}
-              pagination
-              paginationCenter
-            />
+              <DynamicTable
+                data={planId === "withoutplan" ? noPlanData : planDetails}
+                columns={planId === "withoutplan" ? nameoPlancolumns() : columns()}
+                isLoading={false}
+                total={planDetails.length}
+                handlePageChange={handlePageChange}
+                page={page}
+                pagination
+                paginationCenter
+              />
           </Grid>
         </Grid>
         <Grid
@@ -263,21 +267,20 @@ const PlansDetails = () => {
               })}
             </Stack>
           </Stack>
-          <Typography
-            variant="h5"
-            sx={{ fontSize: "16px !important", mt: 1 }}
-          >
-            Aprial 25 2024
+          <Typography variant="h5" sx={{ fontSize: "16px !important", mt: 1 }}>
+            {planId === "withoutplan" ? "view with no plans" : "Aprial 25 2024"}
           </Typography>
-          <Box sx={{ padding: "30px", width: "80%", margin: "8px auto 0" }}>
-            <Image
-              width={0}
-              height={0}
-              style={{ width: "100% !important", height: "auto !important" }}
-              src={map}
-              alt="map"
-            />
-          </Box>
+          {planId === "withoutplan" ? null : (
+            <Box sx={{ padding: "30px", width: "80%", margin: "8px auto 0" }}>
+              <Image
+                width={0}
+                height={0}
+                style={{ width: "100% !important", height: "auto !important" }}
+                src={map}
+                alt="map"
+              />
+            </Box>
+          )}
         </Grid>
       </Grid>
     </Box>

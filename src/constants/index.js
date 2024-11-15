@@ -1379,6 +1379,60 @@ export const planDetails = [
   },
 ];
 
+export const noPlanData = [
+  {
+    door: 1,
+    hwSet: "OSETA",
+    rating: "-",
+    wallRating: "-",
+    insideRoom: "",
+    outsideRoom: "",
+    width: "36",
+    height: "84",
+    doorMalt: "HMF",
+    frameMalt: "SGL",
+    remarks: "",
+    note: "",
+    doorType: "",
+    frameType: "",
+    mode: "HMF",
+  },
+  {
+    door: 2,
+    hwSet: "OSETA",
+    rating: "-",
+    wallRating: "-",
+    insideRoom: "",
+    outsideRoom: "",
+    width: "36",
+    height: "84",
+    doorMalt: "HMF",
+    frameMalt: "SGL",
+    remarks: "",
+    note: "",
+    doorType: "",
+    frameType: "",
+    mode: "HMF",
+  },
+  {
+    door: 3,
+    hwSet: "OSETA",
+    rating: "-",
+    wallRating: "-",
+    insideRoom: "",
+    outsideRoom: "",
+    width: "36",
+    height: "84",
+    doorMalt: "HMF",
+    frameMalt: "SGL",
+    remarks: "",
+    note: "",
+    doorType: "",
+    frameType: "",
+    mode: "HMF",
+  },
+];
+
 export const plansDetailsTableTabs = ["Openings", "Hardware Set", "Notes", "Products"];
 
 export const tableNav = (handleExpandTable, searchValue, handleSearch) => [
