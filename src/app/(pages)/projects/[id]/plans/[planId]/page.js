@@ -20,6 +20,7 @@ import {
 } from "@/constants";
 import { columns, nameoPlancolumns } from "@/columns/planDetails";
 import { rightArrow, leftArrow, map } from "@/assets";
+import HardwareSet from "./(hardware-set)/hardware-set";
 
 const PlansDetails = () => {
   const [planId, setPlanId] = useState(null);
@@ -76,9 +77,9 @@ const PlansDetails = () => {
           container
           item
           xs={12}
-          lg={expandTab ? 12 : 4}
+          lg={activeTab === 1 || expandTab ? 12 : 4}
         >
-          <Grid item xs={12} lg={expandTab ? 4 : 12}>
+          <Grid item xs={12} lg={activeTab === 1 || expandTab ? 4 : 12}>
             <Stack
               direction="row"
               justifyContent={{ xs: "space-between", sm: "center" }}
@@ -156,6 +157,9 @@ const PlansDetails = () => {
             </Stack>
           </Grid>
           <Grid item xs={12}>
+            {activeTab === 1 ? (
+              <HardwareSet />
+            ) : (
               <DynamicTable
                 data={planId === "withoutplan" ? noPlanData : planDetails}
                 columns={planId === "withoutplan" ? nameoPlancolumns() : columns()}
@@ -166,10 +170,11 @@ const PlansDetails = () => {
                 pagination
                 paginationCenter
               />
+            )}
           </Grid>
         </Grid>
         <Grid
-          sx={{ display: expandTab ? "none" : "block" }}
+          sx={{ display: activeTab === 1 || expandTab ? "none" : "block" }}
           item
           xs={12}
           lg={expandCanvas ? 12 : 8}

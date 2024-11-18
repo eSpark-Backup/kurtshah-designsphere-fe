@@ -11,6 +11,7 @@ import Tabs from "./tabs/Tabs.jsx";
 import ByHardware from "./by-hardware/page";
 import PageTitle from "./page-title/page";
 import SidebarTab from "./side-tabs";
+import SearchableAutocomplete from "./inputs/autoComplete";
 
 export {
   AuthContainer,
@@ -26,4 +27,5 @@ export {
   ByHardware,
   PageTitle,
   SidebarTab,
+  SearchableAutocomplete,
 };
