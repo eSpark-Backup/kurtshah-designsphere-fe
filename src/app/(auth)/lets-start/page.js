@@ -1,10 +1,13 @@
 "use client"
 import { AuthContainer, FileInput } from '@/components/common'
 import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const LetsStart = () => {
     const [image, setImage] = useState(null);
+    const router = useRouter();
 
     return (
         <Box
@@ -64,6 +67,10 @@ const LetsStart = () => {
                         variant="primary"
                         sx={{ width: "95%", margin: "auto auto", height: "48px" }}
                         type='submit'
+                        onClick={() => {
+                            toast.success("Account successfully created")
+                            router.push("sign-in")
+                        }}
                     >
                         Done
                     </Button>
