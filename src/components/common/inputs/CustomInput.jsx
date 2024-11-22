@@ -43,7 +43,7 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, hideArrows, u
                     }}
                     label={customLabel}
                     type={inputType}  // Use calculated input type here
-                    sx={{ width: "100%", ...sx }}
+                    sx={{ width: "100%", ...sx, img: {filter: (theme) => theme.palette.filterImg } }}
                     InputProps={{
                         startAdornment: rest.startAdornment && (
                             <InputAdornment position="start" style={{ marginRight: "7px" }}>

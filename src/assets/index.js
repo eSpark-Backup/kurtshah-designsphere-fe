@@ -4,6 +4,16 @@ import tableTrash from "./icons/trash-table.svg";
 import tableEdit from "./icons/edit-table.svg";
 import authImage from "./images/auth-image.svg";
 import authImageFull from "./images/auth-image-full.svg";
+import authImageFull7 from "./images/auth-image-full7.svg";
+import authImageFull8 from "./images/auth-image-full8.svg";
+import authImageFull9 from "./images/auth-image-full9.svg";
+import authImageFull10 from "./images/auth-image-full10.svg";
+import authImageFull11 from "./images/auth-image-full11.svg";
+import authImageFull12 from "./images/auth-image-full12.svg";
+import authImageFull13 from "./images/auth-image-full13.svg";
+import authImageFull14 from "./images/auth-image-full14.svg";
+import authImageFull15 from "./images/auth-image-full15.svg";
+import authImageFull16 from "./images/auth-image-full16.svg";
 import authLogo from "./images/auth-logo.png";
 import logo from "./images/logo.svg";
 import logo2 from "./images/logo2.svg";
@@ -110,6 +120,16 @@ import theme22 from "./themes/theme-22.svg";
 export {
   authImage,
   authImageFull,
+  authImageFull7,
+  authImageFull8,
+  authImageFull9,
+  authImageFull10,
+  authImageFull11,
+  authImageFull12,
+  authImageFull13,
+  authImageFull14,
+  authImageFull15,
+  authImageFull16,
   authLogo,
   logo,
   logo2,
