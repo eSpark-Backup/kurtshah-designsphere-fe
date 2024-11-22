@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { DirectoryController, DynamicModal, DynamicTable, ProgressBar, Tabs } from "@/components/common";
 import { usePathname, useRouter } from "next/navigation";
-import { filter } from "@/assets";
+import { filter, darkThemeFilter } from "@/assets";
 import Image from "next/image";
 import { projectReports, projects, ReportPageTabs, reportTemplates } from "@/constants";
 import { columns as templateColumns } from "@/columns/reports/templates";
@@ -74,6 +74,7 @@ const Reports = () => {
     setDirectory({ name: projectName, link: ["Project", "/", projectName, , "/", "Reports"] });
   }, [pathname]);
 
+  const { currentTheme } = useSelector(state => state.theme)
 
   const Header = () => {
     return (
@@ -97,7 +98,7 @@ const Reports = () => {
           <Box sx={{
             cursor: "pointer",
           }}>
-            <Image src={filter} alt="filter-icon" width={48} height={48}
+            <Image src={currentTheme ? darkThemeFilter : filter} alt="filter-icon" width={48} height={48}
             />
           </Box>
 

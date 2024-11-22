@@ -63,6 +63,7 @@ const Projects = () => {
               minWidth: "48px",
               width: "48px",
               height: "48px",
+              img: { filter : theme => theme.palette.iconColor }
             }}
             variant="primary"
           >

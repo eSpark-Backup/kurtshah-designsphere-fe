@@ -12,7 +12,8 @@ import {
 } from "@/components/common";
 import { plansData, projects } from "@/constants";
 import { columns } from "@/columns/plans";
-import { filter } from "@/assets";
+import { filter, darkThemeFilter } from "@/assets";
+import { useSelector } from "react-redux";
 
 const Plans = () => {
   const router = useRouter();
@@ -33,6 +34,11 @@ const Plans = () => {
     router.push(`/projects/${projectId}/plans/${item.id}`);
   };
 
+  const handleCreateWithoutPlan = () => {
+    const projectId = pathname.split("/")[2];
+    router.push(`/projects/${projectId}/plans/withoutplan`);
+  }
+
   const handleDeleteFile = () => {
     // DELETE OPERATINON ON CONFIRM
   };
@@ -45,6 +51,8 @@ const Plans = () => {
       link: ["Project", "/", projectName, , "/", "View Plans"],
     });
   }, [pathname]);
+
+  const { currentTheme } = useSelector(state => state.theme)
 
   const Header = () => {
     return (
@@ -73,9 +81,10 @@ const Plans = () => {
               cursor: "pointer",
             }}
           >
-            <Image src={filter} alt="filter-icon" width={48} height={48} />
+            <Image src={currentTheme ? darkThemeFilter : filter} alt="filter-icon" width={48} height={48} />
           </Box>
           <Button
+            onClick={handleCreateWithoutPlan}
             sx={{
               height: "44px",
               width: { xs: "calc(100% - 68px)", sm: "200px" },

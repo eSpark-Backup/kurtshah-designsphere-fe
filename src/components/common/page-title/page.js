@@ -9,7 +9,7 @@ const PageTitle = ({ content, first }) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: "#1D2641",
+                background: theme => theme.palette.primary[700],
                 fontSize: "20px",
                 color: (theme) => theme.palette.white,
                 fontWeight: "500",

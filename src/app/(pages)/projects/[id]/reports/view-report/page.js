@@ -123,7 +123,7 @@ const ViewReport = () => {
                 <Box sx={{
                     width: { xs: "100%", md: '256px' },
                     height: '65vh',
-                    border: '1px solid #36405D',
+                    border: theme => `1px solid ${theme.palette.borderColorSecondary}`,
                     borderRadius: '16px',
                     padding: '20px',
                     background: (theme) => theme.palette.gradientPrimary,

@@ -4,8 +4,23 @@ import tableTrash from "./icons/trash-table.svg";
 import tableEdit from "./icons/edit-table.svg";
 import authImage from "./images/auth-image.svg";
 import authImageFull from "./images/auth-image-full.svg";
+import authImageFull7 from "./images/auth-image-full7.svg";
+import authImageFull8 from "./images/auth-image-full8.svg";
+import authImageFull9 from "./images/auth-image-full9.svg";
+import authImageFull10 from "./images/auth-image-full10.svg";
+import authImageFull11 from "./images/auth-image-full11.svg";
+import authImageFull12 from "./images/auth-image-full12.svg";
+import authImageFull13 from "./images/auth-image-full13.svg";
+import authImageFull14 from "./images/auth-image-full14.svg";
+import authImageFull15 from "./images/auth-image-full15.svg";
+import authImageFull16 from "./images/auth-image-full16.svg";
 import authLogo from "./images/auth-logo.png";
-import logo from "./images/logo.png";
+import logo from "./images/logo.svg";
+import logo2 from "./images/logo2.svg";
+import logo3 from "./images/logo3.svg";
+import logo4 from "./images/logo4.svg";
+import logo5 from "./images/logo5.svg";
+import logo6 from "./images/logo6.svg";
 import avatar from "./images/avatar.png";
 import closeEye from "./icons/eye-close.svg";
 import openEye from "./icons/eyeOpen.svg";
@@ -29,6 +44,7 @@ import punch from "./icons/punch-door.svg";
 import trendingUp from "./icons/trending-up.svg";
 import trendingDown from "./icons/trending-down.svg";
 import filter from "./icons/filter.svg";
+import darkThemeFilter from "./icons/dark-theme-filter.svg";
 import mail from "./icons/mail.svg";
 import document from "./icons/document-text.svg";
 import profileTick from "./icons/profile-tick.svg";
@@ -77,12 +93,50 @@ import captalism from "./icons/captalism.svg";
 import hamburger from "./icons/hamburger.png";
 import checking from "./images/Auth-Image2.png"
 import user2 from "./icons/user2.svg"
+import backIcon from "./icons/back-icon.svg";
+import theme1 from "./themes/theme-1.svg";
+import theme2 from "./themes/theme-2.svg";
+import theme3 from "./themes/theme-3.svg";
+import theme4 from "./themes/theme-4.svg";
+import theme5 from "./themes/theme-5.svg";
+import theme6 from "./themes/theme-6.svg";
+import theme7 from "./themes/theme-7.svg";
+import theme8 from "./themes/theme-8.svg";
+import theme9 from "./themes/theme-9.svg";
+import theme10 from "./themes/theme-10.svg";
+import theme11 from "./themes/theme-11.svg";
+import theme12 from "./themes/theme-12.svg";
+import theme13 from "./themes/theme-13.svg";
+import theme14 from "./themes/theme-14.svg";
+import theme15 from "./themes/theme-15.svg";
+import theme16 from "./themes/theme-16.svg";
+import theme17 from "./themes/theme-17.svg";
+import theme18 from "./themes/theme-18.svg";
+import theme19 from "./themes/theme-19.svg";
+import theme20 from "./themes/theme-20.svg";
+import theme21 from "./themes/theme-21.svg";
+import theme22 from "./themes/theme-22.svg";
 
 export {
   authImage,
   authImageFull,
+  authImageFull7,
+  authImageFull8,
+  authImageFull9,
+  authImageFull10,
+  authImageFull11,
+  authImageFull12,
+  authImageFull13,
+  authImageFull14,
+  authImageFull15,
+  authImageFull16,
   authLogo,
   logo,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
   avatar,
   closeEye,
   openEye,
@@ -118,6 +172,7 @@ export {
   trendingUp,
   trendingDown,
   filter,
+  darkThemeFilter,
   mail,
   document,
   profileTick,
@@ -157,5 +212,28 @@ export {
   captalism,
   hamburger,
   checking,
-  user2
+  user2,
+  backIcon,
+  theme1,
+  theme2,
+  theme3,
+  theme4,
+  theme5,
+  theme6,
+  theme7,
+  theme8,
+  theme9,
+  theme10,
+  theme11,
+  theme12,
+  theme13,
+  theme14,
+  theme15,
+  theme16,
+  theme17,
+  theme18,
+  theme19,
+  theme20,
+  theme21,
+  theme22,
 };

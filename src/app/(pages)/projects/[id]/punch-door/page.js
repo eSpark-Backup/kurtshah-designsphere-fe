@@ -5,7 +5,8 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import { DirectoryController, DynamicModal, DynamicTable, ProgressBar } from "@/components/common";
 import { files, projects } from "@/constants";
 import { usePathname } from "next/navigation";
-import { filter } from "@/assets";
+import { useSelector } from "react-redux";
+import { filter, darkThemeFilter } from "@/assets";
 import Image from "next/image";
 import { columns } from "@/columns/punchdoors";
 
@@ -37,6 +38,7 @@ const PunchDoor = () => {
     setDirectory({ name: projectName, link: ["Project", "/", projectName, , "/", "Punch Door"] });
   }, [pathname]);
 
+  const { currentTheme } = useSelector(state => state.theme)
 
   const Header = () => {
     return (
@@ -59,7 +61,7 @@ const PunchDoor = () => {
           <Box sx={{
             cursor: "pointer",
           }}>
-            <Image src={filter} alt="filter-icon" width={48} height={48}
+            <Image src={currentTheme ? darkThemeFilter : filter} alt="filter-icon" width={48} height={48}
             />
           </Box>
 

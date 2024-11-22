@@ -1,7 +1,7 @@
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./theme";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import StoreProvider from "./StoreProvider";
 import Container from "./Container";
 
@@ -16,13 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <StoreProvider>
-              <Container> 
-                {children} 
-              </Container>
-            </StoreProvider>
-          </ThemeProvider>
+          <StoreProvider>
+            <Container>
+              {children}
+            </Container>
+          </StoreProvider>
+          <ToastContainer />
         </AppRouterCacheProvider>
       </body>
     </html>

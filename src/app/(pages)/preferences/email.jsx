@@ -18,7 +18,7 @@ const Email = () => {
         sx={{ mt: 2, width: "180px", height: "40px" }}
         variant="primary"
       >
-        Email Notifications
+        Manage
       </Button>
     </>
   );

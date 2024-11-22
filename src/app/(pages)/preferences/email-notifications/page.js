@@ -27,6 +27,7 @@ const EmailNotification = () => {
       >
         <Grid sx={{ minHeight: "100%" }} item xs={12} sm={3}>
           <SidebarTab
+            back
             title="Category"
             active={active}
             setActive={setActive}

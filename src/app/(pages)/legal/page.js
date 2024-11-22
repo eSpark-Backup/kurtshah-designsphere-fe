@@ -70,7 +70,7 @@ const Legal = () => {
               sx={{
                 width: { xs: "100%", sm: "45%", lg: "40%", xl: "30%" },
                 height: "285px",
-                background: "linear-gradient(180deg, #323F63 0%, #6680C9 100%)",
+                background: theme => theme.palette.legalCard,
                 borderRadius: "20px",
                 border: (theme) => theme.palette.borderPrimary,
                 paddingTop: "30px",
@@ -90,7 +90,7 @@ const Legal = () => {
               <Box
                 sx={{
                   height: "60px",
-                  background: "#6191FF",
+                  background: theme => theme.palette.secondary.main,
                   borderRadius: "0px 0px 20px 20px",
                   display: "flex",
                   justifyContent: "center",
@@ -100,7 +100,7 @@ const Legal = () => {
                 <Typography
                   sx={{
                     fontSize: "14px",
-                    color: (theme) => theme.palette.whiteE4,
+                    color: (theme) => theme.palette.btnColor,
                     fontWeight: "500",
                     paddingLeft: "20px"
                   }}>

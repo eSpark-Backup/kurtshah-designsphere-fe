@@ -12,15 +12,18 @@ import {
 } from "@/components/common";
 import {
   planDetails,
+  noPlanData,
   projects,
   plansDetailsTableTabs,
   tableNav,
   canvasNav,
 } from "@/constants";
-import { columns } from "@/columns/planDetails";
+import { columns, nameoPlancolumns } from "@/columns/planDetails";
 import { rightArrow, leftArrow, map } from "@/assets";
+import HardwareSet from "./(hardware-set)/hardware-set";
 
 const PlansDetails = () => {
+  const [planId, setPlanId] = useState(null);
   const pathname = usePathname();
   const [searchValue, setSearchValue] = useState(0);
   const [expandTab, setExpandTab] = useState(false);
@@ -37,9 +40,11 @@ const PlansDetails = () => {
   };
 
   useEffect(() => {
-    const id = pathname.split("/")[2];
+    const pathArr = pathname.split("/");
+    const id = pathArr[2];
     const { projectName } = projects.find((item) => item.id == id);
     setDirectory({ name: projectName, link: ["Project", "/", projectName] });
+    setPlanId(pathArr[pathArr.length - 1]);
   }, [pathname]);
 
   const handleExpandTable = () => setExpandTab(!expandTab);
@@ -72,9 +77,9 @@ const PlansDetails = () => {
           container
           item
           xs={12}
-          lg={expandTab ? 12 : 4}
+          lg={activeTab === 1 || expandTab ? 12 : 4}
         >
-          <Grid item xs={12} lg={expandTab ? 4 : 12}>
+          <Grid item xs={12} lg={activeTab === 1 || expandTab ? 4 : 12}>
             <Stack
               direction="row"
               justifyContent={{ xs: "space-between", sm: "center" }}
@@ -100,7 +105,7 @@ const PlansDetails = () => {
                         width: "32px",
                         height: "32px",
                         order: { xs: 1, sm: 0 },
-                        background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                        background: theme => theme.palette.buttonPrimary,
                       }}
                       variant="primary"
                     >
@@ -138,12 +143,12 @@ const PlansDetails = () => {
                           : "1px solid #8B8B8B24",
                       background:
                         activeTab === index
-                          ? "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)"
+                          ? theme => theme.palette.buttonPrimary
                           : "transparent",
                     }}
                     key={tab}
                   >
-                    <Typography variant="h5" color="#fff">
+                    <Typography variant="h5" sx={{ color: theme => activeTab === index ? theme.palette.btnColor : "#fff" }}>
                       {tab}
                     </Typography>
                   </Box>
@@ -152,20 +157,24 @@ const PlansDetails = () => {
             </Stack>
           </Grid>
           <Grid item xs={12}>
-            <DynamicTable
-              data={planDetails}
-              columns={columns()}
-              isLoading={false}
-              total={planDetails.length}
-              handlePageChange={handlePageChange}
-              page={page}
-              pagination
-              paginationCenter
-            />
+            {activeTab === 1 ? (
+              <HardwareSet />
+            ) : (
+              <DynamicTable
+                data={planId === "withoutplan" ? noPlanData : planDetails}
+                columns={planId === "withoutplan" ? nameoPlancolumns() : columns()}
+                isLoading={false}
+                total={planDetails.length}
+                handlePageChange={handlePageChange}
+                page={page}
+                pagination
+                paginationCenter
+              />
+            )}
           </Grid>
         </Grid>
         <Grid
-          sx={{ display: expandTab ? "none" : "block" }}
+          sx={{ display: activeTab === 1 || expandTab ? "none" : "block" }}
           item
           xs={12}
           lg={expandCanvas ? 12 : 8}
@@ -190,7 +199,7 @@ const PlansDetails = () => {
                   width: "40px",
                   height: "40px",
                   border: "1px solid #E4E4E4EE",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -203,7 +212,7 @@ const PlansDetails = () => {
                   minWidth: "max-content",
                   width: "max-content",
                   height: "40px",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -217,7 +226,7 @@ const PlansDetails = () => {
                   width: "40px",
                   height: "40px",
                   border: "1px solid #E4E4E4EE",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -230,7 +239,7 @@ const PlansDetails = () => {
                   minWidth: "max-content",
                   width: "max-content",
                   height: "40px",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -263,21 +272,20 @@ const PlansDetails = () => {
               })}
             </Stack>
           </Stack>
-          <Typography
-            variant="h5"
-            sx={{ fontSize: "16px !important", mt: 1 }}
-          >
-            Aprial 25 2024
+          <Typography variant="h5" sx={{ fontSize: "16px !important", mt: 1 }}>
+            {planId === "withoutplan" ? "view with no plans" : "Aprial 25 2024"}
           </Typography>
-          <Box sx={{ padding: "30px", width: "80%", margin: "8px auto 0" }}>
-            <Image
-              width={0}
-              height={0}
-              style={{ width: "100% !important", height: "auto !important" }}
-              src={map}
-              alt="map"
-            />
-          </Box>
+          {planId === "withoutplan" ? null : (
+            <Box sx={{ padding: "30px", width: "80%", margin: "8px auto 0" }}>
+              <Image
+                width={0}
+                height={0}
+                style={{ width: "100% !important", height: "auto !important" }}
+                src={map}
+                alt="map"
+              />
+            </Box>
+          )}
         </Grid>
       </Grid>
     </Box>

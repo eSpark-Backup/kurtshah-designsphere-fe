@@ -9,8 +9,13 @@ import { Formik, Form } from 'formik'
 import { signinSchema } from '@/validation'
 import Link from 'next/link'
 import { LoadingButton } from '@mui/lab'
+import { useDispatch } from "react-redux";
+import { login } from "@/lib/store/slices/auth";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const initialValues = {
     email: "",
     password: "",
@@ -18,9 +23,14 @@ const SignIn = () => {
   }
 
   const handleSubmit = (values) => {
-    console.log(values?.email)
-    console.log(values?.password)
-  }
+    dispatch(
+      login({
+        email: values?.email,
+        password: values?.password,
+        callback: () => router.push("/projects"),
+      })
+    );
+  };
 
   return (
     <Box
@@ -82,7 +92,7 @@ const SignIn = () => {
                   <CustomInput
                     variant="filled"
                     name="email"
-                    type="email"
+                    type="text"
                     placeholder="Username or email"
                     label="Username or email"
                     onChange={handleChange}
@@ -149,7 +159,7 @@ const SignIn = () => {
                       fontSize: "14px"
                     }}>
                     Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
-                      <span style={{ color: theme.palette.secondary.main, cursor: "pointer " }}>Sign Up</span>
+                      <Typography component="span" sx={{ color: theme => theme.palette.secondary.main, cursor: "pointer " }}>Sign Up</Typography>
                     </Link>
                   </Typography>
                 </Box>

@@ -4,7 +4,8 @@ import { DirectoryController, ProgressBar } from "@/components/common";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { filter } from "@/assets";
+import { useSelector } from "react-redux";
+import { filter, darkThemeFilter } from "@/assets";
 import Image from "next/image";
 import CreateReportInitialForm from "./CreateReportInitialForm";
 import { projects } from "@/constants";
@@ -12,6 +13,7 @@ import CreateReportFinalForm from "./CreateReportFinalForm";
 
 
 const CreateReport = () => {
+    const { currentTheme } = useSelector(state => state.theme)
     const [formProceeds, setFormProceeds] = useState(1);
     const [directory, setDirectory] = useState({
         name: "",
@@ -65,7 +67,7 @@ const CreateReport = () => {
                     <Box sx={{
                         cursor: "pointer",
                     }}>
-                        <Image src={filter} alt="filter-icon" width={48} height={48}
+                        <Image src={currentTheme ? darkThemeFilter : filter} alt="filter-icon" width={48} height={48}
                         />
                     </Box>
 

@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { SidebarTab } from "@/components/common";
 import Collaborators from "./collaborators";
 import Email from "./email";
 import Plans from "./plans";
+import ThemeTab from "./theme";
 import Card from "@/components/common/Card";
 
 const Preferences = () => {
@@ -14,6 +15,7 @@ const Preferences = () => {
     { title: "Collaborators", component: <Collaborators /> },
     { title: "Email Notifications", component: <Email /> },
     { title: "View Plans", component: <Plans /> },
+    { title: "Themes", component: <ThemeTab /> },
   ];
   const tabsComponent = (preferencesTabs) => {
     return preferencesTabs[active].component;
