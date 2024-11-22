@@ -17,17 +17,17 @@ const slice = createSlice({
       };
       if (user.email === email && user.password === password) {
         state.user = { email, password };
-        localStorage.setItem("token", JSON.stringify({ email, password }));
+        typeof window !== "undefined" && localStorage.setItem("token", JSON.stringify({ email, password }));
         callback();
       } else {
         toast.error("Invalid credentials");
         state.user = null;
-        localStorage.removeItem("token");
+        typeof window !== "undefined" && localStorage.removeItem("token");
       }
     },
     logout: (state) => {
       state.user = null;
-      localStorage.removeItem("token");
+      typeof window !== "undefined" && localStorage.removeItem("token");
     },
   },
 });

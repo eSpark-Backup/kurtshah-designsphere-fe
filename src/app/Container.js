@@ -27,15 +27,14 @@ const Container = ({ children }) => {
   const { currentTheme } = useSelector((state) => state.theme);
   const thisTheme = themePalette.find((theme) => theme.id == currentTheme);
   const myTheme = thisTheme || themePalette[0];
-
-  const user = localStorage.getItem("token");
+  const user = typeof window !== "undefined" && localStorage.getItem("token");
   useEffect(() => {
     if (!user && authedRoute) {
       router.push("/sign-in");
     } else if (user && !authedRoute) {
       router.push("/projects");
     }
-  }, [user, router]);
+  }, [user, router, authedRoute]);
 
   return (
     <ThemeProvider theme={theme(myTheme.palette)}>
