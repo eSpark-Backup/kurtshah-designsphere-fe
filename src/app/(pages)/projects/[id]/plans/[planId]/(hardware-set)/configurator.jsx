@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { utils, writeFileXLSX } from 'xlsx';
 import {
   Box,
   Button,
@@ -81,6 +82,21 @@ const data = [
   },
 ];
 
+const data2 = [
+  {
+    description: "Base",
+    qty: 1,
+    cost: "$253.00",
+    extCost: "$253.00",
+  },
+  {
+    description: "Total",
+    qty: "",
+    cost: "",
+    extCost: "$253.00",
+  },
+];
+
 const searchOptions = ["item 1804pipe stop & door holder"];
 
 const Configurator = () => {
@@ -100,6 +116,28 @@ const Configurator = () => {
       setError(false);
     }, 3000);
   }, [error]);
+
+  const xport = useCallback(async () => {
+    const myData = series === "0117" ? data : data2
+    const formattedData = myData.map(row => {
+      const newRow = { ...row };
+      return newRow;
+    });
+    const ws = utils.json_to_sheet(formattedData);
+    const headers = [
+      'Description',
+      'Quantity',
+      'Cost',
+      'Extra Cost',
+    ];
+    headers.forEach((header, index) => {
+      ws[String.fromCharCode(65 + index) + 1] = { v: header, t: 's' };
+    });
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, "Data");
+    writeFileXLSX(wb, "data.xlsx");
+  });
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={6.5}>
@@ -398,7 +436,7 @@ const Configurator = () => {
             <DynamicTable
               data={
                 getPriced
-                  ? data
+                  ? series === "0117" ? data : data2
                   : [
                       {
                         description: "Total",
@@ -433,6 +471,7 @@ const Configurator = () => {
                   textDecoration: "underline",
                   marginTop: "10px",
                 }}
+                onClick={xport}
               >
                 Sheet_file_Download
               </Typography>
