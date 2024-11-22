@@ -1,11 +1,9 @@
-import theme from '@/app/theme'
 import { close } from '@/assets';
 import { Box, Button, IconButton, Modal, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react'
 
 const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader, editModal }) => {
-
     const basicModelStructureStyle = {
         maxHeight: "90vh",
         overflowY: "auto",
@@ -14,7 +12,7 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: { xs: "90%", sm: fields ? "90%" : 400, md: fields ? "70%" : 400, lg: fields ? "55%" : 400, xl: fields ? "45%" : 450 },
-        background: "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+        background: theme => theme.palette.gradientSecondary,
         boxShadow: 24,
         borderRadius: "10px",
         minHeight: "268px",
@@ -50,13 +48,13 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                                 <Box sx={{
                                     textAlign: 'center',
                                     borderBottom: "1px solid",
-                                    borderColor: theme.palette.whiteE4,
+                                    borderColor: theme => theme.palette.whiteE4,
                                     padding: "20px 0px",
                                 }}>
 
                                     <Typography
                                         sx={{
-                                            background: fields ? "linear-gradient(180deg, #93A3D9 0%, #6372A2 100%)"
+                                            background: theme => fields ? "linear-gradient(180deg, #93A3D9 0%, #6372A2 100%)"
                                                 : theme.palette.textPrimaryGradient,
                                             WebkitBackgroundClip: "text",
                                             WebkitTextFillColor: "transparent",
@@ -103,13 +101,13 @@ const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, 
                             justifyContent: "space-between",
                             alignItems: "center",
                             borderTop: "1px solid",
-                            borderColor: theme.palette.whiteE4,
+                            borderColor: theme => theme.palette.whiteE4,
                             padding: "10px 20px",
                         }}>
 
                             <Typography
                                 sx={{
-                                    color: theme.palette.whiteE4,
+                                    color: theme => theme.palette.whiteE4,
                                     fontWeight: "bold",
                                     fontSize: "14px",
                                     fontWeight: 500,

@@ -35,6 +35,7 @@ const Notes = ({ notes }) => {
               minWidth: "32px",
               width: "32px",
               height: "32px",
+              img: { filter : theme => theme.palette.iconColor }
             }}
             variant="primary"
           >

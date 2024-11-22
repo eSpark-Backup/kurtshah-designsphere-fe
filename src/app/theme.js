@@ -9,46 +9,12 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-const theme = createTheme({
+const theme = currentTheme => createTheme({
   typography: {
     fontFamily: poppins.style.fontFamily,
     textAlign: "center",
   },
-  palette: {
-    primary: {
-      main: "#7A89BCB8",
-      dark: "#7A89BC",
-      900: "#212A46",
-    },
-    secondary: {
-      main: "#6191FF",
-    },
-    tertiary: "#E4E4E4B8",
-    error: {
-      main: "#f44336",
-    },
-    warning: {
-      main: "#ff9800",
-    },
-    info: {
-      main: "#2196f3",
-    },
-    success: {
-      main: "#4caf50",
-    },
-    white: "#FFFFFF",
-    whiteE4: "#E4E4E4",
-    grey: "#FFFFFF1F",
-    buttonPrimary: "linear-gradient(180deg, #6191FF 0%, #5B6BFF 100%)",
-    buttonSecondary: "#7A89BC",
-    borderColorPrimary: "#8B8B8B24",
-    headingColor: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
-    textPrimaryGradient: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
-    gradientPrimary: "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
-    shadowPrimary: "#00000030",
-    shadowSecondary: "#00000040",
-    borderPrimary: "1px solid #E4E4E4",
-  },
+  palette: currentTheme,
   components: {
     MuiButton: {
       variants: [
@@ -56,7 +22,7 @@ const theme = createTheme({
           props: { variant: "primary" },
           style: ({ theme }) => ({
             background: theme.palette.buttonPrimary,
-            color: theme.palette.white,
+            color: theme.palette.btnColor,
             borderRadius: "12px",
             position: "relative",
             fontWeight: "600",
@@ -64,7 +30,7 @@ const theme = createTheme({
             width: "100%",
             "&:hover": {
               backgroundColor: theme.palette.buttonPrimary,
-              color: theme.palette.white,
+              color: theme.palette.btnColor,
             },
           }),
         },
@@ -97,7 +63,7 @@ const theme = createTheme({
             fontWeight: "400",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderColor: "#8B8B8B24",
+            borderColor: theme.palette.borderColorPrimary,
             width: "100%",
             fontsize: "14px",
             "&:hover": {
@@ -108,8 +74,7 @@ const theme = createTheme({
               WebkitTextFillColor: "transparent",
             },
           }),
-        }
-
+        },
       ],
     },
     MuiInputAdornment: {
@@ -129,7 +94,7 @@ const theme = createTheme({
     },
     MuiTableHead: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           backgroundColor: "transparent",
           "& .MuiTableCell-root": {
             borderBottom: "none",
@@ -137,20 +102,20 @@ const theme = createTheme({
             fontWeight: 600,
             lineHeight: "18px",
             textTransform: "uppercase",
-            color: "#E4E4E4",
+            color: theme.palette.whiteE4,
             padding: "15px 25px",
           },
-        },
+        }),
       },
     },
     MuiTableBody: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           "& .MuiTableCell-root": {
             lineHeight: 1.57,
             fontSize: "14px",
             border: "none",
-            background: "linear-gradient(180deg, #E6EAF4 0%, #B7C6F9 100%)",
+            background: theme.palette.headingColor,
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -158,50 +123,49 @@ const theme = createTheme({
             padding: "26px 25px",
             textTransform: "capitalize",
             fontWeight: 500,
-            borderTop: "1px solid #FFFFFF1F",
-            borderBottom: "1px solid #FFFFFF1F",
+            borderTop: `1px solid ${theme.palette.grey}`,
+            borderBottom: `1px solid ${theme.palette.grey}`,
           },
           "& .MuiTableRow-root": {
-            background:
-              "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 15%, #38466B 100%)",
+            background: theme.palette.gradientPrimary,
           },
           "& .MuiTableRow-root td:first-child": {
             borderTopLeftRadius: "20px",
             borderBottomLeftRadius: "20px",
-            borderLeft: "1px solid #FFFFFF1F",
+            borderLeft: `1px solid ${theme.palette.grey}`,
           },
           "& .MuiTableRow-root td:last-child": {
             borderTopRightRadius: "20px",
             borderBottomRightRadius: "20px",
-            borderRight: "1px solid #FFFFFF1F",
+            borderRight: `1px solid ${theme.palette.grey}`,
           },
-        },
+        }),
       },
     },
     MuiTableSortLabel: {
       styleOverrides: {
         root: {
-          gap: "10px"
-        }
-      }
+          gap: "10px",
+        },
+      },
     },
     MuiTablePagination: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           "& .MuiTablePagination-toolbar": {
-            color: "#E4E4E4",
+            color: theme.palette.whiteE4,
           },
           "& .MuiTablePagination-actions": {
             "& .MuiButtonBase-root": {
-              color: "#E4E4E4",
+              color: theme.palette.whiteE4,
             },
             "& .Mui-disabled": {
-              color: "#E4E4E4",
+              color: theme.palette.whiteE4,
               opacity: 0.5,
             },
           },
-          wordSpacing: "10px"
-        },
+          wordSpacing: "10px",
+        }),
       },
     },
     MuiChip: {
@@ -209,11 +173,11 @@ const theme = createTheme({
         root: ({ theme }) => ({
           background: theme.palette.headingColor,
           backgroundColor: "transparent !important",
-          WebkitTextFillColor: "#2D3A5C",
+          WebkitTextFillColor: theme.palette.primaryChip,
           height: "26px",
           fontSize: "12px",
-          color: "#2D3A5C",
-          fontWeight: 500
+          color: theme.palette.primaryChip,
+          fontWeight: 500,
         }),
       },
     },
@@ -221,8 +185,7 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           color: theme.palette.whiteE4,
-          background:
-            "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+          background: theme.palette.gradientSecondary,
           minWidth: "85px",
           padding: "3px 10px",
           marginLeft: "-5px",
@@ -230,8 +193,7 @@ const theme = createTheme({
           fontWeight: 400,
           "&.Mui-focused": {
             color: theme.palette.whiteE4,
-            background:
-              "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+            background: theme.palette.gradientSecondary,
             minWidth: "85px",
             padding: "3px 10px",
             marginLeft: "-5px",
@@ -243,9 +205,9 @@ const theme = createTheme({
     },
     MuiCheckbox: {
       styleOverrides: {
-        root: {
-          color: "#E4E4E4",
-        },
+        root: ({ theme }) => ({
+          color: theme.palette.whiteE4,
+        }),
       },
     },
     MuiFormControlLabel: {
@@ -267,15 +229,15 @@ const theme = createTheme({
     },
     MuiLoadingButton: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           "& .MuiCircularProgress-root": {
-            color: "#fff",
+            color: theme.palette.white,
             width: "24px !important",
             height: "24px !important",
             position: "relative",
             marginRight: "100px",
           },
-        },
+        }),
       },
     },
 
@@ -294,7 +256,7 @@ const theme = createTheme({
         root: ({ theme }) => ({
           fontSize: "14px",
           fontWeight: 500,
-          color: "#ffffff",
+          color: theme.palette.white,
           lineHeight: "160%",
           height: "auto",
           borderRadius: "5px",
@@ -315,16 +277,17 @@ const theme = createTheme({
             display: "none",
           },
           input: {
-            '&:-webkit-autofill': {
-              borderRadius: '0px !important',
+            "&:-webkit-autofill": {
+              borderRadius: "0px !important",
               padding: "16.5px 14px",
-              backgroundColor: 'transparent !important',
-              WebkitTextFillColor: '#fff !important',
-              transition: 'background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important',
+              backgroundColor: "transparent !important",
+              WebkitTextFillColor: `${theme.palette.white} !important`,
+              transition:
+                "background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important",
             },
           },
-          fieldset : {
-            legend : {
+          fieldset: {
+            legend: {
               width: "0px",
             },
           },
@@ -340,13 +303,12 @@ const theme = createTheme({
         root: ({ theme }) => ({
           fontSize: "14px",
           fontWeight: 500,
-          color: "#ffffff",
+          color: theme.palette.white,
           lineHeight: "160%",
           height: "44px",
           borderRadius: "16px",
-          background:
-            "linear-gradient(180deg, rgba(51, 64, 100, 0.05) 0%, #38466B 100%)",
-          border: "1px solid #8B8B8B24",
+          background: theme.palette.gradientPrimary,
+          border: `1px solid ${theme.palette.borderColorPrimary}`,
           "&:before": {
             display: "none",
           },
@@ -355,12 +317,13 @@ const theme = createTheme({
           },
           input: {
             padding: "16.5px 14px",
-            '&:-webkit-autofill': {
-              borderRadius: '0px !important',
+            "&:-webkit-autofill": {
+              borderRadius: "0px !important",
               padding: "16.5px 14px",
-              backgroundColor: 'transparent !important',
-              WebkitTextFillColor: '#fff !important',
-              transition: 'background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important',
+              backgroundColor: "transparent !important",
+              WebkitTextFillColor: `${theme.palette.white} !important`,
+              transition:
+                "background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, color 5000s ease-in-out 0s !important",
             },
           },
           "&:hover .MuiFilledInput-notchedOutline": {
@@ -421,58 +384,58 @@ const theme = createTheme({
         },
       },
     },
-    MuiSwitch: {
+    MuiSwitch: ({ theme }) => ({
       styleOverrides: {
         root: {
           width: 50,
           height: 26,
           padding: 0,
-          display: 'flex',
+          display: "flex",
         },
         switchBase: {
           padding: 2,
-          '&.Mui-checked': {
-            transform: 'translateX(22px)',
-            color: '#fff',
-            '& + .MuiSwitch-track': {
+          "&.Mui-checked": {
+            transform: "translateX(22px)",
+            color: theme.palette.white,
+            "& + .MuiSwitch-track": {
               opacity: 1,
-              backgroundColor: '#888888',
+              backgroundColor: theme.palette.gray8,
             },
           },
         },
         thumb: {
           width: 22,
           height: 22,
-          boxShadow: 'none',
-          backgroundColor: '#D9D9D9',
-          '&:before': {
+          boxShadow: "none",
+          backgroundColor: theme.palette.whiteD9,
+          "&:before": {
             content: '""',
-            position: 'absolute',
-            width: '12px',
-            height: '2px',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            background: "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
-            borderRadius: '1px',
+            position: "absolute",
+            width: "12px",
+            height: "2px",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            background: theme.palette.gradientSecondary,
+            borderRadius: "1px",
           },
         },
         track: {
           borderRadius: 13,
           opacity: 1,
-          backgroundColor: '#888888',
-          boxSizing: 'border-box',
+          backgroundColor: theme.palette.gray8,
+          boxSizing: "border-box",
         },
       },
-    },
+    }),
     MuiRadio: {
       styleOverrides: {
-        root: {
-          color: '#ffffff',
-          '&.Mui-checked': {
-            color: '#ffffff',
+        root: ({ theme }) => ({
+          color: theme.palette.white,
+          "&.Mui-checked": {
+            color: theme.palette.white,
           },
-        },
+        }),
       },
     },
   },

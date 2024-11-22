@@ -382,14 +382,13 @@ const Configurator = () => {
               border: "1px solid #E4E4E41A",
               borderRadius: "10px",
               padding: "5px 13px",
-              background:
-                "linear-gradient(246.54deg, #36456A -19.2%, #2B3758 41.17%, #1A243D 101.55%)",
+              background: theme => theme.palette.gradientSecondary,
               ".MuiTableCell-root": {
                 padding: "10px !important",
                 minWidth: "10px",
               },
               ".MuiTableRow-root td:first-child": {
-                borderRadius: "10px 0 0 10px !important ",
+                borderRadius: "10px 0 0 10px !important "
               },
               ".MuiTableRow-root td:last-child": {
                 borderRadius: "0 10px 10px 0 !important ",

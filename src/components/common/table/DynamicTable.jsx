@@ -69,7 +69,7 @@ const DynamicTable = ({
   });
 
   const ActionButton = ({ onClick, src, alt }) => (
-    <Box sx={{ cursor: "pointer" }}>
+    <Box sx={{ cursor: "pointer", img: { filter: theme=> theme.palette.imgColor } }}>
       <Image
         onClick={(e) => {
           e.stopPropagation();

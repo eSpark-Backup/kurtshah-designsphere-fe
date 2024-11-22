@@ -34,7 +34,7 @@ const ProfileCard = ({ readOnly }) => {
                         width: "80px",
                         height: "80px",
                         borderRadius: "50%",
-                        background: "#FAFAFA",
+                        background: theme => theme.palette.whiteFa,
                         border: (theme) => theme.palette.borderPrimary,
                         boxShadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
                         display: "flex",
@@ -45,7 +45,7 @@ const ProfileCard = ({ readOnly }) => {
                     <Typography
                         sx={{
                             fontSize: "20px",
-                            color: "#444444",
+                            color: theme => theme.palette.gray4,
                             fontWeight: "700"
                         }}
                     >

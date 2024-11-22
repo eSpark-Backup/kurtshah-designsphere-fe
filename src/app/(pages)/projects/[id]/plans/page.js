@@ -12,7 +12,8 @@ import {
 } from "@/components/common";
 import { plansData, projects } from "@/constants";
 import { columns } from "@/columns/plans";
-import { filter } from "@/assets";
+import { filter, darkThemeFilter } from "@/assets";
+import { useSelector } from "react-redux";
 
 const Plans = () => {
   const router = useRouter();
@@ -51,6 +52,8 @@ const Plans = () => {
     });
   }, [pathname]);
 
+  const { currentTheme } = useSelector(state => state.theme)
+
   const Header = () => {
     return (
       <Stack
@@ -78,7 +81,7 @@ const Plans = () => {
               cursor: "pointer",
             }}
           >
-            <Image src={filter} alt="filter-icon" width={48} height={48} />
+            <Image src={currentTheme ? darkThemeFilter : filter} alt="filter-icon" width={48} height={48} />
           </Box>
           <Button
             onClick={handleCreateWithoutPlan}

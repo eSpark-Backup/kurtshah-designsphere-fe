@@ -5,15 +5,23 @@ import Image from "next/image";
 import { backIcon } from "@/assets";
 import { useState } from "react";
 import LogoutModal from "./logoutModal";
+import { logout } from "@/lib/store/slices/auth";
+import { useDispatch } from "react-redux";
 
 const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [openLogoutModal, setOpenLogoutModal] = useState(false);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push("/sign-in");
+  };
   return (
     <Card
       variant={"outline"}
       sx={{
-        background: "linear-gradient(180deg, #1B253E 0%, #303E61 100%)",
+        background: (theme) => theme.palette.card,
         borderRadius: "10px",
         height: "100%",
         padding: "10px 10px 0px 10px",
@@ -23,6 +31,7 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
+        position: "relative"
       }}
     >
       {back && (
@@ -32,7 +41,7 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
           justifyContent="flex-start"
           alignItems="center"
           gap="2px"
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: "pointer", position: "absolute", top: "20px", left: "20px" }}
         >
           <Image width={10} height={10} src={backIcon} alt="back" />
           <Typography
@@ -64,11 +73,12 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
                   padding: "13px",
                   borderRadius: "10px",
                   cursor: "pointer",
-                  background:
+                  background: (theme) =>
                     ind === active
-                      ? "linear-gradient(90deg, #6191FF 0%, #5B6BFF 100%)"
-                      : "#2F3D60",
-                  boxshadow: (theme) => `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
+                      ? theme.palette.sidebarButtonBgActive
+                      : theme.palette.sidebarButtonBg,
+                  boxshadow: (theme) =>
+                    `0px 0px 5px 0px ${theme.palette.shadowSecondary}`,
                 }}
                 key={tab}
                 onClick={() => setActive(ind)}
@@ -77,7 +87,7 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
                   textAlign="center"
                   fontSize={16}
                   fontWeight={500}
-                  sx={{ color: (theme) => theme.palette.whiteE4 }}
+                  sx={{ color: (theme) => theme.palette.sidebarButton }}
                 >
                   {tab.title}
                 </Typography>
@@ -107,7 +117,7 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
       <LogoutModal
         open={openLogoutModal}
         handleClose={() => setOpenLogoutModal(false)}
-        onConfirm={() => console.log("logout")}
+        onConfirm={handleLogout}
       />
     </Card>
   );

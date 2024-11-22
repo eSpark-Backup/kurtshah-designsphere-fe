@@ -11,6 +11,7 @@ const Feed = ({ feed }) => {
         justifyContent="space-between"
         alignItems={{ xs: "flex-start", sm: "center" }}
         gap={1}
+        sx={{ img: { filter : theme => theme.palette.imgColor } }}
       >
         <Typography variant="h2">Activity Feed</Typography>
         <Stack

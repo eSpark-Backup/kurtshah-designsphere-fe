@@ -47,7 +47,7 @@ const Support = () => {
                     <Typography
                         sx={{
                             fontSize: "14px",
-                            background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                            background: theme => theme.palette.textPrimaryGradient,
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             fontWeight: "500",
@@ -120,7 +120,7 @@ const Support = () => {
                                             position: "absolute",
                                             top: "70px",
                                             right: "15px",
-                                            color: "#888888",
+                                            color: theme => theme.palette.gray8,
                                         }
                                     }}>
                                     <CustomInput

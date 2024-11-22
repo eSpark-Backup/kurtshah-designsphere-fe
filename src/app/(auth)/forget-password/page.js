@@ -1,5 +1,4 @@
 "use client"
-import theme from '@/app/theme'
 import { email, lock2, message } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
 import { forgetPasswordSchema } from '@/validation'
@@ -101,7 +100,7 @@ const ForgetPassword = () => {
                       </LoadingButton>
                       <Typography sx={{ lineHeight: "29px", color: (theme) => theme.palette.white, fontSize: "14px" }}>
                         Do not have an account? <Link style={{ textDecoration: "none" }} href={"/sign-up"}>
-                          <span style={{ color: theme.palette.secondary.main, cursor: "pointer " }}>Sign Up</span>
+                          <Typography component="span" sx={{ color: theme => theme.palette.secondary.main, cursor: "pointer " }}>Sign Up</Typography>
                         </Link>
                       </Typography>
                     </Box>

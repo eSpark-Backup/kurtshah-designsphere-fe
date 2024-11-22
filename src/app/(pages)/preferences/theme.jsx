@@ -11,6 +11,7 @@ const darkTheme = themes.filter((theme) => theme.mode === "dark");
 const ThemeCard = ({ title, themesData }) => {
   const dispatch = useDispatch();
   const { currentTheme } = useSelector((state) => state.theme);
+  const availableTheme = [0, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
     <Card
       variant={"outline"}
@@ -36,7 +37,11 @@ const ThemeCard = ({ title, themesData }) => {
       >
         {themesData.map((theme) => (
           <Image
-            onClick={() => dispatch(changeTheme(theme.id))}
+            onClick={() => {
+              if (availableTheme.find((id) => id === theme.id)) {
+                dispatch(changeTheme(theme.id));
+              }
+            }}
             key={theme.id}
             style={{
               cursor: "pointer",
@@ -58,6 +63,8 @@ const ThemeCard = ({ title, themesData }) => {
 };
 
 const ThemeTab = () => {
+  const dispatch = useDispatch();
+  const { currentTheme } = useSelector((state) => state.theme);
   return (
     <>
       <Stack
@@ -84,8 +91,9 @@ const ThemeTab = () => {
           </Typography>
         </Box>
         <Button
+          onClick={() => dispatch(changeTheme(0))}
           sx={{ fontSize: "12px", width: "93px", height: "40px" }}
-          variant="primary"
+          variant={currentTheme === 0 ? "primary" : "secondary"}
         >
           Default
         </Button>

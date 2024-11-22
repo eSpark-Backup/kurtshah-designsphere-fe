@@ -105,7 +105,7 @@ const PlansDetails = () => {
                         width: "32px",
                         height: "32px",
                         order: { xs: 1, sm: 0 },
-                        background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                        background: theme => theme.palette.buttonPrimary,
                       }}
                       variant="primary"
                     >
@@ -143,12 +143,12 @@ const PlansDetails = () => {
                           : "1px solid #8B8B8B24",
                       background:
                         activeTab === index
-                          ? "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)"
+                          ? theme => theme.palette.buttonPrimary
                           : "transparent",
                     }}
                     key={tab}
                   >
-                    <Typography variant="h5" color="#fff">
+                    <Typography variant="h5" sx={{ color: theme => activeTab === index ? theme.palette.btnColor : "#fff" }}>
                       {tab}
                     </Typography>
                   </Box>
@@ -199,7 +199,7 @@ const PlansDetails = () => {
                   width: "40px",
                   height: "40px",
                   border: "1px solid #E4E4E4EE",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -212,7 +212,7 @@ const PlansDetails = () => {
                   minWidth: "max-content",
                   width: "max-content",
                   height: "40px",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -226,7 +226,7 @@ const PlansDetails = () => {
                   width: "40px",
                   height: "40px",
                   border: "1px solid #E4E4E4EE",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"
@@ -239,7 +239,7 @@ const PlansDetails = () => {
                   minWidth: "max-content",
                   width: "max-content",
                   height: "40px",
-                  background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  background: theme => theme.palette.buttonPrimary,
 
                 }}
                 variant="primary"

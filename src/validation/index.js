@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
 
 export const signinSchema = Yup.object({
-  email: Yup.string().email('Invalid email address').required('Email is required'),
+  email: Yup.string().required('Email or username is required'),
   password: Yup.string().required('Password is required').min(5, "Password must contain 5 characters"),
   rememberMe: Yup.boolean().oneOf([true], 'You must agree to remember me')
 })

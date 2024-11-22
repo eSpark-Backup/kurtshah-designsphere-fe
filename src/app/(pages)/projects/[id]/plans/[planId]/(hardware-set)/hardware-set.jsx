@@ -45,16 +45,22 @@ const HardwareSet = () => {
                   cursor: "pointer",
                   padding: "10px 24px",
                   borderRadius: "12px",
-                  border: theme => active
-                    ? "1px solid transparent"
-                    : `1px solid ${theme.palette.borderColorPrimary}`,
-                  background: theme => active
-                    ? theme.palette.textPrimaryGradient
-                    : "transparent",
+                  border: (theme) =>
+                    active
+                      ? "1px solid transparent"
+                      : `1px solid ${theme.palette.borderColorPrimary}`,
+                  background: (theme) =>
+                    active ? theme.palette.buttonPrimary : "transparent",
                 }}
                 key={tab.title}
               >
-                <Typography variant="h5" sx={{ color: theme=>theme.palette.white }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: (theme) =>
+                      active ? theme.palette.btnColor : "#fff",
+                  }}
+                >
                   {tab.title}
                 </Typography>
               </Box>

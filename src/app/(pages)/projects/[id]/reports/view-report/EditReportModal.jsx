@@ -26,7 +26,7 @@ const EditReportModal = ({ open, handleClose, onConfirm }) => {
             border: "none",
         },
         "& input": {
-            color: "black !important",
+            color: theme => `${theme.palette.black} !important`,
             padding: "10px 14px",
         },
     };

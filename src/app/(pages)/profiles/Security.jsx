@@ -78,7 +78,7 @@ const Security = () => {
             height: "40px",
             borderRadius: "10px",
             backgroundColor: buttonColor,
-            color: "#FFF",
+            color: theme => theme.palette.white,
             '&:hover': {
               backgroundColor: buttonColor,
             },
@@ -142,10 +142,10 @@ const Security = () => {
               minWidth: "150px",
               height: "40px",
               borderRadius: "10px",
-              color: "#FFF",
-              backgroundColor: '#808080',
+              color: theme => theme.palette.white,
+              backgroundColor: theme => theme.palette.gray80,
               '&:hover': {
-                backgroundColor: '#808080',
+                backgroundColor: theme => theme.palette.gray80,
               },
             }}
           >

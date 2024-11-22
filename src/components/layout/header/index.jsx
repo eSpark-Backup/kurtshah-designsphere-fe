@@ -1,11 +1,24 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { Box, Stack, Typography } from "@mui/material";
 import { Searchbar } from "@/components/common";
 import { navLinks } from "@/constants";
-import { avatar, book, hamburger, logo, message, notification } from "@/assets";
+import {
+  avatar,
+  book,
+  hamburger,
+  logo,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  message,
+  notification,
+} from "@/assets";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const Header = ({
   authedRoute,
@@ -15,11 +28,30 @@ const Header = ({
 }) => {
   const router = useRouter();
   const notifications = true;
+  const { currentTheme } = useSelector((state) => state.theme);
+  const getLogo = (currentTheme) => {
+    const logos = [
+      {theme: 0, logo: logo},
+      {theme: 7, logo: logo3},
+      {theme: 8, logo: logo2},
+      {theme: 9, logo: logo3},
+      {theme: 10, logo: logo3},
+      {theme: 11, logo: logo3},
+      {theme: 12, logo: logo3},
+      {theme: 13, logo: logo3},
+      {theme: 14, logo: logo5},
+      {theme: 15, logo: logo4},
+      {theme: 16, logo: logo6},
+    ];
+    const selectedLogo = logos.find(item => item.theme == currentTheme)
+    const currentLogo = selectedLogo?.logo || logos[0].logo
+    return currentLogo
+  };
 
   return (
     <Box
       sx={{
-        background: "linear-gradient(180deg, #303D60 0%, #394971 100%)",
+        background: (theme) => theme.palette.navGradient,
         width: "100%",
         height: "80px",
         display: "flex",
@@ -27,12 +59,13 @@ const Header = ({
         justifyContent: "space-between",
         padding: "0 0 0 24px",
         borderBottom: (theme) => `1px solid ${theme.palette.grey}`,
-        boxShadow: (theme) => `0px 4px 16.9px 0pxs ${theme.palette.shadowSecondary} inset`,
+        boxShadow: (theme) =>
+          `0px 4px 16.9px 0pxs ${theme.palette.shadowSecondary} inset`,
         position: "sticky",
         top: 0,
       }}
     >
-      <Image src={logo} width={92} height={59} alt="logo" />
+      <Image src={getLogo(currentTheme)} width={92} height={59} alt="logo" />
       {authedRoute && (
         <Stack
           sx={{ display: { xs: "none", md: "flex" } }}
@@ -51,6 +84,12 @@ const Header = ({
                   position: "relative",
                   width: "90px",
                   height: "53px",
+                  img: {
+                    filter: (theme) =>
+                      pathname === navItem.link
+                        ? theme.palette.filterImgActive
+                        : theme.palette.filterImg,
+                  },
                   "&:after": {
                     content: "''",
                     display: pathname === navItem.link ? "block" : "none",
@@ -66,14 +105,6 @@ const Header = ({
                 alignItems="center"
               >
                 <Image
-                  style={
-                    pathname === navItem.link
-                      ? {
-                        filter:
-                          "brightness(0) saturate(100%) invert(65%) sepia(34%) saturate(7262%) hue-rotate(201deg) brightness(101%) contrast(101%)",
-                      }
-                      : {}
-                  }
                   src={navItem.icon}
                   with={24}
                   height={24}
@@ -96,6 +127,11 @@ const Header = ({
           alignItems="center"
           justifyContent="center"
           gap={{ xs: 2, sm: 3, md: 3, lg: 5 }}
+          sx={{
+            ".img-filter": {
+              filter: (theme) => theme.palette.filterImg,
+            },
+          }}
         >
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Searchbar placeholder="Search" />
@@ -122,10 +158,25 @@ const Header = ({
               height={24}
               src={notification}
               alt="notification"
+              className="img-filter"
             />
           </Box>
-          <Image width={24} height={24} src={book} alt="book" />
-          <Image width={24} height={24} src={message} alt="message" onClick={() => router.push("/support")} style={{ cursor: "pointer" }} />
+          <Image
+            className="img-filter"
+            width={24}
+            height={24}
+            src={book}
+            alt="book"
+          />
+          <Image
+            width={24}
+            height={24}
+            src={message}
+            alt="message"
+            className="img-filter"
+            onClick={() => router.push("/support")}
+            style={{ cursor: "pointer" }}
+          />
           <Box
             sx={{
               minWidth: { xs: "40px", sm: "80px" },
@@ -134,7 +185,10 @@ const Header = ({
               justifyContent: "center",
               alignItems: "center",
               // Using code here because the theme doesn't apply correctly when conditions are used.
-              background: { xs: "none", sm: "#212A46" },
+              background: (theme) => ({
+                xs: "none",
+                sm: theme.palette.primary[900],
+              }),
             }}
           >
             <Image
@@ -150,7 +204,7 @@ const Header = ({
             onClick={() => setOpenSidebar(true)}
             sx={{
               display: { xs: "block", sm: "none" },
-              paddingRight: "10px"
+              paddingRight: "10px",
             }}
           >
             <Image width={24} height={24} src={hamburger} alt="menu" />

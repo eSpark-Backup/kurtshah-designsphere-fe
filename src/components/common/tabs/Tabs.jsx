@@ -13,7 +13,7 @@ const Tabs = ({ tabs, activeTab, TabHandler }) => {
                     sx={{
                         height: "28px",
                         width: { xs: "100%", sm: "50%" },
-                        background: activeTab === index ? "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)" : "linear-gradient(69.57deg, #36456A 0%, #2B3758 43.22%, #1A243D 86.43%)",
+                        background: theme => activeTab === index ? theme.palette.sidebarButtonBgActive : theme.palette.gradientSecondary,
                         borderRadius: {
                             xs: "16px",
                             sm: index === 0 ? "16px 0px 0px 16px" : index === tabs.length - 1 ? "0px 16px 16px 0px" : "0px"

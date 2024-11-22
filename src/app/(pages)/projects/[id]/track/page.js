@@ -1,5 +1,5 @@
 "use client";
-import { copy, filter, light } from "@/assets";
+import { copy, filter, darkThemeFilter, light } from "@/assets";
 import { columns } from "@/columns/ByOpenings";
 import {
   ByHardware,
@@ -23,8 +23,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import FieldsModal from "./FieldsModal";
+import { useSelector } from "react-redux";
 
 const Track = () => {
+  const { currentTheme } = useSelector(state => state.theme)
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(0);
   const [page, setPage] = useState(0);
@@ -131,19 +133,20 @@ const Track = () => {
               columnGap: "15px",
             }}
           >
-            <Image src={filter} width={32} height={32} alt="Filter" />
+            <Image src={currentTheme ? darkThemeFilter : filter} width={32} height={32} alt="Filter" />
             <Box
               sx={{
                 width: "32px !important",
                 height: "32px",
                 borderRadius: "10px",
                 background:
-                  "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  theme => theme.palette.buttonPrimary,
                 border: "none",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                cursor: "pointer"
+                cursor: "pointer",
+                img: { filter: theme => theme.palette.secondaryImgColor }
               }}
             >
               <Image src={copy} width={18} height={18} alt="Icon" />
@@ -154,12 +157,13 @@ const Track = () => {
                 height: "32px",
                 borderRadius: "10px",
                 background:
-                  "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+                  theme => theme.palette.buttonPrimary,
                 border: "none",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                cursor: "pointer"
+                cursor: "pointer",
+                img: { filter: theme => theme.palette.secondaryImgColor }
               }}
               onClick={ModalHandler}
             >
@@ -169,7 +173,7 @@ const Track = () => {
           <Box
             sx={{
               width: { xs: "100%", sm: "45%", md: "200px" },
-              background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+              background: theme => theme.palette.buttonPrimary,
               borderRadius: "12px",
             }}
           >
@@ -184,7 +188,7 @@ const Track = () => {
           <Box
             sx={{
               width: { xs: "100%", sm: "45%", md: "200px" },
-              background: "linear-gradient(180deg, #547CD3 0%, #6191FD 100%)",
+              background: theme => theme.palette.buttonPrimary,
               borderRadius: "12px",
             }}
           >

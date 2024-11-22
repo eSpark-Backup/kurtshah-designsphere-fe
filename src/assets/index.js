@@ -6,6 +6,11 @@ import authImage from "./images/auth-image.svg";
 import authImageFull from "./images/auth-image-full.svg";
 import authLogo from "./images/auth-logo.png";
 import logo from "./images/logo.svg";
+import logo2 from "./images/logo2.svg";
+import logo3 from "./images/logo3.svg";
+import logo4 from "./images/logo4.svg";
+import logo5 from "./images/logo5.svg";
+import logo6 from "./images/logo6.svg";
 import avatar from "./images/avatar.png";
 import closeEye from "./icons/eye-close.svg";
 import openEye from "./icons/eyeOpen.svg";
@@ -29,6 +34,7 @@ import punch from "./icons/punch-door.svg";
 import trendingUp from "./icons/trending-up.svg";
 import trendingDown from "./icons/trending-down.svg";
 import filter from "./icons/filter.svg";
+import darkThemeFilter from "./icons/dark-theme-filter.svg";
 import mail from "./icons/mail.svg";
 import document from "./icons/document-text.svg";
 import profileTick from "./icons/profile-tick.svg";
@@ -106,6 +112,11 @@ export {
   authImageFull,
   authLogo,
   logo,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
   avatar,
   closeEye,
   openEye,
@@ -141,6 +152,7 @@ export {
   trendingUp,
   trendingDown,
   filter,
+  darkThemeFilter,
   mail,
   document,
   profileTick,

@@ -5,10 +5,11 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import { DirectoryController, DynamicModal, DynamicTable, ProgressBar } from "@/components/common";
 import { files, projects } from "@/constants";
 import { usePathname } from "next/navigation";
-import { filter } from "@/assets";
+import { darkThemeFilter, filter } from "@/assets";
 import Image from "next/image";
 import { columns } from "@/columns/files";
 import EditFileModal from "./EditFileModal";
+import { useSelector } from "react-redux";
 
 
 
@@ -46,6 +47,7 @@ const ShareFile = () => {
     setDirectory({ name: projectName, link: ["Project", "/", projectName, , "/", "Share Files"] });
   }, [pathname]);
 
+  const { currentTheme } = useSelector(state => state.theme)
 
   const Header = () => {
     return (
@@ -68,7 +70,7 @@ const ShareFile = () => {
           <Box sx={{
             cursor: "pointer",
           }}>
-            <Image src={filter} alt="filter-icon" width={48} height={48}
+            <Image src={currentTheme ? darkThemeFilter : filter} alt="filter-icon" width={48} height={48}
             />
           </Box>
 
