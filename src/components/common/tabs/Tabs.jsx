@@ -1,9 +1,12 @@
 "use client"
 import { TrackChangesTabs } from '@/constants'
+import { getThemeVariant } from '@/utils'
 import { Box, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const Tabs = ({ tabs, activeTab, TabHandler }) => {
+    const { currentTheme } = useSelector(state => state.theme);
     return (
         <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, rowGap: "10px" }}>
             {tabs?.map((item, index) => (
@@ -26,7 +29,7 @@ const Tabs = ({ tabs, activeTab, TabHandler }) => {
                     }}
 
                 >
-                    <Typography sx={{ fontSize: "12px", color: (theme) => theme.palette.white, fontWeight:"600" }}>{item?.TabContent}</Typography>
+                    <Typography sx={{ fontSize: "12px", color: (theme) => getThemeVariant(currentTheme) === "light" && activeTab === index ? theme.palette.black : theme.palette.white, fontWeight:"600" }}>{item?.TabContent}</Typography>
                 </Box>
             ))}
         </Box>

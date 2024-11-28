@@ -4,3 +4,5 @@ export const getAuthedRoute = (pathname) => {
   const authed = unAuthedPath.length <= 0;
   return authed;
 };
+
+export const getThemeVariant = theme => theme == 0 ? "default" : theme > 0 && theme < 7 ? "light" : "dark"

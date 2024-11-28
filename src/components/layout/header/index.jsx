@@ -19,6 +19,8 @@ import {
 } from "@/assets";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
+import { getThemeVariant } from "@/utils";
+import { useEffect, useState } from "react";
 
 const Header = ({
   authedRoute,
@@ -29,24 +31,28 @@ const Header = ({
   const router = useRouter();
   const notifications = true;
   const { currentTheme } = useSelector((state) => state.theme);
-  const getLogo = (currentTheme) => {
-    const logos = [
-      {theme: 0, logo: logo},
-      {theme: 7, logo: logo3},
-      {theme: 8, logo: logo2},
-      {theme: 9, logo: logo3},
-      {theme: 10, logo: logo3},
-      {theme: 11, logo: logo3},
-      {theme: 12, logo: logo3},
-      {theme: 13, logo: logo3},
-      {theme: 14, logo: logo5},
-      {theme: 15, logo: logo4},
-      {theme: 16, logo: logo6},
-    ];
-    const selectedLogo = logos.find(item => item.theme == currentTheme)
-    const currentLogo = selectedLogo?.logo || logos[0].logo
-    return currentLogo
-  };
+  const logos = [
+    {theme: 0, logo: logo},
+    {theme: 7, logo: logo3},
+    {theme: 8, logo: logo2},
+    {theme: 9, logo: logo3},
+    {theme: 10, logo: logo3},
+    {theme: 11, logo: logo3},
+    {theme: 12, logo: logo3},
+    {theme: 13, logo: logo3},
+    {theme: 14, logo: logo5},
+    {theme: 15, logo: logo4},
+    {theme: 16, logo: logo6},
+  ];
+  const [activeLogo, setActiveLogo] = useState(logos[0].logo)
+  useEffect(() => {
+    const getLogo = (currentTheme) => {
+      const selectedLogo = logos.find(item => item.theme == currentTheme)
+      const currentLogo = selectedLogo?.logo || logos[0].logo
+      return currentLogo
+    };
+    setActiveLogo(getLogo(currentTheme))
+  },[currentTheme])
 
   return (
     <Box
@@ -65,7 +71,7 @@ const Header = ({
         top: 0,
       }}
     >
-      <Image src={getLogo(currentTheme)} width={92} height={59} alt="logo" />
+      <Image src={activeLogo} width={92} height={59} alt="logo" />
       {authedRoute && (
         <Stack
           sx={{ display: { xs: "none", md: "flex" } }}
@@ -146,7 +152,7 @@ const Header = ({
                 width: "6px",
                 height: "6px",
                 borderRadius: "50%",
-                background: "linear-gradient(180deg, #D1A6BE 0%, #FF94C8 100%)",
+                background: theme => getThemeVariant(currentTheme) === "default" ? "linear-gradient(180deg, #D1A6BE 0%, #FF94C8 100%)" : theme.palette.secondary.main,
                 position: "absolute",
                 top: "-2px",
                 right: "-2px",
@@ -205,6 +211,7 @@ const Header = ({
             sx={{
               display: { xs: "block", sm: "none" },
               paddingRight: "10px",
+              img: { filter: theme => getThemeVariant(currentTheme) === "default" ? "" : theme.palette.filterImg }
             }}
           >
             <Image width={24} height={24} src={hamburger} alt="menu" />

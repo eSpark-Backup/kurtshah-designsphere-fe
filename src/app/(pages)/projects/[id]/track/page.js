@@ -1,5 +1,5 @@
 "use client";
-import { copy, filter, darkThemeFilter, light } from "@/assets";
+import { copy, filter, darkThemeFilter, light, iIcon, close } from "@/assets";
 import { columns } from "@/columns/ByOpenings";
 import {
   ByHardware,
@@ -18,7 +18,7 @@ import {
   trackChangesDropDownOptions2,
   TrackChangesTabs,
 } from "@/constants";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -30,6 +30,7 @@ const Track = () => {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(0);
   const [page, setPage] = useState(0);
+  const [openPopup, setOpenPopup] = useState(false);
   const [openingsModal, setOpeningsModal] = useState(false);
   const [hardwareModal, setHardwareModal] = useState(false);
 
@@ -86,6 +87,50 @@ const Track = () => {
     }
   }
 
+
+  const Popup = ({ open, handleClose }) => {
+    return (
+      <Stack
+        sx={{
+          position: "absolute",
+          width: "max-content",
+          right: "-30px",
+          top: "-90px",
+          display: open ? "flex" : "none",
+          padding: "15px 10px",
+          border: (theme) => `1px solid ${theme.palette.whiteE4}`,
+          borderRadius: "10px",
+          boxShadow: "0px 0px 10px 0px #00000040",
+          background: (theme) => theme.palette.gradientSecondary,
+          img: { filter: theme => theme.palette.filterImg }
+        }}
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        gap="12px"
+      >
+        <Image width={24} height={24} src={iIcon} alt="copy" />
+        <Typography
+          sx={{
+            color: (theme) => theme.palette.whiteE4,
+          }}
+        >
+          Data has been copied to the clipboard. Paste it into excel
+        </Typography>
+        <IconButton
+          sx={{ padding: 0 }}
+          aria-label="close"
+          onClick={(e) => {
+            e.stopPropagation()
+            handleClose()
+          }}
+        >
+          <Image src={close} width={24} height={24} alt="Close Icon" />
+        </IconButton>
+      </Stack>
+    );
+  };
+
   return (
     <Box
       sx={{
@@ -133,8 +178,14 @@ const Track = () => {
               columnGap: "15px",
             }}
           >
-            <Image src={currentTheme ? darkThemeFilter : filter} width={32} height={32} alt="Filter" />
+            <Image
+              src={currentTheme ? darkThemeFilter : filter}
+              width={32}
+              height={32}
+              alt="Filter"
+            />
             <Box
+              onClick={() => setOpenPopup(true)}
               sx={{
                 width: "32px !important",
                 height: "32px",
@@ -146,10 +197,18 @@ const Track = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 cursor: "pointer",
-                img: { filter: theme => theme.palette.secondaryImgColor }
+                ".filter": { filter: theme => theme.palette.secondaryImgColor },
+                position: "relative",
               }}
             >
-              <Image src={copy} width={18} height={18} alt="Icon" />
+              <Popup open={openPopup} handleClose={() => setOpenPopup(false)} />
+              <Image
+                className="filter"
+                src={copy}
+                width={18}
+                height={18}
+                alt="Icon"
+              />
             </Box>
             <Box
               sx={{
@@ -178,6 +237,7 @@ const Track = () => {
             }}
           >
             <Dropdown
+              white
               value={dropDowns.early}
               onChange={handleDropdownChange}
               options={trackChangesDropDownOptions}
@@ -193,6 +253,7 @@ const Track = () => {
             }}
           >
             <Dropdown
+              white
               value={dropDowns.latest}
               onChange={handleDropdownChange}
               options={trackChangesDropDownOptions2}

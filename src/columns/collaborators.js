@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { mail } from "@/assets";
+import { Box } from "@mui/material";
 
 export const columns = () => {
   return [
@@ -15,13 +16,15 @@ export const columns = () => {
       hideView: true,
       component: () => {
         return (
-          <Image
-            sx={{ cursor: "pointer" }}
-            src={mail}
-            alt="mail"
-            width={47}
-            height={24}
-          />
+          <Box sx={{ width: "47px", height: "24px", img: { filter: (theme) => theme.palette.filterImg } }}>
+            <Image
+              sx={{ cursor: "pointer" }}
+              src={mail}
+              alt="mail"
+              width={47}
+              height={24}
+            />
+          </Box>
         );
       },
     },

@@ -58,7 +58,7 @@ const HardwareSet = () => {
                   variant="h5"
                   sx={{
                     color: (theme) =>
-                      active ? theme.palette.btnColor : "#fff",
+                      active ? theme.palette.btnColor : theme.palette.white
                   }}
                 >
                   {tab.title}

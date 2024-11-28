@@ -35,6 +35,7 @@ const SearchableAutocomplete = ({ disabled, onChange, options, ...rest }) => {
             height: "24px",
             ".MuiInputBase-root": { height: "24px" },
             ".MuiSvgIcon-root": { display: "none" },
+            ".Mui-disabled": { WebkitTextFillColor: theme => `${theme.palette.white} !important` }
           }}
           {...rest}
           {...params}

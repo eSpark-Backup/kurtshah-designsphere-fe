@@ -6,9 +6,11 @@ import { backIcon } from "@/assets";
 import { useState } from "react";
 import LogoutModal from "./logoutModal";
 import { logout } from "@/lib/store/slices/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getThemeVariant } from "@/utils";
 
 const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
+  const { currentTheme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const router = useRouter();
   const [openLogoutModal, setOpenLogoutModal] = useState(false);
@@ -41,7 +43,11 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
           justifyContent="flex-start"
           alignItems="center"
           gap="2px"
-          sx={{ cursor: "pointer", position: "absolute", top: "20px", left: "20px" }}
+          sx={{ cursor: "pointer", position: "absolute", top: "20px", left: "20px",
+            img : {
+              filter: getThemeVariant(currentTheme) === "light" && "brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7457%) hue-rotate(166deg) brightness(89%) contrast(100%)"
+            }
+           }}
         >
           <Image width={10} height={10} src={backIcon} alt="back" />
           <Typography
@@ -87,7 +93,7 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
                   textAlign="center"
                   fontSize={16}
                   fontWeight={500}
-                  sx={{ color: (theme) => theme.palette.sidebarButton }}
+                  sx={{ color: (theme) => getThemeVariant(currentTheme) === "light" && ind === active ? theme.palette.sidebarButtonBg : theme.palette.sidebarButton }}
                 >
                   {tab.title}
                 </Typography>

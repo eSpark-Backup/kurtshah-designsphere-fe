@@ -33,7 +33,7 @@ const Overview = ({ overview }) => {
           return (
             <Grid key={item.id} container spacing={2} marginTop={3}>
               <Grid
-                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                sx={{ display: "flex", alignItems: "center", gap: 1, img: { filter: (theme) => theme.palette.filterImg } }}
                 item
                 xs={6}
               >
@@ -62,7 +62,7 @@ const Overview = ({ overview }) => {
               <Grid
                 item
                 xs={6}
-                sx={{ display: "flex", alignItems: "center", gap: 2 }}
+                sx={{ display: "flex", alignItems: "center", gap: 2, img: { filter: (theme) => theme.palette.filterImg } }}
               >
                 <Image src={document} width={24} height={24} alt="document" />
                 <Box>

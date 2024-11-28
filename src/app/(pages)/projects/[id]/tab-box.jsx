@@ -22,6 +22,7 @@ const TabBox = ({ name, count, icon, trending }) => {
         justifyContent="center"
         alignItems="center"
         gap={1}
+        sx={{ img: { filter: theme => theme.palette.filterImg } }}
       >
         <Image width={40} height={40} src={icon} alt="icon" />
         <Stack>

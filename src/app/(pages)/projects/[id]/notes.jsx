@@ -87,7 +87,7 @@ const Notes = ({ notes }) => {
 
 const IconCol = ({ note, assigned, createdBy }) => {
   return (
-    <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
+    <Stack sx={{ img: { filter: (theme) => theme.palette.filterImg } }} direction="row" justifyContent="center" alignItems="center" gap={2}>
       <Image
         width={24}
         height={24}

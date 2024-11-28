@@ -1,4 +1,5 @@
 import { arrowDownInput, downArrow2 } from "@/assets";
+import { getThemeVariant } from "@/utils";
 import {
   Box,
   FormControl,
@@ -11,18 +12,35 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-const CustomDropdownIcon = ({ simple }) => (
-  <Image
-    src={simple ? downArrow2 : arrowDownInput}
-    width={simple ? 12 : 24}
-    height={simple ? 6 : 24}
-    alt="Dropdown Icon"
-    style={{ marginRight: "10px", cursor: "pointer" }}
-  />
-);
+const CustomDropdownIcon = ({ simple }) => {
+  const { currentTheme } = useSelector(state => state.theme);
+  return(
+  <Box
+    sx={{
+      width: simple ? 12 : 24,
+      height: simple ? 6 : 24,
+      img: {
+        filter: (theme) =>
+          getThemeVariant(currentTheme) === "default"
+            ? ""
+            : theme.palette.filterImg,
+      },
+    }}
+  >
+    <Image
+      src={simple ? downArrow2 : arrowDownInput}
+      width={simple ? 12 : 24}
+      height={simple ? 6 : 24}
+      alt="Dropdown Icon"
+      style={{ marginRight: "10px", cursor: "pointer" }}
+    />
+  </Box>
+)};
 
 const Dropdown = ({
+  white,
   customLabel,
   label,
   value,
@@ -85,7 +103,7 @@ const Dropdown = ({
           displayEmpty
           IconComponent={() => null}
           inputProps={{ "aria-label": "Without label" }}
-          sx={{ width: "100%" }}
+          sx={{ width: "100%" , color: theme => white ? "#FFF" : `${theme.palette.white} !important` }}
           startAdornment={
             startAdornment && (
               <InputAdornment position="start">{startAdornment}</InputAdornment>
@@ -94,7 +112,11 @@ const Dropdown = ({
           {...props}
         >
           {options?.map((option, index) => (
-            <MenuItem sx={{ display: index === 0 ? "none" : "block" }} key={index} value={option.value}>
+            <MenuItem
+              sx={{ display: index === 0 ? "none" : "block" }}
+              key={index}
+              value={option.value}
+            >
               {option.label}
             </MenuItem>
           ))}
