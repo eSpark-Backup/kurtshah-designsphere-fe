@@ -39,6 +39,7 @@ const theme = currentTheme => createTheme({
           style: ({ theme }) => ({
             background: theme.palette.buttonSecondary,
             color: theme.palette.white,
+            border: `1px solid ${theme.palette.secondaryBorder}`,
             borderRadius: "12px",
             position: "relative",
             fontWeight: "600",
@@ -128,6 +129,7 @@ const theme = currentTheme => createTheme({
           },
           "& .MuiTableRow-root": {
             background: theme.palette.gradientPrimary,
+            boxShadow: theme.palette.boxShadow,
           },
           "& .MuiTableRow-root td:first-child": {
             borderTopLeftRadius: "20px",
@@ -171,7 +173,7 @@ const theme = currentTheme => createTheme({
     MuiChip: {
       styleOverrides: {
         root: ({ theme }) => ({
-          background: theme.palette.headingColor,
+          background: theme.palette.primaryChipBg,
           backgroundColor: "transparent !important",
           WebkitTextFillColor: theme.palette.primaryChip,
           height: "26px",

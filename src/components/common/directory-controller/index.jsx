@@ -4,15 +4,19 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Stack, Typography } from "@mui/material";
 import { backArrow } from "@/assets";
+import { useSelector } from "react-redux";
+import { getThemeVariant } from "@/utils";
 
 const DirectoryController = ({ title, desc, links }) => {
   const router = useRouter();
+  const { currentTheme } = useSelector(state => state.theme);
   return (
     <Stack
       direction="row"
       justifyContent="flex-start"
       alignItems="center"
       gap={2}
+      sx={{ img: { filter: theme => getThemeVariant(currentTheme) === "default" ? "" : theme.palette.filterImg } }}
     >
       {!desc && (
         <Image onClick={() => router.back()} src={backArrow} alt="back" />

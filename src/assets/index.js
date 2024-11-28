@@ -94,6 +94,7 @@ import hamburger from "./icons/hamburger.png";
 import checking from "./images/Auth-Image2.png"
 import user2 from "./icons/user2.svg"
 import backIcon from "./icons/back-icon.svg";
+import iIcon from "./icons/i.svg";
 import theme1 from "./themes/theme-1.svg";
 import theme2 from "./themes/theme-2.svg";
 import theme3 from "./themes/theme-3.svg";
@@ -214,6 +215,7 @@ export {
   checking,
   user2,
   backIcon,
+  iIcon,
   theme1,
   theme2,
   theme3,

@@ -43,6 +43,7 @@ const Ddropdown = ({ type, label, value, onChange, options, disabled }) => {
           sx={{
             border: (theme) => `1px solid ${theme.palette.whiteE4}`,
             height: "24px",
+            ".Mui-disabled": { WebkitTextFillColor: theme => `${theme.palette.white} !important` }
           }}
           value={value}
           onChange={(e) => onChange(e.target.value)}
@@ -106,6 +107,7 @@ const Configurator = () => {
   const [configName, setConfigName] = useState("");
   const [search, setSearch] = useState("");
   const [series, setSeries] = useState("");
+  const [finish, setFinish] = useState("")
 
   const handleInput = (value, changeFunction) => {
     changeFunction(value);
@@ -252,10 +254,10 @@ const Configurator = () => {
               />
               <Ddropdown
                 label="Finish"
-                value={"S1 - PAINTED ALUMINIUM"}
-                onChange={(e) => console.log(e)}
+                value={finish}
+                onChange={(e) => setFinish(e)}
                 options={[
-                  { label: "abc", value: "abc" },
+                  { label: "", value: "" },
                   {
                     label: "S1 - PAINTED ALUMINIUM",
                     value: "S1 - PAINTED ALUMINIUM",
@@ -372,7 +374,7 @@ const Configurator = () => {
           >
             <Button
               onClick={() => {
-                if (configName !== "" && series !== "") {
+                if (configName !== "" && ((series === "0117" && finish !== "") || (search === "item 1804pipe stop & door holder" && series === "Accessories"))) {
                   setGetPriced(true);
                 } else {
                   setError(true);

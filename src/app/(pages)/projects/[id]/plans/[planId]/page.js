@@ -21,8 +21,10 @@ import {
 import { columns, nameoPlancolumns } from "@/columns/planDetails";
 import { rightArrow, leftArrow, map } from "@/assets";
 import HardwareSet from "./(hardware-set)/hardware-set";
+import { useSelector } from "react-redux";
 
 const PlansDetails = () => {
+  const { currentTheme } = useSelector(state => state.theme)
   const [planId, setPlanId] = useState(null);
   const pathname = usePathname();
   const [searchValue, setSearchValue] = useState(0);
@@ -106,6 +108,7 @@ const PlansDetails = () => {
                         height: "32px",
                         order: { xs: 1, sm: 0 },
                         background: theme => theme.palette.buttonPrimary,
+                        img: { filter: theme => currentTheme ? theme.palette.filterImg : "" },
                       }}
                       variant="primary"
                     >
@@ -148,7 +151,7 @@ const PlansDetails = () => {
                     }}
                     key={tab}
                   >
-                    <Typography variant="h5" sx={{ color: theme => activeTab === index ? theme.palette.btnColor : "#fff" }}>
+                    <Typography variant="h5" sx={{ color: theme => activeTab === index ? theme.palette.btnColor : theme.palette.white }}>
                       {tab}
                     </Typography>
                   </Box>
@@ -263,6 +266,7 @@ const PlansDetails = () => {
                       minWidth: "32px",
                       width: "32px",
                       height: "32px",
+                      img: { filter: theme => currentTheme ? theme.palette.filterImg : "" },
                     }}
                     variant="primary"
                   >

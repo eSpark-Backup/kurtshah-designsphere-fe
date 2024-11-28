@@ -92,9 +92,9 @@ const SignIn = () => {
                   <CustomInput
                     variant="filled"
                     name="email"
-                    type="text"
-                    placeholder="Username or email"
-                    label="Username or email"
+                    type="email"
+                    placeholder="Email"
+                    label="Email"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}

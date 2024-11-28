@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
 import { Header, Sidebar } from "@/components/layout";
 import { getAuthedRoute } from "@/utils";
@@ -9,6 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import { themePalette } from "@/constants/themesData";
 import { Box } from "@mui/material";
+import { changeTheme } from "@/lib/store/slices/theme";
 
 const Container = ({ children }) => {
   const router = useRouter();
@@ -25,8 +26,14 @@ const Container = ({ children }) => {
     }
   };
   const { currentTheme } = useSelector((state) => state.theme);
-  const thisTheme = themePalette.find((theme) => theme.id == currentTheme);
-  const myTheme = thisTheme || themePalette[0];
+  const [myTheme, setMyTheme] = useState(themePalette[0])
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const thisTheme = themePalette.find((theme) => theme.id == currentTheme);
+    setMyTheme(thisTheme || themePalette[0]);
+    dispatch(changeTheme(currentTheme))
+  },[currentTheme])
+
   const user = typeof window !== "undefined" && localStorage.getItem("token");
   useEffect(() => {
     if (!user && authedRoute) {
