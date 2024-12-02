@@ -11,7 +11,6 @@ const darkTheme = themes.filter((theme) => theme.mode === "dark");
 const ThemeCard = ({ title, themesData }) => {
   const dispatch = useDispatch();
   const { currentTheme } = useSelector((state) => state.theme);
-  const availableTheme = [0, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
     <Card
       variant={"outline"}
@@ -37,11 +36,7 @@ const ThemeCard = ({ title, themesData }) => {
       >
         {themesData.map((theme) => (
           <Image
-            onClick={() => {
-              if (availableTheme.find((id) => id === theme.id)) {
-                dispatch(changeTheme(theme.id));
-              }
-            }}
+            onClick={() => dispatch(changeTheme(theme.id))}
             key={theme.id}
             style={{
               cursor: "pointer",

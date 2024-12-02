@@ -4,6 +4,7 @@ import tableTrash from "./icons/trash-table.svg";
 import tableEdit from "./icons/edit-table.svg";
 import authImage from "./images/auth-image.svg";
 import authImageFull from "./images/auth-image-full.svg";
+import authImageFull1 from "./images/auth-image-full1.svg";
 import authImageFull7 from "./images/auth-image-full7.svg";
 import authImageFull8 from "./images/auth-image-full8.svg";
 import authImageFull9 from "./images/auth-image-full9.svg";
@@ -14,6 +15,12 @@ import authImageFull13 from "./images/auth-image-full13.svg";
 import authImageFull14 from "./images/auth-image-full14.svg";
 import authImageFull15 from "./images/auth-image-full15.svg";
 import authImageFull16 from "./images/auth-image-full16.svg";
+import authImageFull17 from "./images/auth-image-full17.svg";
+import authImageFull18 from "./images/auth-image-full18.svg";
+import authImageFull19 from "./images/auth-image-full19.svg";
+import authImageFull20 from "./images/auth-image-full20.svg";
+import authImageFull21 from "./images/auth-image-full21.svg";
+import authImageFull22 from "./images/auth-image-full22.svg";
 import authLogo from "./images/auth-logo.png";
 import logo from "./images/logo.svg";
 import logo2 from "./images/logo2.svg";
@@ -21,6 +28,17 @@ import logo3 from "./images/logo3.svg";
 import logo4 from "./images/logo4.svg";
 import logo5 from "./images/logo5.svg";
 import logo6 from "./images/logo6.svg";
+import logo7 from "./images/logo7.svg";
+import logo8 from "./images/logo8.svg";
+import logo9 from "./images/logo9.svg";
+import logo10 from "./images/logo10.svg";
+import logo11 from "./images/logo11.svg";
+import logo12 from "./images/logo12.svg";
+import logo13 from "./images/logo13.svg";
+import logo14 from "./images/logo14.svg";
+import logo15 from "./images/logo15.svg";
+import logo16 from "./images/logo16.svg";
+import logo17 from "./images/logo17.svg";
 import avatar from "./images/avatar.png";
 import closeEye from "./icons/eye-close.svg";
 import openEye from "./icons/eyeOpen.svg";
@@ -121,6 +139,7 @@ import theme22 from "./themes/theme-22.svg";
 export {
   authImage,
   authImageFull,
+  authImageFull1,
   authImageFull7,
   authImageFull8,
   authImageFull9,
@@ -131,6 +150,12 @@ export {
   authImageFull14,
   authImageFull15,
   authImageFull16,
+  authImageFull17,
+  authImageFull18,
+  authImageFull19,
+  authImageFull20,
+  authImageFull21,
+  authImageFull22,
   authLogo,
   logo,
   logo2,
@@ -138,6 +163,17 @@ export {
   logo4,
   logo5,
   logo6,
+  logo7,
+  logo8,
+  logo9,
+  logo10,
+  logo11,
+  logo12,
+  logo13,
+  logo14,
+  logo15,
+  logo16,
+  logo17,
   avatar,
   closeEye,
   openEye,

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import {
   authImageFull,
+  authImageFull1,
   authImageFull7,
   authImageFull8,
   authImageFull9,
@@ -14,6 +15,12 @@ import {
   authImageFull14,
   authImageFull15,
   authImageFull16,
+  authImageFull17,
+  authImageFull18,
+  authImageFull19,
+  authImageFull20,
+  authImageFull21,
+  authImageFull22,
 } from "@/assets";
 
 const AuthContainer = ({ img, title, desc, register, children }) => {
@@ -22,6 +29,12 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
   const { currentTheme } = useSelector((state) => state.theme);
   const authImages = [
     { theme: 0, authImage: authImageFull },
+    { theme: 1, authImage: authImageFull1 },
+    { theme: 2, authImage: authImageFull1 },
+    { theme: 3, authImage: authImageFull1 },
+    { theme: 4, authImage: authImageFull1 },
+    { theme: 5, authImage: authImageFull1 },
+    { theme: 6, authImage: authImageFull1 },
     { theme: 7, authImage: authImageFull7 },
     { theme: 8, authImage: authImageFull8 },
     { theme: 9, authImage: authImageFull9 },
@@ -32,6 +45,12 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
     { theme: 14, authImage: authImageFull14 },
     { theme: 15, authImage: authImageFull15 },
     { theme: 16, authImage: authImageFull16 },
+    { theme: 17, authImage: authImageFull17 },
+    { theme: 18, authImage: authImageFull18 },
+    { theme: 19, authImage: authImageFull19 },
+    { theme: 20, authImage: authImageFull20 },
+    { theme: 21, authImage: authImageFull21 },
+    { theme: 22, authImage: authImageFull22 },
   ];
   const getAuthImage = (currentTheme) => {
     const selectedAuthImage = authImages.find(
