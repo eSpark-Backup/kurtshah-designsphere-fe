@@ -14,6 +14,17 @@ import {
   logo4,
   logo5,
   logo6,
+  logo7,
+  logo8,
+  logo9,
+  logo10,
+  logo11,
+  logo12,
+  logo13,
+  logo14,
+  logo15,
+  logo16,
+  logo17,
   message,
   notification,
 } from "@/assets";
@@ -43,6 +54,18 @@ const Header = ({
     {theme: 14, logo: logo5},
     {theme: 15, logo: logo4},
     {theme: 16, logo: logo6},
+    {theme: 17, logo: logo7},
+    {theme: 18, logo: logo5},
+    {theme: 19, logo: logo8},
+    {theme: 20, logo: logo9},
+    {theme: 21, logo: logo10},
+    {theme: 22, logo: logo11},
+    {theme: 1, logo: logo12},
+    {theme: 2, logo: logo13},
+    {theme: 3, logo: logo14},
+    {theme: 4, logo: logo15},
+    {theme: 5, logo: logo16},
+    {theme: 6, logo: logo17},
   ];
   const [activeLogo, setActiveLogo] = useState(logos[0].logo)
   useEffect(() => {
@@ -66,7 +89,7 @@ const Header = ({
         padding: "0 0 0 24px",
         borderBottom: (theme) => `1px solid ${theme.palette.grey}`,
         boxShadow: (theme) =>
-          `0px 4px 16.9px 0pxs ${theme.palette.shadowSecondary} inset`,
+          `0px 4px 16.9px 0px ${theme.palette.shadowSecondary} inset`,
         position: "sticky",
         top: 0,
       }}
