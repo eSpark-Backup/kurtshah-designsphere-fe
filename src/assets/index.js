@@ -79,6 +79,9 @@ import user from "./icons/user.svg";
 import checkVerified from "./icons/check-verified.svg";
 import lock2 from "./icons/lock2.svg";
 import userTick from "./icons/user-tick.svg";
+import mobile from "./icons/mobile.svg";
+import timer from "./icons/timer.svg";
+import qrcode from "./icons/qrcode.png";
 import email from "./icons/email.svg";
 import people from "./icons/people.svg";
 import card from "./icons/card.svg";
@@ -180,6 +183,9 @@ export {
   lock,
   user,
   userTick,
+  mobile,
+  timer,
+  qrcode,
   email,
   lock2,
   checkVerified,

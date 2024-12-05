@@ -79,7 +79,6 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
         sx={{
           margin: "30px 0",
           background: (theme) => selectedAuthImage?.theme ? "transparent" : theme.palette.gradientPrimary,
-          border: "1px solid #FFFFFF1F",
           borderRadius: "16px",
           display: "flex",
           justifyContent: "space-between",
@@ -88,7 +87,7 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
           height: { xs: "auto", md: "626px" },
           maxHeight: { xs: "auto", md: "626px" },
           width: { xs: "320px", sm: "432px", md: "904px" },
-          border:  selectedAuthImage?.theme ? "1px solid #EEE" : "none",
+          border:  selectedAuthImage?.theme ? "1px solid #EEE" : "1px solid #FFFFFF1F",
           flex: 1,
         }}
       >

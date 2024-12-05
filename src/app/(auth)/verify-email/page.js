@@ -36,7 +36,8 @@ const VerifyEmail = () => {
                             justifyContent: "center",
                             alignItems: "center",
                             rowGap: "25px",
-                            width: "100%"
+                            width: "100%",
+                            img: { filter: (theme) => theme.palette.filterImg }
                         }}
                     >
                         <Image
@@ -67,7 +68,7 @@ const VerifyEmail = () => {
                             width: "100%",
                             marginTop: "25px",
                         }}>
-                            <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px" }}>
+                            <Button type="submit" variant='tertiary' sx={{ width: "95%", margin: "auto auto", height: "48px",  img: { filter: (theme) => theme.palette.filterImg } }}>
                                 <Image src={email} width={24} height={24} style={{ marginRight: "10px" }} alt='Email Icon' />
                                 Resend Email
                             </Button>

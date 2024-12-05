@@ -20,7 +20,7 @@ const ForgetPassword = () => {
   }
 
   const TextComp = ({ children }) => (
-    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "15px" }}>
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "15px",  img: { filter: (theme) => theme.palette.filterImg } }}>
       <Image src={lock2} width={57} height={57} alt='Lock Icon' />
       <Typography variant='h1' sx={{ lineHeight: "40px", textAlign: "center" }}>
         Reset Password
