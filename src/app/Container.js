@@ -38,7 +38,7 @@ const Container = ({ children }) => {
   useEffect(() => {
     if (!user && authedRoute) {
       router.push("/sign-in");
-    } else if (user && !authedRoute && (pathname !== "/multifactor" && pathname !== "/google-auth" && pathname !== "/email-auth")) {
+    } else if (user && !authedRoute && (pathname !== "/multifactor" && pathname !== "/google-auth" && pathname !== "/email-auth" && pathname !== "/verify-otp")) {
       router.push("/projects");
     }
   }, [user, router, authedRoute, pathname]);

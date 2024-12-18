@@ -5,17 +5,40 @@ import ProfileCard from './Profile-Card';
 import { useState } from 'react';
 import { DynamicModal } from '@/components/common';
 import Card from '@/components/common/Card';
+import GoogleAuthModal from "./google-auth-modal";
+import EmailAuthModal from "./email-auth-modal";
+import ResetPassword from "./resetPassword";
 
 const Security = () => {
+  const [resetPassword, setResetPassword] = useState(false);
+  const [isGoogleAuth, setIsGoogleAuth] = useState(false);
+  const [isEmailAuth, setIsEmailAuth] = useState(false);
+  const [disableAuth, setDisableAuth] = useState(false);
+  const [isGoogleAuthModal, setIsGoogleAuthModal] = useState(false);
+  const [isEmailAuthModal, setIsEmailAuthModal] = useState(false);
   const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [deleteAccountModal, setDeleteAccountModal] = useState(false);
+
+  const handleDisbleAuth = () => {
+    if (disableAuth === 1) {
+      setIsEmailAuth(false);
+      setDisableAuth(false);
+    } else if (disableAuth === 2) {
+      setIsGoogleAuth(false);
+      setDisableAuth(false);
+    } else if (disableAuth === 3) {
+      setIsEmailAuth(false);
+      setIsGoogleAuth(false);
+      setDisableAuth(false);
+    }
+  };
 
   const handleSubmitTerms = () => {
     console.log("Terms and conditions submitted");
   }
 
   const handleReset = () => {
-    console.log("Reset password")
+    setResetPassword(true);
   }
 
 
@@ -44,6 +67,25 @@ const Security = () => {
     </Box>
   );
 
+  const disableAuthModalUI = (
+    <Box
+      sx={{
+        padding: "30px 40px",
+      }}
+    >
+      <Typography
+        sx={{
+          textAlign: "center",
+          fontSize: "14px",
+          fontWeight: 600,
+          lineHeight: "21px",
+          color: (theme) => theme.palette.white,
+        }}
+      >
+        Are you sure you want to perform this action?
+      </Typography>
+    </Box>
+  );
 
   const GeneralBox = ({ title, description, buttonText, buttonColor, onClick }) => (
     <Card
@@ -90,9 +132,103 @@ const Security = () => {
     </Card>
   );
 
+  if (resetPassword) {
+    return (
+      <ResetPassword setResetPassword={setResetPassword} />
+    );
+  }
+
   return (
     <Box>
       <ProfileCard readOnly={true} />
+      <Card
+        variant={"outline"}
+        sx={{
+          marginTop: "30px",
+          padding: "30px",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: "20px",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            <Typography
+              sx={{
+                color: (theme) => theme.palette.whiteE4,
+                fontSize: "16px",
+                fontWeight: 500,
+              }}
+            >
+              Manage Multi-factor Authentication (MFA)
+            </Typography>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="terms"
+                  sx={{ alignSelf: "flex-start", padding: "0px 10px" }}
+                />
+              }
+              onChange={() => {
+                if (isEmailAuth) {
+                  setDisableAuth(1);
+                } else {
+                  setIsEmailAuthModal(true);
+                }
+              }}
+              checked={isEmailAuth}
+              label={
+                <Typography sx={{ fontWeight: 400, fontSize: "12px" }}>
+                  {"Email Authenticator"}
+                </Typography>
+              }
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="terms"
+                  sx={{ alignSelf: "flex-start", padding: "0px 10px" }}
+                />
+              }
+              onChange={() => {
+                if (isGoogleAuth) {
+                  setDisableAuth(2);
+                } else {
+                  setIsGoogleAuthModal(true);
+                }
+              }}
+              checked={isGoogleAuth}
+              label={
+                <Typography sx={{ fontWeight: 400, fontSize: "12px" }}>
+                  {"Google Authenticator"}
+                </Typography>
+              }
+            />
+          </Box>
+          <Button
+            onClick={() => setDisableAuth(3)}
+            sx={{
+              marginTop: "12px",
+              border: (theme) => theme.palette.borderPrimary,
+              minWidth: "150px",
+              height: "40px",
+              borderRadius: "10px",
+              color: (theme) => theme.palette.white,
+              backgroundColor: (theme) => theme.palette.gray80,
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.gray80,
+              },
+            }}
+          >
+            Reset
+          </Button>
+        </Box>
+      </Card>
 
       <GeneralBox
         title="Reset Your Password:"
@@ -131,7 +267,7 @@ const Security = () => {
                   {"I agree to receive electronic and postal communications from the Allegion group of companies, including marketing, promotions, newsletters, surveys and other information regarding products and services. To opt-out at a later time, visit https://profile.allegion.com."}
                 </Typography>
               }
-              sx={{ marginBottom: "20px", paddingLeft: { xs: "10px", sm: "20px" } }}
+              sx={{ marginBottom: "20px" }}
             />
           </Box>
           <Button
@@ -165,6 +301,37 @@ const Security = () => {
         showfooter
       >
         {deleteAccountModalUI}
+      </DynamicModal>
+      <DynamicModal
+        open={disableAuth}
+        handleClose={() => setDisableAuth(false)}
+        heading="Disable Authenticator"
+        cancelButtonText="Cancel"
+        submitButtonText="Yes"
+        onConfirm={handleDisbleAuth}
+        showfooter
+      >
+        {disableAuthModalUI}
+      </DynamicModal>
+      <DynamicModal
+        customHeader={<></>}
+        open={isGoogleAuthModal}
+        handleClose={() => setIsGoogleAuthModal(false)}
+      >
+        <GoogleAuthModal
+          handleClose={() => setIsGoogleAuthModal(false)}
+          onConfirm={() => setIsGoogleAuth(true)}
+        />
+      </DynamicModal>
+      <DynamicModal
+        customHeader={<></>}
+        open={isEmailAuthModal}
+        handleClose={() => setIsEmailAuthModal(false)}
+      >
+        <EmailAuthModal
+          handleClose={() => setIsEmailAuthModal(false)}
+          onConfirm={() => setIsEmailAuth(true)}
+        />
       </DynamicModal>
     </Box>
   );
