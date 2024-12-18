@@ -17,6 +17,18 @@ export const signupSchema = Yup.object({
   recievedEmail: Yup.boolean().oneOf([true], 'You must agree to the terms of service')
 })
 
+export const resetPasswordSchema = Yup.object().shape({
+  oldPassword: Yup.string()
+    .required('Old password is required')
+    .min(8, 'Old Password must contain 8 characters'),
+  newPassword: Yup.string()
+    .required('New password is required')
+    .min(8, 'New Password must contain 8 characters'),
+  confirmPassword: Yup.string()
+    .required('Confirm password is required')
+    .oneOf([Yup.ref('newPassword'), null], 'Passwords must match'),
+});
+
 export const profileDetailsSchema = Yup.object({
     companyName: Yup.string().required('Company name is required'),
     postalCode: Yup.number().required("Postal code is required"),
