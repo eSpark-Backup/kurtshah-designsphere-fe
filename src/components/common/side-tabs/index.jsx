@@ -33,7 +33,8 @@ const SidebarTab = ({ back, title, active, setActive, tabsArr }) => {
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
-        position: "relative"
+        position: "relative",
+        gap: "10px"
       }}
     >
       {back && (

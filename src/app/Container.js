@@ -38,10 +38,10 @@ const Container = ({ children }) => {
   useEffect(() => {
     if (!user && authedRoute) {
       router.push("/sign-in");
-    } else if (user && !authedRoute) {
+    } else if (user && !authedRoute && (pathname !== "/multifactor" && pathname !== "/google-auth" && pathname !== "/email-auth")) {
       router.push("/projects");
     }
-  }, [user, router, authedRoute]);
+  }, [user, router, authedRoute, pathname]);
 
   return (
     <ThemeProvider theme={theme(myTheme.palette)}>

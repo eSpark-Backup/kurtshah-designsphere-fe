@@ -106,7 +106,7 @@ const Dropdown = ({
           sx={{ width: "100%" , color: theme => white ? "#FFF" : `${theme.palette.white} !important` }}
           startAdornment={
             startAdornment && (
-              <InputAdornment position="start">{startAdornment}</InputAdornment>
+              <InputAdornment sx={{ img: { filter: (theme) => theme.palette.filterImg }}} position="start">{startAdornment}</InputAdornment>
             )
           }
           {...props}

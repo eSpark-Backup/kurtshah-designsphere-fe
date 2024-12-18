@@ -36,6 +36,7 @@ const FileInput = ({ image, setImage }) => {
                         rowGap: "4px",
                         cursor: "pointer",
                         background: (theme)=> theme.palette.gradientPrimary,
+                        img: { filter: (theme) => theme.palette.filterImg }
 
                     }}
                 >

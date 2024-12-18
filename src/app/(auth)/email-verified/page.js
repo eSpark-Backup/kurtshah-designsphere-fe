@@ -35,7 +35,8 @@ const EmailVerified = () => {
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                            rowGap: "25px"
+                            rowGap: "25px",
+                            img: { filter: (theme) => theme.palette.filterImg }
                         }}
                     >
                         <Image

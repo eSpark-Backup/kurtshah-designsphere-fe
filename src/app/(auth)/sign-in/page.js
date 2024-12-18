@@ -27,7 +27,7 @@ const SignIn = () => {
       login({
         email: values?.email,
         password: values?.password,
-        callback: () => router.push("/projects"),
+        callback: () => router.push(`/multifactor?email=${values.email}`),
       })
     );
   };
