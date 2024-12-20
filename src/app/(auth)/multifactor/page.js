@@ -1,18 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { AuthContainer } from "@/components/common";
 import { mobile, email } from "@/assets";
 
-const MultiFactorAuth = () => {
+const MultiFactorAuthContent = () => {
   const router = useRouter();
-  const searchParams = useSearchParams()
- 
-  const myEmail = searchParams.get('email')
+  const searchParams = useSearchParams();
+
+  const myEmail = searchParams.get("email");
   const { currentTheme } = useSelector((state) => state.theme);
 
   const buttons = [
@@ -97,7 +97,7 @@ const MultiFactorAuth = () => {
                 <Stack
                   sx={{
                     width: "80%",
-                    img: {filter: (theme) => theme.palette.filterImg }
+                    img: { filter: (theme) => theme.palette.filterImg },
                   }}
                   direction="row"
                   justifyContent="flex-start"
@@ -138,6 +138,29 @@ const MultiFactorAuth = () => {
         </Box>
       </AuthContainer>
     </Box>
+  );
+};
+
+const MultiFactorAuth = () => {
+  return (
+    <Suspense
+      fallback={
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            width: "100wh",
+            height: "100vh",
+            background: (theme) => theme.palette.gradientPrimary,
+          }}
+        >
+          <CircularProgress />
+        </Stack>
+      }
+    >
+      <MultiFactorAuthContent />
+    </Suspense>
   );
 };
 

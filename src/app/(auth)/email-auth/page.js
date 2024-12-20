@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { AuthContainer, OtpInput } from "@/components/common";
 import { timer } from "@/assets";
 import { maskEmail } from "@/utils";
 
-const EmailAuth = () => {
+const EmailAuthContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
@@ -116,6 +116,30 @@ const EmailAuth = () => {
         </Box>
       </AuthContainer>
     </Box>
+  );
+};
+
+
+const EmailAuth = () => {
+  return (
+    <Suspense
+      fallback={
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            width: "100wh",
+            height: "100vh",
+            background: (theme) => theme.palette.gradientPrimary,
+          }}
+        >
+          <CircularProgress />
+        </Stack>
+      }
+    >
+      <EmailAuthContent />
+    </Suspense>
   );
 };
 
