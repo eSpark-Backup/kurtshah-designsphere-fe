@@ -43,10 +43,6 @@ const GoogleAuth = () => {
         setLocalStorage("google_mfa", true);
         setLocalStorage("authed", true);
       });
-      const formData = new URLSearchParams();
-      Object.keys(objToSend).forEach((key) => {
-        formData.append(key, objToSend[key]);
-      });
     }
   }, [otp]);
 

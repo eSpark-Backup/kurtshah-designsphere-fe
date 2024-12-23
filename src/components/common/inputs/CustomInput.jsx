@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { closeEye, openEye } from "@/assets";
 
-const CustomInput = ({ customLabel, label, type, sx, value, limit, hideArrows, userHelpingText, ...rest }) => {
+const CustomInput = ({ disabled, customLabel, label, type, sx, value, limit, hideArrows, userHelpingText, ...rest }) => {
     const [showPass, setShowPass] = useState(false);
 
     // Determine input type based on password visibility state
@@ -33,6 +33,7 @@ const CustomInput = ({ customLabel, label, type, sx, value, limit, hideArrows, u
                 }}
             >
                 <TextField
+                    disabled={disabled}
                     value={value}
                     inputProps={{
                         maxLength: limit,

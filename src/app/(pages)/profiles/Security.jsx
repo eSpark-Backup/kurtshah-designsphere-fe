@@ -1,56 +1,96 @@
 "use client";
 
-import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material';
-import ProfileCard from './Profile-Card';
-import { useState } from 'react';
-import { DynamicModal } from '@/components/common';
-import Card from '@/components/common/Card';
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Typography,
+} from "@mui/material";
+import ProfileCard from "./Profile-Card";
+import { useState } from "react";
+import { DynamicModal } from "@/components/common";
+import Card from "@/components/common/Card";
 import GoogleAuthModal from "./google-auth-modal";
 import EmailAuthModal from "./email-auth-modal";
 import ResetPassword from "./resetPassword";
+import { useDispatch, useSelector } from "react-redux";
+import useUpdateUser from "@/hooks/updateProfile";
+import { toast } from "react-toastify";
+import { updateProfile } from "@/lib/store/slices/auth";
+import { getLocalStorage } from "@/utils";
 
 const Security = () => {
+  const token = getLocalStorage("token");
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const [resetPassword, setResetPassword] = useState(false);
-  const [isGoogleAuth, setIsGoogleAuth] = useState(false);
-  const [isEmailAuth, setIsEmailAuth] = useState(false);
+  const [isGoogleAuth, setIsGoogleAuth] = useState(user?.isGoogleMFA);
+  const [isEmailAuth, setIsEmailAuth] = useState(user?.isEmailMFA);
   const [disableAuth, setDisableAuth] = useState(false);
   const [isGoogleAuthModal, setIsGoogleAuthModal] = useState(false);
   const [isEmailAuthModal, setIsEmailAuthModal] = useState(false);
-  const [isTermsChecked, setIsTermsChecked] = useState(false);
+  const [isTermsChecked, setIsTermsChecked] = useState(
+    user?.isNewsLetterSubscription
+  );
   const [deleteAccountModal, setDeleteAccountModal] = useState(false);
+  const { updateUserData } = useUpdateUser();
 
   const handleDisbleAuth = () => {
     if (disableAuth === 1) {
-      setIsEmailAuth(false);
-      setDisableAuth(false);
+      updateUserData({ IsEmailMFA: false }, token, () => {
+        dispatch(updateProfile({ ...user, isEmailMFA: false }));
+        toast.success("Email MFA disabled");
+        setIsEmailAuth(false);
+        setDisableAuth(false);
+      });
     } else if (disableAuth === 2) {
-      setIsGoogleAuth(false);
-      setDisableAuth(false);
+      updateUserData({ IsGoogleMFA: false }, token, () => {
+        dispatch(updateProfile({ ...user, isGoogleMFA: false }));
+        toast.success("Google MFA disabled");
+        setIsGoogleAuth(false);
+        setDisableAuth(false);
+      });
     } else if (disableAuth === 3) {
-      setIsEmailAuth(false);
-      setIsGoogleAuth(false);
-      setDisableAuth(false);
+      updateUserData(
+        { IsEmailMFA: false, IsGoogleMFA: false },
+        token,
+        () => {
+          dispatch(
+            updateProfile({ ...user, isEmailMFA: false, isGoogleMFA: false })
+          );
+          toast.success("Both MFA disabled");
+          setIsEmailAuth(false);
+          setIsGoogleAuth(false);
+          setDisableAuth(false);
+        }
+      );
     }
   };
 
   const handleSubmitTerms = () => {
-    console.log("Terms and conditions submitted");
-  }
+    updateUserData({ NewsLetterSubscription: isTermsChecked }, token, () => {
+      dispatch(
+        updateProfile({ ...user, isNewsLetterSubscription: isTermsChecked })
+      );
+      toast.success("news-letter updated successfully");
+    });
+  };
 
   const handleReset = () => {
     setResetPassword(true);
-  }
-
-
+  };
 
   const handleDeleteAccount = () => {
-    console.log("Delete account confirmed")
-  }
+    console.log("Delete account confirmed");
+  };
 
   const deleteAccountModalUI = (
-    <Box sx={{
-      padding: "30px 40px",
-    }}>
+    <Box
+      sx={{
+        padding: "30px 40px",
+      }}
+    >
       <Typography
         sx={{
           textAlign: "center",
@@ -60,7 +100,8 @@ const Security = () => {
           color: (theme) => theme.palette.white,
         }}
       >
-        This will permanently delete your account. You have 24 hours to undo this action.
+        This will permanently delete your account. You have 24 hours to undo
+        this action.
         <br />
         Are you sure?
       </Typography>
@@ -87,7 +128,13 @@ const Security = () => {
     </Box>
   );
 
-  const GeneralBox = ({ title, description, buttonText, buttonColor, onClick }) => (
+  const GeneralBox = ({
+    title,
+    description,
+    buttonText,
+    buttonColor,
+    onClick,
+  }) => (
     <Card
       variant={"outline"}
       sx={{
@@ -105,10 +152,22 @@ const Security = () => {
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-          <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "16px", fontWeight: 500 }}>
+          <Typography
+            sx={{
+              color: (theme) => theme.palette.whiteE4,
+              fontSize: "16px",
+              fontWeight: 500,
+            }}
+          >
             {title}
           </Typography>
-          <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "12px", fontWeight: 400 }}>
+          <Typography
+            sx={{
+              color: (theme) => theme.palette.whiteE4,
+              fontSize: "12px",
+              fontWeight: 400,
+            }}
+          >
             {description}
           </Typography>
         </Box>
@@ -120,8 +179,8 @@ const Security = () => {
             height: "40px",
             borderRadius: "10px",
             backgroundColor: buttonColor,
-            color: theme => theme.palette.white,
-            '&:hover': {
+            color: (theme) => theme.palette.white,
+            "&:hover": {
               backgroundColor: buttonColor,
             },
           }}
@@ -133,9 +192,7 @@ const Security = () => {
   );
 
   if (resetPassword) {
-    return (
-      <ResetPassword setResetPassword={setResetPassword} />
-    );
+    return <ResetPassword setResetPassword={setResetPassword} />;
   }
 
   return (
@@ -253,18 +310,38 @@ const Security = () => {
           padding: "30px",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "20px", alignItems: "flex-start" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: "20px",
+            alignItems: "flex-start",
+          }}
+        >
           <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            <Typography sx={{ color: (theme) => theme.palette.whiteE4, fontSize: "16px", fontWeight: 500 }}>
+            <Typography
+              sx={{
+                color: (theme) => theme.palette.whiteE4,
+                fontSize: "16px",
+                fontWeight: 500,
+              }}
+            >
               Terms
             </Typography>
             <FormControlLabel
-              control={<Checkbox name="terms" sx={{ alignSelf: "flex-start", padding: "0px 10px" }} />}
+              control={
+                <Checkbox
+                  name="terms"
+                  sx={{ alignSelf: "flex-start", padding: "0px 10px" }}
+                />
+              }
               onChange={() => setIsTermsChecked(!isTermsChecked)}
               checked={isTermsChecked}
               label={
                 <Typography sx={{ fontWeight: 400, fontSize: "16px" }}>
-                  {"I agree to receive electronic and postal communications from the Allegion group of companies, including marketing, promotions, newsletters, surveys and other information regarding products and services. To opt-out at a later time, visit https://profile.allegion.com."}
+                  {
+                    "I agree to receive electronic and postal communications from the Allegion group of companies, including marketing, promotions, newsletters, surveys and other information regarding products and services. To opt-out at a later time, visit https://profile.allegion.com."
+                  }
                 </Typography>
               }
               sx={{ marginBottom: "20px" }}
@@ -278,10 +355,10 @@ const Security = () => {
               minWidth: "150px",
               height: "40px",
               borderRadius: "10px",
-              color: theme => theme.palette.white,
-              backgroundColor: theme => theme.palette.gray80,
-              '&:hover': {
-                backgroundColor: theme => theme.palette.gray80,
+              color: (theme) => theme.palette.white,
+              backgroundColor: (theme) => theme.palette.gray80,
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.gray80,
               },
             }}
           >
@@ -289,7 +366,6 @@ const Security = () => {
           </Button>
         </Box>
       </Card>
-
 
       <DynamicModal
         open={deleteAccountModal}
@@ -336,7 +412,5 @@ const Security = () => {
     </Box>
   );
 };
-
-
 
 export default Security;

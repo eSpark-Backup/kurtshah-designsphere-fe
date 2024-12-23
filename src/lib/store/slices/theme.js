@@ -1,7 +1,8 @@
+import { getLocalStorage, setLocalStorage } from "@/utils";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentTheme: typeof window !== "undefined" && localStorage.getItem("theme") || 0
+  currentTheme: getLocalStorage("theme") || 0
 };
 
 const slice = createSlice({
@@ -10,7 +11,7 @@ const slice = createSlice({
   reducers: {
     changeTheme: (state, action) => {
       state.currentTheme = action.payload;
-      typeof window !== "undefined" && localStorage.setItem("theme", action.payload);
+      setLocalStorage("theme", action.payload);
     },
   },
 });
