@@ -3,11 +3,12 @@ import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 
-const FileInput = ({ image, setImage }) => {
+const FileInput = ({ setImg, image, setImage }) => {
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         console.log(file)
         if (file) {
+            setImg(file)
             const imageUrl = URL.createObjectURL(file);
             setImage(imageUrl);
         }
@@ -36,7 +37,7 @@ const FileInput = ({ image, setImage }) => {
                         rowGap: "4px",
                         cursor: "pointer",
                         background: (theme)=> theme.palette.gradientPrimary,
-                        img: { filter: (theme) => theme.palette.filterImg }
+                        ".icon": { filter: (theme) => theme.palette.filterImg }
 
                     }}
                 >
@@ -54,6 +55,7 @@ const FileInput = ({ image, setImage }) => {
                     ) : (
                         <>
                             <Image
+                                className='icon'
                                 src={gallery}
                                 width={24}
                                 height={24}

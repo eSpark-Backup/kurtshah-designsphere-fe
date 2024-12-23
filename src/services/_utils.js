@@ -1,5 +1,5 @@
 
-export const baseUrl = "http://localhost:3001"
+export const baseUrl = "https://localhost:44310"
 
 export const prepareHeaders = (headers) => {
   const token = typeof window !== "undefined" && localStorage.getItem('token')

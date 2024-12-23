@@ -21,8 +21,18 @@ const useGetCountryAndJobOptions = () => {
         }
       }
 
-      if (res?.error?.data?.StatusCode === 200) {
-        onSuccess();
+      if (res?.data?.StatusCode === 200) {
+        const jobRoles = res?.data?.result?.jobRoles?.map(({ id, name }) => ({
+          label: name,
+          value: id,
+        }));
+        const jobOptions = [{ value: "", label: "Job function" }, ...jobRoles];
+        const countries = res?.data?.result?.countries?.map(({ id, name }) => ({
+          label: name,
+          value: id,
+        }));
+        const countryOptions = [{ value: "", label: "Country" }, ...countries];
+        onSuccess(jobOptions, countryOptions);
         setLoading(false);
       }
     } catch (err) {

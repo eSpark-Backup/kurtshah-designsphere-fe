@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Box, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { Searchbar } from "@/components/common";
 import { navLinks } from "@/constants";
 import {
@@ -42,40 +42,53 @@ const Header = ({
   const router = useRouter();
   const notifications = true;
   const { currentTheme } = useSelector((state) => state.theme);
+  const { user } = useSelector((state) => state.auth);
+  const [profileImage, setProfileImage] = useState(null);
+  const [initial, setInitial] = useState("");
+
+  useEffect(() => {
+    if (user && user.profilePicture?.fileName) {
+      setProfileImage(
+        `data:${user?.profilePicture?.file?.contentType};base64,${user?.profilePicture?.bytes}`
+      );
+    }
+    setInitial(`${user?.firstName[0]}${user?.lastName[0]}`);
+  }, [user]);
+
   const logos = [
-    {theme: 0, logo: logo},
-    {theme: 7, logo: logo3},
-    {theme: 8, logo: logo2},
-    {theme: 9, logo: logo3},
-    {theme: 10, logo: logo3},
-    {theme: 11, logo: logo3},
-    {theme: 12, logo: logo3},
-    {theme: 13, logo: logo3},
-    {theme: 14, logo: logo5},
-    {theme: 15, logo: logo4},
-    {theme: 16, logo: logo6},
-    {theme: 17, logo: logo7},
-    {theme: 18, logo: logo5},
-    {theme: 19, logo: logo8},
-    {theme: 20, logo: logo9},
-    {theme: 21, logo: logo10},
-    {theme: 22, logo: logo11},
-    {theme: 1, logo: logo12},
-    {theme: 2, logo: logo13},
-    {theme: 3, logo: logo14},
-    {theme: 4, logo: logo15},
-    {theme: 5, logo: logo16},
-    {theme: 6, logo: logo17},
+    { theme: 0, logo: logo },
+    { theme: 7, logo: logo3 },
+    { theme: 8, logo: logo2 },
+    { theme: 9, logo: logo3 },
+    { theme: 10, logo: logo3 },
+    { theme: 11, logo: logo3 },
+    { theme: 12, logo: logo3 },
+    { theme: 13, logo: logo3 },
+    { theme: 14, logo: logo5 },
+    { theme: 15, logo: logo4 },
+    { theme: 16, logo: logo6 },
+    { theme: 17, logo: logo7 },
+    { theme: 18, logo: logo5 },
+    { theme: 19, logo: logo8 },
+    { theme: 20, logo: logo9 },
+    { theme: 21, logo: logo10 },
+    { theme: 22, logo: logo11 },
+    { theme: 1, logo: logo12 },
+    { theme: 2, logo: logo13 },
+    { theme: 3, logo: logo14 },
+    { theme: 4, logo: logo15 },
+    { theme: 5, logo: logo16 },
+    { theme: 6, logo: logo17 },
   ];
-  const [activeLogo, setActiveLogo] = useState(logos[0].logo)
+  const [activeLogo, setActiveLogo] = useState(logos[0].logo);
   useEffect(() => {
     const getLogo = (currentTheme) => {
-      const selectedLogo = logos.find(item => item.theme == currentTheme)
-      const currentLogo = selectedLogo?.logo || logos[0].logo
-      return currentLogo
+      const selectedLogo = logos.find((item) => item.theme == currentTheme);
+      const currentLogo = selectedLogo?.logo || logos[0].logo;
+      return currentLogo;
     };
-    setActiveLogo(getLogo(currentTheme))
-  },[currentTheme])
+    setActiveLogo(getLogo(currentTheme));
+  }, [currentTheme]);
 
   return (
     <Box
@@ -133,12 +146,7 @@ const Header = ({
                 justifyContent="center"
                 alignItems="center"
               >
-                <Image
-                  src={navItem.icon}
-                  with={24}
-                  height={24}
-                  alt="icon"
-                />
+                <Image src={navItem.icon} with={24} height={24} alt="icon" />
                 <Typography
                   color={pathname === navItem.link ? "secondary" : "primary"}
                   variant="h4"
@@ -175,7 +183,10 @@ const Header = ({
                 width: "6px",
                 height: "6px",
                 borderRadius: "50%",
-                background: theme => getThemeVariant(currentTheme) === "default" ? "linear-gradient(180deg, #D1A6BE 0%, #FF94C8 100%)" : theme.palette.secondary.main,
+                background: (theme) =>
+                  getThemeVariant(currentTheme) === "default"
+                    ? "linear-gradient(180deg, #D1A6BE 0%, #FF94C8 100%)"
+                    : theme.palette.secondary.main,
                 position: "absolute",
                 top: "-2px",
                 right: "-2px",
@@ -220,21 +231,38 @@ const Header = ({
               }),
             }}
           >
-            <Image
-              style={{ cursor: "pointer" }}
-              onClick={() => router.push("/profiles")}
-              width={40}
-              height={40}
-              src={avatar}
-              alt="avatar"
-            />
+            {profileImage ? (
+              <Avatar
+                sx={{ cursor: "pointer" }}
+                onClick={() => router.push("/profiles")}
+                width={40}
+                height={40}
+                alt={user?.firstName}
+                src={profileImage}
+              />
+            ) : (
+              <Avatar
+                onClick={() => router.push("/profiles")}
+                sx={{
+                  cursor: "pointer",
+                  bgcolor: (theme) => theme.palette.secondary.main,
+                }}
+              >
+                {initial}
+              </Avatar>
+            )}
           </Box>
           <Box
             onClick={() => setOpenSidebar(true)}
             sx={{
               display: { xs: "block", sm: "none" },
               paddingRight: "10px",
-              img: { filter: theme => getThemeVariant(currentTheme) === "default" ? "" : theme.palette.filterImg }
+              img: {
+                filter: (theme) =>
+                  getThemeVariant(currentTheme) === "default"
+                    ? ""
+                    : theme.palette.filterImg,
+              },
             }}
           >
             <Image width={24} height={24} src={hamburger} alt="menu" />
