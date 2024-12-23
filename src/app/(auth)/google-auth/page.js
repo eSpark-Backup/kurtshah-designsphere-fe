@@ -1,20 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Box, CircularProgress, Typography } from "@mui/material";
-import {
-  AuthContainer,
-  OtpInput,
-  SuspenceContainer,
-} from "@/components/common";
+import { AuthContainer, OtpInput, Loader } from "@/components/common";
 import { authApiVaraibles } from "@/constants";
 import { getLocalStorage, setLocalStorage } from "@/utils";
 import useGenerateMfaOtp from "@/hooks/generateOtpForMfa";
 import useVerifyMfaOtp from "@/hooks/verifyOtpForMfa";
 
-const GoogleAuth = () => {
+const GoogleAuthContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
@@ -60,97 +56,99 @@ const GoogleAuth = () => {
   }, []);
 
   return (
-    <SuspenceContainer>
-      <Box
-        sx={{
-          width: "100%",
-          minHeight: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <AuthContainer>
+    <Box
+      sx={{
+        width: "100%",
+        minHeight: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <AuthContainer>
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            rowGap: "25px",
+          }}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              lineHeight: "40px",
+              textAlign: "center",
+            }}
+          >
+            Multi-factor <br></br> Authentication
+          </Typography>
           <Box
             sx={{
               width: "100%",
-              height: "100%",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              rowGap: "25px",
+              justifyContent: "center",
             }}
           >
             <Typography
-              variant="h1"
+              variant="h3"
               sx={{
-                lineHeight: "40px",
+                lineHeight: "29px",
                 textAlign: "center",
+                width: { xs: "100%", md: "90%" },
               }}
             >
-              Multi-factor <br></br> Authentication
+              For enhanced security, use Google Authenticator and scan the QR
+              code. This trusted app generates unique login codes, safeguarding
+              your account. 
+              <Typography
+                component="span"
+                sx={{ color: (theme) => theme.palette.secondary.main }}
+              >
+                Get Google Authenticator
+              </Typography>
             </Typography>
-            <Box
+          </Box>
+          {isLoading ? (
+            <CircularProgress />
+          ) : qrcode ? (
+            <Image
+              style={{ border: "2px solid #7A89BC", borderRadius: "5px" }}
+              width={181}
+              height={171}
+              src={qrcode}
+              alt="qrcode"
+            />
+          ) : null}
+          <OtpInput value={otp} onChange={(val) => setOtp(val)} numInputs={6} />
+          {show && (
+            <Typography
+              onClick={() => router.push(`/multifactor?email=${email}`)}
               sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
+                fontSize: { xs: "10px", sm: "14px" },
+                fontWeight: 400,
+                color: (theme) => theme.palette.white,
+                textAlign: "center",
+                marginTop: "50px",
+                cursor: "pointer",
               }}
             >
-              <Typography
-                variant="h3"
-                sx={{
-                  lineHeight: "29px",
-                  textAlign: "center",
-                  width: { xs: "100%", md: "90%" },
-                }}
-              >
-                For enhanced security, use Google Authenticator and scan the QR
-                code. This trusted app generates unique login codes,
-                safeguarding your account. 
-                <Typography
-                  component="span"
-                  sx={{ color: (theme) => theme.palette.secondary.main }}
-                >
-                  Get Google Authenticator
-                </Typography>
-              </Typography>
-            </Box>
-            {isLoading ? (
-              <CircularProgress />
-            ) : qrcode ? (
-              <Image
-                style={{ border: "2px solid #7A89BC", borderRadius: "5px" }}
-                width={181}
-                height={171}
-                src={qrcode}
-                alt="qrcode"
-              />
-            ) : null}
-            <OtpInput
-              value={otp}
-              onChange={(val) => setOtp(val)}
-              numInputs={6}
-            />
-            {show && (
-              <Typography
-                onClick={() => router.push(`/multifactor?email=${email}`)}
-                sx={{
-                  fontSize: { xs: "10px", sm: "14px" },
-                  fontWeight: 400,
-                  color: (theme) => theme.palette.white,
-                  textAlign: "center",
-                  marginTop: "50px",
-                  cursor: "pointer",
-                }}
-              >
-                Select another method
-              </Typography>
-            )}
-          </Box>
-        </AuthContainer>
-      </Box>
-    </SuspenceContainer>
+              Select another method
+            </Typography>
+          )}
+        </Box>
+      </AuthContainer>
+    </Box>
+  );
+};
+
+const GoogleAuth = () => {
+  return (
+    <Suspense fallback={<Loader />}>
+      <GoogleAuthContent />
+    </Suspense>
   );
 };
 

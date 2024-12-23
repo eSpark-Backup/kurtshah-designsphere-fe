@@ -1,14 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Box, Stack, Typography } from "@mui/material";
-import {
-  AuthContainer,
-  OtpInput,
-  SuspenceContainer,
-} from "@/components/common";
+import { AuthContainer, OtpInput, Loader } from "@/components/common";
 import { timer } from "@/assets";
 import { getLocalStorage, maskEmail, setLocalStorage } from "@/utils";
 import { authApiVaraibles } from "@/constants";
@@ -16,7 +12,7 @@ import useGenerateMfaOtp from "@/hooks/generateOtpForMfa";
 import useVerifyMfaOtp from "@/hooks/verifyOtpForMfa";
 import useCountdownTimer from "@/hooks/countdownTimer";
 
-const EmailAuth = () => {
+const EmailAuthContent = () => {
   const { timerFinished, formattedTime } = useCountdownTimer(5 * 60);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -64,112 +60,113 @@ const EmailAuth = () => {
   }, []);
 
   return (
-    <SuspenceContainer>
-      <Box
-        sx={{
-          width: "100%",
-          minHeight: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <AuthContainer>
+    <Box
+      sx={{
+        width: "100%",
+        minHeight: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <AuthContainer>
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            rowGap: "25px",
+          }}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              lineHeight: "40px",
+              textAlign: "center",
+            }}
+          >
+            Multi-factor <br></br> Authentication
+          </Typography>
           <Box
             sx={{
               width: "100%",
-              height: "100%",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              rowGap: "25px",
+              justifyContent: "center",
             }}
           >
             <Typography
-              variant="h1"
+              variant="h3"
               sx={{
-                lineHeight: "40px",
+                lineHeight: "29px",
                 textAlign: "center",
+                width: { xs: "100%", md: "90%" },
               }}
             >
-              Multi-factor <br></br> Authentication
+              Email Authenticator sent a unique login code to your registered
+              email address for verification.<br></br>({maskEmail(email)} )
             </Typography>
-            <Box
+          </Box>
+          <OtpInput value={otp} onChange={(val) => setOtp(val)} numInputs={6} />
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            gap={1}
+            sx={{ img: { filter: (theme) => theme.palette.filterImg } }}
+          >
+            {!timerFinished && (
+              <Image width={24} height={24} src={timer} alt="timer" />
+            )}
+            <Typography
               sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
+                fontSize: "14px",
+                fontWeight: 400,
+                background: (theme) => theme.palette.headingColor,
+                color: "transparent",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
             >
+              {timerFinished ? "Your otp has expired" : "Time Left: "}
               <Typography
-                variant="h3"
+                component="span"
                 sx={{
-                  lineHeight: "29px",
-                  textAlign: "center",
-                  width: { xs: "100%", md: "90%" },
+                  WebkitTextFillColor: (theme) => theme.palette.secondary.main,
                 }}
               >
-                Email Authenticator sent a unique login code to your registered
-                email address for verification.<br></br>({maskEmail(email)} )
+                {timerFinished ? "" : formattedTime}
               </Typography>
-            </Box>
-            <OtpInput
-              value={otp}
-              onChange={(val) => setOtp(val)}
-              numInputs={6}
-            />
-            <Stack
-              direction="row"
-              alignItems="center"
-              justifyContent="center"
-              gap={1}
-              sx={{ img: { filter: (theme) => theme.palette.filterImg } }}
+            </Typography>
+          </Stack>
+          {show && (
+            <Typography
+              onClick={() => router.push(`/multifactor?email=${email}`)}
+              sx={{
+                fontSize: { xs: "10px", sm: "14px" },
+                fontWeight: 400,
+                color: (theme) => theme.palette.white,
+                textAlign: "center",
+                marginTop: "50px",
+                cursor: "pointer",
+              }}
             >
-              {!timerFinished && (
-                <Image width={24} height={24} src={timer} alt="timer" />
-              )}
-              <Typography
-                sx={{
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  background: (theme) => theme.palette.headingColor,
-                  color: "transparent",
-                  backgroundClip: "text",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                {timerFinished ? "Your otp has expired" : "Time Left: "}
-                <Typography
-                  component="span"
-                  sx={{
-                    WebkitTextFillColor: (theme) =>
-                      theme.palette.secondary.main,
-                  }}
-                >
-                  {timerFinished ? "" : formattedTime}
-                </Typography>
-              </Typography>
-            </Stack>
-            {show && (
-              <Typography
-                onClick={() => router.push(`/multifactor?email=${email}`)}
-                sx={{
-                  fontSize: { xs: "10px", sm: "14px" },
-                  fontWeight: 400,
-                  color: (theme) => theme.palette.white,
-                  textAlign: "center",
-                  marginTop: "50px",
-                  cursor: "pointer",
-                }}
-              >
-                Select another method
-              </Typography>
-            )}
-          </Box>
-        </AuthContainer>
-      </Box>
-    </SuspenceContainer>
+              Select another method
+            </Typography>
+          )}
+        </Box>
+      </AuthContainer>
+    </Box>
+  );
+};
+
+const EmailAuth = () => {
+  return (
+    <Suspense fallback={<Loader />}>
+      <EmailAuthContent />
+    </Suspense>
   );
 };
 

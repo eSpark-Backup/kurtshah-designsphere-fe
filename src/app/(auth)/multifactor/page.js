@@ -1,15 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { Box, Stack, Typography } from "@mui/material";
-import { AuthContainer, SuspenceContainer } from "@/components/common";
+import { AuthContainer, Loader } from "@/components/common";
 import { mobile, email } from "@/assets";
 import { getLocalStorage } from "@/utils";
 
-const MultiFactorAuth = () => {
+const MultiFactorAuthContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -32,7 +32,6 @@ const MultiFactorAuth = () => {
     : googleMfa === "true";
 
   return (
-    <SuspenceContainer>
       <Box
         sx={{
           width: "100%",
@@ -186,7 +185,14 @@ const MultiFactorAuth = () => {
           </Box>
         </AuthContainer>
       </Box>
-    </SuspenceContainer>
+  );
+};
+
+const MultiFactorAuth = () => {
+  return (
+    <Suspense fallback={<Loader />}>
+      <MultiFactorAuthContent />
+    </Suspense>
   );
 };
 

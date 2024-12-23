@@ -4,7 +4,7 @@ import {
   AuthContainer,
   CustomInput,
   Dropdown,
-  SuspenceContainer,
+  Loader,
 } from "@/components/common";
 import useGetCountryAndJobOptions from "@/hooks/jobsAndCountriesOption";
 import useUpdateUser from "@/hooks/updateProfile";
@@ -21,9 +21,9 @@ import {
 import { Form, Formik } from "formik";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
-const ProfileDetails = () => {
+const ProfileDetailsContent = () => {
   const searchParams = useSearchParams();
   const access_token = searchParams.get("access_token");
   const [jobFunctionOptions, setJobFunctionOptions] = useState([
@@ -67,235 +67,241 @@ const ProfileDetails = () => {
   }, []);
 
   return (
-    <SuspenceContainer>
-      <Box
-        sx={{
-          width: "100%",
-          minHeight: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <AuthContainer>
-          {loading ? (
-            <CircularProgress />
-          ) : (
-            <Box
+    <Box
+      sx={{
+        width: "100%",
+        minHeight: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <AuthContainer>
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              rowGap: "25px",
+            }}
+          >
+            <Typography
+              variant="h1"
               sx={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                rowGap: "25px",
+                lineHeight: "40px",
+                textAlign: "center",
               }}
             >
-              <Typography
-                variant="h1"
-                sx={{
-                  lineHeight: "40px",
-                  textAlign: "center",
-                }}
-              >
-                Complete Your Profile
-              </Typography>
-              <Formik
-                initialValues={initialValues}
-                validationSchema={profileDetailsSchema}
-                onSubmit={handleSubmit}
-              >
-                {({
-                  values,
-                  handleChange,
-                  handleBlur,
-                  errors,
-                  touched,
-                  setFieldValue,
-                }) => (
-                  <Form>
+              Complete Your Profile
+            </Typography>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={profileDetailsSchema}
+              onSubmit={handleSubmit}
+            >
+              {({
+                values,
+                handleChange,
+                handleBlur,
+                errors,
+                touched,
+                setFieldValue,
+              }) => (
+                <Form>
+                  <Box
+                    sx={{
+                      width: "95%",
+                      margin: "auto auto",
+                      display: "flex",
+                      flexDirection: "column",
+                      rowGap: "25px",
+                    }}
+                  >
+                    <CustomInput
+                      variant="filled"
+                      name="companyName"
+                      type="text"
+                      label="company name"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.companyName}
+                      error={touched.companyName && errors.companyName}
+                      helperText={touched.companyName && errors.companyName}
+                      startAdornment={
+                        <Image
+                          src={card}
+                          width={24}
+                          height={24}
+                          alt="Email Icon"
+                        />
+                      }
+                    />
+                    <Dropdown
+                      label={"job function"}
+                      value={values.jobFunction}
+                      onChange={(e) =>
+                        setFieldValue("jobFunction", e.target.value)
+                      }
+                      options={jobFunctionOptions}
+                      startAdornment={
+                        <Image
+                          src={people}
+                          width={24}
+                          height={24}
+                          alt="User Icon"
+                          style={{ marginRight: "10px" }}
+                        />
+                      }
+                      name="jobFunction"
+                      error={touched.jobFunction && errors.jobFunction}
+                      helperText={touched.jobFunction && errors.jobFunction}
+                      sx={{
+                        borderRadius: "16px",
+                        ".MuiOutlinedInput-notchedOutline": {
+                          borderRadius: "16px",
+                        },
+                      }}
+                    />
                     <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        flexDirection: { xs: "column", lg: "row" },
+                        rowGap: "20px",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: { xs: "100%", lg: "45%" },
+                        }}
+                      >
+                        <Dropdown
+                          label={"Country"}
+                          value={values.country}
+                          onChange={(e) =>
+                            setFieldValue("country", e.target.value)
+                          }
+                          options={countriesOptions}
+                          name="country"
+                          error={touched.country && errors.country}
+                          helperText={touched.country && errors.country}
+                          sx={{
+                            borderRadius: "16px",
+                            ".MuiOutlinedInput-notchedOutline": {
+                              borderRadius: "16px",
+                            },
+                          }}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          width: { xs: "100%", lg: "45%" },
+                        }}
+                      >
+                        <CustomInput
+                          sx={{
+                            "& input[type=number]": {
+                              MozAppearance: "textfield",
+                            },
+                            "& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button":
+                              {
+                                WebkitAppearance: "none",
+                                margin: 0,
+                              },
+                          }}
+                          variant="filled"
+                          name="postalCode"
+                          type="number"
+                          label="postal code"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.postalCode}
+                          error={touched.postalCode && errors.postalCode}
+                          helperText={touched.postalCode && errors.postalCode}
+                          startAdornment={
+                            <Image
+                              src={user2}
+                              width={24}
+                              height={24}
+                              alt="User Icon"
+                            />
+                          }
+                          hideArrows={true}
+                        />
+                      </Box>
+                    </Box>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          onChange={handleChange}
+                          sx={{
+                            alignSelf: "flex-start",
+                            padding: "0px 10px",
+                          }}
+                          name="agree"
+                        />
+                      }
+                      label="I agree to Allegion's Privacy Policy and Terms of Use. I understand and agree that by submitting my information my personal data may be transferred into the United States or other locations outside my country of residence."
+                      sx={{ marginBottom: "20px" }}
+                    />
+                    {touched.agree && errors.agree && (
+                      <Typography
+                        sx={{
+                          color: "error.main",
+                          fontSize: "12px",
+                          paddingLeft: "35px",
+                          position: "relative",
+                          bottom: "40px",
+                        }}
+                      >
+                        {errors.agree}
+                      </Typography>
+                    )}
+                  </Box>
+
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      rowGap: "25px",
+                    }}
+                  >
+                    <LoadingButton
+                      loading={isLoading}
+                      disabled={isLoading}
+                      loadingPosition="end"
+                      variant="primary"
                       sx={{
                         width: "95%",
                         margin: "auto auto",
-                        display: "flex",
-                        flexDirection: "column",
-                        rowGap: "25px",
+                        height: "48px",
                       }}
+                      type="submit"
                     >
-                      <CustomInput
-                        variant="filled"
-                        name="companyName"
-                        type="text"
-                        label="company name"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.companyName}
-                        error={touched.companyName && errors.companyName}
-                        helperText={touched.companyName && errors.companyName}
-                        startAdornment={
-                          <Image
-                            src={card}
-                            width={24}
-                            height={24}
-                            alt="Email Icon"
-                          />
-                        }
-                      />
-                      <Dropdown
-                        label={"job function"}
-                        value={values.jobFunction}
-                        onChange={(e) =>
-                          setFieldValue("jobFunction", e.target.value)
-                        }
-                        options={jobFunctionOptions}
-                        startAdornment={
-                          <Image
-                            src={people}
-                            width={24}
-                            height={24}
-                            alt="User Icon"
-                            style={{ marginRight: "10px" }}
-                          />
-                        }
-                        name="jobFunction"
-                        error={touched.jobFunction && errors.jobFunction}
-                        helperText={touched.jobFunction && errors.jobFunction}
-                        sx={{
-                          borderRadius: "16px",
-                          ".MuiOutlinedInput-notchedOutline": {
-                            borderRadius: "16px",
-                          },
-                        }}
-                      />
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          flexDirection: { xs: "column", lg: "row" },
-                          rowGap: "20px",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            width: { xs: "100%", lg: "45%" },
-                          }}
-                        >
-                          <Dropdown
-                            label={"Country"}
-                            value={values.country}
-                            onChange={(e) =>
-                              setFieldValue("country", e.target.value)
-                            }
-                            options={countriesOptions}
-                            name="country"
-                            error={touched.country && errors.country}
-                            helperText={touched.country && errors.country}
-                            sx={{
-                              borderRadius: "16px",
-                              ".MuiOutlinedInput-notchedOutline": {
-                                borderRadius: "16px",
-                              },
-                            }}
-                          />
-                        </Box>
-                        <Box
-                          sx={{
-                            width: { xs: "100%", lg: "45%" },
-                          }}
-                        >
-                          <CustomInput
-                            sx={{
-                              "& input[type=number]": {
-                                MozAppearance: "textfield",
-                              },
-                              "& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button":
-                                {
-                                  WebkitAppearance: "none",
-                                  margin: 0,
-                                },
-                            }}
-                            variant="filled"
-                            name="postalCode"
-                            type="number"
-                            label="postal code"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.postalCode}
-                            error={touched.postalCode && errors.postalCode}
-                            helperText={touched.postalCode && errors.postalCode}
-                            startAdornment={
-                              <Image
-                                src={user2}
-                                width={24}
-                                height={24}
-                                alt="User Icon"
-                              />
-                            }
-                            hideArrows={true}
-                          />
-                        </Box>
-                      </Box>
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            onChange={handleChange}
-                            sx={{
-                              alignSelf: "flex-start",
-                              padding: "0px 10px",
-                            }}
-                            name="agree"
-                          />
-                        }
-                        label="I agree to Allegion's Privacy Policy and Terms of Use. I understand and agree that by submitting my information my personal data may be transferred into the United States or other locations outside my country of residence."
-                        sx={{ marginBottom: "20px" }}
-                      />
-                      {touched.agree && errors.agree && (
-                        <Typography
-                          sx={{
-                            color: "error.main",
-                            fontSize: "12px",
-                            paddingLeft: "35px",
-                            position: "relative",
-                            bottom: "40px",
-                          }}
-                        >
-                          {errors.agree}
-                        </Typography>
-                      )}
-                    </Box>
+                      Next
+                    </LoadingButton>
+                  </Box>
+                </Form>
+              )}
+            </Formik>
+          </Box>
+        )}
+      </AuthContainer>
+    </Box>
+  );
+};
 
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexDirection: "column",
-                        rowGap: "25px",
-                      }}
-                    >
-                      <LoadingButton
-                        loading={isLoading}
-                        disabled={isLoading}
-                        loadingPosition="end"
-                        variant="primary"
-                        sx={{
-                          width: "95%",
-                          margin: "auto auto",
-                          height: "48px",
-                        }}
-                        type="submit"
-                      >
-                        Next
-                      </LoadingButton>
-                    </Box>
-                  </Form>
-                )}
-              </Formik>
-            </Box>
-          )}
-        </AuthContainer>
-      </Box>
-    </SuspenceContainer>
+const ProfileDetails = () => {
+  return (
+    <Suspense fallback={<Loader />}>
+      <ProfileDetailsContent />
+    </Suspense>
   );
 };
 
