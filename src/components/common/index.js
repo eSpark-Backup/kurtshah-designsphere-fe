@@ -13,6 +13,7 @@ import ByHardware from "./by-hardware/page";
 import PageTitle from "./page-title/page";
 import SidebarTab from "./side-tabs";
 import SearchableAutocomplete from "./inputs/autoComplete";
+import SuspenceContainer from "./suspence-container";
 
 export {
   AuthContainer,
@@ -30,4 +31,5 @@ export {
   PageTitle,
   SidebarTab,
   SearchableAutocomplete,
+  SuspenceContainer,
 };

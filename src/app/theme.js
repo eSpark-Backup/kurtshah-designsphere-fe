@@ -237,7 +237,6 @@ const theme = currentTheme => createTheme({
             width: "24px !important",
             height: "24px !important",
             position: "relative",
-            marginRight: "100px",
           },
         }),
       },
