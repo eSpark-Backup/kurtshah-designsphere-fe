@@ -8,11 +8,16 @@ import { LoadingButton } from "@mui/lab";
 import { CustomInput } from "@/components/common";
 import Card from "@/components/common/Card";
 import { resetPasswordSchema } from "@/validation";
-import { getThemeVariant } from "@/utils";
+import { getLocalStorage, getThemeVariant } from "@/utils";
 import { backIcon } from "@/assets";
+import useResetPassword from "@/hooks/resetPassword";
+import { toast } from "react-toastify";
 
 const ResetPassword = ({ setResetPassword }) => {
   const { currentTheme } = useSelector((state) => state.theme);
+  const { user } = useSelector((state) => state.auth);
+  const token = getLocalStorage("token");
+  const { resetPassword, isLoading } = useResetPassword();
 
   const initialValues = {
     oldPassword: "",
@@ -21,7 +26,12 @@ const ResetPassword = ({ setResetPassword }) => {
   };
 
   const handleSubmit = (values) => {
-    console.log(values, "values");
+    const objectToSend = {
+      Email: user?.email,
+      NewPassword: values?.newPassword,
+      OldPassword: values?.oldPassword,
+    };
+    resetPassword(objectToSend, token, () => toast.success("Your Password has reset successfully"));
   };
   return (
     <Card
@@ -145,7 +155,8 @@ const ResetPassword = ({ setResetPassword }) => {
                 }}
               >
                 <LoadingButton
-                  loading={false}
+                  loading={isLoading}
+                  disabled={isLoading}
                   loadingPosition="end"
                   variant="primary"
                   sx={{ width: "150px", height: "40px" }}

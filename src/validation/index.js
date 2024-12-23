@@ -63,10 +63,24 @@ export const signupSchema = Yup.object({
 export const resetPasswordSchema = Yup.object().shape({
   oldPassword: Yup.string()
     .required("Old password is required")
-    .min(8, "Old Password must contain 8 characters"),
+    .min(8, "Old password must be at least 8 characters long")
+    .matches(/[a-z]/, "Old password must contain at least one lowercase letter")
+    .matches(/[A-Z]/, "Old password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Old Password must contain at least one number")
+    .matches(
+      /[^a-zA-Z0-9]/,
+      "Old password must contain at least one special character"
+    ),
   newPassword: Yup.string()
     .required("New password is required")
-    .min(8, "New Password must contain 8 characters"),
+    .min(8, "New password must be at least 8 characters long")
+    .matches(/[a-z]/, "New password must contain at least one lowercase letter")
+    .matches(/[A-Z]/, "New password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "New password must contain at least one number")
+    .matches(
+      /[^a-zA-Z0-9]/,
+      "New password must contain at least one special character"
+    ),
   confirmPassword: Yup.string()
     .required("Confirm password is required")
     .oneOf([Yup.ref("newPassword"), null], "Passwords must match"),

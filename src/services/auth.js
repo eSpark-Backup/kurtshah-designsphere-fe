@@ -110,6 +110,28 @@ export const authApi = api.injectEndpoints({
         },
       }),
     }),
+    resetPassword: builder.mutation({
+      query: ({ credentials, token }) => ({
+        url: "/UserInfo/ResetPassword",
+        method: "POST",
+        body: credentials,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
+    deleteAccount: builder.mutation({
+      query: ({ credentials, token }) => ({
+        url: "/UserInfo/DeleteAccount",
+        method: "POST",
+        body: credentials,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
   }),
 });
 
@@ -125,4 +147,6 @@ export const {
   useForgotPassReqMutation,
   useEmailMfaOtpMutation,
   useVerifyMfaOtpMutation,
+  useResetPasswordMutation,
+  useDeleteAccountMutation,
 } = authApi;

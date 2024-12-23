@@ -17,13 +17,17 @@ import ResetPassword from "./resetPassword";
 import { useDispatch, useSelector } from "react-redux";
 import useUpdateUser from "@/hooks/updateProfile";
 import { toast } from "react-toastify";
-import { updateProfile } from "@/lib/store/slices/auth";
+import { logout, updateProfile } from "@/lib/store/slices/auth";
 import { getLocalStorage } from "@/utils";
+import useDeleteAccount from "@/hooks/deleteAccount";
+import { useRouter } from "next/navigation";
 
 const Security = () => {
+  const router = useRouter();
   const token = getLocalStorage("token");
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const { deleteAcountFunc, isLoading } = useDeleteAccount();
   const [resetPassword, setResetPassword] = useState(false);
   const [isGoogleAuth, setIsGoogleAuth] = useState(user?.isGoogleMFA);
   const [isEmailAuth, setIsEmailAuth] = useState(user?.isEmailMFA);
@@ -82,6 +86,17 @@ const Security = () => {
   };
 
   const handleDeleteAccount = () => {
+    deleteAcountFunc(
+      {
+        Email: user?.email,
+      },
+      token,
+      () => {
+        dispatch(logout());
+        router.push("/sign-in");
+        toast.success("Your account has deleted successfully");
+      }
+    );
     console.log("Delete account confirmed");
   };
 
@@ -368,6 +383,7 @@ const Security = () => {
       </Card>
 
       <DynamicModal
+        isLoading={isLoading}
         open={deleteAccountModal}
         handleClose={() => setDeleteAccountModal(false)}
         heading="Delete File"

@@ -26,7 +26,7 @@ const EmailVerified = () => {
       otpType: "Verify",
       devicecode: "testdevice",
     };
-    verifyEmail(objToSend, () => {
+    verifyEmail(objToSend, (res) => {
       setToken(res?.data?.access_token);
       setIsSuccess(true);
     });

@@ -21,7 +21,7 @@ const useGetCountryAndJobOptions = () => {
         }
       }
 
-      if (res?.data?.StatusCode === 200) {
+      if (res?.data?.statusCode === 200) {
         const jobRoles = res?.data?.result?.jobRoles?.map(({ id, name }) => ({
           label: name,
           value: id,
