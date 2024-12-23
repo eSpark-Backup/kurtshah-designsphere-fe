@@ -65,18 +65,25 @@ const Container = ({ children }) => {
   useEffect(() => {
     if (authedRoute && !user && token) {
       setIsLoading(true);
-      getUserInfo(token, (res) => {
-        const data = res?.data?.result;
-        getCountryAndJobOptions(token, (jobOptions, countryOptions) => {
-          const user = {
-            ...data,
-            jobFunctionOptions: jobOptions,
-            countriesOptions: countryOptions,
-          };
-          dispatch(login(user));
-          setIsLoading(false);
-        });
-      });
+      getUserInfo(
+        token,
+        (res) => {
+          const data = res?.data?.result;
+          getCountryAndJobOptions(token, (jobOptions, countryOptions) => {
+            const user = {
+              ...data,
+              jobFunctionOptions: jobOptions,
+              countriesOptions: countryOptions,
+            };
+            dispatch(login(user));
+            setIsLoading(false);
+          });
+        },
+        () => {
+          dispatch(logout());
+          router.push("/sign-in");
+        }
+      );
     }
   }, [user, token, authedRoute]);
 

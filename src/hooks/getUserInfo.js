@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const useGetUserInfo = () => {
   const [getInfo, { isLoading }] = useGetUserInfoMutation();
 
-  const getUserInfo = async (objToSend, onSuccess) => {
+  const getUserInfo = async (objToSend, onSuccess, unAuth) => {
     try {
       const formData = new URLSearchParams();
       Object.keys(objToSend).forEach((key) => {
@@ -12,7 +12,11 @@ const useGetUserInfo = () => {
       });
 
       const res = await getInfo(formData);
-
+      if (res?.error?.status === 401) {
+        toast.error("Your session has been expired")
+        unAuth();
+        return;
+      }
       if (res?.error?.data?.IsError) {
         if (res?.error?.data?.Result && res?.error?.data?.Result?.length > 0) {
           toast.error(res?.error?.data?.Result[0]?.Description);
