@@ -25,7 +25,7 @@ const useVerifyEmail = () => {
           setLoading(false);
         }
       }
-      if (res?.data?.StatusCode === 200) {
+      if (res?.data?.StatusCode === 200 || res?.error?.data?.StatusCode === 200) {
         onSuccess(res);
         setLoading(false);
       }

@@ -1,5 +1,5 @@
 export const getAuthedRoute = (pathname) => {
-  const unAuthorizedPaths = ["/sign-up", "/sign-in", "/multifactor", "/google-auth", "/email-auth", "/verify-otp", "/email-verified", "/forget-password", "/reset-password", "/lets-start", "/profile-details", "/verify-email"];
+  const unAuthorizedPaths = ["/sign-up", "/sign-in", "/multifactor", "/google-auth", "/email-auth", "/verify-otp", "/email-verified", "/forget-password", "/reset-password", "/lets-start", "/profile-details", "/verify-email", "/troubleshoot-mfa", "/troubleshoot-email-verification", "/mfa-resync"];
   const unAuthedPath = unAuthorizedPaths.filter((path) => path === pathname);
   const authed = unAuthedPath.length <= 0;
   return authed;

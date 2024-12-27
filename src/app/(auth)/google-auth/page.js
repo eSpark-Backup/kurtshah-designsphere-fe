@@ -18,6 +18,7 @@ const GoogleAuthContent = () => {
   const [qrcode, setQrcode] = useState(null);
   const email_mfa = getLocalStorage("email_mfa");
   const google_mfa = getLocalStorage("google_mfa");
+  const reverify = searchParams.get("reverify");
 
   const show =
     (email_mfa === "true" && google_mfa === "true") ||
@@ -43,7 +44,7 @@ const GoogleAuthContent = () => {
   }, [otp]);
 
   useEffect(() => {
-    if (google_mfa && google_mfa === "true") return;
+    if (!reverify && google_mfa && google_mfa === "true") return;
     const objToSend = {
       ...authApiVaraibles,
       email,
@@ -123,7 +124,22 @@ const GoogleAuthContent = () => {
             />
           ) : null}
           <OtpInput value={otp} onChange={(val) => setOtp(val)} numInputs={6} />
-          {show && (
+          {!reverify && google_mfa && google_mfa === "true" && (
+            <Typography
+              onClick={() => router.push(`/troubleshoot-mfa?email=${email}`)}
+              sx={{
+                width: { xs: "100%", md: "90%" },
+                fontSize: { xs: "10px", sm: "14px" },
+                fontWeight: 400,
+                color: (theme) => theme.palette.white,
+                textAlign: "left",
+                cursor: "pointer",
+              }}
+            >
+              Troubleshoot Device?
+            </Typography>
+          )}
+          {!reverify && show && (
             <Typography
               onClick={() => router.push(`/multifactor?email=${email}`)}
               sx={{

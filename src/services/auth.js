@@ -110,6 +110,17 @@ export const authApi = api.injectEndpoints({
         },
       }),
     }),
+    reSync: builder.mutation({
+      query: ({ credentials, token }) => ({
+        url: "/UserInfo/ReSync",
+        method: "POST",
+        body: credentials,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
     resetPassword: builder.mutation({
       query: ({ credentials, token }) => ({
         url: "/UserInfo/ResetPassword",
@@ -149,4 +160,5 @@ export const {
   useVerifyMfaOtpMutation,
   useResetPasswordMutation,
   useDeleteAccountMutation,
+  useReSyncMutation,
 } = authApi;

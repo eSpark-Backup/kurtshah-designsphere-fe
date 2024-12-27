@@ -157,3 +157,8 @@ export const profileCompanySchema = Yup.object({
   companyName: Yup.string().required("Company name is required"),
   jobFunction: Yup.string().required("Please select an option"),
 });
+
+export const reSyncSchema = Yup.object({
+  code1: Yup.string().required("Code 1 is required").test('len', 'Must be 6 digits', val => val.length === 6),
+  code2: Yup.string().required("Code 2 is required").test('len', 'Must be 6 digits', val => val.length === 6),
+})

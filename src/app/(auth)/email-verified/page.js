@@ -17,15 +17,28 @@ const EmailVerifiedContent = () => {
   const email = searchParams.get("Email");
   const otp = searchParams.get("Otp");
   const protecttoken = searchParams.get("ProtectToken");
+  const reverify = searchParams.get("reverify");
   useEffect(() => {
-    const objToSend = {
-      ...authApiVaraibles,
-      otp,
-      protecttoken,
-      email,
-      otpType: "Verify",
-      devicecode: "testdevice",
-    };
+    let objToSend;
+    if (reverify && reverify === "true") {
+      objToSend = {
+        ...authApiVaraibles,
+        otp,
+        protecttoken,
+        email,
+        reverifyemail: 1,
+        devicecode: "testdevice",
+      };
+    } else {
+      objToSend = {
+        ...authApiVaraibles,
+        otp,
+        protecttoken,
+        email,
+        otpType: "Verify",
+        devicecode: "testdevice",
+      };
+    }
     verifyEmail(objToSend, (res) => {
       setToken(res?.data?.access_token);
       setIsSuccess(true);
@@ -110,9 +123,13 @@ const EmailVerifiedContent = () => {
                   type="submit"
                   variant="primary"
                   sx={{ width: "95%", margin: "auto auto", height: "48px" }}
-                  onClick={() =>
-                    router.push(`/profile-details?access_token=${token}`)
-                  }
+                  onClick={() => {
+                    if (reverify && reverify === "true") {
+                      router.push(`/google-auth?email=${email}&reverify=true`);
+                    } else {
+                      router.push(`/profile-details?access_token=${token}`);
+                    }
+                  }}
                 >
                   Next
                 </Button>
