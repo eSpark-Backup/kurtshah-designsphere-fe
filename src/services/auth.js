@@ -1,6 +1,6 @@
-import { api } from "./rtk";
+import { authApiFunc } from "./rtk";
 
-export const authApi = api.injectEndpoints({
+export const authApi = authApiFunc.injectEndpoints({
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (credentials) => ({
