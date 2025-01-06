@@ -1,21 +1,60 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { Box, Typography } from "@mui/material";
-import { AuthContainer, OtpInput } from "@/components/common";
-import { qrcode } from "@/assets";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Box, CircularProgress, Typography } from "@mui/material";
+import { AuthContainer, OtpInput, Loader } from "@/components/common";
+import { authApiVaraibles } from "@/constants";
+import { getLocalStorage, setLocalStorage } from "@/utils";
+import useGenerateMfaOtp from "@/hooks/generateOtpForMfa";
+import useVerifyMfaOtp from "@/hooks/verifyOtpForMfa";
 
-const GoogleAuth = () => {
+const GoogleAuthContent = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
   const [otp, setOtp] = useState("______");
+  const [qrcode, setQrcode] = useState(null);
+  const email_mfa = getLocalStorage("email_mfa");
+  const google_mfa = getLocalStorage("google_mfa");
+  const reverify = searchParams.get("reverify");
+
+  const show =
+    (email_mfa === "true" && google_mfa === "true") ||
+    (email_mfa === "false" && google_mfa === "false");
+  const { generateOtp, isLoading } = useGenerateMfaOtp();
+  const { verifyOtp } = useVerifyMfaOtp();
 
   useEffect(() => {
     if (otp.length === 6 && !otp.includes("_")) {
-      router.push("/verify-otp");
+      const objToSend = {
+        ...authApiVaraibles,
+        email,
+        devicecode: "testdevice",
+        googletwofactor: 1,
+        otp,
+      };
+      verifyOtp(objToSend, () => {
+        router.push(`/verify-otp?email=${email}`);
+        setLocalStorage("google_mfa", true);
+        setLocalStorage("authed", true);
+      });
     }
-  }, [otp, router]);
+  }, [otp]);
+
+  useEffect(() => {
+    if (!reverify && google_mfa && google_mfa === "true") return;
+    const objToSend = {
+      ...authApiVaraibles,
+      email,
+      devicecode: "testdevice",
+      googletwofactor: 1,
+    };
+    generateOtp(objToSend, (res) =>
+      setQrcode(res?.error?.data?.Result?.QrCodeUrl)
+    );
+  }, []);
 
   return (
     <Box
@@ -73,30 +112,59 @@ const GoogleAuth = () => {
               </Typography>
             </Typography>
           </Box>
-          <Image
-            style={{ border: "2px solid #7A89BC", borderRadius: "5px" }}
-            width={181}
-            height={171}
-            src={qrcode}
-            alt="qrcode"
-          />
+          {isLoading ? (
+            <CircularProgress />
+          ) : qrcode ? (
+            <Image
+              style={{ border: "2px solid #7A89BC", borderRadius: "5px" }}
+              width={181}
+              height={171}
+              src={qrcode}
+              alt="qrcode"
+            />
+          ) : null}
           <OtpInput value={otp} onChange={(val) => setOtp(val)} numInputs={6} />
-          <Typography
-            onClick={() => router.push("/multifactor")}
-            sx={{
-              fontSize: { xs: "10px", sm: "14px" },
-              fontWeight: 400,
-              color: (theme) => theme.palette.white,
-              textAlign: "center",
-              marginTop: "50px",
-              cursor: "pointer",
-            }}
-          >
-            Select another method
-          </Typography>
+          {!reverify && google_mfa && google_mfa === "true" && (
+            <Typography
+              onClick={() => router.push(`/troubleshoot-mfa?email=${email}`)}
+              sx={{
+                width: { xs: "100%", md: "90%" },
+                fontSize: { xs: "10px", sm: "14px" },
+                fontWeight: 400,
+                color: (theme) => theme.palette.white,
+                textAlign: "left",
+                cursor: "pointer",
+              }}
+            >
+              Troubleshoot Device?
+            </Typography>
+          )}
+          {!reverify && show && (
+            <Typography
+              onClick={() => router.push(`/multifactor?email=${email}`)}
+              sx={{
+                fontSize: { xs: "10px", sm: "14px" },
+                fontWeight: 400,
+                color: (theme) => theme.palette.white,
+                textAlign: "center",
+                marginTop: "50px",
+                cursor: "pointer",
+              }}
+            >
+              Select another method
+            </Typography>
+          )}
         </Box>
       </AuthContainer>
     </Box>
+  );
+};
+
+const GoogleAuth = () => {
+  return (
+    <Suspense fallback={<Loader />}>
+      <GoogleAuthContent />
+    </Suspense>
   );
 };
 

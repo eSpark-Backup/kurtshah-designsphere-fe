@@ -1,16 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Box, Button, Stack } from "@mui/material";
 import { DirectoryController, DynamicTable } from "@/components/common";
 import AddProjectModal from "./addProjectModal";
-import { projects } from "@/constants";
 import { columns } from "@/columns/projects";
 import { add } from "@/assets";
+import useGetAllProjects from "@/hooks/getAllProjects";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
+  const { getAllProjects, isLoading } = useGetAllProjects();
+  const { allProjects, total } = useSelector((state) => state.projects);
+
   const router = useRouter();
   const [addProductModal, setAddProductModal] = useState(false);
   const [form, setForm] = useState({
@@ -18,10 +22,11 @@ const Projects = () => {
     stage: "",
     type: "",
     needHelp: "",
-    contact: "",
+    // contact: "",
     comment: "",
   });
   const [page, setPage] = useState(0);
+  const [pageSize] = useState(10);
 
   const handlePageChange = (page) => {
     setPage(page);
@@ -31,10 +36,9 @@ const Projects = () => {
     router.push(`/projects/${item.id}`);
   };
 
-  const handleCreateStage = () => {
-    ///create stage functionality
-    setAddProductModal(false);
-  };
+  useEffect(() => {
+    getAllProjects(page + 1, pageSize);
+  }, [page, pageSize]);
   return (
     <Box>
       <Stack
@@ -63,7 +67,7 @@ const Projects = () => {
               minWidth: "48px",
               width: "48px",
               height: "48px",
-              img: { filter : theme => theme.palette.iconColor }
+              img: { filter: (theme) => theme.palette.iconColor },
             }}
             variant="primary"
           >
@@ -72,13 +76,14 @@ const Projects = () => {
         </Stack>
       </Stack>
       <DynamicTable
-        data={projects}
+        data={allProjects}
         columns={columns()}
         handleView={handleView}
-        isLoading={false}
-        total={projects.length}
+        isLoading={isLoading}
+        total={total}
         handlePageChange={handlePageChange}
         page={page}
+        pageSize={pageSize}
         ordering
         pagination
       />
@@ -87,7 +92,10 @@ const Projects = () => {
         setForm={setForm}
         open={addProductModal}
         handleClose={() => setAddProductModal(false)}
-        onConfirm={handleCreateStage}
+        onConfirm={() => {
+          setAddProductModal(false);
+          getAllProjects(page + 1, pageSize)
+        }}
         showfooter
       />
     </Box>

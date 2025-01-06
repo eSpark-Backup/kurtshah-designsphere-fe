@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { removeLocalStorage } from "@/utils";
 
 const initialState = {
   user: null,
@@ -10,28 +10,21 @@ const slice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      const { email, password, callback } = action.payload;
-      const user = {
-        email: "arc@gmail.com",
-        password: "12345678",
-      };
-      if (user.email === email && user.password === password) {
-        state.user = { email, password };
-        typeof window !== "undefined" && localStorage.setItem("token", JSON.stringify({ email, password }));
-        callback();
-      } else {
-        toast.error("Invalid credentials");
-        state.user = null;
-        typeof window !== "undefined" && localStorage.removeItem("token");
-      }
+      state.user = action.payload
     },
     logout: (state) => {
       state.user = null;
-      typeof window !== "undefined" && localStorage.removeItem("token");
+      removeLocalStorage("token")
+      removeLocalStorage("email_mfa")
+      removeLocalStorage("google_mfa")
+      removeLocalStorage("authed")
+    },
+    updateProfile: (state, action) => {
+      state.user = action.payload
     },
   },
 });
 
-export const { login, logout } = slice.actions;
+export const { login, logout, updateProfile } = slice.actions;
 
 export default slice.reducer;

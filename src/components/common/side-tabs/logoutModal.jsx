@@ -1,9 +1,10 @@
 import { DynamicModal } from "@/components/common";
 import { Typography } from "@mui/material";
 
-const LogoutModal = ({ open, handleClose, onConfirm }) => {
+const LogoutModal = ({ isLoading, open, handleClose, onConfirm }) => {
   return (
     <DynamicModal
+      isLoading={isLoading}
       open={open}
       handleClose={handleClose}
       heading="Exit"
