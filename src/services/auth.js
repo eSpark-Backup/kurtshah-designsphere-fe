@@ -143,6 +143,12 @@ export const authApi = authApiFunc.injectEndpoints({
         },
       }),
     }),
+    getAllUser: builder.mutation({
+      query: () => ({
+        url: "/UserInfo/GetAllUsers",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -161,4 +167,5 @@ export const {
   useResetPasswordMutation,
   useDeleteAccountMutation,
   useReSyncMutation,
+  useGetAllUserMutation,
 } = authApi;

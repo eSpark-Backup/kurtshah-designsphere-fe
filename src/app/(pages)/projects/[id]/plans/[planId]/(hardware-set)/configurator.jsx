@@ -98,7 +98,7 @@ const data2 = [
   },
 ];
 
-const searchOptions = ["item 1804pipe stop & door holder"];
+const searchOptions = [{ label: "item 1804pipe stop & door holder" , value: "item 1804pipe stop & door holder"}];
 
 const Configurator = () => {
   const [error, setError] = useState(false);

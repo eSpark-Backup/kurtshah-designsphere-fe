@@ -15,16 +15,14 @@ const EmailVerifiedContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("Email");
-  const otp = searchParams.get("Otp");
-  const protecttoken = searchParams.get("ProtectToken");
+  const encryptedtoken = searchParams.get("encryptedtoken");
   const reverify = searchParams.get("reverify");
   useEffect(() => {
     let objToSend;
     if (reverify && reverify === "true") {
       objToSend = {
         ...authApiVaraibles,
-        otp,
-        protecttoken,
+        encryptedtoken,
         email,
         reverifyemail: 1,
         devicecode: "testdevice",
@@ -32,8 +30,7 @@ const EmailVerifiedContent = () => {
     } else {
       objToSend = {
         ...authApiVaraibles,
-        otp,
-        protecttoken,
+        encryptedtoken,
         email,
         otpType: "Verify",
         devicecode: "testdevice",

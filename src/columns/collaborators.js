@@ -5,8 +5,8 @@ import { Box } from "@mui/material";
 export const columns = () => {
   return [
     { name: "Name", key: "name", left: true },
-    { name: "Role", key: "role", left: true },
-    { name: "Status", key: "status", left: true, chip: true },
+    { name: "Role", key: "projectUserRoleName", left: true },
+    { name: "Status", key: "projectRoleName", left: true, chip: true },
     {
       name: "Action",
       key: "function",

@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-import { Autocomplete, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
+import Image from "next/image";
+import { arrowDownInput } from "@/assets";
 
-const SearchableAutocomplete = ({ disabled, onChange, options, ...rest }) => {
+const SearchableAutocomplete = ({
+  label,
+  disabled,
+  onChange,
+  options,
+  endAdornment,
+  ...rest
+}) => {
   const [open, setOpen] = useState(false);
-  const [mockOptions, setMockOptions] = useState([]);
+  const [mockOptions, setMockOptions] = useState(options);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     if (value) {
       const filteredOptions = options.filter((item) =>
-        item.toLowerCase().includes(value.toLowerCase())
+        item?.label?.toLowerCase()?.includes(value.toLowerCase())
       );
       setMockOptions(filteredOptions);
       setOpen(true);
@@ -19,30 +33,57 @@ const SearchableAutocomplete = ({ disabled, onChange, options, ...rest }) => {
   };
 
   return (
-    <Autocomplete
-      sx={{ width: "100%" }}
-      options={mockOptions}
-      open={open}
-      onClose={() => setOpen(false)}
-      filterOptions={(x) => x}
-      onChange={(e, val) => onChange(val)}
-      disabled={disabled}
-      renderInput={(params) => (
-        <TextField
+    <>
+      {label && (
+        <Typography
+          color="primary"
           sx={{
-            borderRadius: "4px",
-            border: (theme) => `1px solid ${theme.palette.whiteE4}`,
-            height: "24px",
-            ".MuiInputBase-root": { height: "24px" },
-            ".MuiSvgIcon-root": { display: "none" },
-            ".Mui-disabled": { WebkitTextFillColor: theme => `${theme.palette.white} !important` }
+            fontSize: "12px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            marginBottom: "10px",
           }}
-          {...rest}
-          {...params}
-          onChange={handleInputChange}
-        />
+        >
+          {label}
+        </Typography>
       )}
-    />
+      <Autocomplete
+        sx={{ width: "100%" }}
+        options={mockOptions}
+        open={open}
+        onClose={() => setOpen(false)}
+        filterOptions={(x) => x}
+        onChange={(e, val) => onChange(val)}
+        disabled={disabled}
+        renderInput={(params) => (
+          <TextField
+            sx={{
+              borderRadius: "4px",
+              border: (theme) => `1px solid ${theme.palette.whiteE4}`,
+              height: "24px",
+              ".MuiInputBase-root": { height: "24px" },
+              ".MuiSvgIcon-root": { display: "none" },
+              ".Mui-disabled": { WebkitTextFillColor: theme => `${theme.palette.white} !important` }
+            }}
+            {...rest}
+            {...params}
+            onChange={handleInputChange}
+            InputProps={{
+              ...params.InputProps,
+              endAdornment: endAdornment ? (
+                <InputAdornment
+                  onClick={() => setOpen(!open)}
+                  sx={{ cursor: "pointer", img: { filter: (theme) => theme.palette.filterImg } }}
+                  position="end"
+                >
+                  <Image src={arrowDownInput} alt="down" />
+                </InputAdornment>
+              ) : null,
+            }}
+          />
+        )}
+      />
+    </>
   );
 };
 

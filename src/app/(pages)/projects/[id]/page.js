@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Box, Grid, Stack } from "@mui/material";
 import { DirectoryController, ProgressBar } from "@/components/common";
@@ -10,9 +10,7 @@ import Feed from "./feed";
 import Collaborators from "./collaborators";
 import Notes from "./notes";
 import {
-  projects,
   projectTabs,
-  collaborators,
   overview,
   activityFeed,
   notes,
@@ -21,15 +19,10 @@ import {
 const ProjectDetails = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const [directory, setDirectory] = useState({
-    name: "",
-    link: [],
+  const [directory] = useState({
+    name: "Alpha",
+    link: ["Project", "/", "Alpha"],
   });
-  useEffect(() => {
-    const id = pathname.split("/")[2];
-    const { projectName } = projects.find((item) => item.id == id);
-    setDirectory({ name: projectName, link: ["Project", "/", projectName] });
-  }, [pathname]);
 
   const handleViewSubPages = (link) => {
     router.push(`${pathname}${link}`);
@@ -71,7 +64,7 @@ const ProjectDetails = () => {
       </Grid>
       <Grid marginTop={2} container spacing={2}>
         <Grid item xs={12} md={8}>
-          <Collaborators collaborators={collaborators} />
+          <Collaborators />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Overview overview={overview} />
