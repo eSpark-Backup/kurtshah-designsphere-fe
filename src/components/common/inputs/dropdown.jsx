@@ -15,29 +15,30 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 const CustomDropdownIcon = ({ simple }) => {
-  const { currentTheme } = useSelector(state => state.theme);
-  return(
-  <Box
-    sx={{
-      width: simple ? 12 : 24,
-      height: simple ? 6 : 24,
-      img: {
-        filter: (theme) =>
-          getThemeVariant(currentTheme) === "default"
-            ? ""
-            : theme.palette.filterImg,
-      },
-    }}
-  >
-    <Image
-      src={simple ? downArrow2 : arrowDownInput}
-      width={simple ? 12 : 24}
-      height={simple ? 6 : 24}
-      alt="Dropdown Icon"
-      style={{ marginRight: "10px", cursor: "pointer" }}
-    />
-  </Box>
-)};
+  const { currentTheme } = useSelector((state) => state.theme);
+  return (
+    <Box
+      sx={{
+        width: simple ? 12 : 24,
+        height: simple ? 6 : 24,
+        img: {
+          filter: (theme) =>
+            getThemeVariant(currentTheme) === "default"
+              ? ""
+              : theme.palette.filterImg,
+        },
+      }}
+    >
+      <Image
+        src={simple ? downArrow2 : arrowDownInput}
+        width={simple ? 12 : 24}
+        height={simple ? 6 : 24}
+        alt="Dropdown Icon"
+        style={{ marginRight: "10px", cursor: "pointer" }}
+      />
+    </Box>
+  );
+};
 
 const Dropdown = ({
   white,
@@ -52,13 +53,16 @@ const Dropdown = ({
   simple,
   shrink,
   modal,
+  disabled,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
   const [open, setOpen] = useState(false);
 
   const handleIconClick = () => {
-    setOpen(true);
+    if (!disabled) {
+      setOpen(true);
+    }
   };
 
   const handleClose = () => {
@@ -89,6 +93,7 @@ const Dropdown = ({
       <FormControl sx={{ width: "100%", margin: "auto auto" }}>
         {customLabel && <InputLabel shrink={shrink}>{customLabel}</InputLabel>}
         <Select
+          disabled={disabled}
           open={open}
           onClose={handleClose}
           onOpen={() => setOpen(true)}
@@ -103,10 +108,19 @@ const Dropdown = ({
           displayEmpty
           IconComponent={() => null}
           inputProps={{ "aria-label": "Without label" }}
-          sx={{ width: "100%" , color: theme => white ? "#FFF" : `${theme.palette.white} !important` }}
+          sx={{
+            width: "100%",
+            color: (theme) =>
+              white ? "#FFF" : `${theme.palette.white} !important`,
+          }}
           startAdornment={
             startAdornment && (
-              <InputAdornment sx={{ img: { filter: (theme) => theme.palette.filterImg }}} position="start">{startAdornment}</InputAdornment>
+              <InputAdornment
+                sx={{ img: { filter: (theme) => theme.palette.filterImg } }}
+                position="start"
+              >
+                {startAdornment}
+              </InputAdornment>
             )
           }
           {...props}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Box, Grid, Stack } from "@mui/material";
 import { DirectoryController, ProgressBar } from "@/components/common";
@@ -11,13 +11,16 @@ import Collaborators from "./collaborators";
 import Notes from "./notes";
 import {
   projectTabs,
-  overview,
   activityFeed,
   notes,
 } from "@/constants";
+import useGetAllProjectPlans from "@/hooks/getProjectPlans";
 
 const ProjectDetails = () => {
+  const { getProjectPlans } = useGetAllProjectPlans();
+  const [plansCount, setPlansCount] = useState(0)
   const pathname = usePathname();
+  const id = pathname.split("/")[2];
   const router = useRouter();
   const [directory] = useState({
     name: "Alpha",
@@ -27,6 +30,12 @@ const ProjectDetails = () => {
   const handleViewSubPages = (link) => {
     router.push(`${pathname}${link}`);
   };
+
+  useEffect(() => {
+    getProjectPlans(1, 1, id, (res) => {
+      setPlansCount(res?.data?.result?.totalRecords)
+    })
+  },[])
 
   return (
     <Box>
@@ -45,7 +54,7 @@ const ProjectDetails = () => {
         />
       </Stack>
       <Grid marginTop={3} container spacing={2}>
-        {projectTabs.map((tab) => {
+        {projectTabs(plansCount).map((tab) => {
           return (
             <Grid
               onClick={() => handleViewSubPages(tab.link)}
@@ -67,7 +76,7 @@ const ProjectDetails = () => {
           <Collaborators />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Overview overview={overview} />
+          <Overview />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Feed feed={activityFeed} />

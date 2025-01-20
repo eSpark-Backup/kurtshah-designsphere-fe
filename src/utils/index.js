@@ -25,3 +25,7 @@ export const getLocalStorage = (key) => {
 export const removeLocalStorage = (key) => {
   typeof window !== "undefined" && localStorage.removeItem(key);
 };
+
+export const padZero = (num) => {
+  return num.toString().padStart(2, '0');
+}

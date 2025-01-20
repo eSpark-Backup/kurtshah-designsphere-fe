@@ -7,12 +7,14 @@ import { columns } from "@/columns/collaborators";
 import { add } from "@/assets";
 import AddCollaboratorModal from "./addCollaboratorModal";
 import useGetAllProjectCollaborator from "@/hooks/getAllCollaborators";
+import EditCollaboratorModal from "./editCollaboratorModal";
 
 const Collaborators = () => {
   const pathname = usePathname();
   const id = pathname.split("/")[2];
   const { getProjectCollaboratorById, isLoading } =
     useGetAllProjectCollaborator();
+  const [row, setRow] = useState(null);
   const [collaborators, setCollaborators] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -26,6 +28,14 @@ const Collaborators = () => {
   useEffect(() => {
     fetchCollab();
   }, [id]);
+
+  const handleEmail = (item) => {
+    console.log(item, "email")
+  }
+
+  const handleEmailAll = () => {
+    console.log(collaborators, "email all")
+  }
   return (
     <Box sx={{ ".MuiTableCell-root": { padding: "20px 25px !important" } }}>
       <Stack
@@ -41,7 +51,7 @@ const Collaborators = () => {
           justifyContent="center"
           gap={2}
         >
-          <Button sx={{ width: "147px", height: "48px" }} variant="primary">
+          <Button onClick={handleEmailAll} sx={{ width: "147px", height: "48px" }} variant="primary">
             Email All
           </Button>
           <Button
@@ -61,12 +71,18 @@ const Collaborators = () => {
       </Stack>
       <DynamicTable
         data={collaborators}
-        columns={columns()}
+        columns={columns(handleEmail)}
         isLoading={isLoading}
+        handleRowClick={(item) => setRow(item)}
       />
       <AddCollaboratorModal
         open={open}
         handleClose={() => setOpen(false)}
+        onConfirm={fetchCollab}
+      />
+      <EditCollaboratorModal
+        open={row}
+        handleClose={() => setRow(null)}
         onConfirm={fetchCollab}
       />
     </Box>

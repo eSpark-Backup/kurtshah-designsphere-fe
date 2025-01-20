@@ -17,6 +17,10 @@ const useGetUserInfo = () => {
         unAuth();
         return;
       }
+      if (res?.error?.status === "FETCH_ERROR") {
+        unAuth();
+        return;
+      }
       if (res?.error?.data?.IsError) {
         if (res?.error?.data?.Result && res?.error?.data?.Result?.length > 0) {
           toast.error(res?.error?.data?.Result[0]?.Description);

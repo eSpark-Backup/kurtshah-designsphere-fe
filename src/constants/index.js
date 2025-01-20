@@ -41,6 +41,7 @@ import {
   theme21,
   theme22,
 } from "@/assets";
+import { padZero } from "@/utils";
 
 export const jobFunctionOptions = [
   { value: "", label: "Job function" },
@@ -363,10 +364,10 @@ export const projects = [
   },
 ];
 
-export const projectTabs = [
+export const projectTabs = (planCount) => [
   {
     name: "View Plans",
-    count: "04",
+    count: padZero(planCount),
     icon: plans,
     trending: "up",
     link: "/plans",

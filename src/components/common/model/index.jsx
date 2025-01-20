@@ -1,10 +1,10 @@
 import { close } from '@/assets';
 import { LoadingButton } from '@mui/lab';
-import { Box, IconButton, Modal, Typography } from '@mui/material'
+import { Box, CircularProgress, IconButton, Modal, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react'
 
-const DynamicModal = ({ isLoading, open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader, editModal }) => {
+const DynamicModal = ({ handleDelete, deleteLoading, disabled, isLoading, open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader, editModal }) => {
     const basicModelStructureStyle = {
         maxHeight: "90vh",
         overflowY: "auto",
@@ -106,7 +106,9 @@ const DynamicModal = ({ isLoading, open, handleClose, heading, children, cancelB
                             padding: "10px 20px",
                         }}>
 
-                            <Typography
+                            {deleteLoading ?
+                            <CircularProgress size={20} />
+                            : <Typography
                                 sx={{
                                     color: theme => theme.palette.whiteE4,
                                     fontWeight: "bold",
@@ -116,16 +118,16 @@ const DynamicModal = ({ isLoading, open, handleClose, heading, children, cancelB
                                     cursor: "pointer"
 
                                 }}
-                                onClick={handleClose}
+                                onClick={handleDelete || handleClose}
                             >
                                 {cancelButtonText}
-                            </Typography>
+                            </Typography>}
 
 
 
 
 
-                            <LoadingButton loading={isLoading} disabled={isLoading} sx={{
+                            <LoadingButton loading={isLoading} disabled={isLoading || disabled} sx={{
                                 width: editModal ? "150px" : "max-content",
                                 height: "40px",
                                 border: editModal ? "1px solid #E4E4E4" : "none"

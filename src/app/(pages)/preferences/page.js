@@ -12,7 +12,7 @@ import Card from "@/components/common/Card";
 const Preferences = () => {
   const [active, setActive] = useState(0);
   const preferencesTabs = [
-    { title: "Collaborators", component: <Collaborators /> },
+    { title: "Contacts", component: <Collaborators /> },
     { title: "Email Notifications", component: <Email /> },
     { title: "View Plans", component: <Plans /> },
     { title: "Themes", component: <ThemeTab /> },

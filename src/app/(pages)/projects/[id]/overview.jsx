@@ -2,13 +2,42 @@ import Image from "next/image";
 import { Box, Typography, Grid } from "@mui/material";
 import { document } from "@/assets";
 import Card from "@/components/common/Card";
+import { useSearchParams } from "next/navigation";
+import { padZero } from "@/utils";
 
-const Overview = ({ overview }) => {
+const Overview = () => {
+  const searchParams = useSearchParams();
+  const projectName = searchParams.get("projectName");
+  const companyName = searchParams.get("companyName");
+  const openings = searchParams.get("openings");
+  const revit = searchParams.get("revit");
+  const stageName = searchParams.get("stageName");
+  const overview = [
+    {
+      id: 1,
+      title: projectName,
+      role: "Stage Name",
+      unit: padZero(openings),
+      detail: "NUMBER OF Openings",
+      
+    },
+    {
+      id: 2,
+      title: companyName,
+      role: "Architectural Firm",
+      unit: revit ? "Yes" : "No",
+      detail: "Bim Data - Revit?",
+    },
+    {
+      id: 3,
+      title: stageName,
+      role: "Stage"
+    }
+  ];
   return (
     <Card
       variant={"gradient"}
       sx={{
-        height: "calc(100% - 16px)",
         padding: "16px 24px",
       }}
     >
@@ -16,7 +45,7 @@ const Overview = ({ overview }) => {
         variant="h2"
         textAlign="left"
       >
-        Overview
+        Summary
       </Typography>
       <Box
         sx={{
@@ -64,7 +93,7 @@ const Overview = ({ overview }) => {
                 xs={6}
                 sx={{ display: "flex", alignItems: "center", gap: 2, img: { filter: (theme) => theme.palette.filterImg } }}
               >
-                <Image src={document} width={24} height={24} alt="document" />
+                {item?.unit && <Image src={document} width={24} height={24} alt="document" />}
                 <Box>
                   <Typography
                     variant="h4"
@@ -90,13 +119,6 @@ const Overview = ({ overview }) => {
           );
         })}
       </Box>
-      <Typography
-        sx={{ marginTop: "30px" }}
-        variant="h4"
-        textAlign="center"
-      >
-        View All
-      </Typography>
     </Card>
   );
 };

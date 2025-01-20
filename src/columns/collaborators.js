@@ -1,12 +1,19 @@
 import Image from "next/image";
 import { mail } from "@/assets";
-import { Box } from "@mui/material";
+import { Box, Chip } from "@mui/material";
 
-export const columns = () => {
+export const columns = (handleEmail) => {
   return [
-    { name: "Name", key: "name", left: true },
-    { name: "Role", key: "projectUserRoleName", left: true },
-    { name: "Status", key: "projectRoleName", left: true, chip: true },
+    { name: "Name", key: "contactName", left: true },
+    { name: "Role", key: "projectRoleName", left: true },
+    {
+      name: "Status",
+      key: "status",
+      left: true,
+      component: () => {
+        return <Chip label="Editor" />;
+      },
+    },
     {
       name: "Action",
       key: "function",
@@ -16,7 +23,17 @@ export const columns = () => {
       hideView: true,
       component: () => {
         return (
-          <Box sx={{ width: "47px", height: "24px", img: { filter: (theme) => theme.palette.filterImg } }}>
+          <Box
+            onClick={(e) => {
+              e.stopPropagation();
+              handleEmail(item);
+            }}
+            sx={{
+              width: "47px",
+              height: "24px",
+              img: { filter: (theme) => theme.palette.filterImg },
+            }}
+          >
             <Image
               sx={{ cursor: "pointer" }}
               src={mail}

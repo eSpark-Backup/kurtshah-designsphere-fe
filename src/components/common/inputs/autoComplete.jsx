@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   Autocomplete,
   InputAdornment,
@@ -9,6 +9,8 @@ import Image from "next/image";
 import { arrowDownInput } from "@/assets";
 
 const SearchableAutocomplete = ({
+  name,
+  setName,
   label,
   disabled,
   onChange,
@@ -17,20 +19,25 @@ const SearchableAutocomplete = ({
   ...rest
 }) => {
   const [open, setOpen] = useState(false);
-  const [mockOptions, setMockOptions] = useState(options);
 
-  const handleInputChange = (event) => {
-    const value = event.target.value;
-    if (value) {
-      const filteredOptions = options.filter((item) =>
-        item?.label?.toLowerCase()?.includes(value.toLowerCase())
-      );
-      setMockOptions(filteredOptions);
-      setOpen(true);
-    } else {
-      setOpen(false);
-    }
+  const debounce = (func, delay) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func(...args), delay);
+    };
   };
+
+  const handleInputChange = useCallback(
+    debounce((event) => {
+      const value = event.target.value;
+      if (setName) {
+        setName(value);
+        setOpen(true);
+      }
+    }, 500),
+    [options]
+  );
 
   return (
     <>
@@ -49,7 +56,7 @@ const SearchableAutocomplete = ({
       )}
       <Autocomplete
         sx={{ width: "100%" }}
-        options={mockOptions}
+        options={options}
         open={open}
         onClose={() => setOpen(false)}
         filterOptions={(x) => x}
@@ -63,17 +70,24 @@ const SearchableAutocomplete = ({
               height: "24px",
               ".MuiInputBase-root": { height: "24px" },
               ".MuiSvgIcon-root": { display: "none" },
-              ".Mui-disabled": { WebkitTextFillColor: theme => `${theme.palette.white} !important` }
+              ".Mui-disabled": {
+                WebkitTextFillColor: (theme) =>
+                  `${theme.palette.white} !important`,
+              },
             }}
             {...rest}
             {...params}
+            value={name}
             onChange={handleInputChange}
             InputProps={{
               ...params.InputProps,
               endAdornment: endAdornment ? (
                 <InputAdornment
                   onClick={() => setOpen(!open)}
-                  sx={{ cursor: "pointer", img: { filter: (theme) => theme.palette.filterImg } }}
+                  sx={{
+                    cursor: "pointer",
+                    img: { filter: (theme) => theme.palette.filterImg },
+                  }}
                   position="end"
                 >
                   <Image src={arrowDownInput} alt="down" />

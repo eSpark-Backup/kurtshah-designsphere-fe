@@ -1,68 +1,166 @@
 import { useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { toast } from "react-toastify";
 import {
   Dropdown,
   DynamicModal,
+  DynamicTable,
   SearchableAutocomplete,
 } from "@/components/common";
 import useCreateCollaborator from "@/hooks/addContributor";
-import useGetAllUsers from "@/hooks/getAllUser";
+import useGetContacts from "@/hooks/getContacts";
+import useGetProjectsRoles from "@/hooks/getProjecttRoles";
+import useIsContributorAdded from "@/hooks/contributorAdded";
 
 const AddCollaboratorModal = ({ open, handleClose, onConfirm }) => {
   const [collaboratorsOption, setCollaboratorsOption] = useState([]);
-  const [form, setForm] = useState({
-    user: "",
-    projectUserRole: "",
-    projectRole: ""
-  });
-  const { getAllUsers } = useGetAllUsers();
+  const [collaboratorsToAdd, setCollaboratorsToAdd] = useState([]);
+  const [rolesOption, setRolesOption] = useState([]);
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const { getContacts } = useGetContacts();
   const { createCollaborator, isLoading } = useCreateCollaborator();
-  const handleChange = (value, name) => {
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const { isContributorAdded, isLoading: loading } = useIsContributorAdded();
+  const { getProjectRoles } = useGetProjectsRoles();
 
   const handleConfirm = () => {
-    if (!form.user || form.user === "" || form.projectUserRole === "" || form.projectRole === "") {
-      toast.error("Please enter required fields");
-    } else {
-      const objToSend = {
-        userId: form.user?.value,
-        name: form.user?.label,
-        projectUserRole: form.projectUserRole,
-        projectRole: form.projectRole,
-        projectID: open,
-      };
-      createCollaborator(objToSend, () => {
-        toast.success("New collaborator added successfully");
-        setForm({
-          user: "",
-          projectUserRole: "",
-          projectRole: "",
-        });
-        handleClose();
-        onConfirm();
-      });
+    if (collaboratorsToAdd.length <= 0) {
+      toast.error("Please enter collaborator first");
+      return;
     }
+    if (collaboratorsToAdd.some((coll) => coll.role === "")) {
+      toast.error("Please assign role to collaborator");
+      return;
+    }
+    const arrayToSend = collaboratorsToAdd.map((coll) => {
+      return {
+        ContactId: coll.value,
+        ProjectRoleId: coll.role,
+        Email: coll.email,
+        ProjectId: open,
+      };
+    });
+    createCollaborator({ ProjectContributers: arrayToSend }, () => {
+      toast.success("New collaborators added successfully");
+      setCollaboratorsToAdd([]);
+      handleClose();
+      onConfirm();
+    });
   };
 
   useEffect(() => {
-    getAllUsers((res) => {
-      const options = res?.data?.result?.map((item) => {
-        return { label: item?.name, value: item?.id };
+    getContacts(1, 10, name, (res) => {
+      const options = res?.data?.result?.data?.map((item) => {
+        return {
+          label: item?.name,
+          value: item?.id,
+          email: item?.emailAddress,
+          role: "",
+        };
       });
       setCollaboratorsOption(options);
     });
+  }, [name]);
+
+  useEffect(() => {
+    getProjectRoles((res) => {
+      const rolesOptions = res
+        ?.map((item) => {
+          if (item.name !== "Owner")
+            return { label: item.name, value: item.id };
+          return null;
+        })
+        .filter((item) => item !== null);
+      setRolesOption(rolesOptions);
+    });
   }, []);
+
+  const handleAddCollab = (collaborator) => {
+    if (!collaborator?.value) return;
+    isContributorAdded(
+      {
+        contactId: collaborator.value,
+        projectId: open,
+      },
+      (res) => {
+        if (res) {
+          setError("Collaborator already added in the project");
+        } else {
+          if (
+            !collaboratorsToAdd.some(
+              (coll) => coll.value === collaborator.value
+            )
+          ) {
+            setError("")
+            setCollaboratorsToAdd((prev) => [...prev, collaborator]);
+            setName("");
+          } else {
+            toast.error("Collaborator already added below");
+          }
+        }
+      }
+    );
+  };
+
+  const handleDelete = (item) => {
+    const options = collaboratorsToAdd.filter(
+      (coll) => coll.value !== item.value
+    );
+    setCollaboratorsToAdd(options);
+  };
+
+  const handleChange = (value, item) => {
+    const options = collaboratorsToAdd?.map((coll) => {
+      if (coll.value === item.value) {
+        return { ...coll, role: value };
+      }
+      return coll;
+    });
+    setCollaboratorsToAdd(options);
+  };
+
+  const columns = (handleChange, rolesOption) => {
+    return [
+      { name: "Name", key: "label", left: true },
+      { name: "Email", key: "email" },
+      {
+        name: "Role",
+        key: "role",
+        component: (item) => {
+          return (
+            <Dropdown
+              defaultValue={item.role}
+              value={item.role}
+              onChange={(e) => handleChange(e.target.value, item)}
+              variant="outlined"
+              options={[
+                { label: "Choose Role", value: "Choose Role" },
+                ...rolesOption,
+              ]}
+            />
+          );
+        },
+      },
+      {
+        name: "",
+        key: "action",
+        right: true,
+        hideDownload: true,
+        hideEdit: true,
+        hideView: true,
+      },
+    ];
+  };
 
   return (
     <DynamicModal
       isLoading={isLoading}
+      disabled={collaboratorsToAdd <= 0}
       open={open}
-      handleClose={handleClose}
+      handleClose={() => {
+        handleClose();
+        setError("");
+      }}
       heading="Add New Collaborator"
       cancelButtonText="Cancel"
       submitButtonText="Add"
@@ -81,32 +179,6 @@ const AddCollaboratorModal = ({ open, handleClose, onConfirm }) => {
           gap: 2,
         }}
       >
-        <Box sx={{ width: "100%", marginTop: "10px" }}>
-          <Dropdown
-            value={form.projectUserRole}
-            onChange={(e) => handleChange(e.target.value, "projectUserRole")}
-            label="Role"
-            variant="outlined"
-            options={[
-              { label: "Choose Role", value: "Choose Role" },
-              { label: "Developer", value: 1 },
-              { label: "Viewer", value: 2 },
-            ]}
-          />
-        </Box>
-        <Box sx={{ width: "100%", marginTop: "10px" }}>
-          <Dropdown
-            value={form.projectRole}
-            onChange={(e) => handleChange(e.target.value, "projectRole")}
-            label="Status"
-            variant="outlined"
-            options={[
-              { label: "Choose Status", value: "Choose Status" },
-              { label: "Editor", value: 0 },
-              { label: "Viewer", value: 1 },
-            ]}
-          />
-        </Box>
         <Box
           sx={{
             width: "100%",
@@ -128,13 +200,20 @@ const AddCollaboratorModal = ({ open, handleClose, onConfirm }) => {
           }}
         >
           <SearchableAutocomplete
+            name={name}
+            setName={setName}
             label="Contributor"
-            value={form.user}
-            onChange={(e) => handleChange(e, "user")}
+            onChange={handleAddCollab}
             options={collaboratorsOption}
             endAdornment
           />
         </Box>
+        {error && <Typography color="error">{error}</Typography>}
+        <DynamicTable
+          data={collaboratorsToAdd}
+          columns={columns(handleChange, rolesOption)}
+          handleDelete={handleDelete}
+        />
       </Box>
     </DynamicModal>
   );

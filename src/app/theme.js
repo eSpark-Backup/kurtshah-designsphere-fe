@@ -122,7 +122,6 @@ const theme = currentTheme => createTheme({
             backgroundClip: "text",
             textFillColor: "transparent",
             padding: "26px 25px",
-            textTransform: "capitalize",
             fontWeight: 500,
             borderTop: `1px solid ${theme.palette.grey}`,
             borderBottom: `1px solid ${theme.palette.grey}`,

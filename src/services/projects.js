@@ -15,8 +15,14 @@ export const projectApi = projectApiFunc.injectEndpoints({
         method: "GET",
       }),
     }),
+    getprojectRoles: builder.mutation({
+      query: () => ({
+        url: `/v1/contact/GetProjectRoles`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useCreateProjectMutation, useGetAllprojectsMutation } =
+export const { useCreateProjectMutation, useGetAllprojectsMutation, useGetprojectRolesMutation } =
   projectApi;

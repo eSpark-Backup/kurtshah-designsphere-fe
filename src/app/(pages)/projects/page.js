@@ -33,7 +33,7 @@ const Projects = () => {
   };
 
   const handleView = (item) => {
-    router.push(`/projects/${item.id}`);
+    router.push(`/projects/${item.id}?projectName=${item?.name}&companyName=${item?.companyName}&openings=${item?.doorOpenings}&revit=${item?.revit}&stageName=${item?.stageName}`);
   };
 
   useEffect(() => {

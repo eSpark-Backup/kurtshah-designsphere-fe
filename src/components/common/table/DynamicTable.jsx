@@ -45,6 +45,7 @@ const DynamicTable = ({
   pagination,
   paginationCenter,
   checkbox,
+  handleRowClick,
   ...rest
 }) => {
   const [order, setOrder] = useState("asc");
@@ -217,7 +218,7 @@ const DynamicTable = ({
           {!isLoading && (
             <TableBody>
               {sortedData?.map((item) => (
-                <TableRow key={item.id}>
+                <TableRow onClick={handleRowClick ? () => handleRowClick(item) : ()=>{}} key={item.id}>
                   {extendedColumns?.map((column) => (
                     <TableCell
                       sx={{
@@ -243,7 +244,7 @@ const DynamicTable = ({
 
         {data?.length === 0 && !isLoading && (
           <Stack direction="row" justifyContent="center" alignItems="center">
-            No Data to display
+            <Typography sx={{ color: theme => theme.palette.white }}>No Data to display</Typography>
           </Stack>
         )}
 
