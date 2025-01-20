@@ -91,7 +91,7 @@ const AddCollaboratorModal = ({ open, handleClose, onConfirm }) => {
               (coll) => coll.value === collaborator.value
             )
           ) {
-            setError("")
+            setError("");
             setCollaboratorsToAdd((prev) => [...prev, collaborator]);
             setName("");
           } else {
@@ -129,7 +129,7 @@ const AddCollaboratorModal = ({ open, handleClose, onConfirm }) => {
         component: (item) => {
           return (
             <Dropdown
-              defaultValue={item.role}
+              sx={{ "-webkit-text-fill-color": "#FFF" }}
               value={item.role}
               onChange={(e) => handleChange(e.target.value, item)}
               variant="outlined"

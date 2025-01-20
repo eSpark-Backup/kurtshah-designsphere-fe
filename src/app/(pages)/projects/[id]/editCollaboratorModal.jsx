@@ -56,11 +56,16 @@ const EditCollaboratorModal = ({ open, handleClose, onConfirm }) => {
   const { deleteContributor, isLoading: deleteLoading } =
     useDeleteCollaborator();
   const handleDeleteContributor = () => {
-    deleteContributor(open.id, () => {
-      toast.success("Collaborator deleted successfully");
-      handleClose();
-      onConfirm();
-    });
+    if (open?.projectRoleId === "01JHJJ3KYA12KSK3V9ATGX9MC8") {
+      toast.error("Owner can not be deleted");
+      return;
+    } else {
+      deleteContributor(open.id, () => {
+        toast.success("Collaborator deleted successfully");
+        handleClose();
+        onConfirm();
+      });
+    }
   };
 
   return (
@@ -101,14 +106,23 @@ const EditCollaboratorModal = ({ open, handleClose, onConfirm }) => {
         </Box>
         <Box sx={{ width: "100%", marginTop: "10px" }}>
           <Dropdown
+            disabled={open?.projectRoleId === "01JHJJ3KYA12KSK3V9ATGX9MC8"}
             defaultValue={open?.projectRoleId}
-            value={form.role}
+            value={
+              open?.projectRoleId === "01JHJJ3KYA12KSK3V9ATGX9MC8"
+                ? "01JHJJ3KYA12KSK3V9ATGX9MC8"
+                : form.role
+            }
             onChange={(e) => handleChange(e.target.value, "role")}
             label="Role"
             variant="outlined"
             options={[
               { label: "Choose Role", value: "Choose Role" },
               ...rolesOption,
+              open?.projectRoleId === "01JHJJ3KYA12KSK3V9ATGX9MC8" && {
+                label: "Owner",
+                value: "01JHJJ3KYA12KSK3V9ATGX9MC8",
+              },
             ]}
           />
         </Box>
