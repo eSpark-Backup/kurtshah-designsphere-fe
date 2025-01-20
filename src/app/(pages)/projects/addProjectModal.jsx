@@ -1,5 +1,4 @@
 import { CustomInput, Dropdown, DynamicModal } from "@/components/common";
-import useCreateProjects from "@/hooks/createProject";
 import {
   Box,
   Checkbox,
@@ -7,10 +6,8 @@ import {
   FormGroup,
   Typography,
 } from "@mui/material";
-import { toast } from "react-toastify";
 
 const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
-  const { createNewProject, isLoading } = useCreateProjects();
   const handleChange = (value, name) => {
     setForm((prev) => ({
       ...prev,
@@ -18,47 +15,14 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
     }));
   };
 
-  const handleConfirm = () => {
-    if (
-      form.name === "" ||
-      form.stage === "" ||
-      form.type === "" ||
-      form.needHelp === ""
-    ) {
-      toast.error("Please enter required fields");
-    } else {
-      const objToSend = {
-        name: form.name,
-        publishDate: new Date().toISOString(),
-        deviverableDate: new Date().toISOString(),
-        stage: form.stage,
-        type: form.type,
-        helpUs: form.stage,
-        comment: form.comment,
-      };
-      createNewProject(objToSend, () => {
-        toast.success("New project created successfully");
-        setForm({
-          name: "",
-          stage: "",
-          type: "",
-          helpUs: "",
-          comment: "",
-        });
-        onConfirm();
-      });
-    }
-  };
-
   return (
     <DynamicModal
-      isLoading={isLoading}
       open={open}
       handleClose={handleClose}
       heading="Create New Project"
       cancelButtonText="Cancel"
       submitButtonText="Create Stage"
-      onConfirm={handleConfirm}
+      onConfirm={onConfirm}
       showfooter
     >
       <Box
@@ -86,7 +50,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             variant="outlined"
           />
         </Box>
-        <Box sx={{ width: "100%", marginTop: "10px" }}>
+        <Box sx={{ width: "100%", marginTop:"10px" }}>
           <Dropdown
             value={form.stage}
             onChange={(e) => handleChange(e.target.value, "stage")}
@@ -94,13 +58,11 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             variant="outlined"
             options={[
               { label: "Choose a stage", value: "Choose a stage" },
-              { label: "Design", value: 1 },
-              { label: "Construct", value: 2 },
-              { label: "Operate", value: 3 },
+              { label: "stage", value: "stage" },
             ]}
           />
         </Box>
-        <Box sx={{ width: "100%", margin: "20px 0px" }}>
+        <Box sx={{ width: "100%", margin:"20px 0px" }}>
           <Dropdown
             value={form.type}
             onChange={(e) => handleChange(e.target.value, "type")}
@@ -108,9 +70,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
             variant="outlined"
             options={[
               { label: "Choose a type", value: "Choose a type" },
-              { label: "Project", value: 1 },
-              { label: "Demo Training", value: 2 },
-              { label: "Master", value: 3 },
+              { label: "type", value: "type" },
             ]}
           />
         </Box>
@@ -129,8 +89,8 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
               control={
                 <Checkbox
                   sx={{ color: (theme) => theme.palette.whiteE4 }}
-                  checked={form.needHelp === 0}
-                  onChange={() => handleChange(0, "needHelp")}
+                  checked={form.needHelp === "Yes"}
+                  onChange={() => handleChange("Yes", "needHelp")}
                 />
               }
               label="Yes"
@@ -139,8 +99,8 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
               control={
                 <Checkbox
                   sx={{ color: (theme) => theme.palette.whiteE4 }}
-                  checked={form.needHelp === 1}
-                  onChange={() => handleChange(1, "needHelp")}
+                  checked={form.needHelp === "No"}
+                  onChange={() => handleChange("No", "needHelp")}
                 />
               }
               label="No"
@@ -149,15 +109,15 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
               control={
                 <Checkbox
                   sx={{ color: (theme) => theme.palette.whiteE4 }}
-                  checked={form.needHelp === 2}
-                  onChange={() => handleChange(2, "needHelp")}
+                  checked={form.needHelp === "Not Sure"}
+                  onChange={() => handleChange("Not Sure", "needHelp")}
                 />
               }
               label="I’m not sure"
             />
           </FormGroup>
         </Box>
-        {/* <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%" }}>
           <Dropdown
             value={form.contact}
             onChange={(e) => handleChange(e.target.value, "contact")}
@@ -168,7 +128,7 @@ const AddProjectModal = ({ form, setForm, open, handleClose, onConfirm }) => {
               { label: "contact", value: "contact" },
             ]}
           />
-        </Box> */}
+        </Box>
         <Box sx={{ width: "100%" }}>
           <CustomInput
             InputLabelProps={{

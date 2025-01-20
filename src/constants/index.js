@@ -1701,10 +1701,3 @@ export const themes = [
     mode: "dark",
   },
 ];
-
-export const authApiVaraibles = {
-  grant_type: "emailpassword",
-  client_id: "designsphereapp",
-  client_secret: "mysecret",
-  scope: "openid profile offline_access ds_mainapiscope IdentityServerApi"
-};

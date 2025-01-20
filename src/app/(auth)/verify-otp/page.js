@@ -1,23 +1,13 @@
 "use client";
-import React, { Suspense } from "react";
+import React from "react";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Box, Button, Typography } from "@mui/material";
-import { AuthContainer, Loader } from "@/components/common";
+import { AuthContainer } from "@/components/common";
 import { checkVerified } from "@/assets";
-import { getLocalStorage } from "@/utils";
 
-const EmailVerifiedContent = () => {
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email");
+const EmailVerified = () => {
   const router = useRouter();
-  const google_mfa = getLocalStorage("google_mfa");
-  const email_mfa = getLocalStorage("email_mfa");
-  const mfa =
-    !google_mfa ||
-    !email_mfa ||
-    google_mfa === "false" ||
-    email_mfa === "false";
   return (
     <Box
       sx={{
@@ -48,7 +38,7 @@ const EmailVerifiedContent = () => {
               justifyContent: "center",
               alignItems: "center",
               rowGap: "25px",
-              img: { filter: (theme) => theme.palette.filterImg },
+              img: { filter: (theme) => theme.palette.filterImg }
             }}
           >
             <Image
@@ -84,35 +74,23 @@ const EmailVerifiedContent = () => {
                 Redirect To Dashboard
               </Button>
             </Box>
-            {mfa && (
-              <Typography
-                onClick={() =>
-                  router.push(`/multifactor?email=${email}&mfa=true`)
-                }
-                sx={{
-                  fontSize: { xs: "10px", sm: "14px" },
-                  fontWeight: 400,
-                  color: (theme) => theme.palette.white,
-                  textAlign: "center",
-                  marginTop: "50px",
-                  cursor: "pointer",
-                }}
-              >
-                Configure another method
-              </Typography>
-            )}
+            <Typography
+              onClick={() => router.push("/multifactor")}
+              sx={{
+                fontSize: { xs: "10px", sm: "14px" },
+                fontWeight: 400,
+                color: (theme) => theme.palette.white,
+                textAlign: "center",
+                marginTop: "50px",
+                cursor: "pointer",
+              }}
+            >
+              Configure another method
+            </Typography>
           </Box>
         </Box>
       </AuthContainer>
     </Box>
-  );
-};
-
-const EmailVerified = () => {
-  return (
-    <Suspense fallback={<Loader />}>
-      <EmailVerifiedContent />
-    </Suspense>
   );
 };
 

@@ -1,10 +1,9 @@
 import { close } from '@/assets';
-import { LoadingButton } from '@mui/lab';
-import { Box, IconButton, Modal, Typography } from '@mui/material'
+import { Box, Button, IconButton, Modal, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react'
 
-const DynamicModal = ({ isLoading, open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader, editModal }) => {
+const DynamicModal = ({ open, handleClose, heading, children, cancelButtonText, submitButtonText, onConfirm, showfooter, fields, customHeader, editModal }) => {
     const basicModelStructureStyle = {
         maxHeight: "90vh",
         overflowY: "auto",
@@ -125,7 +124,7 @@ const DynamicModal = ({ isLoading, open, handleClose, heading, children, cancelB
 
 
 
-                            <LoadingButton loading={isLoading} disabled={isLoading} sx={{
+                            <Button sx={{
                                 width: editModal ? "150px" : "max-content",
                                 height: "40px",
                                 border: editModal ? "1px solid #E4E4E4" : "none"
@@ -133,7 +132,7 @@ const DynamicModal = ({ isLoading, open, handleClose, heading, children, cancelB
                                 onClick={onSubmit}
                             >
                                 {submitButtonText}
-                            </LoadingButton>
+                            </Button>
 
 
 

@@ -2,49 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { OtpInput } from "@/components/common";
-import { authApiVaraibles } from "@/constants";
-import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
-import useGenerateMfaOtp from "@/hooks/generateOtpForMfa";
-import useVerifyMfaOtp from "@/hooks/verifyOtpForMfa";
+import { qrcode } from "@/assets";
 
 const GoogleAuthModal = ({ onConfirm, handleClose }) => {
-  const { user } = useSelector((state) => state.auth);
   const [otp, setOtp] = useState("______");
-  const [qrcode, setQrcode] = useState(null);
-  const { generateOtp, isLoading } = useGenerateMfaOtp();
-  const { verifyOtp } = useVerifyMfaOtp();
 
   useEffect(() => {
     if (otp.length === 6 && !otp.includes("_")) {
-      const objToSend = {
-        ...authApiVaraibles,
-        email: user?.email,
-        devicecode: "testdevice",
-        googletwofactor: 1,
-        otp,
-      };
-      verifyOtp(objToSend, () => {
-        toast.success("Google MFA has been configured");
-        handleClose();
-        onConfirm();
-      });
+      onConfirm();
+      handleClose();
     }
-  }, [otp]);
-
-  useEffect(() => {
-    const objToSend = {
-      ...authApiVaraibles,
-      email: user?.email,
-      devicecode: "testdevice",
-      googletwofactor: 1,
-    };
-    generateOtp(objToSend, (res) =>
-      setQrcode(res?.error?.data?.Result?.QrCodeUrl)
-    );
-  }, []);
+  }, [otp, onConfirm, handleClose]);
   return (
     <Box
       sx={{
@@ -84,8 +54,7 @@ const GoogleAuthModal = ({ onConfirm, handleClose }) => {
           For enhanced security, we strongly recommend setting up multi-factor
           authentication (MFA) on your account. MFA is a security process that
           requires users to verify their identity using multiple independent
-          credentials, enhancing protection against unauthorized access.
-          <br></br>
+          credentials, enhancing protection against unauthorized access.<br></br>
           <Typography
             component="span"
             sx={{ color: (theme) => theme.palette.secondary.main }}
@@ -94,17 +63,13 @@ const GoogleAuthModal = ({ onConfirm, handleClose }) => {
           </Typography>
         </Typography>
       </Box>
-      {isLoading ? (
-        <CircularProgress />
-      ) : qrcode ? (
-        <Image
-          style={{ border: "2px solid #7A89BC", borderRadius: "5px" }}
-          width={181}
-          height={171}
-          src={qrcode}
-          alt="qrcode"
-        />
-      ) : null}
+      <Image
+        style={{ border: "2px solid #7A89BC", borderRadius: "5px" }}
+        width={181}
+        height={171}
+        src={qrcode}
+        alt="qrcode"
+      />
       <OtpInput value={otp} onChange={(val) => setOtp(val)} numInputs={6} />
       <Typography
         onClick={handleClose}

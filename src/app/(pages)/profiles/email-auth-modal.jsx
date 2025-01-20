@@ -7,50 +7,17 @@ import { Box, Stack, Typography } from "@mui/material";
 import { OtpInput } from "@/components/common";
 import { maskEmail } from "@/utils";
 import { timer } from "@/assets";
-import { authApiVaraibles } from "@/constants";
-import { toast } from "react-toastify";
-import useCountdownTimer from "@/hooks/countdownTimer";
-import useGenerateMfaOtp from "@/hooks/generateOtpForMfa";
-import useVerifyMfaOtp from "@/hooks/verifyOtpForMfa";
 
 const EmailAuthModal = ({ onConfirm, handleClose }) => {
-  const { timerFinished, formattedTime } = useCountdownTimer(5 * 60);
-
   const { user } = useSelector((state) => state.auth);
   const [otp, setOtp] = useState("______");
-  const [protecttoken, setProtectToken] = useState(null);
-  const { generateOtp } = useGenerateMfaOtp();
-  const { verifyOtp } = useVerifyMfaOtp();
 
   useEffect(() => {
     if (otp.length === 6 && !otp.includes("_")) {
-      const objToSend = {
-        ...authApiVaraibles,
-        email: user?.email,
-        devicecode: "testdevice",
-        emailtwofactor: 1,
-        otp,
-        protecttoken,
-      };
-      verifyOtp(objToSend, () => {
-        handleClose();
-        onConfirm();
-        toast.success("Email MFA has been configured");
-      });
+      onConfirm();
+      handleClose();
     }
-  }, [otp]);
-
-  useEffect(() => {
-    const objToSend = {
-      ...authApiVaraibles,
-      email: user.email,
-      devicecode: "testdevice",
-      emailtwofactor: 1,
-    };
-    generateOtp(objToSend, (res) =>
-      setProtectToken(res?.error?.data?.Result?.ProtectToken)
-    );
-  }, []);
+  }, [otp, onConfirm, handleClose]);
   return (
     <Box
       sx={{
@@ -109,9 +76,7 @@ const EmailAuthModal = ({ onConfirm, handleClose }) => {
         gap={1}
         sx={{ img: { filter: (theme) => theme.palette.filterImg } }}
       >
-        {!timerFinished && (
-          <Image width={24} height={24} src={timer} alt="timer" />
-        )}
+        <Image width={24} height={24} src={timer} alt="timer" />
         <Typography
           sx={{
             fontSize: "14px",
@@ -123,14 +88,14 @@ const EmailAuthModal = ({ onConfirm, handleClose }) => {
             WebkitTextFillColor: "transparent",
           }}
         >
-          {timerFinished ? "Your otp has expired" : "Time Left: "}
+          Time Left:{" "}
           <Typography
             component="span"
             sx={{
               WebkitTextFillColor: (theme) => theme.palette.secondary.main,
             }}
           >
-            {timerFinished ? "" : formattedTime}
+            01:05
           </Typography>
         </Typography>
       </Stack>

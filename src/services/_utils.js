@@ -1,10 +1,8 @@
-import { getLocalStorage } from "@/utils";
 
-export const baseUrl = "https://localhost:44310"
-export const projectBaseUrl = "http://localhost:5204"
+export const baseUrl = "http://localhost:3001"
 
 export const prepareHeaders = (headers) => {
-  const token = getLocalStorage("token");
+  const token = typeof window !== "undefined" && localStorage.getItem('token')
   if (token) {
     headers.set('Authorization', `Bearer ${token}`)
   }

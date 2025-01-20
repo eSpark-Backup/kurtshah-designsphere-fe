@@ -2,7 +2,7 @@
 
 import { lock, email, user, userTick } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
-import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material'
+import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { Formik, Form } from 'formik'
@@ -10,12 +10,9 @@ import { signupSchema } from '@/validation'
 import { LoadingButton } from '@mui/lab'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { authApiVaraibles } from "@/constants";
-import useSignUp from "@/hooks/signUp";
 
 const SignUp = () => {
   const router = useRouter();
-  const { signUp, isLoading } = useSignUp();
 
   const initialValues = {
     firstName: "",
@@ -23,22 +20,12 @@ const SignUp = () => {
     email: "",
     password: "",
     recievedEmail: false
-  };
+  }
 
   const handleSubmit = (values) => {
-    const { firstName, lastName, email, password, recievedEmail } = values;
-    const objToSend = {
-      ...authApiVaraibles,
-      firstname: firstName,
-      lastname: lastName,
-      email,
-      password,
-      otpType: "Generate",
-      devicecode: "testdevice",
-      termsofserviceagreement: recievedEmail ? 1 : 0,
-    };
-    signUp(objToSend, () => router.push(`/verify-email?email=${email}`));
-  };
+    console.log(values)
+    router.push("/verify-email")
+  }
 
   return (
     <Box
@@ -165,8 +152,7 @@ const SignUp = () => {
 
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
                   <LoadingButton
-                    loading={isLoading}
-                    disabled={isLoading}
+                    loading={false}
                     loadingPosition="end"
                     variant="primary"
                     sx={{ width: "95%", margin: "auto auto", height: "48px" }}

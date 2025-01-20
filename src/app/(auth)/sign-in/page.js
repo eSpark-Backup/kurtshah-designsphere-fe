@@ -1,19 +1,20 @@
 "use client"
-import useSignIn from '@/hooks/signIn';
-import { lock, user } from '@/assets';
+import theme from '@/app/theme'
+import { lock, email, user } from '@/assets'
 import { AuthContainer, CustomInput } from '@/components/common'
-import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { Formik, Form } from 'formik'
 import { signinSchema } from '@/validation'
 import Link from 'next/link'
 import { LoadingButton } from '@mui/lab'
-import { authApiVaraibles } from '@/constants'
+import { useDispatch } from "react-redux";
+import { login } from "@/lib/store/slices/auth";
 import { useRouter } from "next/navigation";
 
 const SignIn = () => {
-  const { signIn, isLoading } = useSignIn();
+  const dispatch = useDispatch();
   const router = useRouter();
   const initialValues = {
     email: "",
@@ -22,14 +23,13 @@ const SignIn = () => {
   }
 
   const handleSubmit = (values) => {
-    const { email, password } = values;
-    const objToSend = {
-      ...authApiVaraibles,
-      email,
-      password,
-      devicecode: "testdevice",
-    };
-    signIn(objToSend, router);
+    dispatch(
+      login({
+        email: values?.email,
+        password: values?.password,
+        callback: () => router.push(`/multifactor?email=${values.email}`),
+      })
+    );
   };
 
   return (
@@ -144,8 +144,7 @@ const SignIn = () => {
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", rowGap: "25px" }}>
                   <LoadingButton
-                    loading={isLoading}
-                    disabled={isLoading}
+                    loading={false}
                     loadingPosition="end"
                     variant="primary"
                     sx={{ width: "95%", margin: "auto auto", height: "48px" }}

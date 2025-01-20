@@ -1,81 +1,32 @@
-import { Form, Formik } from "formik";
-import React, { useRef } from "react";
-import ProfileCard from "./Profile-Card";
-import { Box, Grid } from "@mui/material";
-import { CustomInput, Dropdown } from "@/components/common";
-import { profileCompanySchema } from "@/validation";
-import Card from "@/components/common/Card";
-import { useDispatch, useSelector } from "react-redux";
-import useUpdateUser from "@/hooks/updateProfile";
-import { toast } from "react-toastify";
-import { updateProfile } from "@/lib/store/slices/auth";
-import { getLocalStorage } from "@/utils";
+import { Form, Formik } from 'formik'
+import React from 'react'
+import ProfileCard from './Profile-Card'
+import { Box, Grid } from '@mui/material'
+import { CustomInput, Dropdown } from '@/components/common'
+import { jobFunctionOptions } from '@/constants'
+import { profileCompanySchema } from '@/validation'
+import Card from '@/components/common/Card'
 
 const ProfileCompany = () => {
-  const dispatch = useDispatch();
-  const token = getLocalStorage("token");
-  const { user } = useSelector((state) => state.auth);
-  const { updateUserData } = useUpdateUser();
-  const formikRef = useRef(null);
-
   const initialValues = {
-    companyName: user?.companyName || "",
-    jobFunction:
-      user?.jobFunctionOptions?.find((opt) => opt.label === user?.jobFunction)
-        ?.value || "",
-    img: null,
-  };
+    companyName: "",
+    jobFunction: ""
+  }
 
-  const handleSave = (img) => {
-    if (formikRef.current) {
-      formikRef.current.setFieldValue("img", img, false);
-      formikRef.current.submitForm();
-    }
-  };
+  const HandleSubmit = (values)=>{
+    console.log(values)
+  }
 
-  const onSubmit = (values) => {
-    let bodyToSend;
-    if (values?.img) {
-      bodyToSend = {
-        CompanyName: values?.companyName,
-        JobRoleId: values?.jobFunction,
-        ProfilePicture: values?.img,
-      };
-    } else {
-      bodyToSend = {
-        CompanyName: values?.companyName,
-        JobRoleId: values?.jobFunction,
-      };
-    }
-    updateUserData(
-      bodyToSend,
-      token,
-      () => {
-        dispatch(updateProfile({ ...user, bodyToSend }));
-        toast.success("Profile updated Successfully");
-      },
-      values?.img
-    );
-  };
   return (
     <>
       <Formik
-        innerRef={formikRef}
         initialValues={initialValues}
-        enableReinitialize={true}
         validationSchema={profileCompanySchema}
-        onSubmit={onSubmit}
+        onSubmit={HandleSubmit}
       >
-        {({
-          values,
-          handleChange,
-          touched,
-          errors,
-          handleBlur,
-          setFieldValue,
-        }) => (
+        {({ values, handleChange, touched, errors, handleBlur, setFieldValue }) => (
           <Form>
-            <ProfileCard handleSave={handleSave} />
+            <ProfileCard />
             <Card
               variant={"outline"}
               sx={{
@@ -84,7 +35,7 @@ const ProfileCompany = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: "60px 50px",
-                columnGap: "30px",
+                columnGap: "30px"
               }}
             >
               <Grid container spacing={2}>
@@ -126,7 +77,7 @@ const ProfileCompany = () => {
                     <Dropdown
                       shrink={true}
                       customLabel="Job Function *"
-                      options={user?.jobFunctionOptions}
+                      options={jobFunctionOptions}
                       name="jobFunction"
                       onChange={(e) =>
                         setFieldValue("jobFunction", e.target.value)

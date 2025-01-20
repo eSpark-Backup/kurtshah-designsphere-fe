@@ -3,61 +3,22 @@
 import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Box, Stack, Typography } from "@mui/material";
-import { AuthContainer, OtpInput, Loader } from "@/components/common";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
+import { AuthContainer, OtpInput } from "@/components/common";
 import { timer } from "@/assets";
-import { getLocalStorage, maskEmail, setLocalStorage } from "@/utils";
-import { authApiVaraibles } from "@/constants";
-import useGenerateMfaOtp from "@/hooks/generateOtpForMfa";
-import useVerifyMfaOtp from "@/hooks/verifyOtpForMfa";
-import useCountdownTimer from "@/hooks/countdownTimer";
+import { maskEmail } from "@/utils";
 
 const EmailAuthContent = () => {
-  const { timerFinished, formattedTime } = useCountdownTimer(5 * 60);
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
   const [otp, setOtp] = useState("______");
 
-  const email_mfa = getLocalStorage("email_mfa");
-  const google_mfa = getLocalStorage("google_mfa");
-  const show =
-    (email_mfa === "true" && google_mfa === "true") ||
-    (email_mfa === "false" && google_mfa === "false");
-
-  const [protecttoken, setProtectToken] = useState(null);
-  const { generateOtp } = useGenerateMfaOtp();
-  const { verifyOtp } = useVerifyMfaOtp();
-
   useEffect(() => {
     if (otp.length === 6 && !otp.includes("_")) {
-      const objToSend = {
-        ...authApiVaraibles,
-        email,
-        devicecode: "testdevice",
-        emailtwofactor: 1,
-        otp,
-        protecttoken,
-      };
-      verifyOtp(objToSend, () => {
-        router.push(`/verify-otp?email=${email}`);
-        setLocalStorage("email_mfa", true);
-        setLocalStorage("authed", true);
-      });
+      router.push("/verify-otp");
     }
-  }, [otp]);
-
-  useEffect(() => {
-    const objToSend = {
-      ...authApiVaraibles,
-      email,
-      devicecode: "testdevice",
-      emailtwofactor: 1,
-    };
-    generateOtp(objToSend, (res) =>
-      setProtectToken(res?.error?.data?.Result?.ProtectToken)
-    );
-  }, []);
+  }, [otp, router]);
 
   return (
     <Box
@@ -116,9 +77,7 @@ const EmailAuthContent = () => {
             gap={1}
             sx={{ img: { filter: (theme) => theme.palette.filterImg } }}
           >
-            {!timerFinished && (
-              <Image width={24} height={24} src={timer} alt="timer" />
-            )}
+            <Image width={24} height={24} src={timer} alt="timer" />
             <Typography
               sx={{
                 fontSize: "14px",
@@ -130,41 +89,55 @@ const EmailAuthContent = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              {timerFinished ? "Your otp has expired" : "Time Left: "}
+              Time Left:{" "}
               <Typography
                 component="span"
                 sx={{
                   WebkitTextFillColor: (theme) => theme.palette.secondary.main,
                 }}
               >
-                {timerFinished ? "" : formattedTime}
+                01:05
               </Typography>
             </Typography>
           </Stack>
-          {show && (
-            <Typography
-              onClick={() => router.push(`/multifactor?email=${email}`)}
-              sx={{
-                fontSize: { xs: "10px", sm: "14px" },
-                fontWeight: 400,
-                color: (theme) => theme.palette.white,
-                textAlign: "center",
-                marginTop: "50px",
-                cursor: "pointer",
-              }}
-            >
-              Select another method
-            </Typography>
-          )}
+          <Typography
+            onClick={() => router.push("/multifactor")}
+            sx={{
+              fontSize: { xs: "10px", sm: "14px" },
+              fontWeight: 400,
+              color: (theme) => theme.palette.white,
+              textAlign: "center",
+              marginTop: "50px",
+              cursor: "pointer",
+            }}
+          >
+            Select another method
+          </Typography>
         </Box>
       </AuthContainer>
     </Box>
   );
 };
 
+
 const EmailAuth = () => {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense
+      fallback={
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            width: "100wh",
+            height: "100vh",
+            background: (theme) => theme.palette.gradientPrimary,
+          }}
+        >
+          <CircularProgress />
+        </Stack>
+      }
+    >
       <EmailAuthContent />
     </Suspense>
   );

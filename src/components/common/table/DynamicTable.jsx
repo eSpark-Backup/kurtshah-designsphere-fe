@@ -2,7 +2,6 @@
 
 import React, { useMemo, useState } from "react";
 import Image from "next/image";
-import moment from "moment";
 import {
   tableDocument,
   tableEdit,
@@ -26,7 +25,6 @@ import {
   TableSortLabel,
   FormControlLabel,
   Checkbox,
-  Typography,
 } from "@mui/material";
 
 const DynamicTable = ({
@@ -38,7 +36,6 @@ const DynamicTable = ({
   columns,
   isLoading,
   page,
-  pageSize,
   handlePageChange,
   total,
   ordering,
@@ -133,12 +130,10 @@ const DynamicTable = ({
               />
             )}
           </>
-        )} 
+        )}
       </Stack>
     ) : column?.chip ? (
-      <Chip label={column?.date ? moment(cell).format('DD MMM YYYY') : cell} />
-    ) : column?.date ? (
-      <Typography>{moment(cell).format('DD MMM YYYY')}</Typography>
+      <Chip label={cell} />
     ) : (
       cell
     );
@@ -264,7 +259,7 @@ const DynamicTable = ({
             onPageChange={
               handlePageChange ? (_, page) => handlePageChange(page) : () => { }
             }
-            rowsPerPage={pageSize}
+            rowsPerPage={5}
             rowsPerPageOptions={[]}
           />
         </Stack>

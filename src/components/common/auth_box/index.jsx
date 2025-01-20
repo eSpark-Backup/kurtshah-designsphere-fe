@@ -109,7 +109,7 @@ const AuthContainer = ({ img, title, desc, register, children }) => {
             padding: { xs: "40px 10px", md: "0px 10px" },
             width: "100%",
             background: "transparent",
-            minHeight: { xs: "auto", md: "566px" },
+            height: { xs: "auto", md: "566px" },
             overflowY: "auto",
             "&::-webkit-scrollbar": {
               display: "none",
