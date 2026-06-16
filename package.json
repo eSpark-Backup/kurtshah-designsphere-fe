@@ -13,7 +13,7 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@mui/lab": "^6.0.0-dev.20240529-082515-213b5e33ab",
-    "@mui/material": "^5.16.6",
+    "@mui/material": "^9.1.1",
     "@mui/material-nextjs": "^5.16.6",
     "@reduxjs/toolkit": "^2.2.7",
     "@tiptap/extension-font-family": "^2.6.4",
