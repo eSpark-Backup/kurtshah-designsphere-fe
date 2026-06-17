@@ -21,7 +21,7 @@
     "@tiptap/extension-text-style": "^3.26.0",
     "@tiptap/extension-underline": "^2.6.4",
     "@tiptap/react": "^2.6.4",
-    "@tiptap/starter-kit": "^2.6.4",
+    "@tiptap/starter-kit": "^3.26.1",
     "formik": "^2.4.6",
     "next": "16.2.9",
     "react": "^18",
