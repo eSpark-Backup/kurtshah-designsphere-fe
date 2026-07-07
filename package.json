@@ -16,7 +16,7 @@
     "@mui/material": "^9.1.1",
     "@mui/material-nextjs": "^5.16.6",
     "@reduxjs/toolkit": "^2.2.7",
-    "@tiptap/extension-font-family": "^2.6.4",
+    "@tiptap/extension-font-family": "^3.27.2",
     "@tiptap/extension-strike": "^3.26.1",
     "@tiptap/extension-text-style": "^3.26.0",
     "@tiptap/extension-underline": "^2.6.4",
