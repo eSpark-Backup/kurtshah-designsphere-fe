@@ -19,7 +19,7 @@
     "@tiptap/extension-font-family": "^2.6.4",
     "@tiptap/extension-strike": "^3.26.1",
     "@tiptap/extension-text-style": "^3.26.0",
-    "@tiptap/extension-underline": "^2.6.4",
+    "@tiptap/extension-underline": "^3.31.2",
     "@tiptap/react": "^3.27.0",
     "@tiptap/starter-kit": "^3.26.1",
     "formik": "^2.4.6",
