@@ -23,7 +23,7 @@
     "@tiptap/react": "^3.27.0",
     "@tiptap/starter-kit": "^3.26.1",
     "formik": "^2.4.6",
-    "next": "16.2.9",
+    "next": "16.4.0",
     "react": "^19",
     "react-dom": "^18",
     "react-otp-input": "^3.1.1",
